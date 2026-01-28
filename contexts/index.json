@@ -1,0 +1,20 @@
+{
+  "contexts": [
+    {
+      "name": "jbdocs-phase1",
+      "project": "jb-cloud-docs",
+      "branch": "main",
+      "saved": "2026-01-28T03:45:00Z",
+      "file": "jbdocs-phase1.md",
+      "summary": "Phase 1 safety features for /jbdocs (dry-run, fix, conflict detection)"
+    },
+    {
+      "name": "env-var-assistant-2026-01-28",
+      "project": "env-var-assistant",
+      "branch": "main",
+      "saved": "2026-01-28T12:45:00Z",
+      "file": "env-var-assistant-2026-01-28.md",
+      "summary": "Safari extension complete, hide/restore feature, docs synced"
+    }
+  ]
+}

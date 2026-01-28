@@ -27,34 +27,43 @@ If the current project has `documentToDocs: true` in its CLAUDE.md or was create
 - Any other `docs/*.md` files
 
 ### Sync Method
-Check if docs.jbcloud.app has an API or git-based workflow:
 
-**Option A: Git-based (if docs repo exists)**
+Use the **jbdocs** agent to sync documentation to the jb-cloud-docs repository:
+
+**Automated Sync (Default)**
+
+Run `/jbdocs progress` which will:
+
+1. Update progress.md with session accomplishments
+2. Update any changed documentation files
+3. Commit and push to jb-cloud-docs repository
+
 ```bash
-# Copy docs to docs site repo
-cp -r docs/* ~/Sites/docs.jbcloud.app/projects/{project-name}/
-cd ~/Sites/docs.jbcloud.app
-git add .
-git commit -m "docs: update {project-name} documentation"
-git push
+cd /Users/jb/jb-cloud-docs
+git add src/content/docs/{project-slug}/
+git commit -m "docs({project-slug}): update progress - {session summary}"
+git push origin main
 ```
 
-**Option B: API-based (if docs site has API)**
+**Manual Sync (if automated fails)**
+
+If the jbdocs agent fails, manually sync:
 ```bash
-# POST documentation to API endpoint
-curl -X POST https://docs.jbcloud.app/api/projects/{project-name}/sync \
-  -H "Authorization: Bearer $DOCS_API_KEY" \
-  -d @docs/ARCHITECTURE.md
+cd /Users/jb/jb-cloud-docs
+git pull origin main
+# Copy updated docs
+cp {project}/docs/ARCHITECTURE.md src/content/docs/{project-slug}/architecture.md
+cp {project}/docs/PLAN.md src/content/docs/{project-slug}/plan.md
+git add src/content/docs/{project-slug}/
+git commit -m "docs({project-slug}): manual sync"
+git push origin main
 ```
 
-**Option C: Manual reminder**
-If no automated sync is configured, remind user:
-```
-Documentation ready to sync:
-- docs/ARCHITECTURE.md
-- docs/PLAN.md
-Please manually update docs.jbcloud.app
-```
+**Docs Site Location:**
+- Repository: `/Users/jb/jb-cloud-docs`
+- Remote: `https://github.com/Aventerica89/jb-cloud-docs.git`
+- Project docs: `/Users/jb/jb-cloud-docs/src/content/docs/{project-slug}/`
+- Live URL: `https://docs.jbcloud.app/{project-slug}/`
 
 ---
 
@@ -216,10 +225,18 @@ To enable docs.jbcloud.app sync for a project, add to project's CLAUDE.md:
 ```markdown
 ## Documentation
 - Sync to docs.jbcloud.app: Yes
-- Project slug: {project-name}
+- Project slug: {project-slug}
+- Docs URL: https://docs.jbcloud.app/{project-slug}/
 ```
 
-Or set during `/new-project` Phase 1.
+Or set during `/new-project` Phase 1 when asked "Document to docs.jbcloud.app?"
+
+### Manual Sync Anytime
+
+Run `/jbdocs` command directly to sync documentation outside of `/end`:
+- `/jbdocs init` - Initial setup for new project
+- `/jbdocs update` - Update all docs
+- `/jbdocs progress` - Update progress only
 
 ---
 

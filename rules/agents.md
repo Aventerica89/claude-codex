@@ -15,6 +15,7 @@ Located in `~/.claude/agents/`:
 | e2e-runner | E2E testing | Critical user flows |
 | refactor-cleaner | Dead code cleanup | Code maintenance |
 | doc-updater | Documentation | Updating docs |
+| env-deployer | Env var deployment | Project setup, deployments |
 
 ## Immediate Agent Usage
 
@@ -23,6 +24,7 @@ No user prompt needed:
 2. Code just written/modified - Use **code-reviewer** agent
 3. Bug fix or new feature - Use **tdd-guide** agent
 4. Architectural decision - Use **architect** agent
+5. Project setup or deployment - Use **env-deployer** agent (auto-deploy env vars)
 
 ## Parallel Task Execution
 
