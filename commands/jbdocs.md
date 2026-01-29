@@ -191,7 +191,45 @@ Insert it alphabetically among other project sections (after "Bricks Builder Age
 },
 ```
 
-### Step 5.5: Pre-Commit Validation
+### Step 5.5: Update Changelog (MANDATORY)
+
+**CRITICAL: Every documentation addition or major update MUST be added to the changelog.**
+
+Before committing, update `/Users/jb/jb-cloud-docs/src/content/docs/changelog.md`:
+
+```markdown
+### {Current Date (Month Day, Year)}
+
+**New Projects** (if new project)
+- [{Project Name}](/{project-slug}/) - Brief description
+  - Key feature 1
+  - Key feature 2
+  - Live URL if applicable
+
+**Updated Documentation** (if update)
+- [{Project Name}](/{project-slug}/) - What was updated
+  - Change 1
+  - Change 2
+```
+
+**Guidelines for changelog entries:**
+- Use consistent date format: "January 28, 2026"
+- Group by "New Projects", "New Documentation & Features", or "Updated Documentation"
+- Include live URLs when applicable (e.g., apps.jbcloud.app)
+- Be specific about what was added or changed
+- Include key features as sub-bullets
+- Sort chronologically (newest at top within each month)
+
+**Example entry:**
+```markdown
+**New Projects**
+- [WP Manager](/wp-manager/) - WordPress site management for xCloud
+  - For cloud-manager.jbcloud.app
+  - Multi-site management capabilities
+  - Activity logging system
+```
+
+### Step 5.6: Pre-Commit Validation
 
 **Validate all documentation files before committing:**
 
@@ -232,16 +270,18 @@ Use --fix to auto-correct issues.
 
 **If errors found without --fix flag, STOP and report. Do not commit invalid docs.**
 
-### Step 6: Commit and Push
+### Step 5.7: Commit and Push
 
 ```bash
 cd /Users/jb/jb-cloud-docs
-git add src/content/docs/{project-slug}/ astro.config.mjs
+git add src/content/docs/{project-slug}/ src/content/docs/changelog.md astro.config.mjs
 git commit -m "docs({project-slug}): {action} documentation"
 git push origin main
 ```
 
-### Step 7: Verify Deployment (with Retry Logic)
+**IMPORTANT:** Always include changelog.md in the commit when adding or updating documentation.
+
+### Step 5.8: Verify Deployment (with Retry Logic)
 
 Verify deployment with exponential backoff (3 attempts):
 
@@ -298,7 +338,7 @@ The commit is live in the repository - deployment will complete shortly.
 
 **Do NOT fail the entire command on verification timeout - the commit succeeded.**
 
-### Step 8: Report Success
+### Step 5.9: Report Success
 
 Display to user:
 ```

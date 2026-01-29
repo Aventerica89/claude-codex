@@ -79,6 +79,12 @@ Added safety and reliability features:
 - 3 attempts: 0s, 30s, 60s delays
 - Graceful failure (doesn't block on timeout)
 
+### Changelog Requirement (MANDATORY)
+- Every documentation addition or update MUST be added to changelog
+- Update `/Users/jb/jb-cloud-docs/src/content/docs/changelog.md` before committing
+- Include changelog.md in git commits
+- Format: Consistent date format, categorize as "New Projects", "New Documentation & Features", or "Updated Documentation"
+
 ## How to Reuse
 
 1. Add to project's CLAUDE.md:
