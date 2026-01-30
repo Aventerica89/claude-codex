@@ -359,6 +359,15 @@ Include all context gathered:
 - Platform choices
 - Architecture summary
 - Link to docs/ARCHITECTURE.md and docs/PLAN.md
+- **Add Shared Documentation section:**
+  ```markdown
+  ## Shared Documentation
+
+  Reference documentation from `~/.claude/docs/`:
+  - **shadcn/ui components**: `~/.claude/docs/shadcn-ui.md` - Complete component reference with CLI commands
+
+  When working on this project, I (Claude) will automatically reference these docs.
+  ```
 
 ### 6.3 Create docs/
 - Copy ARCHITECTURE.md content
