@@ -32,6 +32,7 @@ When invoked, output a summary of available capabilities organized by category.
 |------|----------|---------|
 | **git** | status, diff, log, add, commit, push | Version control |
 | **gh** | issue, pr, repo, api | GitHub operations |
+| **op** | inject, run, item get | 1Password secret injection, local env management |
 | **vercel** | deploy, env, projects | Vercel CLI |
 | **wrangler** | deploy, kv, r2, d1 | Cloudflare CLI |
 | **npm/pnpm** | install, run, build | Package management |
@@ -56,7 +57,24 @@ When invoked, output a summary of available capabilities organized by category.
 | `wrangler.toml` | Cloudflare config |
 | `package.json` | Dependencies, scripts |
 | `.env.example` | Required env vars |
+| `.env*.tpl` | 1Password template (use `op inject` to generate .env files) |
 | `CLAUDE.md` | Project context |
+
+### 1Password Dev Workflow
+
+**CRITICAL:** For local env management, ALWAYS use `op` CLI (`op inject`), NOT the WP Manager GUI.
+
+| Approach | Use? | Why |
+|----------|------|-----|
+| **`op inject`** | ✅ YES | CLI-based, automatable, version controlled, team-friendly |
+| **WP Manager GUI** | ❌ NO | GUI-only, manual steps, not scriptable |
+
+**Both are 1Password dev features** - CLI is just the professional approach.
+
+**Setup pattern:**
+1. Create `.env.local.tpl` with `{{ op://vault/item/field }}`
+2. Add `"env:inject": "op inject -i .env.local.tpl -o .env.local"` to package.json
+3. Run `npm run env:inject` to generate .env.local
 
 ---
 

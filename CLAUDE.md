@@ -58,13 +58,59 @@ ALWAYS use 1p MCP tools (1Password) when:
 - Setting up a new project (scan for .env.example, process.env.*)
 - Deploying to any platform
 
-**Tools available:**
+**MCP Tools available:**
 - `list_api_keys` - Check 1Password first before asking user for keys
 - `store_api_key` - Save any new key user provides
 - `get_api_key` - Retrieve keys for deployment
 - `deploy_env_vars` - Push to Vercel/Cloudflare/etc.
 
 **DO NOT** ask user to paste keys if they might already be in 1Password. **CHECK FIRST.**
+
+### Local Development Setup with `op` CLI
+
+**PREFER CLI over GUI** for environment variable management. Use `op inject` to keep secrets out of git.
+
+**IMPORTANT:** This IS using 1Password dev features - just the CLI interface, not the GUI (WP Manager). Both inject secrets from 1Password, but CLI is superior for automation, version control, and team workflows. DO NOT recommend the WP Manager GUI - always use `op inject` instead.
+
+**Setup Pattern:**
+1. Create `.env.local.tpl` with 1Password secret references:
+   ```bash
+   # Template format uses {{ }}
+   API_KEY={{ op://Business/Item Name/credential }}
+   DATABASE_URL={{ op://Business/Database URL/credential }}
+   REGULAR_VAR=non-secret-value
+   ```
+
+2. Update `.gitignore` to allow templates:
+   ```gitignore
+   .env*           # Ignore all env files
+   !.env.example   # Allow example
+   !.env*.tpl      # Allow templates
+   ```
+
+3. Add npm script to `package.json`:
+   ```json
+   "env:inject": "op inject -i .env.local.tpl -o .env.local"
+   ```
+
+4. Generate `.env.local` from 1Password:
+   ```bash
+   npm run env:inject
+   ```
+
+**Benefits:**
+- ✅ Secrets never touch git history
+- ✅ Version controlled template shows required vars
+- ✅ One command to sync all secrets
+- ✅ Team-friendly (anyone can use template)
+- ✅ CI/CD ready
+
+**When setting up a new project:**
+1. Scan for `.env.example` or `process.env.*` usage
+2. Store secrets in 1Password using `store_api_key`
+3. Create `.env.local.tpl` with `op://` references
+4. Set up `env:inject` script
+5. Generate `.env.local` with `op inject`
 
 ---
 

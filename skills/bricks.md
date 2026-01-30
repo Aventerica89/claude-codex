@@ -279,6 +279,54 @@ Component is ready when:
 - ✅ Pastes into Bricks Builder without errors
 - ✅ Renders correctly in preview
 
+## Pattern Library System
+
+### Learning from Professional Templates
+
+Use `/bricks-learn <template-path>` to extract patterns from professional templates.
+
+**Pattern storage:**
+```
+~/.claude/skills/learned/bricks-patterns/
+├── footers/
+├── heroes/
+├── galleries/
+├── cards/
+└── layouts/
+```
+
+**Pattern database:**
+```
+~/.claude/data/bricks-patterns/pattern-library.json
+~/.claude/data/bricks-patterns/anti-patterns.json
+```
+
+### Using Learned Patterns
+
+When creating components, I will:
+1. **Auto-detect** component type from request/screenshot
+2. **Load relevant patterns** from pattern library
+3. **Suggest patterns**: "I've learned 3 footer patterns. Which would you like?"
+4. **Generate JSON** matching learned structures
+
+### Pattern Commands
+
+```bash
+/bricks-learn <template-path>      # Learn from template
+/bricks-patterns list              # List all patterns
+/bricks-patterns search <query>    # Search patterns
+```
+
+### Building the Pattern Library
+
+To improve component generation quality:
+1. Feed me professional Bricks Builder templates
+2. I'll extract reusable patterns systematically
+3. Patterns become available for future components
+4. Quality improves with each template learned
+
+**Recommended:** Start with 5-10 professional templates from Frames, Bricksforge, or other sources to build a solid pattern library.
+
 ---
 
 **Environment loaded.** Ready for Bricks Builder component development.

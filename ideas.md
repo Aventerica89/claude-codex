@@ -345,3 +345,141 @@ vercel env add ADMIN_PASSWORD
 ```
 
 Completed: 2026-01-28 via `vercel env add` + `vercel --prod`
+
+---
+
+### WP Manager - Product Improvements Roadmap
+**Added:** 2026-01-29
+**Status:** Idea
+**Project:** jb-cloud-wp-manager
+
+Comprehensive list of feature ideas to enhance WP Manager beyond MVP.
+
+**Bulk Operations (High Priority):**
+- Select multiple sites (checkboxes)
+- Bulk plugin/theme updates across selected sites
+- Bulk sync selected sites
+- Bulk archive/unarchive operations
+- Bulk tag management
+
+**Notifications & Alerts:**
+- Email notifications when updates are available
+- Alert when sites go offline
+- Daily/weekly digest of all sites status
+- Slack/Discord webhook integration
+- Custom alert rules (e.g., "notify if > 10 plugin updates")
+
+**Automation:**
+- Scheduled auto-sync (daily/weekly/custom)
+- Auto-update plugins/themes with configurable rules
+- Automatic health checks at intervals
+- Auto-backup coordination before updates
+- Rollback capability after failed updates
+
+**Monitoring & Analytics:**
+- Uptime monitoring with historical data
+- Performance metrics (page load time, TTFB)
+- Traffic analytics integration (Google Analytics)
+- Site speed scores (PageSpeed, Core Web Vitals)
+- Downtime alerts with incident history
+
+**Security Features:**
+- Security scanning (vulnerabilities, malware)
+- SSL certificate monitoring and renewal alerts
+- File integrity monitoring
+- Login attempt monitoring across sites
+- Firewall rule management
+- Security score per site
+
+**User Management:**
+- View all WordPress users across sites
+- Bulk user operations (add/remove users to multiple sites)
+- Role management across sites
+- Password reset workflows
+- User activity tracking
+
+**Backup Management:**
+- Coordinate backups across all sites
+- Schedule automated backups
+- Restore from backup interface
+- Backup storage management
+- Off-site backup integration (S3, Dropbox, etc.)
+
+**Change Tracking:**
+- Detailed history of all changes (updates, config changes)
+- Rollback capability
+- Activity log with user attribution
+- Change approval workflow for teams
+- Compare plugin/theme versions
+
+**Team Collaboration:**
+- Multi-user support with roles (admin, editor, viewer)
+- Team workspaces for agencies
+- Client portal (read-only access for clients)
+- Comment system on sites
+- Task assignment per site
+
+**Reporting:**
+- PDF reports generation
+- Custom report builder
+- White-label reports for clients
+- Scheduled report emails
+- Executive summaries
+
+**Integrations:**
+- Direct hosting API integration (xCloud, WP Engine, Kinsta, Cloudways)
+- GitHub integration for version control
+- Slack/Discord notifications
+- Zapier integration
+- Domain registrar integration (expiry tracking)
+- CDN management (Cloudflare, BunnyCDN)
+
+**Enhanced UI/UX:**
+- Custom dashboard widgets (drag-and-drop)
+- Dark mode
+- Saved filters and views
+- Keyboard shortcuts
+- Advanced search and filtering
+- Tags and custom categories for sites
+- Bulk edit site details
+- Quick actions menu (right-click context menu)
+
+**Mobile Experience:**
+- Responsive mobile improvements
+- Native iOS app (already have placeholder at /mobile-app!)
+- Native Android app
+- Push notifications for alerts
+- Quick actions from notifications
+
+**Advanced Features:**
+- Site staging environment management
+- DNS management
+- Content deployment (push content between sites)
+- Plugin/theme development mode (test updates on staging)
+- A/B testing coordination
+- SEO monitoring and suggestions
+- Database optimization recommendations
+- Broken link checker across all sites
+
+**White Label & Agencies:**
+- Custom branding (logo, colors)
+- Agency billing management
+- Client invoicing
+- Reseller features
+- Sub-accounts for clients
+- Public status pages per client
+
+**Developer Features:**
+- WP-CLI integration
+- Custom webhook triggers
+- REST API for WP Manager
+- Export all data (JSON, CSV)
+- Import sites from CSV
+- Scripting/automation via API
+- Plugin development toolkit
+
+**Priority Recommendations:**
+1. **Phase 4a** (Quick Wins) - Bulk operations, tags/categories, advanced filters
+2. **Phase 4b** (Core Value) - Notifications, scheduled sync, backup basics
+3. **Phase 5** (Growth) - Security scanning, uptime monitoring, team features
+4. **Phase 6** (Advanced) - Integrations, white label, mobile apps
