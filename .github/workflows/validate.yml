@@ -1,0 +1,84 @@
+name: Validate Claude Codex
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate plugin manifest
+        run: |
+          if [ ! -f .claude-plugin/plugin.json ]; then
+            echo "Error: plugin.json not found"
+            exit 1
+          fi
+
+          # Validate JSON syntax
+          if ! jq empty .claude-plugin/plugin.json 2>/dev/null; then
+            echo "Error: plugin.json is not valid JSON"
+            exit 1
+          fi
+
+          # Check required fields
+          for field in name description repository version; do
+            if ! jq -e ".$field" .claude-plugin/plugin.json > /dev/null; then
+              echo "Error: Missing required field: $field"
+              exit 1
+            fi
+          done
+
+          echo "✅ Plugin manifest is valid"
+
+      - name: Validate directory structure
+        run: |
+          # Check required directories exist
+          for dir in commands skills agents rules; do
+            if [ ! -d "$dir" ]; then
+              echo "Warning: $dir directory not found"
+            else
+              echo "✅ Found $dir directory"
+            fi
+          done
+
+      - name: Check for secrets
+        run: |
+          # Scan for common secret patterns
+          if grep -rE "(api[_-]?key|secret|token|password).*=.*['\"]?[a-zA-Z0-9]{20,}" \
+               --exclude-dir=.git \
+               --exclude-dir=node_modules \
+               --exclude="*.md" \
+               --exclude="validate.yml" \
+               . 2>/dev/null; then
+            echo "⚠️  Warning: Possible secrets detected"
+            echo "Please review the above matches and ensure no secrets are committed"
+            # Don't fail, just warn
+          else
+            echo "✅ No secrets detected"
+          fi
+
+      - name: Validate markdown files
+        run: |
+          # Check all .md files have proper structure
+          find commands skills agents rules -name "*.md" 2>/dev/null | while read file; do
+            if [ ! -s "$file" ]; then
+              echo "Warning: Empty file: $file"
+            fi
+          done
+
+          echo "✅ Markdown validation complete"
+
+      - name: Summary
+        run: |
+          echo "### Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Plugin manifest valid" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Directory structure checked" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Security scan complete" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Markdown files validated" >> $GITHUB_STEP_SUMMARY
