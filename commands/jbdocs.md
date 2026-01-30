@@ -191,7 +191,56 @@ Insert it alphabetically among other project sections (after "Bricks Builder Age
 },
 ```
 
-### Step 5.5: Update Changelog (MANDATORY)
+### Step 5.5: Update "What's New" Section (MANDATORY)
+
+**CRITICAL: Every new project or major documentation update MUST update the What's New section on the homepage.**
+
+Update `/Users/jb/jb-cloud-docs/src/content/docs/index.mdx` to feature the new/updated content:
+
+```mdx
+## What's New
+
+<CardGrid>
+  <LinkCard
+    title="{New Project Name}"
+    description="{Brief description of what was added}"
+    href="/{project-slug}/"
+  />
+  <LinkCard
+    title="{Previous Item}"
+    description="{Previous description}"
+    href="/{previous-link}/"
+  />
+</CardGrid>
+```
+
+**Guidelines for What's New:**
+- Keep only the 2 most recent items (remove older ones)
+- New items go FIRST (top of the CardGrid)
+- Title should be the project/feature name
+- Description should be 1 line explaining what it is
+- href should link to the relevant documentation page
+- For updates to existing projects, use "Updated: {Project Name}"
+
+**Example for new project:**
+```mdx
+<LinkCard
+  title="WP Manager"
+  description="WordPress site management dashboard for xCloud"
+  href="/wp-manager/"
+/>
+```
+
+**Example for documentation update:**
+```mdx
+<LinkCard
+  title="Claude Code Integration"
+  description="Added 'Using with Claude Code' sections to all documentation"
+  href="/changelog/"
+/>
+```
+
+### Step 5.6: Update Changelog (MANDATORY)
 
 **CRITICAL: Every documentation addition or major update MUST be added to the changelog.**
 
@@ -229,7 +278,7 @@ Before committing, update `/Users/jb/jb-cloud-docs/src/content/docs/changelog.md
   - Activity logging system
 ```
 
-### Step 5.6: Pre-Commit Validation
+### Step 5.7: Pre-Commit Validation
 
 **Validate all documentation files before committing:**
 
@@ -270,18 +319,18 @@ Use --fix to auto-correct issues.
 
 **If errors found without --fix flag, STOP and report. Do not commit invalid docs.**
 
-### Step 5.7: Commit and Push
+### Step 5.8: Commit and Push
 
 ```bash
 cd /Users/jb/jb-cloud-docs
-git add src/content/docs/{project-slug}/ src/content/docs/changelog.md astro.config.mjs
+git add src/content/docs/{project-slug}/ src/content/docs/changelog.md src/content/docs/index.mdx astro.config.mjs
 git commit -m "docs({project-slug}): {action} documentation"
 git push origin main
 ```
 
-**IMPORTANT:** Always include changelog.md in the commit when adding or updating documentation.
+**IMPORTANT:** Always include changelog.md AND index.mdx in the commit when adding or updating documentation.
 
-### Step 5.8: Verify Deployment (with Retry Logic)
+### Step 5.9: Verify Deployment (with Retry Logic)
 
 Verify deployment with exponential backoff (3 attempts):
 
@@ -338,7 +387,7 @@ The commit is live in the repository - deployment will complete shortly.
 
 **Do NOT fail the entire command on verification timeout - the commit succeeded.**
 
-### Step 5.9: Report Success
+### Step 5.10: Report Success
 
 Display to user:
 ```

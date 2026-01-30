@@ -159,7 +159,38 @@ Convert `docs/ARCHITECTURE.md` to Starlight format with proper frontmatter.
 
 Convert `docs/PLAN.md` to Starlight format with proper frontmatter.
 
-### 5.5. Update Changelog (MANDATORY)
+### 5.5. Update "What's New" Section (MANDATORY)
+
+**CRITICAL: Every new project or major documentation update MUST update the What's New section on the homepage.**
+
+Update `/Users/jb/jb-cloud-docs/src/content/docs/index.mdx`:
+
+```mdx
+## What's New
+
+<CardGrid>
+  <LinkCard
+    title="{New Project Name}"
+    description="{Brief description of what was added}"
+    href="/{project-slug}/"
+  />
+  <LinkCard
+    title="{Previous Item}"
+    description="{Previous description}"
+    href="/{previous-link}/"
+  />
+</CardGrid>
+```
+
+**Guidelines:**
+- Keep only 2 most recent items (remove older ones)
+- New items go FIRST (top of CardGrid)
+- Title = project/feature name
+- Description = 1 line explaining what it is
+- href = link to relevant docs page
+- For updates: "Updated: {Project Name}"
+
+### 5.6. Update Changelog (MANDATORY)
 
 **CRITICAL: Every documentation addition or major update MUST be added to the changelog.**
 
@@ -197,7 +228,7 @@ Before committing, update `/Users/jb/jb-cloud-docs/src/content/docs/changelog.md
   - Activity logging system
 ```
 
-### 5.6. Pre-Commit Validation
+### 5.7. Pre-Commit Validation
 
 **Validate all files before committing:**
 
@@ -258,16 +289,16 @@ validate_docs() {
 | Code block no language | Add `text` as default |
 | Empty sections | Remove the section |
 
-### 5.7. Commit and Push
+### 5.8. Commit and Push
 
 ```bash
 cd /Users/jb/jb-cloud-docs
-git add src/content/docs/{project-slug}/ src/content/docs/changelog.md
+git add src/content/docs/{project-slug}/ src/content/docs/changelog.md src/content/docs/index.mdx
 git commit -m "docs({project-slug}): add project documentation"
 git push origin main
 ```
 
-**IMPORTANT:** Always include changelog.md in the commit when adding or updating documentation.
+**IMPORTANT:** Always include changelog.md AND index.mdx (What's New) in the commit when adding or updating documentation.
 
 ## Dry-Run Mode
 
