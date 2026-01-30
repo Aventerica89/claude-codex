@@ -1,20 +1,20 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
+import { ComponentCard } from './ComponentCard';
 import {
   registries,
   categories,
   getAllComponents,
   generateInstallCommands,
-  type RegistryComponent,
+  type RegistryComponentWithRegistry,
 } from '@/lib/registries';
 
 const ComponentMarketplace = () => {
   const [selectedRegistries, setSelectedRegistries] = useState<string[]>(['shadcn']);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [selectedComponents, setSelectedComponents] = useState<RegistryComponent[]>([]);
+  const [selectedComponents, setSelectedComponents] = useState<RegistryComponentWithRegistry[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [copied, setCopied] = useState(false);
 
@@ -47,20 +47,21 @@ const ComponentMarketplace = () => {
     );
   };
 
-  const toggleComponent = (component: RegistryComponent) => {
+  const toggleComponent = (componentId: string) => {
+    const component = allComponents.find((c) => c.id === componentId);
+    if (!component) return;
+
     setSelectedComponents((prev) => {
-      const exists = prev.find((c) => c.name === component.name && c.registry === component.registry);
+      const exists = prev.find((c) => c.id === componentId);
       if (exists) {
-        return prev.filter((c) => !(c.name === component.name && c.registry === component.registry));
+        return prev.filter((c) => c.id !== componentId);
       }
       return [...prev, component];
     });
   };
 
-  const isSelected = (component: RegistryComponent) => {
-    return selectedComponents.some(
-      (c) => c.name === component.name && c.registry === component.registry
-    );
+  const isSelected = (componentId: string) => {
+    return selectedComponents.some((c) => c.id === componentId);
   };
 
   const installCommands = useMemo(() => {
@@ -75,12 +76,6 @@ const ComponentMarketplace = () => {
 
   const clearSelection = () => {
     setSelectedComponents([]);
-  };
-
-  const registryColors: Record<string, string> = {
-    shadcn: 'bg-white/10 text-white border-white/20',
-    'magic-ui': 'bg-violet-500/10 text-violet-400 border-violet-500/20',
-    aceternity: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
   };
 
   return (
@@ -212,43 +207,22 @@ const ComponentMarketplace = () => {
             )}
 
             {/* Grid */}
-            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3">
+            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
               <AnimatePresence mode="popLayout">
                 {filteredComponents.map((component) => (
                   <motion.div
-                    key={`${component.registry}-${component.name}`}
+                    key={component.id}
                     layout
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <button
-                      onClick={() => toggleComponent(component)}
-                      className={`w-full text-left p-4 rounded-xl border transition-all ${
-                        isSelected(component)
-                          ? 'bg-violet-500/10 border-violet-500/50'
-                          : 'bg-card border-border hover:border-violet-500/30'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <span className="font-medium text-sm">{component.name}</span>
-                        <Badge
-                          variant="outline"
-                          className={`text-[10px] ${registryColors[component.registry] || ''}`}
-                        >
-                          {component.registry}
-                        </Badge>
-                      </div>
-                      <p className="text-xs text-muted-foreground line-clamp-2">
-                        {component.description}
-                      </p>
-                      <div className="mt-2">
-                        <Badge variant="outline" className="text-[10px]">
-                          {component.category}
-                        </Badge>
-                      </div>
-                    </button>
+                    <ComponentCard
+                      component={component}
+                      isSelected={isSelected(component.id)}
+                      onToggle={toggleComponent}
+                    />
                   </motion.div>
                 ))}
               </AnimatePresence>
