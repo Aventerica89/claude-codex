@@ -1,11 +1,15 @@
 export interface RegistryComponent {
+  id: string;
   name: string;
   description: string;
   category: string;
-  registry: string;
+  dependencies: string[];
+  registrySource: "shadcn" | "radix" | "custom";
+  complexity: "simple" | "intermediate" | "advanced";
+  bundleSize: string;
+  docsUrl: string;
+  registryId?: string;
   command: string;
-  url?: string;
-  preview?: string;
 }
 
 export interface Registry {
@@ -20,95 +24,66 @@ export interface Registry {
 // shadcn/ui core components
 const shadcnComponents: RegistryComponent[] = [
   // Form & Input
-  { name: 'button', description: 'Button with variants', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add button' },
-  { name: 'input', description: 'Text input component', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add input' },
-  { name: 'textarea', description: 'Multi-line text input', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add textarea' },
-  { name: 'select', description: 'Select dropdown', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add select' },
-  { name: 'checkbox', description: 'Checkbox input', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add checkbox' },
-  { name: 'radio-group', description: 'Radio button group', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add radio-group' },
-  { name: 'switch', description: 'Toggle switch', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add switch' },
-  { name: 'slider', description: 'Slider input', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add slider' },
-  { name: 'form', description: 'Form with validation', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add form' },
-  { name: 'label', description: 'Form label', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add label' },
-  { name: 'calendar', description: 'Date calendar', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add calendar' },
-  { name: 'date-picker', description: 'Date picker', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add date-picker' },
-  { name: 'combobox', description: 'Searchable select', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add combobox' },
-  { name: 'input-otp', description: 'OTP input', category: 'Form', registry: 'shadcn', command: 'npx shadcn@latest add input-otp' },
+  { id: 'button', name: 'Button', description: 'Displays a button or a component that looks like a button', category: 'Form', dependencies: ['@radix-ui/react-slot'], registrySource: 'shadcn', complexity: 'simple', bundleSize: '1.2', docsUrl: 'https://ui.shadcn.com/docs/components/button', command: 'npx shadcn@latest add button' },
+  { id: 'input', name: 'Input', description: 'Displays a form input field or a component that looks like an input', category: 'Form', dependencies: [], registrySource: 'shadcn', complexity: 'simple', bundleSize: '0.5', docsUrl: 'https://ui.shadcn.com/docs/components/input', command: 'npx shadcn@latest add input' },
+  { id: 'textarea', name: 'Textarea', description: 'Displays a textarea or a component that looks like a textarea', category: 'Form', dependencies: [], registrySource: 'shadcn', complexity: 'simple', bundleSize: '0.4', docsUrl: 'https://ui.shadcn.com/docs/components/textarea', command: 'npx shadcn@latest add textarea' },
+  { id: 'select', name: 'Select', description: 'Displays a list of options for the user to pick from', category: 'Form', dependencies: ['@radix-ui/react-select'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '4.2', docsUrl: 'https://ui.shadcn.com/docs/components/select', command: 'npx shadcn@latest add select' },
+  { id: 'checkbox', name: 'Checkbox', description: 'A control that allows the user to toggle between checked and not checked', category: 'Form', dependencies: ['@radix-ui/react-checkbox'], registrySource: 'radix', complexity: 'simple', bundleSize: '1.8', docsUrl: 'https://ui.shadcn.com/docs/components/checkbox', command: 'npx shadcn@latest add checkbox' },
+  { id: 'radio-group', name: 'Radio Group', description: 'A set of checkable buttons where only one can be checked at a time', category: 'Form', dependencies: ['@radix-ui/react-radio-group'], registrySource: 'radix', complexity: 'simple', bundleSize: '2.1', docsUrl: 'https://ui.shadcn.com/docs/components/radio-group', command: 'npx shadcn@latest add radio-group' },
+  { id: 'switch', name: 'Switch', description: 'A control that allows the user to toggle between two states', category: 'Form', dependencies: ['@radix-ui/react-switch'], registrySource: 'radix', complexity: 'simple', bundleSize: '1.5', docsUrl: 'https://ui.shadcn.com/docs/components/switch', command: 'npx shadcn@latest add switch' },
+  { id: 'slider', name: 'Slider', description: 'An input where the user selects a value from within a given range', category: 'Form', dependencies: ['@radix-ui/react-slider'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '2.8', docsUrl: 'https://ui.shadcn.com/docs/components/slider', command: 'npx shadcn@latest add slider' },
+  { id: 'form', name: 'Form', description: 'Building forms with React Hook Form and Zod validation', category: 'Form', dependencies: ['react-hook-form', '@hookform/resolvers', 'zod'], registrySource: 'custom', complexity: 'advanced', bundleSize: '8.5', docsUrl: 'https://ui.shadcn.com/docs/components/form', command: 'npx shadcn@latest add form' },
+  { id: 'label', name: 'Label', description: 'Renders an accessible label associated with controls', category: 'Form', dependencies: ['@radix-ui/react-label'], registrySource: 'radix', complexity: 'simple', bundleSize: '0.8', docsUrl: 'https://ui.shadcn.com/docs/components/label', command: 'npx shadcn@latest add label' },
+  { id: 'calendar', name: 'Calendar', description: 'A date field component that allows users to enter and edit date', category: 'Form', dependencies: ['react-day-picker', 'date-fns'], registrySource: 'custom', complexity: 'intermediate', bundleSize: '12.4', docsUrl: 'https://ui.shadcn.com/docs/components/calendar', command: 'npx shadcn@latest add calendar' },
 
   // Layout & Navigation
-  { name: 'accordion', description: 'Collapsible sections', category: 'Layout', registry: 'shadcn', command: 'npx shadcn@latest add accordion' },
-  { name: 'tabs', description: 'Tabbed interface', category: 'Layout', registry: 'shadcn', command: 'npx shadcn@latest add tabs' },
-  { name: 'navigation-menu', description: 'Navigation with dropdowns', category: 'Layout', registry: 'shadcn', command: 'npx shadcn@latest add navigation-menu' },
-  { name: 'breadcrumb', description: 'Breadcrumb nav', category: 'Layout', registry: 'shadcn', command: 'npx shadcn@latest add breadcrumb' },
-  { name: 'sidebar', description: 'Collapsible sidebar', category: 'Layout', registry: 'shadcn', command: 'npx shadcn@latest add sidebar' },
-  { name: 'separator', description: 'Visual divider', category: 'Layout', registry: 'shadcn', command: 'npx shadcn@latest add separator' },
-  { name: 'scroll-area', description: 'Custom scrollbar', category: 'Layout', registry: 'shadcn', command: 'npx shadcn@latest add scroll-area' },
-  { name: 'resizable', description: 'Resizable panels', category: 'Layout', registry: 'shadcn', command: 'npx shadcn@latest add resizable' },
+  { id: 'accordion', name: 'Accordion', description: 'A vertically stacked set of interactive headings', category: 'Layout', dependencies: ['@radix-ui/react-accordion'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '3.2', docsUrl: 'https://ui.shadcn.com/docs/components/accordion', command: 'npx shadcn@latest add accordion' },
+  { id: 'tabs', name: 'Tabs', description: 'A set of layered sections of content displayed one at a time', category: 'Layout', dependencies: ['@radix-ui/react-tabs'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '2.9', docsUrl: 'https://ui.shadcn.com/docs/components/tabs', command: 'npx shadcn@latest add tabs' },
+  { id: 'navigation-menu', name: 'Navigation Menu', description: 'A collection of links for navigating websites', category: 'Layout', dependencies: ['@radix-ui/react-navigation-menu'], registrySource: 'radix', complexity: 'advanced', bundleSize: '5.8', docsUrl: 'https://ui.shadcn.com/docs/components/navigation-menu', command: 'npx shadcn@latest add navigation-menu' },
+  { id: 'breadcrumb', name: 'Breadcrumb', description: 'Displays the path to the current resource using a hierarchy of links', category: 'Layout', dependencies: [], registrySource: 'shadcn', complexity: 'simple', bundleSize: '0.9', docsUrl: 'https://ui.shadcn.com/docs/components/breadcrumb', command: 'npx shadcn@latest add breadcrumb' },
+  { id: 'separator', name: 'Separator', description: 'Visually or semantically separates content', category: 'Layout', dependencies: ['@radix-ui/react-separator'], registrySource: 'radix', complexity: 'simple', bundleSize: '0.6', docsUrl: 'https://ui.shadcn.com/docs/components/separator', command: 'npx shadcn@latest add separator' },
+  { id: 'scroll-area', name: 'Scroll Area', description: 'Augments native scroll functionality for custom styling', category: 'Layout', dependencies: ['@radix-ui/react-scroll-area'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '3.4', docsUrl: 'https://ui.shadcn.com/docs/components/scroll-area', command: 'npx shadcn@latest add scroll-area' },
 
   // Overlays & Dialogs
-  { name: 'dialog', description: 'Modal dialog', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add dialog' },
-  { name: 'alert-dialog', description: 'Confirmation dialog', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add alert-dialog' },
-  { name: 'sheet', description: 'Slide-out panel', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add sheet' },
-  { name: 'drawer', description: 'Mobile drawer', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add drawer' },
-  { name: 'popover', description: 'Floating popover', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add popover' },
-  { name: 'tooltip', description: 'Hover tooltip', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add tooltip' },
-  { name: 'hover-card', description: 'Hover preview card', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add hover-card' },
-  { name: 'dropdown-menu', description: 'Dropdown menu', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add dropdown-menu' },
-  { name: 'context-menu', description: 'Right-click menu', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add context-menu' },
-  { name: 'command', description: 'Command palette', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add command' },
-  { name: 'menubar', description: 'Horizontal menubar', category: 'Overlay', registry: 'shadcn', command: 'npx shadcn@latest add menubar' },
+  { id: 'dialog', name: 'Dialog', description: 'A window overlaid on the primary window, rendering content underneath inert', category: 'Overlay', dependencies: ['@radix-ui/react-dialog'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '4.1', docsUrl: 'https://ui.shadcn.com/docs/components/dialog', command: 'npx shadcn@latest add dialog' },
+  { id: 'alert-dialog', name: 'Alert Dialog', description: 'A modal dialog that interrupts the user with important content', category: 'Overlay', dependencies: ['@radix-ui/react-alert-dialog'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '3.8', docsUrl: 'https://ui.shadcn.com/docs/components/alert-dialog', command: 'npx shadcn@latest add alert-dialog' },
+  { id: 'sheet', name: 'Sheet', description: 'Extends Dialog component to display content that slides in from screen edge', category: 'Overlay', dependencies: ['@radix-ui/react-dialog'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '4.2', docsUrl: 'https://ui.shadcn.com/docs/components/sheet', command: 'npx shadcn@latest add sheet' },
+  { id: 'popover', name: 'Popover', description: 'Displays rich content in a portal, triggered by a button', category: 'Overlay', dependencies: ['@radix-ui/react-popover'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '3.5', docsUrl: 'https://ui.shadcn.com/docs/components/popover', command: 'npx shadcn@latest add popover' },
+  { id: 'tooltip', name: 'Tooltip', description: 'A popup that displays information related to an element', category: 'Overlay', dependencies: ['@radix-ui/react-tooltip'], registrySource: 'radix', complexity: 'simple', bundleSize: '2.4', docsUrl: 'https://ui.shadcn.com/docs/components/tooltip', command: 'npx shadcn@latest add tooltip' },
+  { id: 'dropdown-menu', name: 'Dropdown Menu', description: 'Displays a menu to the user with a list of actions', category: 'Overlay', dependencies: ['@radix-ui/react-dropdown-menu'], registrySource: 'radix', complexity: 'intermediate', bundleSize: '4.6', docsUrl: 'https://ui.shadcn.com/docs/components/dropdown-menu', command: 'npx shadcn@latest add dropdown-menu' },
+  { id: 'command', name: 'Command', description: 'Fast, composable, unstyled command menu for React', category: 'Overlay', dependencies: ['cmdk'], registrySource: 'custom', complexity: 'advanced', bundleSize: '6.2', docsUrl: 'https://ui.shadcn.com/docs/components/command', command: 'npx shadcn@latest add command' },
 
   // Feedback & Status
-  { name: 'alert', description: 'Alert message', category: 'Feedback', registry: 'shadcn', command: 'npx shadcn@latest add alert' },
-  { name: 'sonner', description: 'Toast notifications', category: 'Feedback', registry: 'shadcn', command: 'npx shadcn@latest add sonner' },
-  { name: 'progress', description: 'Progress bar', category: 'Feedback', registry: 'shadcn', command: 'npx shadcn@latest add progress' },
-  { name: 'skeleton', description: 'Loading placeholder', category: 'Feedback', registry: 'shadcn', command: 'npx shadcn@latest add skeleton' },
-  { name: 'badge', description: 'Status badge', category: 'Feedback', registry: 'shadcn', command: 'npx shadcn@latest add badge' },
-  { name: 'spinner', description: 'Loading spinner', category: 'Feedback', registry: 'shadcn', command: 'npx shadcn@latest add spinner' },
+  { id: 'alert', name: 'Alert', description: 'Displays a callout for user attention', category: 'Feedback', dependencies: [], registrySource: 'shadcn', complexity: 'simple', bundleSize: '0.7', docsUrl: 'https://ui.shadcn.com/docs/components/alert', command: 'npx shadcn@latest add alert' },
+  { id: 'sonner', name: 'Sonner', description: 'An opinionated toast component for React', category: 'Feedback', dependencies: ['sonner'], registrySource: 'custom', complexity: 'simple', bundleSize: '3.1', docsUrl: 'https://ui.shadcn.com/docs/components/sonner', command: 'npx shadcn@latest add sonner' },
+  { id: 'progress', name: 'Progress', description: 'Displays an indicator showing the completion progress of a task', category: 'Feedback', dependencies: ['@radix-ui/react-progress'], registrySource: 'radix', complexity: 'simple', bundleSize: '1.4', docsUrl: 'https://ui.shadcn.com/docs/components/progress', command: 'npx shadcn@latest add progress' },
+  { id: 'skeleton', name: 'Skeleton', description: 'Used to show a placeholder while content is loading', category: 'Feedback', dependencies: [], registrySource: 'shadcn', complexity: 'simple', bundleSize: '0.3', docsUrl: 'https://ui.shadcn.com/docs/components/skeleton', command: 'npx shadcn@latest add skeleton' },
+  { id: 'badge', name: 'Badge', description: 'Displays a badge or a component that looks like a badge', category: 'Feedback', dependencies: [], registrySource: 'shadcn', complexity: 'simple', bundleSize: '0.4', docsUrl: 'https://ui.shadcn.com/docs/components/badge', command: 'npx shadcn@latest add badge' },
 
   // Display & Media
-  { name: 'card', description: 'Card container', category: 'Display', registry: 'shadcn', command: 'npx shadcn@latest add card' },
-  { name: 'avatar', description: 'User avatar', category: 'Display', registry: 'shadcn', command: 'npx shadcn@latest add avatar' },
-  { name: 'table', description: 'Data table', category: 'Display', registry: 'shadcn', command: 'npx shadcn@latest add table' },
-  { name: 'data-table', description: 'Advanced data table', category: 'Display', registry: 'shadcn', command: 'npx shadcn@latest add data-table' },
-  { name: 'chart', description: 'Charts (Recharts)', category: 'Display', registry: 'shadcn', command: 'npx shadcn@latest add chart' },
-  { name: 'carousel', description: 'Image carousel', category: 'Display', registry: 'shadcn', command: 'npx shadcn@latest add carousel' },
-  { name: 'aspect-ratio', description: 'Aspect ratio box', category: 'Display', registry: 'shadcn', command: 'npx shadcn@latest add aspect-ratio' },
-  { name: 'kbd', description: 'Keyboard shortcut', category: 'Display', registry: 'shadcn', command: 'npx shadcn@latest add kbd' },
-
-  // Misc
-  { name: 'collapsible', description: 'Collapsible section', category: 'Misc', registry: 'shadcn', command: 'npx shadcn@latest add collapsible' },
-  { name: 'toggle', description: 'Toggle button', category: 'Misc', registry: 'shadcn', command: 'npx shadcn@latest add toggle' },
-  { name: 'toggle-group', description: 'Toggle button group', category: 'Misc', registry: 'shadcn', command: 'npx shadcn@latest add toggle-group' },
-  { name: 'pagination', description: 'Pagination controls', category: 'Misc', registry: 'shadcn', command: 'npx shadcn@latest add pagination' },
+  { id: 'card', name: 'Card', description: 'Displays a card with header, content, and footer', category: 'Display', dependencies: [], registrySource: 'shadcn', complexity: 'simple', bundleSize: '0.8', docsUrl: 'https://ui.shadcn.com/docs/components/card', command: 'npx shadcn@latest add card' },
+  { id: 'avatar', name: 'Avatar', description: 'An image element with a fallback for representing the user', category: 'Display', dependencies: ['@radix-ui/react-avatar'], registrySource: 'radix', complexity: 'simple', bundleSize: '1.6', docsUrl: 'https://ui.shadcn.com/docs/components/avatar', command: 'npx shadcn@latest add avatar' },
+  { id: 'table', name: 'Table', description: 'A responsive table component', category: 'Display', dependencies: [], registrySource: 'shadcn', complexity: 'intermediate', bundleSize: '1.2', docsUrl: 'https://ui.shadcn.com/docs/components/table', command: 'npx shadcn@latest add table' },
+  { id: 'data-table', name: 'Data Table', description: 'Powerful table with sorting, filtering, and pagination', category: 'Display', dependencies: ['@tanstack/react-table'], registrySource: 'custom', complexity: 'advanced', bundleSize: '14.8', docsUrl: 'https://ui.shadcn.com/docs/components/data-table', command: 'npx shadcn@latest add data-table' },
 ];
 
 // Magic UI components (animation-focused)
 const magicUIComponents: RegistryComponent[] = [
-  { name: 'magic-card', description: 'Animated gradient card', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/magic-card"' },
-  { name: 'shine-border', description: 'Shimmering border effect', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/shine-border"' },
-  { name: 'border-beam', description: 'Animated border beam', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/border-beam"' },
-  { name: 'meteors', description: 'Meteor shower effect', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/meteors"' },
-  { name: 'particles', description: 'Particle background', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/particles"' },
-  { name: 'globe', description: '3D interactive globe', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/globe"' },
-  { name: 'marquee', description: 'Scrolling marquee', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/marquee"' },
-  { name: 'dock', description: 'macOS dock effect', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/dock"' },
-  { name: 'animated-beam', description: 'Connecting beam lines', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/animated-beam"' },
-  { name: 'bento-grid', description: 'Bento box grid layout', category: 'Layout', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/bento-grid"' },
-  { name: 'blur-fade', description: 'Blur fade animation', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/blur-fade"' },
-  { name: 'text-animate', description: 'Text reveal animation', category: 'Animation', registry: 'magic-ui', command: 'npx shadcn@latest add "https://magicui.design/r/text-animate"' },
+  { id: 'magic-animated-beam', name: 'Animated Beam', description: 'Connecting beam lines with animated gradients', category: 'Animation', dependencies: ['framer-motion'], registrySource: 'custom', complexity: 'intermediate', bundleSize: '2.1', docsUrl: 'https://magicui.design/docs/components/animated-beam', registryId: 'magicui', command: 'npx shadcn@latest add "https://magicui.design/r/animated-beam"' },
+  { id: 'magic-bento-grid', name: 'Bento Grid', description: 'Apple-style bento box grid layout', category: 'Layout', dependencies: [], registrySource: 'custom', complexity: 'intermediate', bundleSize: '1.8', docsUrl: 'https://magicui.design/docs/components/bento-grid', registryId: 'magicui', command: 'npx shadcn@latest add "https://magicui.design/r/bento-grid"' },
+  { id: 'magic-marquee', name: 'Marquee', description: 'Infinite scrolling marquee animation', category: 'Animation', dependencies: [], registrySource: 'custom', complexity: 'simple', bundleSize: '0.9', docsUrl: 'https://magicui.design/docs/components/marquee', registryId: 'magicui', command: 'npx shadcn@latest add "https://magicui.design/r/marquee"' },
+  { id: 'magic-shimmer-button', name: 'Shimmer Button', description: 'Button with animated shimmer effect', category: 'Animation', dependencies: [], registrySource: 'custom', complexity: 'simple', bundleSize: '0.6', docsUrl: 'https://magicui.design/docs/components/shimmer-button', registryId: 'magicui', command: 'npx shadcn@latest add "https://magicui.design/r/shimmer-button"' },
+  { id: 'magic-globe', name: 'Globe', description: '3D interactive globe visualization', category: 'Animation', dependencies: ['cobe', 'react-spring'], registrySource: 'custom', complexity: 'advanced', bundleSize: '18.2', docsUrl: 'https://magicui.design/docs/components/globe', registryId: 'magicui', command: 'npx shadcn@latest add "https://magicui.design/r/globe"' },
+  { id: 'magic-particles', name: 'Particles', description: 'Animated particle background effect', category: 'Background', dependencies: ['tsparticles'], registrySource: 'custom', complexity: 'intermediate', bundleSize: '24.5', docsUrl: 'https://magicui.design/docs/components/particles', registryId: 'magicui', command: 'npx shadcn@latest add "https://magicui.design/r/particles"' },
 ];
 
 // Aceternity UI components
 const aceternityComponents: RegistryComponent[] = [
-  { name: 'background-beams', description: 'Animated background beams', category: 'Background', registry: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/background-beams"' },
-  { name: 'background-gradient', description: 'Animated gradient bg', category: 'Background', registry: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/background-gradient"' },
-  { name: 'spotlight', description: 'Spotlight hover effect', category: 'Animation', registry: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/spotlight"' },
-  { name: 'text-generate', description: 'AI text generation effect', category: 'Animation', registry: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/text-generate-effect"' },
-  { name: 'typewriter', description: 'Typewriter effect', category: 'Animation', registry: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/typewriter-effect"' },
-  { name: '3d-card', description: '3D tilt card effect', category: 'Animation', registry: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/3d-card"' },
-  { name: 'infinite-cards', description: 'Infinite scroll cards', category: 'Animation', registry: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/infinite-moving-cards"' },
-  { name: 'lamp', description: 'Lamp glow effect', category: 'Animation', registry: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/lamp"' },
+  { id: 'aceternity-3d-card', name: '3D Card', description: '3D tilt card with perspective effect', category: 'Animation', dependencies: ['framer-motion'], registrySource: 'custom', complexity: 'intermediate', bundleSize: '2.4', docsUrl: 'https://ui.aceternity.com/components/3d-card-effect', registryId: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/3d-card"' },
+  { id: 'aceternity-spotlight', name: 'Spotlight', description: 'Mouse-following spotlight hover effect', category: 'Animation', dependencies: ['framer-motion'], registrySource: 'custom', complexity: 'intermediate', bundleSize: '1.8', docsUrl: 'https://ui.aceternity.com/components/spotlight', registryId: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/spotlight"' },
+  { id: 'aceternity-background-beams', name: 'Background Beams', description: 'Animated SVG background beams', category: 'Background', dependencies: ['framer-motion'], registrySource: 'custom', complexity: 'intermediate', bundleSize: '3.2', docsUrl: 'https://ui.aceternity.com/components/background-beams', registryId: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/background-beams"' },
+  { id: 'aceternity-text-generate', name: 'Text Generate', description: 'AI-style text generation animation', category: 'Animation', dependencies: ['framer-motion'], registrySource: 'custom', complexity: 'simple', bundleSize: '1.2', docsUrl: 'https://ui.aceternity.com/components/text-generate-effect', registryId: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/text-generate-effect"' },
+  { id: 'aceternity-lamp', name: 'Lamp', description: 'Lamp glow lighting effect', category: 'Animation', dependencies: ['framer-motion'], registrySource: 'custom', complexity: 'intermediate', bundleSize: '2.1', docsUrl: 'https://ui.aceternity.com/components/lamp-effect', registryId: 'aceternity', command: 'npx shadcn@latest add "https://ui.aceternity.com/r/lamp"' },
 ];
 
 export const registries: Registry[] = [
@@ -146,27 +121,31 @@ export const categories = [
   'Misc',
 ];
 
-export function getAllComponents(): RegistryComponent[] {
-  return registries.flatMap((r) => r.components);
+export interface RegistryComponentWithRegistry extends RegistryComponent {
+  registry: string;
 }
 
-export function generateInstallCommands(components: RegistryComponent[]): string[] {
-  // Group by registry for cleaner output
+export function getAllComponents(): RegistryComponentWithRegistry[] {
+  return registries.flatMap((r) =>
+    r.components.map((c) => ({ ...c, registry: r.id }))
+  );
+}
+
+export function generateInstallCommands(components: RegistryComponentWithRegistry[]): string[] {
   const grouped = components.reduce((acc, comp) => {
-    if (!acc[comp.registry]) acc[comp.registry] = [];
-    acc[comp.registry].push(comp);
+    const key = comp.registryId || 'shadcn';
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(comp);
     return acc;
   }, {} as Record<string, RegistryComponent[]>);
 
   const commands: string[] = [];
 
-  // shadcn components can be batched
   if (grouped['shadcn']?.length) {
-    const names = grouped['shadcn'].map((c) => c.name).join(' ');
+    const names = grouped['shadcn'].map((c) => c.id).join(' ');
     commands.push(`npx shadcn@latest add ${names}`);
   }
 
-  // Other registries need individual commands
   Object.entries(grouped).forEach(([registry, comps]) => {
     if (registry !== 'shadcn') {
       comps.forEach((c) => commands.push(c.command));
