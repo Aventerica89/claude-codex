@@ -104,11 +104,11 @@
 ### Phase 1: Repository Setup (30 minutes)
 
 **Tasks:**
-1. Rename current repo: `claude-config` → `claude-codex`
-2. Update all references in CLAUDE.md
-3. Create `.claude-plugin/plugin.json` manifest
-4. Add GitHub workflow for validation
-5. Update README with installation instructions
+1. ✅ Rename current repo: `claude-config` → `claude-codex` (DONE)
+2. ✅ Update all references in CLAUDE.md
+3. ✅ Create `.claude-plugin/plugin.json` manifest
+4. ✅ Add GitHub workflow for validation
+5. ✅ Update README with installation instructions
 
 **Deliverables:**
 - ✅ Plugin-ready repository
