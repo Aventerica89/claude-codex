@@ -1,0 +1,26 @@
+{
+  "name": "claude-codex",
+  "description": "Universal Claude Code configuration system with auto-sync across CLI and web. Includes curated commands, agents, skills, and rules for professional development workflows.",
+  "author": {
+    "name": "JB",
+    "url": "https://github.com/Aventerica89"
+  },
+  "homepage": "https://github.com/Aventerica89/claude-codex",
+  "repository": "https://github.com/Aventerica89/claude-codex",
+  "license": "MIT",
+  "version": "1.0.0",
+  "keywords": [
+    "claude-code",
+    "configuration",
+    "auto-sync",
+    "commands",
+    "agents",
+    "skills",
+    "productivity",
+    "development",
+    "workflow"
+  ],
+  "commands": "./commands",
+  "skills": "./skills",
+  "agents": "./agents"
+}

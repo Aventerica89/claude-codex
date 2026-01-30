@@ -479,6 +479,35 @@ git add -A
 git commit -m "chore: initialize project with architecture and style guide"
 ```
 
+### 6.8 GitHub Actions Setup (Optional)
+
+**Ask user:** "Would you like to set up GitHub Actions CI/CD workflows?"
+
+If user confirms (or if `--quick` mode with production intent):
+
+1. **Use /setup-github-actions command** with appropriate preset:
+   - For Node.js: `--preset node`
+   - For Python: `--preset python`
+   - For documentation: `--preset docs`
+   - Or use `--minimal` for just CI + Dependabot
+
+2. **Workflows created:**
+   - Essential: CI/Test, Dependabot
+   - Recommended: Code Quality, Security Scan
+   - Optional: Release Automation
+
+3. **Commit workflows:**
+   ```bash
+   git add .github/
+   git commit -m "ci: add github actions workflows and dependabot config"
+   ```
+
+**Output**: "GitHub Actions configured. Workflows will activate on next push."
+
+**Skip this step if:**
+- User declines
+- Quick mode for experiments/personal projects (not production)
+
 ---
 
 ## Phase 6.5: MOBILE APP COMPANION (Optional)
@@ -669,7 +698,7 @@ Add to dev button menu:
 
 ---
 
-### 6.8 Sync to docs.jbcloud.app (DEFAULT - unless --no-docs)
+### 6.9 Sync to docs.jbcloud.app (DEFAULT - unless --no-docs)
 
 Documentation sync happens automatically for all new projects.
 
@@ -739,6 +768,7 @@ Tell the user:
 - Visit `/style-guide` to see/tweak components
 - **If mobile app enabled:** Visit `/mobile-app` for companion app mockup
 - Click the floating dev button (bottom-right) for quick access to dev tools
+- **If GitHub Actions enabled:** Workflows will activate on next push. Create releases with `/create-release`
 - Start with `/tdd` to begin implementation
 - Use `/end` when finishing a session to sync docs and save progress
 - Documentation published to `https://docs.jbcloud.app/{project-slug}/`
@@ -764,6 +794,8 @@ Display the commands cheatsheet:
 |---------|---------|
 | /commit | Create conventional commit |
 | /create-pr | Create pull request |
+| /create-release | Create and publish release with git tag |
+| /setup-github-actions | Configure CI/CD workflows |
 | /standup | Generate standup notes |
 
 ### Session Management

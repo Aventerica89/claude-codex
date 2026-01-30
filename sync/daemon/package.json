@@ -1,0 +1,19 @@
+{
+  "name": "claude-codex-sync-daemon",
+  "version": "1.0.0",
+  "description": "Auto-sync daemon for Claude Codex configuration",
+  "main": "watcher.js",
+  "scripts": {
+    "start": "node watcher.js",
+    "install-service": "node watcher.js install",
+    "uninstall-service": "node watcher.js uninstall",
+    "status": "node watcher.js status"
+  },
+  "keywords": ["claude-code", "sync", "watcher"],
+  "author": "JB",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "simple-git": "^3.22.0"
+  }
+}

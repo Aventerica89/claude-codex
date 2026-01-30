@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create browser extension zip
+        run: |
+          cd browser-extension
+          zip -r ../claude-codex-extension-${{ github.ref_name }}.zip . \
+            -x "*.md" -x "create-icons.sh"
+          cd ..
+
+      - name: Create bookmarklet zip
+        run: |
+          cd bookmarklet
+          zip -r ../claude-codex-bookmarklet-${{ github.ref_name }}.zip *.js *.min.js
+          cd ..
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            claude-codex-extension-${{ github.ref_name }}.zip
+            claude-codex-bookmarklet-${{ github.ref_name }}.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
