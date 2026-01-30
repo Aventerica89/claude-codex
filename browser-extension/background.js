@@ -92,10 +92,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 })
 
-// Fetch on install/update
+// Fetch on install/update and setup alarm
 chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason === 'install' || details.reason === 'update') {
     console.log(`[Codex] Extension ${details.reason}ed`)
+
+    // Setup periodic refresh alarm
+    chrome.alarms.create('refreshCodex', { periodInMinutes: 60 })
+    console.log('[Codex] Alarm created for hourly refresh')
+
     try {
       await fetchCodexConfig()
       console.log('[Codex] Initial config fetched')
@@ -104,9 +109,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     }
   }
 })
-
-// Periodic refresh (every hour while browser is open)
-chrome.alarms.create('refreshCodex', { periodInMinutes: 60 })
 
 chrome.alarms.onAlarm.addListener(async (alarm) => {
   if (alarm.name === 'refreshCodex') {

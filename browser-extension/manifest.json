@@ -5,7 +5,8 @@
   "description": "Sync Claude Codex configuration to Claude.ai Projects with one click",
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "alarms"
   ],
   "host_permissions": [
     "https://raw.githubusercontent.com/*",
