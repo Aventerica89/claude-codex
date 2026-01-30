@@ -4,7 +4,7 @@ import { Badge } from './ui/badge';
 
 const features = [
   {
-    title: '35+ Custom Commands',
+    title: '23 Custom Commands',
     description: 'Project management, git workflows, code quality, deployment, and more. All accessible via slash commands.',
     badge: 'Commands',
     badgeVariant: 'command' as const,
@@ -18,7 +18,7 @@ const features = [
     items: ['planner', 'security-reviewer', 'tdd-guide', 'architect', 'e2e-runner'],
   },
   {
-    title: '13+ Reusable Skills',
+    title: '11 Reusable Skills',
     description: 'Patterns and best practices for TypeScript, React, backend development, and security.',
     badge: 'Skills',
     badgeVariant: 'skill' as const,

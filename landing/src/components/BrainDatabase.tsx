@@ -28,7 +28,6 @@ const BrainDatabase = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTypes, setSelectedTypes] = useState<BrainItemType[]>([]);
   const [selectedItem, setSelectedItem] = useState<BrainItem | null>(null);
-  const [isCommandOpen, setIsCommandOpen] = useState(false);
   const [sortBy, setSortBy] = useState<'name' | 'type'>('type');
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -49,17 +48,16 @@ const BrainDatabase = () => {
     );
   };
 
-  // Keyboard shortcut to open command palette
+  // Keyboard shortcut to focus search
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        setIsCommandOpen(true);
-        setTimeout(() => inputRef.current?.focus(), 100);
+        inputRef.current?.focus();
       }
       if (e.key === 'Escape') {
-        setIsCommandOpen(false);
         setSelectedItem(null);
+        inputRef.current?.blur();
       }
     };
 
@@ -117,7 +115,6 @@ const BrainDatabase = () => {
                 placeholder="Search commands, agents, skills, rules..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setIsCommandOpen(true)}
                 className="w-full px-4 py-3 bg-card border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 pl-10"
               />
               <svg

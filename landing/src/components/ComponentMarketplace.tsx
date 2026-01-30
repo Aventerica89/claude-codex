@@ -124,15 +124,13 @@ const ComponentMarketplace = () => {
               <div className="space-y-2">
                 {registries.map((registry) => (
                   <label
-                    key={registry.name}
+                    key={registry.id}
                     className="flex items-center gap-3 cursor-pointer group"
                   >
                     <input
                       type="checkbox"
-                      checked={selectedRegistries.includes(
-                        registry.name.toLowerCase().replace(/[^a-z]/g, '-').replace('--', '-')
-                      ) || selectedRegistries.includes(registry.name === 'shadcn/ui' ? 'shadcn' : registry.name.toLowerCase().split(' ')[0])}
-                      onChange={() => toggleRegistry(registry.name === 'shadcn/ui' ? 'shadcn' : registry.name.toLowerCase().split(' ')[0])}
+                      checked={selectedRegistries.includes(registry.id)}
+                      onChange={() => toggleRegistry(registry.id)}
                       className="w-4 h-4 rounded border-border bg-secondary accent-violet-500"
                     />
                     <span className="text-sm group-hover:text-foreground text-muted-foreground transition-colors">

@@ -9,6 +9,7 @@ export interface RegistryComponent {
 }
 
 export interface Registry {
+  id: string;
   name: string;
   url: string;
   description: string;
@@ -112,18 +113,21 @@ const aceternityComponents: RegistryComponent[] = [
 
 export const registries: Registry[] = [
   {
+    id: 'shadcn',
     name: 'shadcn/ui',
     url: 'https://ui.shadcn.com',
     description: 'Core component library',
     components: shadcnComponents,
   },
   {
+    id: 'magic-ui',
     name: 'Magic UI',
     url: 'https://magicui.design',
     description: 'Animation-focused components',
     components: magicUIComponents,
   },
   {
+    id: 'aceternity',
     name: 'Aceternity UI',
     url: 'https://ui.aceternity.com',
     description: 'Modern animated components',

@@ -43,7 +43,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          35+ commands, 12 specialized agents, and seamless integrations.
+          23 commands, 12 specialized agents, 11 skills, and seamless integrations.
           The universal configuration system that syncs across all your machines.
         </motion.p>
 
@@ -69,10 +69,10 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           {[
-            { value: '35+', label: 'Commands' },
+            { value: '23', label: 'Commands' },
             { value: '12', label: 'Agents' },
-            { value: '13+', label: 'Skills' },
-            { value: '10+', label: 'Integrations' },
+            { value: '11', label: 'Skills' },
+            { value: '8', label: 'Integrations' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl md:text-4xl font-bold gradient-text">{stat.value}</div>
