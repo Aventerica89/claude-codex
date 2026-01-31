@@ -1,6 +1,71 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+
+// Constants
+const FEATURE_HIGHLIGHTS = [
+  { value: '<1s', label: 'Key Detection' },
+  { value: '20+', label: 'Providers' },
+  { value: '100%', label: 'Secure' },
+  { value: 'Zero', label: 'Config' },
+]
+
+const SUPPORTED_PLATFORMS = [
+  'Vercel',
+  'Cloudflare',
+  'Netlify',
+  'GitHub',
+  'OpenAI',
+  'Anthropic',
+  'AWS',
+  'Stripe',
+]
+
+const WORKFLOW_STEPS = [
+  {
+    id: 'copy',
+    title: 'Copy Key',
+    description: 'Auto-detected from clipboard',
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+      </svg>
+    ),
+    bgGradient: 'from-blue-500 to-cyan-500',
+    borderHover: 'hover:border-violet-500/50',
+    animation: { x: -50, delay: 0.2 },
+  },
+  {
+    id: 'store',
+    title: 'Secure Storage',
+    description: 'Saved to 1Password instantly',
+    icon: (
+      <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="10" r="3" />
+        <path d="M12 13c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
+      </svg>
+    ),
+    bgGradient: 'from-violet-500 to-fuchsia-500',
+    borderHover: 'hover:border-violet-500/30',
+    animation: { y: 50, delay: 0.4 },
+    featured: true,
+  },
+  {
+    id: 'deploy',
+    title: 'Auto-Fill',
+    description: 'Deploy to any platform',
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    bgGradient: 'from-green-500 to-emerald-500',
+    borderHover: 'hover:border-green-500/50',
+    animation: { x: 50, delay: 0.6 },
+  },
+]
 
 export default function EnvVarAssistant() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Background gradient */}
@@ -17,7 +82,7 @@ export default function EnvVarAssistant() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 mb-6">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+              <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
             </span>
             <span className="text-sm font-medium text-violet-400">Lightning Fast</span>
@@ -33,112 +98,60 @@ export default function EnvVarAssistant() {
         {/* Main visual flow */}
         <div className="max-w-6xl mx-auto mb-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            {/* Step 1: Clipboard */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="bg-card border border-border rounded-2xl p-8 hover:border-violet-500/50 transition-all duration-300">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-center mb-2">Copy Key</h3>
-                <p className="text-sm text-muted-foreground text-center">
-                  Auto-detected from clipboard
-                </p>
+            {WORKFLOW_STEPS.map((step, index) => (
+              <div key={step.id} className="relative">
+                <motion.div
+                  initial={{ opacity: 0, ...step.animation }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{ duration: 0.6, delay: step.animation.delay }}
+                  viewport={{ once: true }}
+                  className="relative"
+                >
+                  <div className={`bg-card ${step.featured ? 'border-2 border-violet-500/50 shadow-xl shadow-violet-500/20 hover:shadow-violet-500/30' : 'border border-border'} rounded-2xl p-8 ${step.borderHover} transition-all duration-300`}>
+                    <div className={`${step.featured ? 'w-20 h-20' : 'w-16 h-16'} rounded-xl bg-gradient-to-br ${step.bgGradient} flex items-center justify-center mb-4 mx-auto relative`}>
+                      {step.icon}
+
+                      {/* Speed particles - only for featured step */}
+                      {step.featured && (
+                        <motion.div
+                          animate={shouldReduceMotion ? undefined : {
+                            scale: [1, 1.5, 1],
+                            opacity: [0.5, 0, 0.5]
+                          }}
+                          transition={shouldReduceMotion ? undefined : {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                          className="absolute inset-0 rounded-xl bg-violet-500/30 blur-xl"
+                        />
+                      )}
+                    </div>
+                    <h3 className={`${step.featured ? 'text-xl font-bold text-violet-400' : 'text-lg font-semibold'} text-center mb-2`}>
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground text-center">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Speed streak - not on last step */}
+                  {index < WORKFLOW_STEPS.length - 1 && (
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, delay: step.animation.delay + 0.2 }}
+                      viewport={{ once: true }}
+                      className="hidden md:block absolute top-1/2 -right-8 w-16 h-1 bg-gradient-to-r from-violet-500 to-transparent origin-left"
+                    >
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2">
+                        <div className="w-2 h-2 rounded-full bg-violet-500 motion-safe:animate-pulse" />
+                      </div>
+                    </motion.div>
+                  )}
+                </motion.div>
               </div>
-
-              {/* Speed streak */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="hidden md:block absolute top-1/2 -right-8 w-16 h-1 bg-gradient-to-r from-violet-500 to-transparent origin-left"
-              >
-                <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                  <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Step 2: 1Password */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="bg-card border-2 border-violet-500/50 rounded-2xl p-8 shadow-xl shadow-violet-500/20 hover:shadow-violet-500/30 transition-all duration-300">
-                <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center mb-4 mx-auto relative">
-                  {/* 1Password keyhole */}
-                  <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="10" r="3" />
-                    <path d="M12 13c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                  </svg>
-
-                  {/* Speed particles */}
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.5, 1],
-                      opacity: [0.5, 0, 0.5]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="absolute inset-0 rounded-xl bg-violet-500/30 blur-xl"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-center mb-2 text-violet-400">
-                  Secure Storage
-                </h3>
-                <p className="text-sm text-muted-foreground text-center">
-                  Saved to 1Password instantly
-                </p>
-              </div>
-
-              {/* Speed streak */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                viewport={{ once: true }}
-                className="hidden md:block absolute top-1/2 -right-8 w-16 h-1 bg-gradient-to-r from-violet-500 to-transparent origin-left"
-              >
-                <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                  <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Step 3: Deploy */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="bg-card border border-border rounded-2xl p-8 hover:border-green-500/50 transition-all duration-300">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-4 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-center mb-2">Auto-Fill</h3>
-                <p className="text-sm text-muted-foreground text-center">
-                  Deploy to any platform
-                </p>
-              </div>
-            </motion.div>
+            ))}
           </div>
         </div>
 
@@ -150,22 +163,12 @@ export default function EnvVarAssistant() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
-          <div className="text-center">
-            <div className="text-3xl font-bold text-violet-400 mb-2">&lt;1s</div>
-            <div className="text-sm text-muted-foreground">Key Detection</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-violet-400 mb-2">20+</div>
-            <div className="text-sm text-muted-foreground">Providers</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-violet-400 mb-2">100%</div>
-            <div className="text-sm text-muted-foreground">Secure</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-violet-400 mb-2">Zero</div>
-            <div className="text-sm text-muted-foreground">Config</div>
-          </div>
+          {FEATURE_HIGHLIGHTS.map((feature) => (
+            <div key={feature.label} className="text-center">
+              <div className="text-3xl font-bold text-violet-400 mb-2">{feature.value}</div>
+              <div className="text-sm text-muted-foreground">{feature.label}</div>
+            </div>
+          ))}
         </motion.div>
 
         {/* Supported platforms */}
@@ -178,7 +181,7 @@ export default function EnvVarAssistant() {
         >
           <p className="text-sm text-muted-foreground mb-6">WORKS WITH</p>
           <div className="flex flex-wrap items-center justify-center gap-6 max-w-4xl mx-auto">
-            {['Vercel', 'Cloudflare', 'Netlify', 'GitHub', 'OpenAI', 'Anthropic', 'AWS', 'Stripe'].map((name) => (
+            {SUPPORTED_PLATFORMS.map((name) => (
               <div
                 key={name}
                 className="px-4 py-2 rounded-lg bg-card border border-border hover:border-violet-500/50 transition-colors text-sm font-medium text-muted-foreground hover:text-foreground"
