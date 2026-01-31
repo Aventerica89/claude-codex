@@ -1,10 +1,10 @@
 ---
-description: Sync claude-codex changes to GitHub from any directory
+description: Bidirectional sync of claude-codex with GitHub from any directory
 ---
 
 # Sync Command
 
-Commits and pushes changes in the claude-codex repository (~/.claude) to GitHub, regardless of your current working directory.
+Bidirectional sync of the claude-codex repository (~/.claude) with GitHub. Pulls remote changes, commits local changes, and pushes - all from any directory.
 
 ## Arguments
 
@@ -12,23 +12,33 @@ Parse `$ARGUMENTS` for optional commit message:
 - No arguments - Auto-generate commit message from changes
 - `$ARGUMENTS` - Use as custom commit message
 
-## Behavior
+## Behavior (Bidirectional)
 
-1. **Check for changes in ~/.claude**:
+1. **Fetch remote status**:
    ```bash
-   cd ~/.claude && git status --porcelain
+   cd ~/.claude && git fetch origin
    ```
 
-2. **If no changes**:
-   - Output: "No changes to sync in claude-codex."
-   - Exit
+2. **Check if remote is ahead**:
+   ```bash
+   git rev-list HEAD..origin/main --count
+   ```
+   - If remote has commits → pull with rebase
+   - Show what was pulled
 
-3. **If changes exist**:
+3. **Check for local changes**:
+   ```bash
+   git status --porcelain
+   ```
+   - If no changes and already up to date → "Already in sync"
+   - If changes exist → proceed to commit
+
+4. **If local changes exist**:
    - Show what changed (files added/modified/deleted)
    - Generate or use commit message
-   - Commit and push
+   - Commit changes
 
-4. **Commit message logic**:
+5. **Commit message logic**:
    - If user provided message: use it
    - If auto-generating:
      - Check which directories changed (commands/, skills/, agents/, rules/)
@@ -38,31 +48,37 @@ Parse `$ARGUMENTS` for optional commit message:
        - `fix(commands): update <command-name>` - Modified command
        - `chore: update multiple files` - Multiple changes
 
-5. **Execute sync**:
+6. **Execute sync**:
    ```bash
    cd ~/.claude
+   # Pull if needed
+   [git pull --rebase origin main]
+
+   # Commit if local changes
    git add -A
    git commit -m "<message>"
+
+   # Push
    git push origin main
    ```
 
-6. **Report results**:
+7. **Report results**:
+   - Show what was pulled (if any)
+   - Show what was committed (if any)
    - Show commit hash
-   - Show which files were synced
-   - Confirm push successful
+   - Confirm sync successful
 
 ## Example Flows
 
-### Auto-generated message
+### Local changes only
 
 ```
 User: /sync
 
-Claude: [Checks ~/.claude for changes]
-Claude: [Finds new command: sync.md]
-Claude: Syncing claude-codex changes...
+Claude: Syncing claude-codex...
 
-        Modified files:
+        Remote: Already up to date
+        Local changes:
         - commands/sync.md (new)
 
         [Commits with: "feat(commands): add sync"]
@@ -72,28 +88,65 @@ Claude: Syncing claude-codex changes...
         Changes are now available on all machines.
 ```
 
-### Custom message
-
-```
-User: /sync "Add sync command for cross-repo convenience"
-
-Claude: Syncing claude-codex changes...
-
-        Modified files:
-        - commands/sync.md (new)
-
-        [Commits with user message]
-        [Pushes to GitHub]
-
-        ✓ Synced to claude-codex (abc1234)
-```
-
-### No changes
+### Remote changes only
 
 ```
 User: /sync
 
-Claude: No changes to sync in claude-codex.
+Claude: Syncing claude-codex...
+
+        Pulled 2 commits from remote:
+        - feat(skills): add new learned pattern
+        - fix(commands): update deploy-env
+
+        No local changes to push.
+
+        ✓ Synced with remote (up to date)
+```
+
+### Both remote and local changes
+
+```
+User: /sync
+
+Claude: Syncing claude-codex...
+
+        Pulled 1 commit from remote:
+        - docs: update README
+
+        Local changes:
+        - commands/new-feature.md (new)
+
+        [Rebases local changes on top of remote]
+        [Commits with: "feat(commands): add new-feature"]
+        [Pushes to GitHub]
+
+        ✓ Synced to claude-codex (def5678)
+```
+
+### Already in sync
+
+```
+User: /sync
+
+Claude: Already in sync with claude-codex.
+```
+
+### Custom commit message
+
+```
+User: /sync "Add bidirectional sync support"
+
+Claude: Syncing claude-codex...
+
+        Remote: Already up to date
+        Local changes:
+        - commands/sync.md (modified)
+
+        [Commits with user message]
+        [Pushes to GitHub]
+
+        ✓ Synced to claude-codex (ghi9012)
 ```
 
 ## Error Handling
@@ -120,3 +173,6 @@ If git operations fail:
 - Modified a skill and want it available on other machines
 - Updated rules and need them pushed to GitHub
 - Working in a project but want to sync codex changes without changing directories
+- Just logged into a new machine and want to pull latest codex changes
+- Both local and remote have changes - handles rebase automatically
+- Quick health check: "Am I in sync with my codex repo?"
