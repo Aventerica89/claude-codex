@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "/Users/jb/.21st/worktrees/claude-codex/crucial-prairie": {
+      "contextId": "crucial-prairie-2026-01-31-064647",
+      "timestamp": "2026-01-31T06:46:47.000Z",
+      "branch": "supreme-marsupial-6367e8",
+      "summary": "Created codex commands, updated landing site stats",
+      "uncommittedFiles": 1
+    }
+  }
+}
