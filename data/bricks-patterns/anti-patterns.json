@@ -1,0 +1,201 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-01-29",
+  "anti_patterns": [
+    {
+      "id": "no-global-class",
+      "severity": "critical",
+      "category": "structure",
+      "description": "Element missing _cssGlobalClasses array",
+      "detection_rule": "element.settings._cssGlobalClasses == undefined || element.settings._cssGlobalClasses.length == 0",
+      "why_bad": "Elements without global classes cannot be styled consistently. All styling must go in globalClasses array for maintainability.",
+      "fix": "Add BEM-named global class to every element",
+      "example_bad": {
+        "settings": {
+          "_display": "flex",
+          "_padding": {"top": "var(--spacing-m)"}
+        }
+      },
+      "example_good": {
+        "settings": {
+          "_cssGlobalClasses": ["component__element"]
+        }
+      }
+    },
+    {
+      "id": "hardcoded-hex-color",
+      "severity": "high",
+      "category": "acss-compliance",
+      "description": "Color using hex value instead of ACSS variable",
+      "detection_rule": "/#[0-9a-fA-F]{3,8}/ in color settings",
+      "why_bad": "Hardcoded colors break design system consistency and cannot be changed globally.",
+      "fix": "Replace with ACSS color variable",
+      "example_bad": {
+        "_typography": {
+          "color": {"hex": "#c73e3e"}
+        }
+      },
+      "example_good": {
+        "_typography": {
+          "color": {"raw": "var(--primary)"}
+        }
+      }
+    },
+    {
+      "id": "hardcoded-spacing",
+      "severity": "high",
+      "category": "acss-compliance",
+      "description": "Spacing value not using ACSS variable",
+      "detection_rule": "/\\d+px/ in _padding, _margin, _gap settings",
+      "why_bad": "Hardcoded spacing breaks spacing scale consistency and responsive behavior.",
+      "fix": "Replace with ACSS spacing variable",
+      "example_bad": {
+        "_padding": {"top": "20px", "bottom": "40px"}
+      },
+      "example_good": {
+        "_padding": {"top": "var(--spacing-m)", "bottom": "var(--spacing-xl)"}
+      }
+    },
+    {
+      "id": "hardcoded-font-size",
+      "severity": "high",
+      "category": "acss-compliance",
+      "description": "Font size not using ACSS variable",
+      "detection_rule": "/\\d+px/ in fontSize setting",
+      "why_bad": "Hardcoded font sizes break typography scale and responsive text sizing.",
+      "fix": "Replace with ACSS typography variable",
+      "example_bad": {
+        "_typography": {"fontSize": "24px"}
+      },
+      "example_good": {
+        "_typography": {"fontSize": "var(--text-l)"}
+      }
+    },
+    {
+      "id": "missing-responsive",
+      "severity": "medium",
+      "category": "responsive",
+      "description": "No responsive breakpoints defined for layout properties",
+      "detection_rule": "!hasBreakpointSuffixes in grid/flex layouts",
+      "why_bad": "Desktop-only layouts break on mobile devices.",
+      "fix": "Add responsive variants with breakpoint suffixes",
+      "example_bad": {
+        "_gridTemplateColumns": "1fr 1fr 1fr"
+      },
+      "example_good": {
+        "_gridTemplateColumns": "1fr 1fr 1fr",
+        "_gridTemplateColumns:tablet_portrait": "1fr 1fr",
+        "_gridTemplateColumns:mobile_portrait": "1fr"
+      }
+    },
+    {
+      "id": "inconsistent-bem-naming",
+      "severity": "medium",
+      "category": "naming",
+      "description": "Global class names don't follow BEM convention",
+      "detection_rule": "!matches(/^[a-z0-9-]+(__[a-z0-9-]+)?(--[a-z0-9-]+)?$/)",
+      "why_bad": "Inconsistent naming makes component structure unclear and hard to maintain.",
+      "fix": "Use BEM pattern: block__element--modifier",
+      "example_bad": [
+        "footer-Navigation",
+        "footerLink",
+        "footer_link",
+        "FOOTER-LINK"
+      ],
+      "example_good": [
+        "footer__navigation",
+        "footer__nav-link",
+        "footer__nav-link--active"
+      ]
+    },
+    {
+      "id": "missing-element-label",
+      "severity": "low",
+      "category": "documentation",
+      "description": "Element missing descriptive label",
+      "detection_rule": "element.label == undefined || element.label == ''",
+      "why_bad": "Missing labels make components hard to understand and navigate in Bricks Builder.",
+      "fix": "Add descriptive label to every element",
+      "example_bad": {
+        "id": "abc123",
+        "name": "div"
+      },
+      "example_good": {
+        "id": "abc123",
+        "name": "div",
+        "label": "Footer Navigation Container"
+      }
+    },
+    {
+      "id": "inline-html-with-styles",
+      "severity": "medium",
+      "category": "structure",
+      "description": "Using inline HTML with style attributes in text content",
+      "detection_rule": "/<span style=/ or /<div style=/ in text field",
+      "why_bad": "Inline HTML styles break when pasted into Bricks Builder and cannot be controlled via global classes.",
+      "fix": "Split into separate elements or use global classes for styling",
+      "example_bad": {
+        "text": "<span style='color: var(--white);'>BERNADETTE</span> <span style='color: var(--primary);'>SMITH</span>"
+      },
+      "example_good": [
+        {
+          "id": "logo-bernadette",
+          "text": "BERNADETTE",
+          "settings": {"_cssGlobalClasses": ["logo__text--white"]}
+        },
+        {
+          "id": "logo-smith",
+          "text": "SMITH",
+          "settings": {"_cssGlobalClasses": ["logo__text--red"]}
+        }
+      ]
+    },
+    {
+      "id": "missing-top-level-wrapper",
+      "severity": "critical",
+      "category": "structure",
+      "description": "JSON missing top-level wrapper with required fields",
+      "detection_rule": "!hasKeys(['content', 'source', 'sourceUrl', 'version'])",
+      "why_bad": "Bricks Builder cannot import without proper structure. Results in 'paste unidentified' error.",
+      "fix": "Wrap elements in object with content, source, sourceUrl, version",
+      "example_bad": [
+        {"id": "element1", "name": "div"},
+        {"id": "element2", "name": "text-basic"}
+      ],
+      "example_good": {
+        "content": [
+          {"id": "element1", "name": "div"},
+          {"id": "element2", "name": "text-basic"}
+        ],
+        "source": "bricksCopiedElements",
+        "sourceUrl": "https://example.com",
+        "version": "2.1.4"
+      }
+    },
+    {
+      "id": "duplicate-global-classes",
+      "severity": "medium",
+      "category": "optimization",
+      "description": "Multiple global classes with identical settings",
+      "detection_rule": "globalClass.settings matches another globalClass.settings",
+      "why_bad": "Duplicate classes increase file size and maintenance burden. Should be merged.",
+      "fix": "Merge duplicate classes or create modifier pattern",
+      "example_bad": [
+        {
+          "name": "card__title-1",
+          "settings": {"fontSize": "var(--text-xl)", "fontWeight": "700"}
+        },
+        {
+          "name": "card__title-2",
+          "settings": {"fontSize": "var(--text-xl)", "fontWeight": "700"}
+        }
+      ],
+      "example_good": [
+        {
+          "name": "card__title",
+          "settings": {"fontSize": "var(--text-xl)", "fontWeight": "700"}
+        }
+      ]
+    }
+  ]
+}
