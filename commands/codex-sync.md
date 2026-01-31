@@ -2,7 +2,7 @@
 description: Bidirectional sync of claude-codex with GitHub from any directory
 ---
 
-# Sync Command
+# Codex Sync Command
 
 Bidirectional sync of the claude-codex repository (~/.claude) with GitHub. Pulls remote changes, commits local changes, and pushes - all from any directory.
 
@@ -73,7 +73,7 @@ Parse `$ARGUMENTS` for optional commit message:
 ### Local changes only
 
 ```
-User: /sync
+User: /codex-sync
 
 Claude: Syncing claude-codex...
 
@@ -91,7 +91,7 @@ Claude: Syncing claude-codex...
 ### Remote changes only
 
 ```
-User: /sync
+User: /codex-sync
 
 Claude: Syncing claude-codex...
 
@@ -107,7 +107,7 @@ Claude: Syncing claude-codex...
 ### Both remote and local changes
 
 ```
-User: /sync
+User: /codex-sync
 
 Claude: Syncing claude-codex...
 
@@ -127,7 +127,7 @@ Claude: Syncing claude-codex...
 ### Already in sync
 
 ```
-User: /sync
+User: /codex-sync
 
 Claude: Already in sync with claude-codex.
 ```
@@ -135,7 +135,7 @@ Claude: Already in sync with claude-codex.
 ### Custom commit message
 
 ```
-User: /sync "Add bidirectional sync support"
+User: /codex-sync "Add bidirectional sync support"
 
 Claude: Syncing claude-codex...
 

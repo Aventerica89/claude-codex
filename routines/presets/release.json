@@ -1,0 +1,80 @@
+{
+  "name": "release",
+  "description": "Comprehensive pre-release checks - all gates, zero compromises",
+  "level": "custom",
+  "checks": {
+    "build": {
+      "enabled": true,
+      "required": true
+    },
+    "tests": {
+      "enabled": true,
+      "required": true,
+      "min_coverage": 80
+    },
+    "typescript": {
+      "enabled": true,
+      "required": true
+    },
+    "lint": {
+      "enabled": true,
+      "required": true,
+      "auto_fix": true
+    },
+    "secrets_scan": {
+      "enabled": true,
+      "required": true
+    },
+    "gemini_review": {
+      "enabled": true,
+      "required": true,
+      "wait": true,
+      "timeout_seconds": 300,
+      "implement_severity": ["CRITICAL", "HIGH"],
+      "prompt_severity": ["MEDIUM"]
+    },
+    "security_scan": {
+      "enabled": true,
+      "required": true,
+      "level": "full",
+      "auto_fix_npm_audit": true,
+      "block_on_critical": true
+    },
+    "github_actions": {
+      "enabled": true,
+      "required": true,
+      "wait_for_completion": true,
+      "timeout_seconds": 900
+    },
+    "bundle_size": {
+      "enabled": true,
+      "required": false,
+      "max_increase_percent": 5,
+      "warn_threshold_kb": 25
+    },
+    "breaking_changes": {
+      "enabled": true,
+      "required": true,
+      "check_api_changes": true,
+      "require_migration_guide": true
+    },
+    "performance": {
+      "enabled": true,
+      "required": false,
+      "lighthouse_threshold": 90
+    }
+  },
+  "merge": {
+    "method": "squash",
+    "delete_branch": true,
+    "auto_merge": false,
+    "confirmation_required": true
+  },
+  "require_all_pass": true,
+  "notifications": {
+    "on_start": true,
+    "on_complete": true,
+    "on_error": true,
+    "on_block": true
+  }
+}

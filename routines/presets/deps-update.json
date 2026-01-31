@@ -1,0 +1,51 @@
+{
+  "name": "deps-update",
+  "description": "Dependency update merge - focus on security and compatibility",
+  "level": "custom",
+  "checks": {
+    "build": {
+      "enabled": true,
+      "required": true,
+      "timeout_seconds": 180
+    },
+    "tests": {
+      "enabled": true,
+      "required": true,
+      "min_coverage": 75
+    },
+    "security_scan": {
+      "enabled": true,
+      "required": true,
+      "level": "quick",
+      "auto_fix_npm_audit": false,
+      "block_on_critical": true
+    },
+    "typescript": {
+      "enabled": true,
+      "required": true
+    },
+    "github_actions": {
+      "enabled": true,
+      "required": true,
+      "wait_for_completion": true,
+      "required_workflows": ["build", "test"]
+    },
+    "bundle_size": {
+      "enabled": true,
+      "required": false,
+      "max_increase_percent": 15,
+      "warn_threshold_kb": 100
+    },
+    "gemini_review": {
+      "enabled": false
+    },
+    "lint": {
+      "enabled": false
+    }
+  },
+  "merge": {
+    "method": "squash",
+    "delete_branch": true,
+    "auto_merge": false
+  }
+}

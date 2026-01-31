@@ -1,0 +1,49 @@
+{
+  "name": "hotfix",
+  "description": "Fast merge for critical production fixes - minimal checks, maximum speed",
+  "level": "custom",
+  "checks": {
+    "build": {
+      "enabled": true,
+      "required": true
+    },
+    "tests": {
+      "enabled": true,
+      "required": true,
+      "min_coverage": 70
+    },
+    "security_scan": {
+      "enabled": true,
+      "required": true,
+      "level": "quick",
+      "block_on_critical": true
+    },
+    "secrets_scan": {
+      "enabled": true,
+      "required": true
+    },
+    "typescript": {
+      "enabled": false
+    },
+    "lint": {
+      "enabled": false
+    },
+    "gemini_review": {
+      "enabled": false
+    },
+    "github_actions": {
+      "enabled": true,
+      "required": false,
+      "wait_for_completion": false
+    }
+  },
+  "merge": {
+    "method": "merge",
+    "delete_branch": false,
+    "auto_merge": false,
+    "confirmation_required": true
+  },
+  "notifications": {
+    "on_complete": true
+  }
+}

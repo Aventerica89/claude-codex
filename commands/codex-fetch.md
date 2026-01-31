@@ -49,19 +49,19 @@ Claude: Fetching latest CLAUDE.md from codex...
         [Displays full CLAUDE.md content]
 
         Source: https://github.com/Aventerica89/claude-codex/blob/main/CLAUDE.md
-        Use /sync to pull these changes locally (CLI only)
+        Use /codex-sync to pull these changes locally (CLI only)
 ```
 
 ### Fetch specific command
 
 ```
-User: /codex-fetch commands/sync.md
+User: /codex-fetch commands/codex-sync.md
 
-Claude: Fetching commands/sync.md from codex...
+Claude: Fetching commands/codex-sync.md from codex...
 
-        [Displays sync.md content]
+        [Displays codex-sync.md content]
 
-        Source: https://github.com/Aventerica89/claude-codex/blob/main/commands/sync.md
+        Source: https://github.com/Aventerica89/claude-codex/blob/main/commands/codex-sync.md
 ```
 
 ### Fetch specific skill
@@ -146,9 +146,9 @@ This command works perfectly in browser because:
 - Can copy/paste configs into Projects knowledge
 - Instant access to latest remote version
 
-## Companion to /sync
+## Companion to /codex-sync
 
-- `/sync` - Bidirectional git sync (CLI only)
+- `/codex-sync` - Bidirectional git sync (CLI only)
 - `/codex-fetch` - Read-only remote fetch (works everywhere)
 
 Use `/codex-fetch` when:
