@@ -449,3 +449,68 @@ Status: Complete and ready to use
 - Full integration (Gemini, security): ⏳ Next phase
 - Metrics tracking: ⏳ Next phase
 - Team adoption: 📋 Ready to use
+
+## Session: 2026-02-01 - Auto-Sync Setup & routine-merge-end
+
+### What Was Accomplished
+
+1. **Created `/routine-merge-end` skill**
+   - Added comprehensive git state checks before merge
+   - Detects uncommitted changes (source/config vs artifacts)
+   - User options: stash, add to PR, show diff, or cancel
+   - Automatic session cleanup after successful merge
+   - Stash reminder if changes were stashed
+
+2. **Installed Auto-Sync Daemon**
+   - Configured `~/.claude/` symlink to claude-codex repo
+   - Installed daemon dependencies (chokidar, simple-git)
+   - Set up LaunchAgent for automatic syncing
+   - Auto-commits after 30s, auto-pushes every 5min
+   - Enables config sync across all machines
+
+3. **Committed 175 files**
+   - Auto-sync daemon dependencies
+   - Sync logs (sync.log, sync.error.log)
+   - All changes properly tracked
+
+### Key Lessons
+
+**Skill Recognition**
+- Claude Code loads skills at startup only
+- No hot-reload for new skills
+- Must exit and restart to pick up new skills
+- Can manually follow prompt.md as workaround
+
+**Auto-Sync Setup**
+- Symlink approach works well for global config
+- LaunchAgent ensures daemon runs at login
+- Node modules should be committed for portability
+- Sync daemon distributes changes automatically
+
+**Git State Checking**
+- Critical to check entire repo for uncommitted changes
+- Must distinguish source files from build artifacts
+- Stashing preserves work while allowing clean merge
+- Always remind user about stashed changes
+
+### Files Created/Modified
+- `skills/routine-merge-end/skill.json` - Created (23 lines)
+- `skills/routine-merge-end/prompt.md` - Created (396 lines)
+- `sync/daemon/node_modules/` - 173 dependency files
+- `sync.log`, `sync.error.log` - Daemon logs
+
+### Commits Made
+- `00d0145` feat: add routine-merge-end with comprehensive git state checks
+- `e06cac2` chore: auto-sync daemon installation and dependencies
+
+### Next Session Recommendations
+
+1. **Test routine-merge-end** - Create a PR and test the full workflow
+2. **Verify auto-sync** - Check that changes sync to other machines
+3. **Add Gemini integration** - Connect AI review to routine
+4. **Create presets** - Build common workflow presets
+
+### Status
+- routine-merge-end: ✅ Complete (skill not yet recognized - needs Claude restart)
+- Auto-sync daemon: ✅ Running and configured
+- Cross-machine sync: ✅ Ready (will sync within 5min)
