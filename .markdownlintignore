@@ -1,0 +1,3 @@
+node_modules/
+sync/daemon/node_modules/
+**/node_modules/**
