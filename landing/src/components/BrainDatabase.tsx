@@ -160,96 +160,100 @@ const BrainDatabase = () => {
         </div>
 
         {/* Results Grid */}
-        <div className="max-w-6xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <AnimatePresence mode="popLayout">
-              {filteredItems.map((item) => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <Card
-                    className={`p-4 cursor-pointer transition-all hover:border-violet-500/50 ${
-                      selectedItem?.id === item.id ? 'border-violet-500' : ''
-                    }`}
-                    onClick={() => setSelectedItem(selectedItem?.id === item.id ? null : item)}
+        <div className="max-w-6xl mx-auto relative">
+          <div className="max-h-[600px] overflow-y-auto scrollbar-hide pr-2">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <AnimatePresence mode="popLayout">
+                {filteredItems.map((item) => (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
                   >
-                    <div className="flex items-start justify-between gap-2 mb-2">
-                      <div className="flex items-center gap-2">
-                        <div className={`p-1.5 rounded ${typeColors[item.type].bg}`}>
-                          <svg
-                            className={`w-4 h-4 ${typeColors[item.type].text}`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={typeIcons[item.type]} />
-                          </svg>
+                    <Card
+                      className={`p-4 cursor-pointer transition-all hover:border-violet-500/50 ${
+                        selectedItem?.id === item.id ? 'border-violet-500' : ''
+                      }`}
+                      onClick={() => setSelectedItem(selectedItem?.id === item.id ? null : item)}
+                    >
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <div className="flex items-center gap-2">
+                          <div className={`p-1.5 rounded ${typeColors[item.type].bg}`}>
+                            <svg
+                              className={`w-4 h-4 ${typeColors[item.type].text}`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={typeIcons[item.type]} />
+                            </svg>
+                          </div>
+                          <span className="font-mono text-sm font-medium">{item.name}</span>
                         </div>
-                        <span className="font-mono text-sm font-medium">{item.name}</span>
+                        <Badge
+                          variant="outline"
+                          className={`text-[10px] ${typeColors[item.type].bg} ${typeColors[item.type].border} ${typeColors[item.type].text}`}
+                        >
+                          {item.type}
+                        </Badge>
                       </div>
-                      <Badge
-                        variant="outline"
-                        className={`text-[10px] ${typeColors[item.type].bg} ${typeColors[item.type].border} ${typeColors[item.type].text}`}
-                      >
-                        {item.type}
-                      </Badge>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                      {item.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1">
-                      {item.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 text-[10px] bg-secondary rounded-full text-muted-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                      <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                        {item.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1">
+                        {item.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-0.5 text-[10px] bg-secondary rounded-full text-muted-foreground"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
 
-                    {/* Expanded details */}
-                    <AnimatePresence>
-                      {selectedItem?.id === item.id && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="mt-4 pt-4 border-t border-border"
-                        >
-                          {item.usage && (
-                            <div className="mb-2">
-                              <span className="text-xs text-muted-foreground">Usage:</span>
-                              <code className="block mt-1 px-2 py-1 bg-secondary rounded text-xs font-mono text-violet-400">
-                                {item.usage}
-                              </code>
-                            </div>
-                          )}
-                          {item.category && (
-                            <div>
-                              <span className="text-xs text-muted-foreground">Category: </span>
-                              <span className="text-xs">{item.category}</span>
-                            </div>
-                          )}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </Card>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {filteredItems.length === 0 && (
-            <div className="text-center py-12 text-muted-foreground">
-              No items match your search
+                      {/* Expanded details */}
+                      <AnimatePresence>
+                        {selectedItem?.id === item.id && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mt-4 pt-4 border-t border-border"
+                          >
+                            {item.usage && (
+                              <div className="mb-2">
+                                <span className="text-xs text-muted-foreground">Usage:</span>
+                                <code className="block mt-1 px-2 py-1 bg-secondary rounded text-xs font-mono text-violet-400">
+                                  {item.usage}
+                                </code>
+                              </div>
+                            )}
+                            {item.category && (
+                              <div>
+                                <span className="text-xs text-muted-foreground">Category: </span>
+                                <span className="text-xs">{item.category}</span>
+                              </div>
+                            )}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </Card>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
-          )}
+
+            {filteredItems.length === 0 && (
+              <div className="text-center py-12 text-muted-foreground">
+                No items match your search
+              </div>
+            )}
+          </div>
+          {/* Fade out gradient */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-secondary/30 to-transparent pointer-events-none" />
         </div>
 
         {/* Login prompt */}
