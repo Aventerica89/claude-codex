@@ -1,6 +1,10 @@
 # Claude Codex Landing Page
 
-## Project Status: In Progress
+## Project Status: Paused - Resume in CLI
+
+### Next Session Priority
+1. **Deploy to production** - Run `vercel` CLI or import to Vercel/Netlify web UI
+2. Pick next feature: Auth, PWA, or global codex commands
 
 ### Completed
 - Astro + React Islands setup with Tailwind, Framer Motion
