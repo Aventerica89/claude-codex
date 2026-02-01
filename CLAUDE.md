@@ -134,6 +134,22 @@ Detailed guidelines are in `~/.claude/rules/`:
 
 ---
 
+## Documentation
+
+Reference docs are in `~/.claude/docs/`:
+
+| Doc File | Contents |
+|----------|----------|
+| shadcn-ui.md | shadcn/ui component library - all components, CLI commands, installation guides |
+
+**Usage:** When working with shadcn/ui, reference `~/.claude/docs/shadcn-ui.md` for:
+- Component installation commands (`npx shadcn@latest add <component>`)
+- Available components by category (Form, Layout, Overlays, Feedback, Display)
+- Blocks for pre-built UI patterns (`npx shadcn@latest add dashboard-01`)
+- Dark mode setup, forms, and advanced configuration
+
+---
+
 ## Available Agents
 
 Located in `~/.claude/agents/`:

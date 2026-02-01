@@ -1,0 +1,124 @@
+{
+  "enabled": true,
+  "default_level": "medium",
+  "auto_fix": false,
+  "wait_for_reviews": true,
+  "timeout_seconds": 300,
+  "checks": {
+    "build": {
+      "enabled": true,
+      "required": true,
+      "command": "npm run build",
+      "timeout_seconds": 120,
+      "levels": ["light", "medium", "thorough"]
+    },
+    "tests": {
+      "enabled": true,
+      "required": true,
+      "command": "npm test",
+      "min_coverage": 80,
+      "timeout_seconds": 180,
+      "levels": ["light", "medium", "thorough"]
+    },
+    "typescript": {
+      "enabled": true,
+      "required": true,
+      "command": "npx tsc --noEmit",
+      "levels": ["medium", "thorough"]
+    },
+    "lint": {
+      "enabled": true,
+      "required": false,
+      "command": "npm run lint",
+      "auto_fix": true,
+      "levels": ["medium", "thorough"]
+    },
+    "secrets_scan": {
+      "enabled": true,
+      "required": true,
+      "patterns": [
+        "sk-",
+        "api[_-]?key",
+        "password.*=",
+        "secret.*=",
+        "token.*="
+      ],
+      "levels": ["light", "medium", "thorough"]
+    },
+    "gemini_review": {
+      "enabled": true,
+      "required": false,
+      "wait": true,
+      "timeout_seconds": 180,
+      "implement_severity": ["CRITICAL", "HIGH"],
+      "prompt_severity": ["MEDIUM"],
+      "log_severity": ["LOW"],
+      "levels": ["medium", "thorough"]
+    },
+    "security_scan": {
+      "enabled": true,
+      "required": true,
+      "levels": {
+        "light": "basic",
+        "medium": "quick",
+        "thorough": "full"
+      },
+      "auto_fix_npm_audit": true,
+      "block_on_critical": true
+    },
+    "github_actions": {
+      "enabled": true,
+      "required": true,
+      "wait_for_completion": true,
+      "timeout_seconds": 600,
+      "required_workflows": [
+        "build",
+        "test"
+      ],
+      "optional_workflows": [
+        "e2e",
+        "deploy-preview"
+      ],
+      "levels": ["medium", "thorough"]
+    },
+    "bundle_size": {
+      "enabled": true,
+      "required": false,
+      "max_increase_percent": 10,
+      "warn_threshold_kb": 50,
+      "levels": ["thorough"]
+    },
+    "breaking_changes": {
+      "enabled": true,
+      "required": false,
+      "check_api_changes": true,
+      "require_migration_guide": true,
+      "levels": ["thorough"]
+    },
+    "performance": {
+      "enabled": true,
+      "required": false,
+      "lighthouse_threshold": 90,
+      "check_core_web_vitals": true,
+      "levels": ["thorough"]
+    }
+  },
+  "merge": {
+    "method": "squash",
+    "delete_branch": true,
+    "auto_merge": false,
+    "confirmation_required": true
+  },
+  "notifications": {
+    "on_start": false,
+    "on_complete": true,
+    "on_error": true,
+    "on_block": true
+  },
+  "learning": {
+    "enabled": true,
+    "track_metrics": true,
+    "optimize_checks": true,
+    "suggest_improvements": true
+  }
+}

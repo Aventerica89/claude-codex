@@ -1,0 +1,39 @@
+{
+  "projects": {
+    "/Users/jb/.21st/worktrees/claude-command/tall-creek": {
+      "contextId": "claude-command-2026-01-30-234750",
+      "timestamp": "2026-01-30T23:47:50.000Z",
+      "branch": "frozen-raccoon-72e0ab",
+      "summary": "Implemented MC3 dashboard - 39 source files for managing parallel Claude workers with tool execution, auth, and Docker setup",
+      "uncommittedFiles": 11
+    },
+    "/Users/jb/.21st/worktrees/jb-cloud-wp-manager/parliamentary-ridge": {
+      "contextId": "wp-manager-2026-01-30-234759",
+      "timestamp": "2026-01-30T23:47:59.000Z",
+      "branch": "hotfix/skeleton-exports",
+      "summary": "Reviewed Phase 4 roadmap after completing Phases 1-3. User skipped app renaming task.",
+      "uncommittedFiles": 0
+    },
+    "/Users/jb/.21st/worktrees/urlstogo/public-clearing": {
+      "contextId": "urlstogo-2026-01-30-234736",
+      "timestamp": "2026-01-31T07:47:36.000Z",
+      "branch": "combative-crocodile-13f267",
+      "summary": "Upgraded admin UI to purple/blue OKLCH theme, fixed bugs, merged PRs",
+      "uncommittedFiles": 0
+    },
+    "/Users/jb/.21st/worktrees/jb-cloud-docs/kind-shelf": {
+      "contextId": "jb-cloud-docs-2026-01-31-064804",
+      "timestamp": "2026-01-31T06:48:04Z",
+      "branch": "rubber-tyrannosaurus-72baf5",
+      "summary": "TDD new-badge system (26 tests), click-to-copy heading links, PR #14 created",
+      "uncommittedFiles": 0
+    },
+    "/Users/jb/.21st/worktrees/claude-codex/crucial-prairie": {
+      "contextId": "crucial-prairie-2026-01-30-235718",
+      "timestamp": "2026-01-31T06:57:17.000Z",
+      "branch": "supreme-marsupial-6367e8",
+      "summary": "Added /routine-sync, /codex-install, updated /routine-merge with pre-flight sync. Merged PR #13.",
+      "uncommittedFiles": 0
+    }
+  }
+}

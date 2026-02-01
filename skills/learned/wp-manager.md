@@ -3,10 +3,11 @@
 ## Context
 - Type: Web App (Dashboard)
 - Stack: Next.js 16, Turso (SQLite), Drizzle ORM, Tailwind CSS, shadcn/ui
-- Status: Phase 5 complete, active development
+- Status: Phases 1-3 complete, Phase 4 planned
 - Repo: https://github.com/Aventerica89/jb-cloud-wp-manager
-- Live: https://cloud-manager.jbcloud.app
+- Live: https://jb-cloud-wp-manager.vercel.app
 - Docs: https://docs.jbcloud.app/wp-manager/
+- Last Session: 2026-01-31 (pause context: wp-manager-2026-01-30-234759)
 
 ## Key Decisions
 
@@ -35,17 +36,29 @@
 - Global search via command palette (Cmd+K)
 
 ## Progress
-- [x] Phase 1: Foundation (CRUD, health checks, bulk sync)
-- [x] Phase 2: Core (bulk updates, activity log, TDD utilities)
-- [x] Phase 3: Polish (charts, health scores, mobile sidebar)
-- [x] Phase 4: Server/Provider management
-- [x] Phase 5: Organization & Security
-- [ ] Phase 6: User management, scheduled sync, backups
+- [x] Phase 1: MVP (site management, dashboard, plugin/theme listing, health checks, bulk sync)
+- [x] Phase 2: Core Features (bulk updates, activity logging, credential editing, TDD utilities, shadcn migration)
+- [x] Phase 3: Polish (charts, health scoring, toast notifications, responsive sidebar, validation, 63 tests @ 100% coverage)
+- [ ] Phase 4: Advanced Features (user management, scheduled syncing, backup coordination, security scanning)
+
+## Recent Activity
+- 2026-02-01: Resolved and merged conflicting PRs (#36, #37, #38)
+  - PR #37: Performance fixes (transaction-based updates, enhanced skeletons)
+  - PR #36: 1Password environment management integration
+  - PR #38: Closed (superseded by other changes)
+  - All merge conflicts resolved with strategic choices for validation, atomicity, UI detail
+- 2026-02-01: Merged PR #34 (shadcn dashboard with drag-and-drop)
+- 2026-02-01: Merged PR #17 (mask secret key input in WordPress plugin)
+- 2026-01-31: Merged PR #32 (export Skeleton components)
 
 ## Next Session
-- Consider adding logout button to UI
-- User management across WordPress sites
-- Scheduled syncing with cron jobs
+- Start with: Phase 4 feature selection
+  - User management across sites
+  - Scheduled syncing with cron jobs
+  - Backup coordination
+  - Security scanning
+- Blockers: None
+- Notes: User skipped app renaming discussion (can revisit later)
 
 ## Learned Patterns
 

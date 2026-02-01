@@ -152,7 +152,9 @@
       "Bash(echo:*)",
       "Bash(open:*)",
       "Bash(osascript:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

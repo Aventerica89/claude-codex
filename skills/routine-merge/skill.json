@@ -1,0 +1,23 @@
+{
+  "name": "routine-merge",
+  "version": "1.0.0",
+  "description": "Smart PR merge workflow with configurable review gates",
+  "userInvocable": true,
+  "args": {
+    "level": {
+      "type": "string",
+      "description": "Review level: light, medium, thorough, custom",
+      "default": "medium"
+    },
+    "dryRun": {
+      "type": "boolean",
+      "description": "Preview what would run without executing",
+      "default": false
+    },
+    "autoFix": {
+      "type": "boolean",
+      "description": "Automatically apply low-risk fixes",
+      "default": false
+    }
+  }
+}
