@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Card } from './ui/card';
+import { ScrollableContainer } from './ui/scrollable-container';
 import {
   brainData,
   searchBrain,
@@ -161,9 +162,10 @@ const BrainDatabase = () => {
 
         {/* Results Grid */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <AnimatePresence mode="popLayout">
-              {filteredItems.map((item) => (
+          <ScrollableContainer fadeClassName="from-secondary/30" maxHeight="700px">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-8">
+              <AnimatePresence mode="popLayout">
+                {filteredItems.map((item) => (
                 <motion.div
                   key={item.id}
                   layout
@@ -243,7 +245,8 @@ const BrainDatabase = () => {
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+            </div>
+          </ScrollableContainer>
 
           {filteredItems.length === 0 && (
             <div className="text-center py-12 text-muted-foreground">
