@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
+---
+
+<BaseLayout title="Settings - Claude Codex Dashboard">
+  <DashboardLayout currentPath="/dashboard/settings" client:load>
+    <div class="space-y-6">
+      <div>
+        <h1 class="text-2xl font-bold">Settings</h1>
+        <p class="text-muted-foreground">Configure your Claude Codex preferences</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- General Settings -->
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4">General</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium mb-2">Dashboard Theme</label>
+              <select class="w-full px-3 py-2 bg-secondary border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+                <option value="system">System</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Default Agent</label>
+              <select class="w-full px-3 py-2 bg-secondary border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500">
+                <option value="code-explorer">code-explorer</option>
+                <option value="planner">planner</option>
+                <option value="tdd-guide">tdd-guide</option>
+              </select>
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium">Auto-refresh Services</p>
+                <p class="text-xs text-muted-foreground">Check service status every 30s</p>
+              </div>
+              <button class="w-12 h-6 bg-violet-600 rounded-full relative">
+                <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4">Notifications</h3>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium">Service Alerts</p>
+                <p class="text-xs text-muted-foreground">Notify when services go offline</p>
+              </div>
+              <button class="w-12 h-6 bg-violet-600 rounded-full relative">
+                <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+              </button>
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium">Agent Completion</p>
+                <p class="text-xs text-muted-foreground">Notify when agents finish</p>
+              </div>
+              <button class="w-12 h-6 bg-secondary rounded-full relative">
+                <span class="absolute left-1 top-1 w-4 h-4 bg-muted-foreground rounded-full"></span>
+              </button>
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium">Build Failures</p>
+                <p class="text-xs text-muted-foreground">Notify on deployment errors</p>
+              </div>
+              <button class="w-12 h-6 bg-violet-600 rounded-full relative">
+                <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4">Security</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium mb-2">Change PIN</label>
+              <div class="flex gap-2">
+                <input type="password" placeholder="Current PIN" class="flex-1 px-3 py-2 bg-secondary border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500" />
+                <input type="password" placeholder="New PIN" class="flex-1 px-3 py-2 bg-secondary border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Session Timeout</label>
+              <select class="w-full px-3 py-2 bg-secondary border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500">
+                <option value="15">15 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="60" selected>1 hour</option>
+                <option value="never">Never</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- API Keys -->
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4">API Keys</h3>
+          <p class="text-sm text-muted-foreground mb-4">
+            API keys are managed through 1Password. Use the MCP integration to access and deploy secrets.
+          </p>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <span class="text-sm">VERCEL_TOKEN</span>
+              </div>
+              <span class="text-xs text-muted-foreground">via 1Password</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <span class="text-sm">GITHUB_TOKEN</span>
+              </div>
+              <span class="text-xs text-muted-foreground">via 1Password</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <span class="text-sm">SUPABASE_KEY</span>
+              </div>
+              <span class="text-xs text-muted-foreground">via 1Password</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="bg-card border border-red-500/30 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">Danger Zone</h3>
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium">Clear Session</p>
+            <p class="text-xs text-muted-foreground">Sign out and clear all local data</p>
+          </div>
+          <button class="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-sm font-medium rounded-lg transition-colors">
+            Clear Session
+          </button>
+        </div>
+      </div>
+    </div>
+  </DashboardLayout>
+</BaseLayout>

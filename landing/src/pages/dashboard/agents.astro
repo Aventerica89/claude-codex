@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
+---
+
+<BaseLayout title="Agents - Claude Codex Dashboard">
+  <DashboardLayout currentPath="/dashboard/agents" client:load>
+    <div class="space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-bold">Agents</h1>
+          <p class="text-muted-foreground">Specialized AI agents for complex tasks</p>
+        </div>
+        <button class="px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-lg transition-colors">
+          + New Agent
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Agent Card: code-explorer -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold">code-explorer</h3>
+              <span class="text-xs text-muted-foreground">Analysis Agent</span>
+            </div>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Deeply analyzes existing codebase features by tracing execution paths.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-purple-500/10 text-purple-400 rounded">analysis</span>
+            <span class="px-2 py-0.5 text-xs bg-purple-500/10 text-purple-400 rounded">codebase</span>
+          </div>
+          <div class="flex gap-2">
+            <button class="flex-1 px-3 py-1.5 text-sm bg-secondary hover:bg-secondary/70 rounded-lg transition-colors">
+              Configure
+            </button>
+            <button class="flex-1 px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+              Run
+            </button>
+          </div>
+        </div>
+
+        <!-- Agent Card: planner -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold">planner</h3>
+              <span class="text-xs text-muted-foreground">Planning Agent</span>
+            </div>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Creates detailed implementation plans for features and refactoring.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">planning</span>
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">architecture</span>
+          </div>
+          <div class="flex gap-2">
+            <button class="flex-1 px-3 py-1.5 text-sm bg-secondary hover:bg-secondary/70 rounded-lg transition-colors">
+              Configure
+            </button>
+            <button class="flex-1 px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+              Run
+            </button>
+          </div>
+        </div>
+
+        <!-- Agent Card: tdd-guide -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold">tdd-guide</h3>
+              <span class="text-xs text-muted-foreground">Testing Agent</span>
+            </div>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Guides test-driven development with test generation and coverage analysis.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-400 rounded">testing</span>
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-400 rounded">tdd</span>
+          </div>
+          <div class="flex gap-2">
+            <button class="flex-1 px-3 py-1.5 text-sm bg-secondary hover:bg-secondary/70 rounded-lg transition-colors">
+              Configure
+            </button>
+            <button class="flex-1 px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+              Run
+            </button>
+          </div>
+        </div>
+
+        <!-- Agent Card: security-reviewer -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start gap-3 mb-3">
+            <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold">security-reviewer</h3>
+              <span class="text-xs text-muted-foreground">Security Agent</span>
+            </div>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Analyzes code for security vulnerabilities and suggests remediations.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-red-500/10 text-red-400 rounded">security</span>
+            <span class="px-2 py-0.5 text-xs bg-red-500/10 text-red-400 rounded">audit</span>
+          </div>
+          <div class="flex gap-2">
+            <button class="flex-1 px-3 py-1.5 text-sm bg-secondary hover:bg-secondary/70 rounded-lg transition-colors">
+              Configure
+            </button>
+            <button class="flex-1 px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+              Run
+            </button>
+          </div>
+        </div>
+
+        <!-- More agents coming soon placeholder -->
+        <div class="bg-card/50 border border-dashed border-border rounded-xl p-5 flex items-center justify-center">
+          <div class="text-center">
+            <p class="text-muted-foreground text-sm">More agents available</p>
+            <p class="text-xs text-muted-foreground/70">Browse the agent library</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </DashboardLayout>
+</BaseLayout>

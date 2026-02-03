@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
+---
+
+<BaseLayout title="Rules - Claude Codex Dashboard">
+  <DashboardLayout currentPath="/dashboard/rules" client:load>
+    <div class="space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-bold">Rules</h1>
+          <p class="text-muted-foreground">Coding standards and behavior guidelines</p>
+        </div>
+        <button class="px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-lg transition-colors">
+          + New Rule
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Rule: CLI First -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold">CLI First</h3>
+            </div>
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-400 rounded">Active</span>
+          </div>
+          <p class="text-sm text-muted-foreground mb-3">
+            Always check available tools before asking user for information. Use MCP servers and CLI commands first.
+          </p>
+          <div class="text-xs text-muted-foreground">
+            Priority: <span class="text-orange-400">Critical</span>
+          </div>
+        </div>
+
+        <!-- Rule: Security First -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold">Security First</h3>
+            </div>
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-400 rounded">Active</span>
+          </div>
+          <p class="text-sm text-muted-foreground mb-3">
+            Never compromise on security. Check for vulnerabilities, validate inputs, and handle secrets properly.
+          </p>
+          <div class="text-xs text-muted-foreground">
+            Priority: <span class="text-red-400">Critical</span>
+          </div>
+        </div>
+
+        <!-- Rule: Conventional Commits -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold">Conventional Commits</h3>
+            </div>
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-400 rounded">Active</span>
+          </div>
+          <p class="text-sm text-muted-foreground mb-3">
+            Use conventional commit format: feat:, fix:, refactor:, docs:, test:, chore:
+          </p>
+          <div class="text-xs text-muted-foreground">
+            Priority: <span class="text-blue-400">Standard</span>
+          </div>
+        </div>
+
+        <!-- Rule: Test Coverage -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold">Test Coverage</h3>
+            </div>
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-400 rounded">Active</span>
+          </div>
+          <p class="text-sm text-muted-foreground mb-3">
+            Maintain minimum 80% test coverage. Write tests before implementation (TDD).
+          </p>
+          <div class="text-xs text-muted-foreground">
+            Priority: <span class="text-green-400">High</span>
+          </div>
+        </div>
+
+        <!-- Rule: Immutability -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold">Prefer Immutability</h3>
+            </div>
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-400 rounded">Active</span>
+          </div>
+          <p class="text-sm text-muted-foreground mb-3">
+            Never mutate objects or arrays. Use spread operators and map/filter/reduce.
+          </p>
+          <div class="text-xs text-muted-foreground">
+            Priority: <span class="text-purple-400">High</span>
+          </div>
+        </div>
+
+        <!-- Rule: String Limits -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                </svg>
+              </div>
+              <h3 class="font-semibold">String Length Limits</h3>
+            </div>
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-400 rounded">Active</span>
+          </div>
+          <p class="text-sm text-muted-foreground mb-3">
+            Max 500 chars inline, extract long strings to constants/files.
+          </p>
+          <div class="text-xs text-muted-foreground">
+            Priority: <span class="text-yellow-400">Important</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </DashboardLayout>
+</BaseLayout>

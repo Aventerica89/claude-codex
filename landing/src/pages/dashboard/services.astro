@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
+import ConnectionStrip from '../../components/dashboard/ConnectionStrip';
+---
+
+<BaseLayout title="Services - Claude Codex Dashboard">
+  <DashboardLayout currentPath="/dashboard/services" client:load>
+    <div class="space-y-6">
+      <div>
+        <h1 class="text-2xl font-bold">Services</h1>
+        <p class="text-muted-foreground">Manage connected platforms and integrations</p>
+      </div>
+
+      <!-- Connection Status -->
+      <ConnectionStrip client:load />
+
+      <!-- Service Categories -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Platforms -->
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4">Platforms</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-black flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">V</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">Vercel</p>
+                  <p class="text-xs text-muted-foreground">api.vercel.com</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-green-400">12ms</span>
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">GH</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">GitHub</p>
+                  <p class="text-xs text-muted-foreground">api.github.com</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-green-400">45ms</span>
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-orange-500 flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">CF</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">Cloudflare</p>
+                  <p class="text-xs text-muted-foreground">api.cloudflare.com</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-yellow-400">156ms</span>
+                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases & Storage -->
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4">Databases & Storage</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-green-600 flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">SB</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">Supabase</p>
+                  <p class="text-xs text-muted-foreground">supabase.co</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-green-400">23ms</span>
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4">Tools</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">1P</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">1Password</p>
+                  <p class="text-xs text-muted-foreground">op://vault</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-green-400">8ms</span>
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MCP Integrations -->
+        <div class="bg-card border border-border rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4">MCP Integrations</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-violet-600 flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">M1</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">MCP: 1Password</p>
+                  <p class="text-xs text-muted-foreground">Secrets management</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-green-400">5ms</span>
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-violet-600 flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">MV</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">MCP: Vercel</p>
+                  <p class="text-xs text-muted-foreground">Deployment management</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-green-400">15ms</span>
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-secondary/30 rounded-lg">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-gray-600 flex items-center justify-center">
+                  <span class="text-white text-xs font-bold">MC</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">MCP: Cloudflare</p>
+                  <p class="text-xs text-muted-foreground">Workers & CDN</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-red-400">Offline</span>
+                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Service Button -->
+      <div class="flex justify-center">
+        <button class="px-6 py-3 border border-dashed border-border rounded-xl text-muted-foreground hover:text-foreground hover:border-violet-500/30 transition-colors">
+          + Connect New Service
+        </button>
+      </div>
+    </div>
+  </DashboardLayout>
+</BaseLayout>

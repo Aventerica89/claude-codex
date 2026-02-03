@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
+---
+
+<BaseLayout title="Commands - Claude Codex Dashboard">
+  <DashboardLayout currentPath="/dashboard/commands" client:load>
+    <div class="space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-bold">Commands</h1>
+          <p class="text-muted-foreground">Quick actions for common development tasks</p>
+        </div>
+        <button class="px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-lg transition-colors">
+          + New Command
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Command: /pr-review -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <code class="text-blue-400 font-mono text-lg">/pr-review</code>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Reviews pull requests with detailed code analysis and suggestions.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">github</span>
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">review</span>
+          </div>
+          <button class="w-full px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+            Execute
+          </button>
+        </div>
+
+        <!-- Command: /fix-build -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <code class="text-blue-400 font-mono text-lg">/fix-build</code>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Analyzes build errors and applies automatic fixes where possible.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">build</span>
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">fix</span>
+          </div>
+          <button class="w-full px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+            Execute
+          </button>
+        </div>
+
+        <!-- Command: /deploy -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <code class="text-blue-400 font-mono text-lg">/deploy</code>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Handles deployment with environment variable sync and verification.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">vercel</span>
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">deploy</span>
+          </div>
+          <button class="w-full px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+            Execute
+          </button>
+        </div>
+
+        <!-- Command: /env-sync -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <code class="text-blue-400 font-mono text-lg">/env-sync</code>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Syncs environment variables from 1Password to deployment platforms.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">1password</span>
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">env</span>
+          </div>
+          <button class="w-full px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+            Execute
+          </button>
+        </div>
+
+        <!-- Command: /test -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <code class="text-blue-400 font-mono text-lg">/test</code>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Runs test suite with coverage reporting and failure analysis.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">testing</span>
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">coverage</span>
+          </div>
+          <button class="w-full px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+            Execute
+          </button>
+        </div>
+
+        <!-- Command: /commit -->
+        <div class="bg-card border border-border rounded-xl p-5 hover:border-violet-500/30 transition-colors">
+          <div class="flex items-center gap-2 mb-3">
+            <code class="text-blue-400 font-mono text-lg">/commit</code>
+          </div>
+          <p class="text-sm text-muted-foreground mb-4">
+            Creates conventional commits with smart message generation.
+          </p>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">git</span>
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-400 rounded">commit</span>
+          </div>
+          <button class="w-full px-3 py-1.5 text-sm bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors">
+            Execute
+          </button>
+        </div>
+      </div>
+    </div>
+  </DashboardLayout>
+</BaseLayout>
