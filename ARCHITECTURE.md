@@ -184,3 +184,9 @@ PUT    /api/preferences       Update preferences
 3. **Phase 3**: Add Turso backend for persistence
 4. **Phase 4**: Implement service health checking
 5. **Phase 5**: Add input forms for each codex item type
+
+---
+
+## Future Integrations
+
+- **jb-cloud-app-tracker** (https://github.com/Aventerica89/jb-cloud-app-tracker) - Connect for app tracking and status monitoring across cloud services
