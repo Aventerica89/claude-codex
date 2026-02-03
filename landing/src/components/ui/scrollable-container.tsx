@@ -37,5 +37,3 @@ export function ScrollableContainer({
     </div>
   )
 }
-
-export default ScrollableContainer

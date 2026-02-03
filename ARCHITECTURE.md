@@ -124,7 +124,7 @@ CREATE TABLE services (
   name TEXT NOT NULL,
   type TEXT NOT NULL, -- 'platform', 'database', 'api', 'tool'
   endpoint TEXT,
-  status TEXT DEFAULT 'unknown', -- 'connected', 'warning', 'offline'
+  status TEXT DEFAULT 'unknown' CHECK(status IN ('connected', 'warning', 'offline', 'unknown')),
   latency_ms INTEGER,
   last_check DATETIME,
   config TEXT -- JSON
@@ -142,7 +142,7 @@ CREATE TABLE codex_items (
   icon TEXT,
   color TEXT,
   inputs TEXT, -- JSON array of input field configs
-  enabled BOOLEAN DEFAULT true,
+  enabled INTEGER DEFAULT 1, -- SQLite uses INTEGER for boolean (1=true, 0=false)
   last_used DATETIME,
   usage_count INTEGER DEFAULT 0
 );
