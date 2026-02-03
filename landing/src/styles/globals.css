@@ -100,7 +100,7 @@
   mask-composite: exclude;
 }
 
-/* Hide scrollbar */
+/* Hide scrollbar but keep functionality */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

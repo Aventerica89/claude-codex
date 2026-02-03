@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { ComponentCard } from './ComponentCard';
+import { ScrollableContainer } from './ui/scrollable-container';
 import {
   registries,
   categories,
@@ -206,40 +207,35 @@ const ComponentMarketplace = () => {
               </motion.div>
             )}
 
-            {/* Scrollable Grid Container with Fade */}
-            <div className="relative">
-              <div className="max-h-[600px] overflow-y-auto scrollbar-hide pr-2">
-                {/* Grid */}
-                <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
-                  <AnimatePresence mode="popLayout">
-                    {filteredComponents.map((component) => (
-                      <motion.div
-                        key={component.id}
-                        layout
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ComponentCard
-                          component={component}
-                          isSelected={isSelected(component.id)}
-                          onToggle={toggleComponent}
-                        />
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
-                </div>
-
-                {filteredComponents.length === 0 && (
-                  <div className="text-center py-12 text-muted-foreground">
-                    No components match your filters
-                  </div>
-                )}
+            {/* Grid */}
+            <ScrollableContainer fadeClassName="from-background" maxHeight="700px">
+              <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 pb-8">
+                <AnimatePresence mode="popLayout">
+                  {filteredComponents.map((component) => (
+                    <motion.div
+                      key={component.id}
+                      layout
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ComponentCard
+                        component={component}
+                        isSelected={isSelected(component.id)}
+                        onToggle={toggleComponent}
+                      />
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </div>
-              {/* Fade out gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-            </div>
+            </ScrollableContainer>
+
+            {filteredComponents.length === 0 && (
+              <div className="text-center py-12 text-muted-foreground">
+                No components match your filters
+              </div>
+            )}
           </div>
         </div>
       </div>
