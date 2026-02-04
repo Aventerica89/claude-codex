@@ -490,6 +490,39 @@ git add -A
 git commit -m "chore: initialize project with architecture and style guide"
 ```
 
+### 6.75 GitHub Repository Setup (if --github flag or user confirms)
+
+**Ask user** (unless `--github` flag): "Create GitHub repository?"
+
+If yes:
+
+1. **Create repo with best practices enabled:**
+   ```bash
+   gh repo create Aventerica89/{project-name} \
+     --public \
+     --source=. \
+     --remote=origin \
+     --push \
+     --description "{one-line-description}"
+   ```
+
+2. **Enable auto-delete head branches** (prevents squash-merge orphans):
+   ```bash
+   gh repo edit Aventerica89/{project-name} --delete-branch-on-merge=true
+   ```
+
+3. **Verify setup:**
+   ```bash
+   gh repo view Aventerica89/{project-name} --json deleteBranchOnMerge
+   ```
+
+**Output**: "GitHub repo created: https://github.com/Aventerica89/{project-name}"
+
+**Why auto-delete is important:**
+- Squash merges create new commit SHAs, leaving original branch orphaned
+- Without auto-delete, stale branches accumulate and cause confusion
+- `/start` and `/end` commands detect stale branches, but prevention is better
+
 ### 6.8 GitHub Actions Setup (Optional)
 
 **Ask user:** "Would you like to set up GitHub Actions CI/CD workflows?"

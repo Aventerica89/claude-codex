@@ -6,12 +6,30 @@ paste-cache/
 shell-snapshots/
 statsig/
 todos/
+image-cache/
 
-# Session logs and history
+# Session logs and history (local state, not synced)
 sessions/
 history.jsonl
 stats-cache.json
-projects/-Users-*/
+projects/
+contexts/
+pause-state.json
+session-env/
+
+# 1Code worktree state (local)
+.1code/
+
+# MCP config (machine-specific)
+mcp-config.json
+
+# Plugins (installed locally, not synced)
+plugins/installed_plugins.json
+plugins/known_marketplaces.json
+plugins/marketplaces/
+
+# Sync daemon node_modules
+sync/daemon/node_modules/
 
 # Settings (may contain sensitive data)
 settings.json

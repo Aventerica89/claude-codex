@@ -1,6 +1,0 @@
-{
-  "setup-worktree": [
-    "cd landing && bun install",
-    "cd sync/daemon && bun install"
-  ]
-}
