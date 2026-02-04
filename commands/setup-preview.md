@@ -129,6 +129,9 @@ on:
     branches-ignore:
       - preview
 
+permissions:
+  contents: write
+
 jobs:
   sync-preview:
     runs-on: ubuntu-latest
