@@ -141,12 +141,21 @@ Reference docs are in `~/.claude/docs/`:
 | Doc File | Contents |
 |----------|----------|
 | shadcn-ui.md | shadcn/ui component library - all components, CLI commands, installation guides |
+| better-auth.md | Better Auth - TypeScript authentication framework, setup, providers, plugins |
 
 **Usage:** When working with shadcn/ui, reference `~/.claude/docs/shadcn-ui.md` for:
 - Component installation commands (`npx shadcn@latest add <component>`)
 - Available components by category (Form, Layout, Overlays, Feedback, Display)
 - Blocks for pre-built UI patterns (`npx shadcn@latest add dashboard-01`)
 - Dark mode setup, forms, and advanced configuration
+
+**Usage:** When implementing authentication, reference `~/.claude/docs/better-auth.md` for:
+- Installation and environment setup
+- Database adapters (Drizzle, Prisma, MongoDB, SQLite)
+- Email/password and social OAuth authentication
+- Session management (client and server-side)
+- Plugins (2FA, magic link, passkeys, organizations)
+- Framework integrations (Next.js, Astro, Hono, etc.)
 
 ---
 
@@ -231,17 +240,26 @@ Located in `~/.claude/agents/`:
 
 ## Documentation
 
-Reference docs are in `docs/`:
+Reference docs are in `~/.claude/docs/`:
 
 | Doc File | Contents |
 |----------|----------|
 | shadcn-ui.md | shadcn/ui component library - all components, CLI commands, installation guides |
+| better-auth.md | Better Auth - TypeScript authentication framework, setup, providers, plugins |
 
-**Usage:** When working with shadcn/ui or setting up new projects, reference `docs/shadcn-ui.md` for:
+**Usage:** When working with shadcn/ui or setting up new projects, reference `~/.claude/docs/shadcn-ui.md` for:
 - Component installation commands (`npx shadcn@latest add <component>`)
 - Available components by category (Form, Layout, Overlays, Feedback, Display)
 - Blocks for pre-built UI patterns (`npx shadcn@latest add dashboard-01`)
 - Dark mode setup, forms, and advanced configuration
+
+**Usage:** When implementing authentication, reference `~/.claude/docs/better-auth.md` for:
+- Installation and environment setup
+- Database adapters (Drizzle, Prisma, MongoDB, SQLite)
+- Email/password and social OAuth authentication
+- Session management (client and server-side)
+- Plugins (2FA, magic link, passkeys, organizations)
+- Framework integrations (Next.js, Astro, Hono, etc.)
 
 ---
 
@@ -281,6 +299,73 @@ You are successful when:
 - No security vulnerabilities
 - Code is readable and maintainable
 - User requirements are met
+
+---
+
+## My Repositories
+
+### Healthcare / Medical
+
+| Repo | Owner | Description |
+|------|-------|-------------|
+| `HDFlowsheet` | JBMD-Creations | Hemodialysis flowsheet app (desktop) |
+| `HDFlowsheet-Cloud` | JBMD-Creations | Hemodialysis flowsheet app (cloud) |
+| `renvio-companion-app` | Aventerica89 | Renal/dialysis patient companion app |
+| `v0-hd-companion-charting-system` | Aventerica89 | HD companion charting system |
+| `med-spa-ranker` | Aventerica89 | Med spa SEO/ranking tool |
+| `v0-med-spa-template` | Aventerica89 | Med spa website template |
+| `radiance-hub` | Aventerica89 | Med spa client portal |
+
+### WordPress / Bricks Builder
+
+| Repo | Owner | Description |
+|------|-------|-------------|
+| `wp-jupiter` | Aventerica89 | WordPress client site |
+| `wp-neptune` | Aventerica89 | WordPress client site |
+| `bricks-cc` | Aventerica89 | Bricks Builder site development |
+| `bricks-builder-agent` | Aventerica89 | Bricks Builder site development |
+| `WPModernUI` | JBMD-Creations | WordPress Modern UI theme/plugin |
+
+### Claude Code / Dev Tools
+
+| Repo | Owner | Description |
+|------|-------|-------------|
+| `claude-codex` | Aventerica89 | Claude Code configuration and rules |
+| `claude-command` | Aventerica89 | Claude command utilities |
+| `claude-new-project` | Aventerica89 | New project templates for Claude |
+| `Claude` | Aventerica89 | Claude experiments/projects |
+| `artifact-manager` | Aventerica89 | Claude Code artifact management |
+| `env-var-assistant` | Aventerica89 | Environment variable management tool |
+| `1code` | Aventerica89 | CLI tool |
+
+### Infrastructure / Utilities
+
+| Repo | Owner | Description |
+|------|-------|-------------|
+| `URLsToGo` | Aventerica89 | URL shortener service |
+| `cf-url-shortener-template` | Aventerica89 | Cloudflare Workers URL shortener |
+| `jb-cloud-docs` | Aventerica89 | Documentation site (docs.jbcloud.app) |
+| `jb-cloud-app-tracker` | Aventerica89 | App/deployment tracking dashboard |
+| `Supabase` | JBMD-Creations | Supabase backend projects |
+| `my-supabase-app` | Aventerica89 | Supabase app template |
+| `RepoBar` | Aventerica89 | Repository management tool |
+| `aerospace-studio` | Aventerica89 | Aerospace window manager config |
+
+### Other Projects
+
+| Repo | Owner | Description |
+|------|-------|-------------|
+| `Astro` | Aventerica89 | Astro framework projects |
+| `personal-apps` | Aventerica89 | Personal utility apps |
+| `recipe-nutrition-tracker` | Aventerica89 | Recipe and nutrition tracking |
+| `Lovable` | JBMD-Creations | Lovable.dev projects |
+
+### External/Forked
+
+| Repo | Owner | Description |
+|------|-------|-------------|
+| `keep-a-changelog` | olivierlacan | Changelog format reference |
+| `claude-code` | anthropics | Official Claude Code repo |
 
 ---
 

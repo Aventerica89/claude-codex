@@ -68,6 +68,12 @@ Compare current state with paused state:
 ```bash
 # Check if branch changed
 current_branch=$(git branch --show-current)
+paused_branch={from pause-state.json}
+
+# Check if on wrong branch
+if [ "$current_branch" != "$paused_branch" ]; then
+  echo "BRANCH MISMATCH"
+fi
 
 # Check if new commits
 git log --oneline {pause-timestamp}..HEAD
@@ -76,12 +82,34 @@ git log --oneline {pause-timestamp}..HEAD
 git status --porcelain
 ```
 
-Show warnings if state diverged:
+**CRITICAL: Branch Mismatch Warning**
+
+If current branch != paused branch:
 ```
-⚠️  Warning: State has changed since pause
-- Branch changed: main → feature/auth
+BRANCH MISMATCH DETECTED
+
+Current: main
+Paused on: claude/create-landing-page-MbRCw
+
+You paused on a different branch. This can lead to:
+- Work being done on wrong branch
+- Merge conflicts later
+- Lost context
+
+Options:
+1. Switch to paused branch: git checkout claude/create-landing-page-MbRCw
+2. Stay on current branch (context may not apply)
+3. Cancel resume
+
+Recommendation: Switch to paused branch before continuing.
+```
+
+Show additional warnings if state diverged:
+```
+Warning: State has changed since pause
+- Branch changed: main -> feature/auth
 - 2 new commits since pause
-- Uncommitted files: 3 → 5
+- Uncommitted files: 3 -> 5
 ```
 
 ### 6. Optional: Start Dev Server

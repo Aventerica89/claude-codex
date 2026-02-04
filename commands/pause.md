@@ -42,11 +42,21 @@ Write to `~/.claude/pause-state.json`:
       "timestamp": "2026-01-31T15:50:11.056Z",
       "branch": "main",
       "summary": "Brief summary of what was being worked on",
-      "uncommittedFiles": 3
+      "uncommittedFiles": 3,
+      "lastCommand": "pause",
+      "nextSteps": [
+        "Complete agent detail views",
+        "Add click-through navigation"
+      ]
     }
   }
 }
 ```
+
+**Important fields:**
+- `branch` - Critical for `/start` to detect mismatches
+- `lastCommand` - `pause` vs `end` indicates session type
+- `nextSteps` - Array of actionable next tasks
 
 ### 3. Commit WIP (unless --no-commit)
 

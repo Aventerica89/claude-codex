@@ -154,7 +154,8 @@
       "Bash(osascript:*)",
       "Bash(test:*)",
       "Bash(git branch:*)",
-      "Bash(git remote add:*)"
+      "Bash(git remote add:*)",
+      "Bash(jq:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

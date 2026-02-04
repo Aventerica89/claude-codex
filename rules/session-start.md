@@ -1,8 +1,8 @@
 # Session Start Rule
 
-## CRITICAL: Branch Check on Every Session Start
+## CRITICAL: Run `/start` at Every Session Start
 
-At the START of every session, BEFORE doing any work:
+At the START of every session, BEFORE doing any work, run the `/start` command or follow this checklist:
 
 ### 1. Check Current Branch
 
@@ -56,7 +56,17 @@ This rule should trigger automatically when:
 
 | Scenario | Action |
 |----------|--------|
-| Resume from /pause | Run `/resume` first |
-| Fresh session, no pause | Check `git branch`, confirm with user |
-| Switching projects | Use `/pause` on old, `/resume` on new |
+| Start of session | Run `/start` first |
+| Resume from /pause | Run `/resume` for full context |
+| Fresh session, no pause | `/start` will show status |
+| Branch mismatch | `/start --fix` to auto-switch |
+| Switching projects | Use `/pause` on old, `/start` on new |
 | Multiple worktrees | Be explicit about which worktree |
+
+## Full Session Lifecycle
+
+```
+/start -> work -> /pause -> /resume -> work -> /end
+```
+
+See `docs/SESSION-LIFECYCLE.md` for complete documentation.

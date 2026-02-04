@@ -55,6 +55,43 @@ rm -rf release
 node scripts/download-claude-binary.mjs --all
 ```
 
+## Skills & CLAUDE.md Support
+
+1Code supports the same features as Claude Code CLI:
+- Skills & Slash Commands
+- Memory (CLAUDE.md)
+- MCP Support
+- Custom Subagents
+
+**Known Issue (2026-02-01):** Skills may not work if 1Code's bundled Claude binary is outdated.
+
+### Version Mismatch Fix
+
+Check versions:
+```bash
+# 1Code's Claude binary
+/Applications/1Code.app/Contents/Resources/bin/claude --version
+
+# Standalone Claude
+~/.local/bin/claude --version
+```
+
+If 1Code's version is older, update by:
+1. Check for 1Code app updates
+2. Or rebuild from source: `bun run claude:download && bun run build`
+3. Or replace binary: `cp ~/.local/bin/claude /Applications/1Code.app/Contents/Resources/bin/claude`
+
+### Verified Working Skills
+Skills in `~/.claude/skills/` work globally across all projects:
+- tdd-workflow
+- coding-standards
+- security-review
+- backend-patterns
+- frontend-patterns
+- continuous-learning
+- clickhouse-io
+- strategic-compact
+
 ## Documentation
 - Synced to: https://docs.jbcloud.app/1code/
 - Slug: 1code

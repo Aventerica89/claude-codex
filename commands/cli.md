@@ -22,6 +22,32 @@ When invoked, output a summary of available capabilities organized by category.
 | **1Password** | `list_api_keys`, `get_api_key`, `store_api_key`, `deploy_env_vars` | API keys, secrets, env var deployment |
 | **Vercel** | `list_projects`, `get_project`, `list_deployments`, `deploy_to_vercel` | Deployments, project info |
 | **Cloudflare** | `workers_list`, `kv_*`, `r2_*`, `d1_*`, `hyperdrive_*` | Edge workers, storage, databases |
+
+### Cloudflare API Tokens (in 1Password)
+
+| Token | 1Password Item | Permissions | Use For |
+|-------|---------------|-------------|---------|
+| **Workers API** | `Cloudflare API Token` | Workers, D1 | Deployments via wrangler |
+| **Zero Trust API** | `CF_ZERO_TRUST_TOKEN` | Access: Apps & Policies | Access bypass rules, app policies |
+
+**Zero Trust API Usage:**
+```bash
+# Get token from 1Password
+CF_ZT_TOKEN=$(op item get "CF_ZERO_TRUST_TOKEN" --vault Business --fields credential)
+ACCOUNT_ID="e2613c1c17024c32ab14618614e2b309"
+
+# List Access applications
+curl -s "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/access/apps" \
+  -H "Authorization: Bearer $CF_ZT_TOKEN"
+
+# Add bypass policy (example)
+curl -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/access/apps/{app_id}/policies" \
+  -H "Authorization: Bearer $CF_ZT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Public Routes","decision":"bypass","include":[{"request_uri":{"path":{"starts_with":"/share/"}}}]}'
+```
+
+**Dashboard:** https://one.dash.cloudflare.com > Access > Applications
 | **n8n** | `search_workflows`, `execute_workflow`, `get_workflow_details` | Workflow automation |
 | **HubSpot** | `search_crm_objects`, `get_properties`, `search_owners` | CRM data |
 | **Figma** | `get_screenshot`, `get_design_context`, `get_metadata` | Design assets, UI code |

@@ -1,3 +1,8 @@
+---
+name: env-deployer
+description: Environment variable deployment specialist for detecting and deploying env vars to platforms
+---
+
 # Env Deployer Agent
 
 Environment variable deployment specialist. Automatically detects, retrieves, and deploys env vars to platforms.
