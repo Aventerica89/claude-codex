@@ -148,6 +148,57 @@ Cleaned up branches:
   - claude/add-hero-section (remote deleted)
 ```
 
+### Worktree Cleanup (Safe Mode)
+
+Check for stale worktrees and offer to clean them up:
+
+```bash
+# List all worktrees except main
+git worktree list --porcelain | grep "^worktree" | cut -d' ' -f2- | while read worktree; do
+  # Skip main worktree
+  if [ "$worktree" = "$(pwd)" ]; then continue; fi
+
+  BRANCH=$(git -C "$worktree" branch --show-current 2>/dev/null)
+  UNCOMMITTED=$(git -C "$worktree" status --porcelain 2>/dev/null | wc -l | tr -d ' ')
+  OPEN_PRS=$(gh pr list --head "$BRANCH" --state open --json number 2>/dev/null | jq length)
+  LAST_COMMIT_DAYS=$(( ($(date +%s) - $(git -C "$worktree" log -1 --format="%ct" 2>/dev/null || echo 0)) / 86400 ))
+
+  # Only safe if: no uncommitted, no open PRs, older than 7 days
+  if [ "$UNCOMMITTED" = "0" ] && [ "$OPEN_PRS" = "0" ] && [ "$LAST_COMMIT_DAYS" -gt 7 ]; then
+    echo "SAFE: $worktree ($BRANCH)"
+  fi
+done
+```
+
+**Only auto-remove worktrees when ALL conditions met:**
+1. Zero uncommitted changes
+2. Zero open PRs from that branch
+3. Last commit > 7 days ago
+4. User confirms (unless `--auto-clean` flag)
+
+**Cleanup command:**
+```bash
+git worktree remove "$worktree_path"
+# Branch is auto-deleted when worktree is removed (if not checked out elsewhere)
+```
+
+**Report:**
+```
+Worktree Cleanup
+
+  Removed (safe - all work merged):
+    ~/.21st/worktrees/urlstogo/public-clearing (combative-crocodile-13f267)
+
+  Kept (has active work):
+    ~/.21st/worktrees/project/feature-x (uncommitted changes)
+```
+
+**Conservative approach:**
+- NEVER delete worktrees with uncommitted changes
+- NEVER delete worktrees with open PRs
+- ALWAYS show what will be deleted before doing it
+- Default to keeping things if uncertain
+
 ---
 
 ## Step 1: Check Documentation Sync

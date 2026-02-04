@@ -34,9 +34,9 @@ git stash list
 git log --oneline -3
 ```
 
-### 1.5. Detect Stale Branches
+### 1.5. Detect Stale Branches and Worktrees
 
-Prune remote refs and identify branches that need cleanup:
+Prune remote refs and identify branches/worktrees that may need cleanup:
 
 ```bash
 # Prune stale remote-tracking references
@@ -47,28 +47,74 @@ GONE_BRANCHES=$(git branch -vv | grep ': gone]' | awk '{print $1}')
 
 # Find local branches already merged to main (squash merge detection)
 MERGED_BRANCHES=$(git branch --merged main | grep -v "^\*\|main")
+
+# List all worktrees
+git worktree list
 ```
 
-**If stale branches found, warn user:**
+**For each worktree, check if it's stale:**
+
+```bash
+for worktree in $(git worktree list --porcelain | grep "^worktree" | cut -d' ' -f2-); do
+  # Skip main worktree
+  if [ "$worktree" = "$(pwd)" ]; then continue; fi
+
+  # Check for uncommitted changes
+  UNCOMMITTED=$(git -C "$worktree" status --porcelain 2>/dev/null | wc -l)
+
+  # Get branch name
+  BRANCH=$(git -C "$worktree" branch --show-current 2>/dev/null)
+
+  # Check if branch's PRs are all merged
+  OPEN_PRS=$(gh pr list --head "$BRANCH" --state open --json number 2>/dev/null | jq length)
+
+  # Check last commit date
+  LAST_COMMIT=$(git -C "$worktree" log -1 --format="%cr" 2>/dev/null)
+done
+```
+
+**Report with safety status:**
+
+```
+Worktrees Found
+
+  ~/.21st/worktrees/urlstogo/public-clearing
+    Branch: combative-crocodile-13f267
+    Last commit: 3 weeks ago
+    Uncommitted changes: 0
+    Open PRs: 0
+    Status: SAFE TO REMOVE (all work merged)
+
+  ~/.21st/worktrees/project/feature-x
+    Branch: feature-x
+    Last commit: 2 days ago
+    Uncommitted changes: 3 files
+    Open PRs: 1
+    Status: KEEP (has uncommitted work and open PR)
+```
+
+**Only mark as "SAFE TO REMOVE" when ALL of these are true:**
+- No uncommitted changes in worktree
+- No open PRs from that branch
+- All closed PRs were merged (not closed without merge)
+- Last commit > 1 week ago (grace period)
+
+**If stale branches found (not linked to worktrees), warn:**
 
 ```
 Stale Branches Detected
 
 Remote deleted (safe to remove):
   - claude/add-hero-section-s96YE
-  - fix/old-feature
-
-Already merged to main:
-  - feat/api-keys-ui
 
 Run '/end' to auto-clean, or manually:
   git branch -D <branch-name>
 ```
 
-**Why branches become stale:**
-- **Squash merge:** GitHub creates new commit with different SHA, git doesn't recognize original as merged
-- **Remote deleted:** PR merged with "delete branch on merge" but local copy remains
-- **Worktrees:** Branches linked to worktrees persist even after work is done
+**Why things become stale:**
+- **Squash merge:** GitHub creates new commit with different SHA
+- **Remote deleted:** PR merged with "delete branch on merge" but local remains
+- **Worktrees:** 1Code creates worktrees for parallel work; branches persist until worktree removed
 
 ### 2. Read Pause State
 
