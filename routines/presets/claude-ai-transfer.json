@@ -1,0 +1,75 @@
+{
+  "name": "claude-ai-transfer",
+  "description": "Optimized handoff for claude.ai web interface",
+  "version": "1.0.0",
+  "base_routine": "handoff",
+  "context": {
+    "level": "optimized",
+    "max_tokens": 8000,
+    "format": "claude-ai-friendly",
+    "include_file_contents": false,
+    "include_diffs": true,
+    "include_task_list": true
+  },
+  "steps": {
+    "prepare_context": {
+      "enabled": true,
+      "max_files_list": 20,
+      "include_recent_commits": 5,
+      "summarize_large_files": true
+    },
+    "save_to_1password": {
+      "enabled": true,
+      "vault": "ClaudeSync",
+      "auto_cleanup_days": 14
+    },
+    "generate_transfer_prompt": {
+      "enabled": true,
+      "template": "claude-ai",
+      "sections": [
+        "project_context",
+        "current_branch",
+        "recent_changes",
+        "pending_tasks",
+        "continuation_prompt"
+      ]
+    },
+    "copy_to_clipboard": {
+      "enabled": true
+    }
+  },
+  "transfer_prompt_template": {
+    "header": "## Development Context from Claude Code",
+    "sections": {
+      "project_context": {
+        "title": "### Project",
+        "include": ["name", "description", "tech_stack", "repository_url"]
+      },
+      "current_branch": {
+        "title": "### Current State",
+        "include": ["branch", "uncommitted_changes", "last_commit"]
+      },
+      "recent_changes": {
+        "title": "### Recent Changes",
+        "include": ["file_diffs_summary", "commits_today"]
+      },
+      "pending_tasks": {
+        "title": "### What Needs To Be Done",
+        "include": ["task_list", "blockers"]
+      },
+      "continuation_prompt": {
+        "title": "### Continuation Instructions",
+        "content": "Continue working on this project. When ready to return to Claude Code, please provide a summary with: 1) Key decisions made, 2) Code suggestions (if any), 3) Research findings, 4) Recommended next steps."
+      }
+    }
+  },
+  "return_instructions": {
+    "title": "When Returning to Claude Code",
+    "steps": [
+      "Copy your final response or summary",
+      "Open 1Password and find the ClaudeSync item for this project",
+      "Paste your response into the 'claude_ai_response' field",
+      "Run /start in Claude Code - it will import your response automatically"
+    ]
+  }
+}

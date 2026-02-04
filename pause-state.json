@@ -1,5 +1,12 @@
 {
   "projects": {
+    "/Users/jb/.21st/worktrees/claude-codex/uneven-hollow": {
+      "contextId": "uneven-hollow-2026-02-01-061830",
+      "timestamp": "2026-02-01T13:18:22.000Z",
+      "branch": "wealthy-eagle-25de74",
+      "summary": "Researched 1Code vs Claude Code skills issue - found version mismatch (1Code uses older Claude binary v2.1.25 vs v2.1.29)",
+      "uncommittedFiles": 0
+    },
     "/Users/jb/.21st/worktrees/claude-command/tall-creek": {
       "contextId": "claude-command-2026-01-30-234750",
       "timestamp": "2026-01-30T23:47:50.000Z",
@@ -34,6 +41,32 @@
       "branch": "supreme-marsupial-6367e8",
       "summary": "Added /routine-sync, /codex-install, updated /routine-merge with pre-flight sync. Merged PR #13.",
       "uncommittedFiles": 0
+    },
+    "/Users/jb/.claude": {
+      "contextId": "session-management-2026-02-04-035813",
+      "timestamp": "2026-02-04T03:58:13.000Z",
+      "branch": "main",
+      "summary": "Session management & Cloud Tracker integration - handoff routines, Mermaid diagrams, protocol docs",
+      "uncommittedFiles": 0,
+      "lastCommand": "end",
+      "nextSteps": [
+        "Run Supabase migration for sessions table",
+        "Create API token in 1Password",
+        "Test full /end -> Cloud Tracker -> /start flow"
+      ]
+    },
+    "/Users/jb/.21st/repos/Aventerica89/jb-cloud-app-tracker": {
+      "contextId": "session-management-2026-02-04-035813",
+      "timestamp": "2026-02-04T03:58:13.000Z",
+      "branch": "main",
+      "summary": "Sessions feature - database migration, types, server actions, API route, UI components",
+      "uncommittedFiles": 0,
+      "lastCommand": "end",
+      "nextSteps": [
+        "Run Supabase migration: npx supabase db push",
+        "Add CLAUDE_CODE_API_TOKEN to Vercel env vars",
+        "Test sessions API endpoint"
+      ]
     }
   }
 }

@@ -1,0 +1,153 @@
+{
+  "name": "handoff",
+  "description": "Session handoff workflow between Claude Code and claude.ai",
+  "enabled": true,
+  "version": "1.0.0",
+  "triggers": {
+    "on_end": true,
+    "on_pause_extended": true,
+    "manual": true
+  },
+  "steps": {
+    "prepare_context": {
+      "order": 1,
+      "description": "Prepare session context for transfer",
+      "actions": [
+        "save_current_state",
+        "generate_context_summary",
+        "collect_files_changed",
+        "capture_task_list"
+      ],
+      "required": true
+    },
+    "save_to_1password": {
+      "order": 2,
+      "description": "Store context in 1Password ClaudeSync vault",
+      "actions": [
+        "create_claudesync_item",
+        "store_context_field",
+        "store_claude_ai_response_field"
+      ],
+      "required": true,
+      "1password": {
+        "vault": "ClaudeSync",
+        "item_template": "session-{project}-{date}",
+        "fields": {
+          "context": "Full session context for claude.ai",
+          "claude_ai_response": "Placeholder for return response",
+          "project": "Project name",
+          "branch": "Current git branch",
+          "timestamp": "Session end timestamp"
+        }
+      }
+    },
+    "generate_transfer_prompt": {
+      "order": 3,
+      "description": "Generate optimized prompt for claude.ai",
+      "actions": [
+        "format_context_block",
+        "include_codebase_summary",
+        "add_continuation_instructions"
+      ],
+      "required": true,
+      "output": {
+        "format": "markdown",
+        "max_length": 4000,
+        "sections": [
+          "project_overview",
+          "current_state",
+          "files_context",
+          "pending_tasks",
+          "continuation_prompt"
+        ]
+      }
+    },
+    "copy_to_clipboard": {
+      "order": 4,
+      "description": "Copy transfer prompt to clipboard",
+      "actions": [
+        "copy_context_to_clipboard"
+      ],
+      "required": false,
+      "enabled_by_default": true
+    }
+  },
+  "return_flow": {
+    "description": "Importing context back from claude.ai",
+    "trigger": "/start with ClaudeSync item detected",
+    "steps": {
+      "read_1password": {
+        "order": 1,
+        "description": "Check 1Password for claude.ai response",
+        "actions": [
+          "read_claudesync_item",
+          "parse_claude_ai_response"
+        ]
+      },
+      "merge_context": {
+        "order": 2,
+        "description": "Merge claude.ai insights with local state",
+        "actions": [
+          "extract_decisions",
+          "extract_code_suggestions",
+          "update_local_context"
+        ]
+      },
+      "resume_session": {
+        "order": 3,
+        "description": "Continue development with merged context",
+        "actions": [
+          "load_merged_context",
+          "show_summary",
+          "ready_for_work"
+        ]
+      }
+    }
+  },
+  "presets": {
+    "quick": {
+      "description": "Quick handoff for simple continuation",
+      "skip_steps": ["generate_transfer_prompt"],
+      "context_level": "minimal"
+    },
+    "full": {
+      "description": "Complete context handoff with all files",
+      "skip_steps": [],
+      "context_level": "comprehensive",
+      "include_file_contents": true
+    },
+    "claude-ai-transfer": {
+      "description": "Optimized for claude.ai web interface",
+      "skip_steps": [],
+      "context_level": "optimized",
+      "max_context_tokens": 8000,
+      "format": "claude-ai-friendly"
+    }
+  },
+  "integration": {
+    "cloud_tracker": {
+      "enabled": true,
+      "api_endpoint": "https://apps.jbcloud.app/api/sessions",
+      "on_handoff": "create_session_record",
+      "on_return": "update_session_record"
+    },
+    "1password": {
+      "vault": "ClaudeSync",
+      "auto_create": true,
+      "auto_cleanup_days": 30
+    }
+  },
+  "context_template": {
+    "sections": {
+      "header": "## Claude Code Session Context",
+      "project": "### Project: {project_name}",
+      "branch": "### Branch: {branch_name}",
+      "timestamp": "### Timestamp: {timestamp}",
+      "summary": "### Session Summary\n{summary}",
+      "accomplishments": "### What Was Done\n{accomplishments}",
+      "pending": "### Pending Tasks\n{pending_tasks}",
+      "files": "### Key Files\n{file_list}",
+      "continuation": "### Continuation Instructions\n{instructions}"
+    }
+  }
+}
