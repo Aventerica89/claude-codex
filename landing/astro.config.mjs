@@ -10,5 +10,5 @@ export default defineConfig({
     }),
   ],
   output: 'static',
-  site: 'https://claudecodex.jbcloud.app',
+  site: 'https://codex.jbcloud.app',
 });
