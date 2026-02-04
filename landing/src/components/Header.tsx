@@ -44,11 +44,11 @@ const Header = () => {
 
         {/* Auth Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm">
-            Log in
+          <Button variant="ghost" size="sm" asChild>
+            <a href="/dashboard">Dashboard</a>
           </Button>
-          <Button size="sm">
-            Get Started
+          <Button size="sm" asChild>
+            <a href="/dashboard">Get Started</a>
           </Button>
         </div>
 
@@ -85,8 +85,12 @@ const Header = () => {
               </a>
             ))}
             <div className="pt-3 border-t border-border space-y-2">
-              <Button variant="outline" className="w-full">Log in</Button>
-              <Button className="w-full">Get Started</Button>
+              <Button variant="outline" className="w-full" asChild>
+                <a href="/dashboard">Dashboard</a>
+              </Button>
+              <Button className="w-full" asChild>
+                <a href="/dashboard">Get Started</a>
+              </Button>
             </div>
           </div>
         </motion.div>
