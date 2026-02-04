@@ -265,10 +265,78 @@ Headers block search indexing
 - Third-party integrations can use the stable preview URL
 - SEO remains protected - only production is indexed
 
+---
+
+## Verified Working Setup (claude-codex)
+
+This command was successfully tested on the claude-codex project:
+
+| Component | Value |
+|-----------|-------|
+| Production | `codex.jbcloud.app` |
+| Preview | `claudecodex-preview.jbcloud.app` |
+| Framework | Astro |
+| Branch | `preview` (auto-synced) |
+
+**Files created:**
+- `landing/vercel.json` - noindex headers for preview host
+- `landing/src/pages/robots.txt.ts` - Dynamic robots based on branch
+- `.github/workflows/preview.yml` - Auto-sync workflow
+
+---
+
+## DNS Configuration
+
+For `*.jbcloud.app` subdomains to work with Vercel:
+
+**Cloudflare DNS (if using Cloudflare for jbcloud.app):**
+```
+Type: CNAME
+Name: *
+Target: cname.vercel-dns.com
+Proxy: DNS only (gray cloud)
+```
+
+**Or per-subdomain:**
+```
+Type: CNAME
+Name: claudecodex-preview
+Target: cname.vercel-dns.com
+```
+
+---
+
+## Troubleshooting
+
+### "Branch preview not found"
+The workflow creates the branch on first push. Either:
+1. Push any commit to main to trigger the workflow
+2. Or manually create: `git checkout -b preview && git push -u origin preview`
+
+### "Permission denied" in GitHub Actions
+The workflow needs `contents: write` permission. Verify the workflow includes:
+```yaml
+permissions:
+  contents: write
+```
+
+### Preview not updating
+1. Check GitHub Actions completed: `gh run list --workflow="Sync Preview Branch"`
+2. Check Vercel deployment: Project → Deployments tab
+3. Verify domain is assigned to `preview` branch in Vercel
+
+### Headers not applied
+Vercel headers only apply when the `has` condition matches. Verify:
+- Domain exactly matches `vercel.json` headers config
+- Deployment completed after `vercel.json` was updated
+
+---
+
 ## Related
 
 - `/deploy-check` - Pre-deployment verification
 - `/setup-github-actions` - Configure other workflows
+- `/jbdocs` - Sync documentation (includes preview setup option)
 
 ## Reference
 

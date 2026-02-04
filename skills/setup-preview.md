@@ -190,4 +190,39 @@ Based on: https://jonrh.is/preview-subdomain-nextj-vercel
 
 ---
 
+## Verified Working Setup
+
+Successfully tested on claude-codex (Astro project):
+
+| Component | Value |
+|-----------|-------|
+| Production | `codex.jbcloud.app` |
+| Preview | `claudecodex-preview.jbcloud.app` |
+| Framework | Astro |
+| Workflow | `.github/workflows/preview.yml` |
+
+---
+
+## Troubleshooting
+
+### "Branch preview not found" in Vercel
+Push any commit to trigger the workflow, which creates the branch:
+```bash
+git commit --allow-empty -m "trigger preview branch" && git push
+```
+
+### "Permission denied" in GitHub Actions
+Ensure workflow has write permission:
+```yaml
+permissions:
+  contents: write
+```
+
+### Preview not updating
+1. Check workflow: `gh run list --workflow="Sync Preview Branch"`
+2. Check Vercel deployments in dashboard
+3. Verify domain assigned to `preview` branch
+
+---
+
 **Ready to set up preview subdomain.** Provide project path or run in project directory.

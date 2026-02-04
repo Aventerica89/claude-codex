@@ -407,6 +407,74 @@ Commit: {commit-hash}
 
 ---
 
+## Integration with /setup-preview
+
+Projects with Vercel deployments can have preview subdomains set up automatically.
+
+### When to Offer Preview Setup
+
+Offer `/setup-preview` when:
+- Project has `vercel.json` or is deployed to Vercel
+- Project has a production domain configured
+- User is setting up CI/CD or deployment workflow
+
+### Preview Subdomain Pattern
+
+```
+{repo-name}-preview.jbcloud.app
+```
+
+Examples:
+- `claude-codex` → `claudecodex-preview.jbcloud.app`
+- `jb-cloud-docs` → `jbclouddocs-preview.jbcloud.app`
+- `HDFlowsheet-Cloud` → `hdflowsheetcloud-preview.jbcloud.app`
+
+### What Preview Setup Creates
+
+| File | Purpose |
+|------|---------|
+| `vercel.json` | Adds `X-Robots-Tag: noindex` for preview host |
+| `robots.txt` handler | Dynamic robots.txt based on branch |
+| `.github/workflows/preview.yml` | Auto-syncs any push to `preview` branch |
+
+### How It Works
+
+```
+Any branch push → GitHub Actions → Force-push to preview branch → Vercel deploys → Preview URL updated
+```
+
+### Benefits
+
+- **Stable URL**: Third-party integrations (webhooks, OAuth callbacks) always work
+- **SEO Safe**: Preview never indexed by search engines
+- **Auto-Sync**: Every push updates preview automatically
+- **No Manual Deploys**: No need to remember which branch to deploy
+
+### Manual Vercel Steps
+
+After running `/setup-preview`, complete in Vercel Dashboard:
+
+1. **Add Domain**: `{repo}-preview.jbcloud.app`
+2. **Assign to Branch**: Select `preview` branch
+3. **Enable System Env Vars**: "Automatically expose System Environment Variables"
+
+### Documenting Preview URLs
+
+When documenting a project with `/jbdocs`, include preview URLs in the deployment section:
+
+```markdown
+## Deployment
+
+| Environment | URL |
+|-------------|-----|
+| Production | https://codex.jbcloud.app |
+| Preview | https://claudecodex-preview.jbcloud.app |
+
+Preview auto-updates on every push to any branch.
+```
+
+---
+
 ## Integration with /new-project
 
 When `/new-project` Phase 1 asks "Document to docs.jbcloud.app?" and user says Yes:
