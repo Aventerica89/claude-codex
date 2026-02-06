@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { CardSizeToggle, type CardSize } from './CardSizeToggle'
 import { PluginCard } from './PluginCard'
 import { PluginFilters } from './PluginFilters'
+import { useToast } from '../ui/Toast'
 import type { Plugin, PluginListResponse } from '@/lib/plugins/types'
 
 const GRID_CLASSES: Record<CardSize, string> = {
@@ -14,6 +15,7 @@ const GRID_CLASSES: Record<CardSize, string> = {
 }
 
 export function PluginsPage() {
+  const { showToast } = useToast()
   const [plugins, setPlugins] = useState<Plugin[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -106,10 +108,10 @@ export function PluginsPage() {
       const data = await response.json()
       if (data.success) {
         await fetchPlugins()
-        alert(`Synced ${data.data.synced} plugin sources!`)
+        showToast(`Synced ${data.data.synced} plugin sources!`, 'success')
       }
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to sync plugins')
+      showToast(err instanceof Error ? err.message : 'Failed to sync plugins', 'error')
     } finally {
       setSyncing(false)
     }
