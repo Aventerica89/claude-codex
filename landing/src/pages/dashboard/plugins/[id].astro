@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../../components/dashboard/DashboardLayout';
+import { PluginDetailPage } from '../../../components/dashboard/PluginDetailPage';
+
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect('/dashboard/plugins');
+}
+---
+
+<BaseLayout title={`Plugin Details - Claude Codex Dashboard`}>
+  <DashboardLayout currentPath="/dashboard/plugins" client:load>
+    <PluginDetailPage pluginId={id} client:load />
+  </DashboardLayout>
+</BaseLayout>
