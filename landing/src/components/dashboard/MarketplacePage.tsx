@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from 'react'
 import { cn } from '@/lib/utils'
-import { ComponentPreview } from '@/components/ComponentCard'
+import { LiveComponentPreview } from './LiveComponentPreviews'
+import { CardSizeToggle, type CardSize } from './CardSizeToggle'
 import {
   registries,
   categories,
@@ -23,12 +24,25 @@ const registryBadgeColors: Record<string, string> = {
   aceternity: 'bg-sky-500/10 text-sky-400',
 }
 
+const GRID_CLASSES: Record<CardSize, string> = {
+  compact: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6',
+  normal: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+  large: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+}
+
+const PREVIEW_HEIGHT: Record<CardSize, string> = {
+  compact: 'h-14',
+  normal: 'h-24',
+  large: 'h-44',
+}
+
 export function MarketplacePage() {
   const [search, setSearch] = useState('')
   const [selectedRegistries, setSelectedRegistries] = useState<string[]>([])
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [copied, setCopied] = useState(false)
+  const [cardSize, setCardSize] = useState<CardSize>('normal')
 
   const allComponents = useMemo(() => getAllComponents(), [])
 
@@ -113,6 +127,7 @@ export function MarketplacePage() {
           <span className="text-sm text-muted-foreground">
             {filtered.length} shown
           </span>
+          <CardSizeToggle size={cardSize} onChange={setCardSize} />
         </div>
       </div>
 
@@ -202,7 +217,7 @@ export function MarketplacePage() {
 
       {/* Components grid */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+        <div className={cn('grid gap-3', GRID_CLASSES[cardSize])}>
           {filtered.map((comp) => {
             const isSelected = selected.has(comp.id)
             return (
@@ -219,7 +234,10 @@ export function MarketplacePage() {
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <h3 className="text-sm font-medium truncate">
+                      <h3 className={cn(
+                        'font-medium truncate',
+                        cardSize === 'compact' ? 'text-xs' : 'text-sm'
+                      )}>
                         {comp.name}
                       </h3>
                       <a
@@ -244,9 +262,11 @@ export function MarketplacePage() {
                         </svg>
                       </a>
                     </div>
-                    <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
-                      {comp.description}
-                    </p>
+                    {cardSize !== 'compact' && (
+                      <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
+                        {comp.description}
+                      </p>
+                    )}
                   </div>
                   <button
                     onClick={() => toggleComponent(comp.id)}
@@ -275,39 +295,48 @@ export function MarketplacePage() {
                   </button>
                 </div>
 
-                {/* Component preview */}
-                <div className="w-full h-20 rounded-md bg-secondary/50 border border-border/50 flex items-center justify-center overflow-hidden">
-                  <ComponentPreview componentId={comp.id} />
+                {/* Live component preview */}
+                <div
+                  className={cn(
+                    'w-full rounded-md bg-secondary/50 border border-border/50 flex items-center justify-center overflow-hidden',
+                    PREVIEW_HEIGHT[cardSize]
+                  )}
+                  onClick={(e) => e.stopPropagation()}
+                  onMouseDown={(e) => e.stopPropagation()}
+                >
+                  <LiveComponentPreview componentId={comp.id} size={cardSize} />
                 </div>
 
                 {/* Meta row */}
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span
-                    className={cn(
-                      'px-1.5 py-0.5 text-[10px] rounded font-medium',
-                      registryBadgeColors[comp.registry] || 'bg-muted text-muted-foreground'
-                    )}
-                  >
-                    {registries.find((r) => r.id === comp.registry)?.name || comp.registry}
-                  </span>
-                  <span className="px-1.5 py-0.5 text-[10px] rounded bg-secondary text-muted-foreground">
-                    {comp.category}
-                  </span>
-                  <span
-                    className={cn(
-                      'text-[10px] font-medium',
-                      complexityColors[comp.complexity]
-                    )}
-                  >
-                    {comp.complexity}
-                  </span>
-                  <span className="text-[10px] text-muted-foreground font-mono ml-auto">
-                    {comp.bundleSize} KB
-                  </span>
-                </div>
+                {cardSize !== 'compact' && (
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span
+                      className={cn(
+                        'px-1.5 py-0.5 text-[10px] rounded font-medium',
+                        registryBadgeColors[comp.registry] || 'bg-muted text-muted-foreground'
+                      )}
+                    >
+                      {registries.find((r) => r.id === comp.registry)?.name || comp.registry}
+                    </span>
+                    <span className="px-1.5 py-0.5 text-[10px] rounded bg-secondary text-muted-foreground">
+                      {comp.category}
+                    </span>
+                    <span
+                      className={cn(
+                        'text-[10px] font-medium',
+                        complexityColors[comp.complexity]
+                      )}
+                    >
+                      {comp.complexity}
+                    </span>
+                    <span className="text-[10px] text-muted-foreground font-mono ml-auto">
+                      {comp.bundleSize} KB
+                    </span>
+                  </div>
+                )}
 
                 {/* Dependencies */}
-                {comp.dependencies.length > 0 && (
+                {cardSize === 'large' && comp.dependencies.length > 0 && (
                   <div className="text-[10px] text-muted-foreground">
                     {comp.dependencies.length} dep{comp.dependencies.length !== 1 ? 's' : ''}:{' '}
                     {comp.dependencies.slice(0, 2).join(', ')}
