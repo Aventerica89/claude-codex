@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
+import { PluginsPage } from '../../components/dashboard/PluginsPage';
+---
+
+<BaseLayout title="Plugins - Claude Codex Dashboard">
+  <DashboardLayout currentPath="/dashboard/plugins" client:load>
+    <PluginsPage client:load />
+  </DashboardLayout>
+</BaseLayout>
