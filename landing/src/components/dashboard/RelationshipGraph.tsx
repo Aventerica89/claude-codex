@@ -140,13 +140,13 @@ export function RelationshipGraph({ components, relationships }: RelationshipGra
                       </div>
 
                       <div className="pl-8 space-y-2">
-                        {rels.map((rel, idx) => {
+                        {rels.map((rel) => {
                           const target = componentMap.get(rel.target_component_id);
                           if (!target) return null;
 
                           return (
                             <div
-                              key={idx}
+                              key={`${rel.source_component_id}-${rel.target_component_id}-${rel.relationship_type}`}
                               className="flex items-start gap-3 py-2 pl-4 border-l-2 border-violet-500/30"
                             >
                               <div className="mt-1.5 text-violet-400">→</div>
@@ -184,12 +184,12 @@ export function RelationshipGraph({ components, relationships }: RelationshipGra
 
       {/* Bi-directional Relationships */}
       {(() => {
+        const relationshipPairs = new Set(
+          relationships.map(r => `${r.source_component_id}->${r.target_component_id}`)
+        );
+
         const bidirectional = relationships.filter(r1 => {
-          return relationships.some(
-            r2 =>
-              r2.source_component_id === r1.target_component_id &&
-              r2.target_component_id === r1.source_component_id
-          );
+          return relationshipPairs.has(`${r1.target_component_id}->${r1.source_component_id}`);
         });
 
         if (bidirectional.length === 0) return null;

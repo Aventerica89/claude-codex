@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import type { Plugin, PluginComponent, ComponentRelationship } from '../../lib/plugins/types';
+import { useState, useEffect, useMemo } from 'react';
+import type { Plugin, PluginComponent, ComponentRelationship, PluginInstallation } from '../../lib/plugins/types';
 import { PluginComponentList } from './PluginComponentList';
 import { RelationshipGraph } from './RelationshipGraph';
 import { InstallModal } from './InstallModal';
@@ -12,7 +12,7 @@ interface PluginDetailPageProps {
 interface PluginDetail extends Plugin {
   components: PluginComponent[];
   relationships: ComponentRelationship[];
-  installations: any[];
+  installations: PluginInstallation[];
   is_favorited: boolean;
 }
 
@@ -112,12 +112,12 @@ export function PluginDetailPage({ pluginId }: PluginDetailPageProps) {
 
   const sourceBadge = SOURCE_BADGES[plugin.source_type];
   const totalComponents = plugin.components.length;
-  const componentsByType = {
+  const componentsByType = useMemo(() => ({
     agent: plugin.components.filter(c => c.type === 'agent').length,
     skill: plugin.components.filter(c => c.type === 'skill').length,
     command: plugin.components.filter(c => c.type === 'command').length,
     rule: plugin.components.filter(c => c.type === 'rule').length,
-  };
+  }), [plugin.components]);
 
   return (
     <div className="space-y-6">
@@ -276,7 +276,9 @@ export function PluginDetailPage({ pluginId }: PluginDetailPageProps) {
           <div className="bg-card border border-border rounded-xl p-6">
             <div className="prose prose-invert max-w-none">
               {plugin.readme ? (
-                <div dangerouslySetInnerHTML={{ __html: plugin.readme }} />
+                <pre className="whitespace-pre-wrap text-sm text-foreground">
+                  {plugin.readme}
+                </pre>
               ) : (
                 <p className="text-muted-foreground">No README available</p>
               )}

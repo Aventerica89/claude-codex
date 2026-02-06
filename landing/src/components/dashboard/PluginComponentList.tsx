@@ -91,11 +91,12 @@ export function PluginComponentList({
               const isSelected = selectedComponents.has(component.id);
               const hasTools = component.tools && component.tools.length > 0;
               const hasModel = component.model;
+              const checkboxId = `component-${component.id}`;
 
               return (
-                <div
+                <label
                   key={component.id}
-                  onClick={() => onToggleComponent(component.id)}
+                  htmlFor={checkboxId}
                   className={`
                     flex items-start gap-4 p-4 border rounded-lg cursor-pointer transition-colors
                     ${isSelected
@@ -105,10 +106,10 @@ export function PluginComponentList({
                   `}
                 >
                   <input
+                    id={checkboxId}
                     type="checkbox"
                     checked={isSelected}
                     onChange={() => onToggleComponent(component.id)}
-                    onClick={(e) => e.stopPropagation()}
                     className="mt-1 w-4 h-4 rounded border-border bg-secondary/30"
                   />
 
@@ -157,7 +158,7 @@ export function PluginComponentList({
                       </div>
                     )}
                   </div>
-                </div>
+                </label>
               );
             })}
           </div>
