@@ -193,7 +193,7 @@ export function ComponentCard({
 }
 
 // Mini visual previews for components
-function ComponentPreview({ componentId }: { componentId: string }) {
+export function ComponentPreview({ componentId }: { componentId: string }) {
   const baseId = componentId.replace(/^(magic|aceternity|ext|origin)-/, "")
 
   const previews: Record<string, React.ReactNode> = {
