@@ -40,10 +40,15 @@ export function PluginsPage() {
 
   // Fetch plugins
   useEffect(() => {
-    fetchPlugins()
+    const abortController = new AbortController()
+    fetchPlugins(abortController.signal)
+
+    return () => {
+      abortController.abort()
+    }
   }, [selectedSources, selectedCategories, selectedTypes, sortBy])
 
-  const fetchPlugins = async () => {
+  const fetchPlugins = async (signal?: AbortSignal) => {
     setLoading(true)
     setError(null)
 
@@ -54,7 +59,7 @@ export function PluginsPage() {
       if (selectedTypes.length > 0) params.set('type', selectedTypes.join(','))
       params.set('sort', sortBy)
 
-      const response = await fetch(`/api/plugins?${params.toString()}`)
+      const response = await fetch(`/api/plugins?${params.toString()}`, { signal })
       if (!response.ok) throw new Error('Failed to fetch plugins')
 
       const data: PluginListResponse = await response.json()
@@ -65,6 +70,8 @@ export function PluginsPage() {
         throw new Error('Failed to load plugins')
       }
     } catch (err) {
+      // Ignore abort errors
+      if (err instanceof Error && err.name === 'AbortError') return
       setError(err instanceof Error ? err.message : 'Failed to load plugins')
     } finally {
       setLoading(false)

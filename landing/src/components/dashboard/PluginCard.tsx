@@ -33,9 +33,6 @@ export function PluginCard({ plugin, size }: PluginCardProps) {
         ? 'Community'
         : 'Local'
 
-  const totalComponents =
-    plugin.agent_count + plugin.skill_count + plugin.command_count + plugin.rule_count
-
   return (
     <a
       href={`/dashboard/plugins/${plugin.id}`}

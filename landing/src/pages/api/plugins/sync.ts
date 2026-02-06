@@ -34,12 +34,15 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json().catch(() => ({}))
     const sources = body.sources as string[] | undefined
-    const force = body.force as boolean | undefined
+
+    // Input validation: Ensure force is a boolean
+    const forceParam = body.force
+    const force = typeof forceParam === 'boolean' ? forceParam : forceParam === 'true'
 
     console.log('Starting plugin sync...', { sources, force })
 
     // Sync all sources
-    const result = await syncAllSources(force || false)
+    const result = await syncAllSources(force)
 
     console.log(`Synced ${result.synced} sources`)
 

@@ -34,10 +34,7 @@ export async function initDb(): Promise<void> {
       usage_count INTEGER DEFAULT 0,
       last_used TEXT,
       last_edited TEXT,
-      created_at TEXT DEFAULT (datetime('now')),
-      plugin_component_id TEXT,
-      plugin_id TEXT,
-      is_plugin_managed INTEGER DEFAULT 0
+      created_at TEXT DEFAULT (datetime('now'))
     );
 
     CREATE TABLE IF NOT EXISTS deployments (
@@ -66,6 +63,28 @@ export async function initDb(): Promise<void> {
       connected_at TEXT DEFAULT (datetime('now'))
     );
   `)
+
+  // Add plugin-related columns to existing codex_items table
+  try {
+    await db.execute('ALTER TABLE codex_items ADD COLUMN plugin_component_id TEXT')
+  } catch (e) {
+    // Column already exists, ignore
+  }
+
+  try {
+    await db.execute('ALTER TABLE codex_items ADD COLUMN plugin_id TEXT')
+  } catch (e) {
+    // Column already exists, ignore
+  }
+
+  try {
+    await db.execute('ALTER TABLE codex_items ADD COLUMN is_plugin_managed INTEGER DEFAULT 0')
+  } catch (e) {
+    // Column already exists, ignore
+  }
+
+  // Initialize plugin tables
+  await migratePluginTables()
 }
 
 export async function migratePluginTables(): Promise<void> {

@@ -31,7 +31,7 @@ export async function detectRelationships(pluginId: string): Promise<number> {
 
     for (const rel of relationships) {
       try {
-        await db.execute({
+        const result = await db.execute({
           sql: `INSERT OR IGNORE INTO component_relationships (
             from_component_id, to_component_id, relationship_type, description, strength
           ) VALUES (?, ?, ?, ?, ?)`,
@@ -43,9 +43,15 @@ export async function detectRelationships(pluginId: string): Promise<number> {
             rel.strength,
           ],
         })
-        relationshipsFound++
+        // Only count if actually inserted (not ignored due to duplicate)
+        if (result.rowsAffected > 0) {
+          relationshipsFound++
+        }
       } catch (error) {
-        // Ignore duplicate relationship errors
+        // Only ignore UNIQUE constraint violations, re-throw other errors
+        if (error instanceof Error && !error.message.includes('UNIQUE constraint')) {
+          throw error
+        }
       }
     }
   }
@@ -246,15 +252,18 @@ export async function getRelationshipGraph(pluginId: string): Promise<{
   const componentIds = components.map((c) => c.id)
 
   // Get all relationships involving these components
-  const placeholders = componentIds.map(() => '?').join(',')
-  const relationshipsResult = await db.execute({
-    sql: `SELECT * FROM component_relationships
-          WHERE from_component_id IN (${placeholders})
-          OR to_component_id IN (${placeholders})`,
-    args: [...componentIds, ...componentIds],
-  })
+  let relationships: ComponentRelationship[] = []
 
-  const relationships = relationshipsResult.rows as unknown as ComponentRelationship[]
+  if (componentIds.length > 0) {
+    const placeholders = componentIds.map(() => '?').join(',')
+    const relationshipsResult = await db.execute({
+      sql: `SELECT * FROM component_relationships
+            WHERE from_component_id IN (${placeholders})
+            OR to_component_id IN (${placeholders})`,
+      args: [...componentIds, ...componentIds],
+    })
+    relationships = relationshipsResult.rows as unknown as ComponentRelationship[]
+  }
 
   // Build nodes
   const nodes = components.map((c) => ({

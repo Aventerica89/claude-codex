@@ -23,6 +23,24 @@ interface GitHubTreeItem {
 }
 
 /**
+ * Get GitHub API headers with optional authentication
+ */
+function getGitHubHeaders(): HeadersInit {
+  const headers: HeadersInit = {
+    Accept: 'application/vnd.github.v3+json',
+  }
+
+  // Add GitHub token if available (increases rate limit from 60 to 5000/hour)
+  if (typeof process !== 'undefined' && process.env?.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`
+  } else if (typeof import.meta !== 'undefined' && import.meta.env?.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${import.meta.env.GITHUB_TOKEN}`
+  }
+
+  return headers
+}
+
+/**
  * Parse plugin manifest from .claude-plugin/plugin.json
  */
 export function parsePluginManifest(manifestJson: any): PluginManifest {
@@ -58,7 +76,7 @@ export async function parseAnthropicPlugin(
   let manifest: PluginManifest | null = null
   try {
     const manifestUrl = `${repoUrl}/main/plugins/${pluginName}/.claude-plugin/plugin.json`
-    const response = await fetch(manifestUrl)
+    const response = await fetch(manifestUrl, { headers: getGitHubHeaders() })
     if (response.ok) {
       manifest = parsePluginManifest(await response.json())
     }
@@ -70,7 +88,7 @@ export async function parseAnthropicPlugin(
   let readme: string | null = null
   try {
     const readmeUrl = `${repoUrl}/main/plugins/${pluginName}/README.md`
-    const response = await fetch(readmeUrl)
+    const response = await fetch(readmeUrl, { headers: getGitHubHeaders() })
     if (response.ok) {
       readme = await response.text()
     }
@@ -88,9 +106,7 @@ export async function parseAnthropicPlugin(
 
     try {
       const response = await fetch(dirUrl, {
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-        },
+        headers: getGitHubHeaders(),
       })
 
       if (!response.ok) continue
@@ -176,9 +192,7 @@ export async function parseCommunityPlugin(
 
     try {
       const response = await fetch(dirUrl, {
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-        },
+        headers: getGitHubHeaders(),
       })
 
       if (!response.ok) continue
@@ -270,7 +284,7 @@ function parseComponentMarkdown(
 
     // Extract model for agents
     if (type === 'agent' && line.toLowerCase().includes('model:')) {
-      const modelMatch = line.match(/model:\s*(\w+)/i)
+      const modelMatch = line.match(/model:\s*([\w.-]+)/i)
       if (modelMatch) {
         model = modelMatch[1]
       }
@@ -329,7 +343,7 @@ function parseComponentMarkdown(
  * Fetch file content from GitHub raw URL
  */
 async function fetchFileContent(url: string): Promise<string> {
-  const response = await fetch(url)
+  const response = await fetch(url, { headers: getGitHubHeaders() })
   if (!response.ok) {
     throw new Error(`Failed to fetch ${url}: ${response.statusText}`)
   }
@@ -348,9 +362,7 @@ export async function listPluginsInRepo(
 
   try {
     const response = await fetch(url, {
-      headers: {
-        Accept: 'application/vnd.github.v3+json',
-      },
+      headers: getGitHubHeaders(),
     })
 
     if (!response.ok) {

@@ -15,8 +15,12 @@ export const GET: APIRoute = async ({ url }) => {
     const types = searchParams.get('type')?.split(',').filter(Boolean) || []
     const search = searchParams.get('search') || ''
     const sort = (searchParams.get('sort') || 'popular') as 'popular' | 'recent' | 'alphabetical'
-    const limit = parseInt(searchParams.get('limit') || '50')
-    const offset = parseInt(searchParams.get('offset') || '0')
+
+    // Input validation for limit and offset
+    const limitParam = parseInt(searchParams.get('limit') || '50')
+    const offsetParam = parseInt(searchParams.get('offset') || '0')
+    const limit = Math.min(Math.max(limitParam, 1), 100) // Between 1 and 100
+    const offset = Math.max(offsetParam, 0) // Non-negative
 
     // Build WHERE clause
     const conditions: string[] = []
@@ -97,11 +101,23 @@ export const GET: APIRoute = async ({ url }) => {
       'SELECT categories FROM plugins WHERE categories IS NOT NULL AND categories != "[]"'
     )
 
+    // Fix: Get type counts from full filtered dataset, not paginated results
+    const typeCountsResult = await db.execute({
+      sql: `SELECT
+        SUM(CASE WHEN agent_count > 0 THEN 1 ELSE 0 END) as agent,
+        SUM(CASE WHEN skill_count > 0 THEN 1 ELSE 0 END) as skill,
+        SUM(CASE WHEN command_count > 0 THEN 1 ELSE 0 END) as command,
+        SUM(CASE WHEN rule_count > 0 THEN 1 ELSE 0 END) as rule
+        FROM plugins ${whereClause}`,
+      args,
+    })
+
+    const typeCountsRow = typeCountsResult.rows[0] as any
     const typesCount = {
-      agent: plugins.filter((p) => p.agent_count > 0).length,
-      skill: plugins.filter((p) => p.skill_count > 0).length,
-      command: plugins.filter((p) => p.command_count > 0).length,
-      rule: plugins.filter((p) => p.rule_count > 0).length,
+      agent: typeCountsRow.agent || 0,
+      skill: typeCountsRow.skill || 0,
+      command: typeCountsRow.command || 0,
+      rule: typeCountsRow.rule || 0,
     }
 
     // Get source names
