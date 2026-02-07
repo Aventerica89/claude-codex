@@ -67,7 +67,7 @@ const navItems: NavItem[] = [
   },
   {
     id: 'workflows',
-    label: 'Workflows',
+    label: 'Dep. Graph',
     icon: 'M13 10V3L4 14h7v7l9-11h-7z',
     href: '/dashboard/workflows',
   },
