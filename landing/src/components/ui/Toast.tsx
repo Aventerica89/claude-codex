@@ -19,12 +19,16 @@ interface ToastContextType {
 
 const ToastContext = createContext<ToastContextType | null>(null)
 
-export function useToast() {
+const noopToast: ToastContextType = {
+  toasts: [],
+  showToast: () => {},
+  removeToast: () => {},
+}
+
+export function useToast(): ToastContextType {
   const context = useContext(ToastContext)
-  if (!context) {
-    throw new Error('useToast must be used within ToastProvider')
-  }
-  return context
+  // Return no-op during SSR when ToastProvider isn't available
+  return context ?? noopToast
 }
 
 interface ToastProviderProps {
