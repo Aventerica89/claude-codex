@@ -26,6 +26,7 @@ import { CommandConfigPanel } from './CommandConfigPanel'
 import { CommandPreview } from './CommandPreview'
 import { WorkflowToolbar } from './WorkflowToolbar'
 import { QuickAddMenu } from './QuickAddMenu'
+import { ResizeHandle } from './ResizeHandle'
 
 interface DroppedItem {
   id: string
@@ -68,6 +69,9 @@ export function WorkflowBuilder() {
   const [config, setConfig] = useState<CommandConfig>({ ...DEFAULT_CONFIG })
   const [workflowId, setWorkflowId] = useState<string | null>(null)
   const [quickAdd, setQuickAdd] = useState<QuickAddState | null>(null)
+  const [paletteWidth, setPaletteWidth] = useState(208)
+  const [configWidth, setConfigWidth] = useState(256)
+  const [previewHeight, setPreviewHeight] = useState(192)
   const reactFlowWrapper = useRef<HTMLDivElement>(null)
   const rfInstance = useRef<{
     screenToFlowPosition: (pos: { x: number; y: number }) => { x: number; y: number }
@@ -233,10 +237,17 @@ export function WorkflowBuilder() {
       {/* Main layout: Palette | Canvas + Preview | Config */}
       <div className="flex-1 flex rounded-xl border border-border overflow-hidden bg-card">
         {/* Left: Component Palette */}
-        <ComponentPalette />
+        <div style={{ width: paletteWidth, minWidth: 120, maxWidth: 400 }}>
+          <ComponentPalette className="w-full" />
+        </div>
+
+        <ResizeHandle
+          direction="horizontal"
+          onResize={(d) => setPaletteWidth((w) => Math.min(400, Math.max(120, w + d)))}
+        />
 
         {/* Center: Canvas (top) + Preview (bottom) */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col min-w-0">
           {/* Canvas */}
           <div
             ref={reactFlowWrapper}
@@ -267,10 +278,7 @@ export function WorkflowBuilder() {
                 size={1}
                 color="#27272a"
               />
-              <Controls
-                className="!bg-card !border-border !shadow-lg"
-                showInteractive={false}
-              />
+              <Controls showInteractive={false} />
               {/* Empty state overlay */}
               {nodes.length === 0 && !quickAdd && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -296,19 +304,34 @@ export function WorkflowBuilder() {
             )}
           </div>
 
-          {/* Bottom: Preview */}
-          <CommandPreview
-            markdown={markdown}
-            commandName={config.name}
-            className="h-48 min-h-[120px]"
+          <ResizeHandle
+            direction="vertical"
+            onResize={(d) => setPreviewHeight((h) => Math.min(400, Math.max(80, h - d)))}
           />
+
+          {/* Bottom: Preview */}
+          <div style={{ height: previewHeight, minHeight: 80, maxHeight: 400 }}>
+            <CommandPreview
+              markdown={markdown}
+              commandName={config.name}
+              className="h-full"
+            />
+          </div>
         </div>
 
-        {/* Right: Command Config */}
-        <CommandConfigPanel
-          config={config}
-          onChange={setConfig}
+        <ResizeHandle
+          direction="horizontal"
+          onResize={(d) => setConfigWidth((w) => Math.min(400, Math.max(160, w - d)))}
         />
+
+        {/* Right: Command Config */}
+        <div style={{ width: configWidth, minWidth: 160, maxWidth: 400 }}>
+          <CommandConfigPanel
+            config={config}
+            onChange={setConfig}
+            className="w-full"
+          />
+        </div>
       </div>
     </div>
   )

@@ -35,7 +35,7 @@ export function CommandConfigPanel({
 
   return (
     <div className={cn(
-      'w-64 flex flex-col bg-card border-l border-border',
+      'h-full flex flex-col bg-card border-l border-border',
       className
     )}>
       <div className="p-3 border-b border-border">

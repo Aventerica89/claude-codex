@@ -65,7 +65,7 @@ export function ItemCard({ item, onEdit, onDeploy, onCopy }: ItemCardProps) {
             onClick={() => onEdit(item)}
             className="flex-1 px-3 py-1.5 text-xs bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors"
           >
-            Edit
+            Open
           </button>
         )}
         {onDeploy && (

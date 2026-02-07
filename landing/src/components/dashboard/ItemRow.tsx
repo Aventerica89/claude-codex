@@ -67,7 +67,7 @@ export function ItemRow({ item, onEdit, onDeploy, onCopy }: ItemRowProps) {
             onClick={() => onEdit(item)}
             className="px-2.5 py-1 text-xs bg-violet-600 hover:bg-violet-700 text-white rounded transition-colors"
           >
-            Edit
+            Open
           </button>
         )}
         {onDeploy && (

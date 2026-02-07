@@ -118,9 +118,9 @@ export function DashboardLayout({ children, currentPath }: DashboardLayoutProps)
 
   return (
     <ToastProvider>
-      <div className="min-h-screen bg-background flex">
+      <div className="h-screen bg-background flex overflow-hidden">
         <Sidebar currentPath={currentPath} />
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1 overflow-y-auto">
           <div className="p-6">
             {children}
           </div>

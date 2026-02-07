@@ -88,7 +88,7 @@ export function ComponentPalette({ className }: ComponentPaletteProps) {
 
   return (
     <div className={cn(
-      'w-52 flex flex-col bg-card border-r border-border',
+      'h-full flex flex-col bg-card border-r border-border',
       className
     )}>
       {/* Type tabs */}

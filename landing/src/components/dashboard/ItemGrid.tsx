@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { ItemCard } from './ItemCard'
 import { ItemRow } from './ItemRow'
 import { ItemCardCompact } from './ItemCardCompact'
@@ -17,6 +17,8 @@ interface ItemGridProps {
   categories?: string[]
 }
 
+const ITEMS_PER_PAGE = 24
+
 export function ItemGrid({
   items,
   type,
@@ -29,6 +31,7 @@ export function ItemGrid({
   const [search, setSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
+  const [page, setPage] = useState(1)
 
   const categories = useMemo(() => {
     if (externalCategories) return externalCategories
@@ -51,6 +54,17 @@ export function ItemGrid({
       return matchesSearch && matchesCategory
     })
   }, [items, search, selectedCategory])
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setPage(1)
+  }, [search, selectedCategory])
+
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE)
+  const paged = filtered.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  )
 
   const handleEdit = onEdit ?? ((item: BrainItem) => {
     window.location.href = `/dashboard/${type}s/${item.slug}`
@@ -112,7 +126,7 @@ export function ItemGrid({
         <>
           {viewMode === 'grid' && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filtered.map((item) => (
+              {paged.map((item) => (
                 <ItemCard
                   key={item.id}
                   item={item}
@@ -125,7 +139,7 @@ export function ItemGrid({
 
           {viewMode === 'list' && (
             <div className="flex flex-col gap-2">
-              {filtered.map((item) => (
+              {paged.map((item) => (
                 <ItemRow
                   key={item.id}
                   item={item}
@@ -138,13 +152,56 @@ export function ItemGrid({
 
           {viewMode === 'compact' && (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
-              {filtered.map((item) => (
+              {paged.map((item) => (
                 <ItemCardCompact
                   key={item.id}
                   item={item}
                   onEdit={handleEdit}
                 />
               ))}
+            </div>
+          )}
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between pt-4 border-t border-border">
+              <p className="text-sm text-muted-foreground">
+                Showing {(page - 1) * ITEMS_PER_PAGE + 1}
+                {'-'}
+                {Math.min(page * ITEMS_PER_PAGE, filtered.length)} of{' '}
+                {filtered.length}
+              </p>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={page === 1}
+                  className="px-3 py-1.5 text-xs rounded-lg bg-secondary text-foreground hover:bg-secondary/80 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                >
+                  Prev
+                </button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (n) => (
+                    <button
+                      key={n}
+                      onClick={() => setPage(n)}
+                      className={`w-8 h-8 text-xs rounded-lg transition-colors ${
+                        n === page
+                          ? 'bg-violet-600 text-white'
+                          : 'bg-secondary text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      {n}
+                    </button>
+                  )
+                )}
+                <button
+                  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                  disabled={page === totalPages}
+                  className="px-3 py-1.5 text-xs rounded-lg bg-secondary text-foreground hover:bg-secondary/80 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                >
+                  Next
+                </button>
+              </div>
             </div>
           )}
         </>
