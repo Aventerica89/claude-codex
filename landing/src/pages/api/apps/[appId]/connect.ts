@@ -36,3 +36,36 @@ export const POST: APIRoute = async ({ params, request }) => {
     )
   }
 }
+
+export const DELETE: APIRoute = async ({ params, request }) => {
+  const { appId } = params
+  const body = await request.json()
+  const { itemId } = body
+
+  if (!itemId) {
+    return new Response(
+      JSON.stringify({ success: false, error: 'itemId is required' }),
+      { status: 400, headers: { 'Content-Type': 'application/json' } }
+    )
+  }
+
+  try {
+    const db = getDb()
+
+    await db.execute({
+      sql: 'DELETE FROM app_connections WHERE app_id = ? AND item_id = ?',
+      args: [appId, itemId],
+    })
+
+    return new Response(
+      JSON.stringify({ success: true }),
+      { status: 200, headers: { 'Content-Type': 'application/json' } }
+    )
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'DB error'
+    return new Response(
+      JSON.stringify({ success: false, error: message }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    )
+  }
+}

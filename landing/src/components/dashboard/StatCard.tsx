@@ -12,7 +12,7 @@ interface StatCardProps {
     isPositive?: boolean
   }
   icon?: React.ReactNode
-  color?: 'blue' | 'purple' | 'green' | 'orange'
+  color?: 'blue' | 'purple' | 'green' | 'orange' | 'cyan'
   onClick?: () => void
 }
 
@@ -36,6 +36,11 @@ const colorClasses = {
     bg: 'bg-orange-500/10',
     text: 'text-orange-400',
     border: 'border-orange-500/20',
+  },
+  cyan: {
+    bg: 'bg-cyan-500/10',
+    text: 'text-cyan-400',
+    border: 'border-cyan-500/20',
   },
 }
 

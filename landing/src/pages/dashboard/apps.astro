@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
+import { AppsPage } from '../../components/dashboard/AppsPage';
+---
+
+<BaseLayout title="Apps - Claude Codex Dashboard">
+  <DashboardLayout currentPath="/dashboard/apps" client:load>
+    <AppsPage client:load />
+  </DashboardLayout>
+</BaseLayout>

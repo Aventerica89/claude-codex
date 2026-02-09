@@ -65,6 +65,16 @@ export const services: Service[] = [
     endpoint: 'https://api.cloudflare.com',
   },
   {
+    id: 'app-tracker',
+    name: 'App Tracker',
+    type: 'integration',
+    status: 'connected',
+    latencyMs: 18,
+    lastCheck: new Date(),
+    icon: 'AT',
+    endpoint: 'https://apps.jbcloud.app',
+  },
+  {
     id: 'mcp-1password',
     name: 'MCP: 1Password',
     type: 'integration',
