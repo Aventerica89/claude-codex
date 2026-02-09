@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react'
 import { Handle, Position, useReactFlow, type NodeProps } from '@xyflow/react'
 import type { BrainItemType } from '@/lib/generated/types'
+import { useWorkflowContext } from './WorkflowContext'
 
 export interface ERNodeData {
   label: string
@@ -56,6 +57,7 @@ function ERNodeComponent({ id, data }: NodeProps) {
   const nodeData = data as unknown as ERNodeData
   const style = TYPE_STYLES[nodeData.itemType]
   const { deleteElements } = useReactFlow()
+  const { onInfoClick } = useWorkflowContext()
 
   const handleDelete = useCallback(
     (e: React.MouseEvent) => {
@@ -63,6 +65,14 @@ function ERNodeComponent({ id, data }: NodeProps) {
       deleteElements({ nodes: [{ id }] })
     },
     [id, deleteElements]
+  )
+
+  const handleInfo = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation()
+      onInfoClick?.(nodeData.brainItemId)
+    },
+    [onInfoClick, nodeData.brainItemId]
   )
 
   const highlightRing = nodeData.isHighlighted
@@ -121,6 +131,28 @@ function ERNodeComponent({ id, data }: NodeProps) {
                 {nodeData.isExpanded ? '\u2212' : `+${nodeData.referenceCount}`}
               </span>
             )}
+            {/* Info button - visible on hover */}
+            <button
+              onClick={handleInfo}
+              className={[
+                'opacity-0 group-hover:opacity-100',
+                'w-4 h-4 flex items-center justify-center',
+                'rounded text-muted-foreground hover:text-cyan-400',
+                'transition-opacity',
+              ].join(' ')}
+              title="View details"
+            >
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4M12 8h.01" />
+              </svg>
+            </button>
             {/* Delete button - visible on hover */}
             <button
               onClick={handleDelete}
