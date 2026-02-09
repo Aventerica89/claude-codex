@@ -1,83 +1,123 @@
-# VaporForge OAuth Pattern (Learned from 1Code)
+# VaporForge OAuth Pattern - Claude Code Authentication
 
-## The Legitimate Approach
+**Extracted:** 2026-02-05
+**Context:** Building web-based Claude Code IDE (VaporForge) that needs to authenticate with Claude Pro/Max subscriptions
 
-Using the **official Claude Code CLI's OAuth mechanism** inside a container is legitimate because:
-- You're not impersonating Claude Code
-- You're using the official binary/SDK
-- User authenticates with their own Claude.ai account
-- Usage comes from their subscription quota
+## Problem
 
-## How 1Code Does It
+VaporForge needs to authenticate users with their Claude Pro/Max subscription to avoid API costs. The original implementation tried running `claude login` inside a Cloudflare Sandbox container and parsing terminal output for OAuth URLs. This approach was fundamentally broken.
 
-### Flow
-1. **Start Auth**: Create a sandbox/container running `claude login`
-2. **Poll for URL**: Container runs claude login, which outputs an OAuth URL
-3. **User Auth**: Opens URL in browser, user logs in on claude.ai
-4. **Get Code**: User gets back an auth code (format: `XXX#YYY`)
-5. **Submit Code**: User pastes code, container completes `claude login`
-6. **Extract Token**: Read credentials from container's keychain/file
-7. **Store Locally**: Token stored in user's browser (not server)
+## Key Discoveries
 
-### Key Files in 1Code
-- `src/main/lib/claude-token.ts` - Reads credentials from system keychain
-- `src/main/lib/trpc/routers/claude-code.ts` - OAuth flow implementation
-- `src/renderer/components/dialogs/claude-login-modal.tsx` - UI
+### 1. `claude login` Does NOT Exist
 
-### Credential Locations
-- **macOS**: Keychain (`security find-generic-password -s "Claude Code-credentials"`)
-- **Windows**: `~/.claude/.credentials.json`
-- **Linux**: `secret-tool` or `~/.claude/.credentials.json`
+The Claude Code CLI (v2.1.x) has NO `login` subcommand. Available commands:
+- `doctor`, `install`, `mcp`, `plugin`, `setup-token`, `update`
 
-### Credential Format
+The `setup-token` command is: "Set up a long-lived authentication token (requires Claude subscription)"
+
+First-time auth is triggered by running `claude` (the main command), not a subcommand.
+
+### 2. Credential Storage (macOS)
+
+Stored in macOS Keychain, NOT filesystem:
+- **Main entry**: Service `Claude Code-credentials` (contains `claudeAiOauth`)
+- **Per-project entries**: Service `Claude Code-credentials-{hash}` (contain `mcpOAuth` only)
+
+To read:
+```bash
+security find-generic-password -a "$USER" -s "Claude Code-credentials" -w
+```
+
+### 3. Credential Structure
+
+The MAIN keychain entry (`Claude Code-credentials` without hash):
 ```json
 {
   "claudeAiOauth": {
-    "accessToken": "...",
-    "refreshToken": "...",
-    "expiresAt": ...,
-    "scopes": [...]
-  }
+    "accessToken": "sk-ant-oat01-...",
+    "refreshToken": "sk-ant-ort01-...",
+    "expiresAt": 1770371159956,
+    "scopes": ["user:inference", "user:mcp_servers", "user:profile", "user:sessions:claude_code"],
+    "subscriptionType": "max",
+    "rateLimitTier": "default_claude_max_20x"
+  },
+  "mcpOAuth": { ... },
+  "organizationUuid": "..."
 }
 ```
 
-### Token Refresh
+Per-project entries (with hash suffix) only have `mcpOAuth`, NOT `claudeAiOauth`.
+
+### 4. Token Refresh Endpoint
+
 ```typescript
-const response = await fetch('https://api.anthropic.com/v1/oauth/token', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  body: new URLSearchParams({
-    grant_type: 'refresh_token',
-    refresh_token: refreshToken,
-    client_id: 'claude-desktop',
-  }).toString(),
-});
+POST https://api.anthropic.com/v1/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+Body:
+  grant_type=refresh_token
+  refresh_token=<token>
+  client_id=claude-desktop
 ```
 
-## VaporForge Implementation Plan
+### 5. How 1Code Actually Does Auth
 
-### Container Setup
-- Container has `@anthropic-ai/claude-code` installed
-- Expose auth endpoints at `/api/auth/{sessionId}/start`, `/status`, `/code`
+1Code does NOT do direct browser OAuth with claude.ai. They use a 3-layer system:
+1. User authenticates with 21st.dev backend (their own OAuth)
+2. 21st.dev spins up a temporary CodeSandbox that runs `claude login`
+3. Desktop app polls the sandbox for the OAuth URL
+4. User completes auth in browser
+5. Token comes back through the sandbox
 
-### Auth Flow
-1. Create session, start `claude login --print-code-url` in container
-2. Parse the OAuth URL from stdout
-3. Return URL to frontend
-4. User authenticates, gets code
-5. User submits code to container
-6. Container completes auth, reads credentials
-7. Return token to frontend
-8. Frontend stores in localStorage (encrypted if possible)
+Endpoints:
+- `POST https://21st.dev/api/auth/claude-code/start` (creates sandbox)
+- `GET {sandboxUrl}/api/auth/{sessionId}/status` (poll for URL/token)
+- `POST {sandboxUrl}/api/auth/{sessionId}/code` (submit auth code)
 
-### Security
-- Token never stored on server
-- Each user has their own container
-- OAuth token is scoped to Claude Code usage
-- Refresh token allows seamless re-auth
+### 6. How Tokens Are Used
+
+Passed as environment variable to Claude SDK:
+```
+CLAUDE_CODE_OAUTH_TOKEN=<token>
+```
+
+### 7. 1Code Also Supports Token Import
+
+Can read from system credentials directly:
+- macOS: `security find-generic-password -s "Claude Code-credentials"`
+- Windows: `~/.claude/.credentials.json`
+- Linux: `secret-tool lookup service "Claude Code"`
+
+## Recommended VaporForge Approach
+
+### Simplest Path: `setup-token` + Paste
+
+1. User generates a token via `claude setup-token` locally
+2. Pastes it into VaporForge
+3. VaporForge stores in browser localStorage
+4. VaporForge refreshes via `https://api.anthropic.com/v1/oauth/token`
+5. Token passed as `CLAUDE_CODE_OAUTH_TOKEN` to sandbox
+
+### Advantages Over Sandbox-Based OAuth
+- No ANSI parsing needed
+- No URL extraction from terminal output
+- No `claude login` (which doesn't exist as a subcommand)
+- No sandbox spinup just for auth
+- Works immediately, no polling
+- Much simpler code
 
 ## What NOT to Do
-- Don't make direct API calls pretending to be Claude Code
-- Don't store user tokens on your server
-- Don't use `sk-ant-api` format keys for subscription users
-- Don't impersonate or brand as Claude Code
+
+- Don't run `claude login` in a container (command doesn't exist)
+- Don't try to parse ANSI terminal output for URLs
+- Don't store user tokens on the server
+- Don't use API keys (`sk-ant-api`) for subscription users
+- Don't look for credentials at `~/.claude/.credentials.json` on macOS (it's in Keychain)
+- Don't look for `claudeAiOauth` in per-project keychain entries (only in main entry)
+
+## When to Use
+
+- Building web apps that authenticate with Claude Pro/Max subscriptions
+- Implementing headless/remote Claude Code authentication
+- Debugging Claude Code credential issues

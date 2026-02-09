@@ -157,7 +157,11 @@
       "Bash(git remote add:*)",
       "Bash(jq:*)",
       "Bash(claude mcp add:*)",
-      "Bash(claude mcp list:*)"
+      "Bash(claude mcp list:*)",
+      "Bash(git rebase:*)",
+      "Bash(/Users/jb/.claude/pause-state.json << 'EOF'\n{\n  \"projects\": {\n    \"/Users/jb/vaporforge\": {\n      \"contextId\": \"vaporforge-2026-02-09-013000\",\n      \"timestamp\": \"2026-02-09T01:30:00.000Z\",\n      \"branch\": \"main\",\n      \"summary\": \"Landing page visual overhaul + 3-tier pricing deployed. MCP relay v0.9.0 committed.\",\n      \"uncommittedFiles\": 0,\n      \"lastCommand\": \"end\",\n      \"nextSteps\": [\n        \"Stripe billing integration \\($20/mo Pro tier\\)\",\n        \"User color preference follow-up \\(green/cyan concern\\)\",\n        \"Authentication flow improvements\"\n      ]\n    }\n  }\n}\nEOF)",
+      "WebFetch(domain:ui-private.shadcn.com)",
+      "Bash(GIT_EDITOR=true git rebase:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -1,0 +1,76 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"task_assignment\",\"taskId\":\"1\",\"subject\":\"Add MCP + Plugin Zod schemas and frontend types\",\"description\":\"Add McpServerConfig, Plugin, PluginItem Zod schemas to src/types.ts and frontend types to ui/src/lib/types.ts\",\"assignedBy\":\"team-lead\",\"timestamp\":\"2026-02-09T04:29:11.930Z\"}",
+    "timestamp": "2026-02-09T04:29:11.930Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"task_assignment\",\"taskId\":\"3\",\"subject\":\"Rewrite McpTab.tsx to use KV-backed API\",\"description\":\"Full rewrite of McpTab to use mcpApi instead of sandbox exec. Add transport toggle, validation, error states, enable/disable toggles.\",\"assignedBy\":\"team-lead\",\"timestamp\":\"2026-02-09T04:30:29.403Z\"}",
+    "timestamp": "2026-02-09T04:30:29.403Z",
+    "read": true
+  },
+  {
+    "from": "mcp-backend",
+    "text": "MCP backend task complete. All three files done:\n\n**Created:** `/Users/jb/vaporforge/src/api/mcp.ts`\n- KV key: `user-mcp:{userId}` stores `McpServerConfig[]`\n- Max 20 servers per user\n- GET `/` — list all MCP servers\n- POST `/` — add server (validates transport-specific fields, name uniqueness, regex)\n- DELETE `/:name` — remove by name (404 if not found)\n- PUT `/:name/toggle` — flip enabled boolean\n- `collectMcpConfig()` helper — reads enabled servers, returns `~/.claude.json` mcpServers format\n\n**Modified:** `/Users/jb/vaporforge/src/router.ts`\n- Added import for `mcpRoutes`\n- Added `protectedRoutes.route('/mcp', mcpRoutes)` after secrets route\n\n**Modified:** `/Users/jb/vaporforge/ui/src/lib/api.ts`\n- Added `McpServerConfig` import\n- Added `mcpApi` with `list`, `add`, `remove`, `toggle` methods\n\nType-check passes (only pre-existing error in sandbox.ts, unrelated).",
+    "summary": "MCP backend routes complete, all 3 files done",
+    "timestamp": "2026-02-09T04:30:51.316Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "mcp-backend",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"mcp-backend\",\"timestamp\":\"2026-02-09T04:30:58.530Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-09T04:30:58.530Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"task_assignment\",\"taskId\":\"5\",\"subject\":\"Create PluginsTab.tsx and register in settings\",\"description\":\"Create ui/src/components/settings/PluginsTab.tsx. Register 'plugins' tab in useSettings.ts and SettingsPage.tsx.\",\"assignedBy\":\"team-lead\",\"timestamp\":\"2026-02-09T04:31:24.796Z\"}",
+    "timestamp": "2026-02-09T04:31:24.796Z",
+    "read": true
+  },
+  {
+    "from": "plugins-backend",
+    "text": "Plugins API routes are complete. Here's what I created/modified:\n\n**Created: `/Users/jb/vaporforge/src/api/plugins.ts`**\n- Exports `pluginsRoutes` (Hono router) with 5 routes:\n  - `GET /` — lists all plugins (built-in merged with user KV data, toggle overrides applied)\n  - `POST /` — adds custom plugin (validates limits: 20 plugins, 10 items/category, 50KB/item)\n  - `DELETE /:id` — removes custom plugin (blocks built-in deletion with 400)\n  - `PUT /:id/toggle` — toggles plugin or sub-item (supports agent/command/rule/mcp itemType)\n  - `POST /discover` — GitHub repo discovery (fetches tree, scans .claude/agents|commands|rules/*.md, returns preview Plugin)\n- Exports `collectPluginConfigs(kv, userId)` helper for sandbox injection\n- 4 built-in plugins: Code Review, Test Writer, Documentation, Refactoring\n- KV key pattern: `user-plugins:{userId}`\n- Follows the same Hono/KV pattern as `secrets.ts`\n\n**Modified: `/Users/jb/vaporforge/ui/src/lib/api.ts`**\n- Added `Plugin` to the type import\n- Added `pluginsApi` object with 5 methods: `list`, `add`, `remove`, `toggle`, `discover`\n- Inserted after `mcpApi` and before `filesApi`\n\nThe router needs to be mounted in the main router file (e.g., `app.route('/api/plugins', pluginsRoutes)`).",
+    "summary": "Plugins API routes and client complete",
+    "timestamp": "2026-02-09T04:32:15.966Z",
+    "color": "green",
+    "read": true
+  },
+  {
+    "from": "plugins-backend",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"plugins-backend\",\"timestamp\":\"2026-02-09T04:32:21.839Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-09T04:32:21.839Z",
+    "color": "green",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"task_assignment\",\"taskId\":\"6\",\"subject\":\"Extend sandbox injection pipeline\",\"description\":\"Modify src/sandbox.ts SandboxConfig + createSandbox to inject MCP config and plugin files. Modify src/api/sessions.ts to collect MCP + plugin configs before sandbox create.\",\"assignedBy\":\"team-lead\",\"timestamp\":\"2026-02-09T04:33:41.149Z\"}",
+    "timestamp": "2026-02-09T04:33:41.149Z",
+    "read": true
+  },
+  {
+    "from": "mcp-backend",
+    "text": "{\"type\":\"shutdown_approved\",\"requestId\":\"shutdown-1770611679678@mcp-backend\",\"from\":\"mcp-backend\",\"timestamp\":\"2026-02-09T04:34:44.024Z\",\"paneId\":\"in-process\",\"backendType\":\"in-process\"}",
+    "timestamp": "2026-02-09T04:34:44.024Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"task_assignment\",\"taskId\":\"7\",\"subject\":\"Build and verify\",\"description\":\"Run build:ui && build:merge and fix any TypeScript/build errors. Verify all files compile cleanly.\",\"assignedBy\":\"team-lead\",\"timestamp\":\"2026-02-09T04:34:44.163Z\"}",
+    "timestamp": "2026-02-09T04:34:44.163Z",
+    "read": true
+  },
+  {
+    "from": "plugins-backend",
+    "text": "{\"type\":\"shutdown_approved\",\"requestId\":\"shutdown-1770611680338@plugins-backend\",\"from\":\"plugins-backend\",\"timestamp\":\"2026-02-09T04:34:45.122Z\",\"paneId\":\"in-process\",\"backendType\":\"in-process\"}",
+    "timestamp": "2026-02-09T04:34:45.122Z",
+    "color": "green",
+    "read": true
+  }
+]

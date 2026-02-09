@@ -1,0 +1,8 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770611680338@plugins-backend\",\"from\":\"team-lead\",\"reason\":\"Work complete, shutting down\",\"timestamp\":\"2026-02-09T04:34:40.338Z\"}",
+    "timestamp": "2026-02-09T04:34:40.338Z",
+    "read": true
+  }
+]

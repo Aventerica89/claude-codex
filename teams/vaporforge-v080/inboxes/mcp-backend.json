@@ -1,0 +1,8 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770611679678@mcp-backend\",\"from\":\"team-lead\",\"reason\":\"Work complete, shutting down\",\"timestamp\":\"2026-02-09T04:34:39.678Z\"}",
+    "timestamp": "2026-02-09T04:34:39.678Z",
+    "read": true
+  }
+]

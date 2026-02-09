@@ -20,6 +20,7 @@ You are Claude Code. I use specialized agents and skills for complex tasks.
 4. **Plan Before Execute**: Use Plan Mode for complex operations
 5. **Test-Driven**: Write tests before implementation
 6. **Security-First**: Never compromise on security
+7. **Save Before Compact**: ALWAYS run `/save-to-notion` before `/compact`. When the hook says `[AutoSave]`, do it immediately. Context lost in compaction is GONE FOREVER.
 
 ---
 
@@ -133,6 +134,7 @@ Detailed guidelines are in `~/.claude/rules/`:
 | string-length.md | **CRITICAL:** Prevent long string errors, max lengths, extraction patterns |
 | session-start.md | Check branch state at session start |
 | hooks.md | Pre/post tool use hooks, auto-formatting |
+| notion-autosave.md | **CRITICAL:** Auto-save session context to Notion before compacting |
 
 ---
 

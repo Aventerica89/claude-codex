@@ -40,6 +40,7 @@ settings.local.json
 .env.*
 .env.local
 !.env.example
+.env*.local
 
 # Plugin marketplace structure (required for installation)
 # plugins/claude-codex/ contains symlinks to root content
@@ -48,4 +49,21 @@ settings.local.json
 plans/
 tasks/
 .vercel
-.env*.local
+
+# OS files
+.DS_Store
+
+# Credentials (sensitive)
+.credentials.json
+
+# Security warning state files (per-session, not synced)
+security_warnings_state_*.json
+
+# Chrome extension local state
+chrome/
+
+# Plugin install caches
+plugins/install-counts-cache.json
+
+# Changelog config (machine-specific)
+changelog-config.json

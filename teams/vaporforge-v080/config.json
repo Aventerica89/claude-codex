@@ -1,0 +1,19 @@
+{
+  "name": "vaporforge-v080",
+  "description": "VaporForge v0.8.0 - MCP Servers + Plugins Overhaul",
+  "createdAt": 1770611306088,
+  "leadAgentId": "team-lead@vaporforge-v080",
+  "leadSessionId": "0bae5e99-f3e7-4616-b630-5631600250c2",
+  "members": [
+    {
+      "agentId": "team-lead@vaporforge-v080",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-opus-4-6",
+      "joinedAt": 1770611306088,
+      "tmuxPaneId": "",
+      "cwd": "/Users/jb",
+      "subscriptions": []
+    }
+  ]
+}
