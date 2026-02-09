@@ -6,9 +6,11 @@ import { CardSizeToggle, type CardSize } from './CardSizeToggle'
 import { PluginCard } from './PluginCard'
 import { PluginFilters } from './PluginFilters'
 import { useToast } from '../ui/Toast'
+import { RepoList } from './RepoList'
+import { MY_REPOS } from '@/lib/repos'
 import type { CatalogPluginWithStatus } from '@/lib/plugins/types'
 
-type StatusTab = 'all' | 'installed' | 'active'
+type StatusTab = 'all' | 'installed' | 'active' | 'repos'
 
 const GRID_CLASSES: Record<CardSize, string> = {
   compact: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5',
@@ -244,10 +246,11 @@ export function PluginsPage() {
         {/* Status Tabs */}
         <div className="flex items-center gap-2">
           {([
-            { key: 'all', label: 'All', count: catalogTotal },
-            { key: 'installed', label: 'Installed', count: installedCount },
-            { key: 'active', label: 'Active', count: activeCount },
-          ] as const).map((tab) => (
+            { key: 'all' as StatusTab, label: 'All', count: catalogTotal },
+            { key: 'installed' as StatusTab, label: 'Installed', count: installedCount },
+            { key: 'active' as StatusTab, label: 'Active', count: activeCount },
+            { key: 'repos' as StatusTab, label: 'My Repos', count: MY_REPOS.length },
+          ]).map((tab) => (
             <button
               key={tab.key}
               onClick={() => setStatusTab(tab.key)}
@@ -264,108 +267,114 @@ export function PluginsPage() {
           ))}
         </div>
 
-        {/* Search Bar */}
-        <div className="flex items-center gap-4">
-          <div className="flex-1 relative">
-            <input
-              type="text"
-              placeholder="Search plugins..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+        {/* Search Bar — hidden when repos tab is active */}
+        {statusTab !== 'repos' && (
+          <div className="flex items-center gap-4">
+            <div className="flex-1 relative">
+              <input
+                type="text"
+                placeholder="Search plugins..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className={cn(
+                  'w-full px-4 py-2 rounded-lg',
+                  'bg-background border border-border',
+                  'focus:outline-none focus:ring-2 focus:ring-violet-500/50',
+                  'placeholder:text-muted-foreground'
+                )}
+              />
+            </div>
+
+            {/* Sort Dropdown */}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as any)}
               className={cn(
-                'w-full px-4 py-2 rounded-lg',
+                'px-4 py-2 rounded-lg',
                 'bg-background border border-border',
-                'focus:outline-none focus:ring-2 focus:ring-violet-500/50',
-                'placeholder:text-muted-foreground'
+                'focus:outline-none focus:ring-2 focus:ring-violet-500/50'
               )}
-            />
+            >
+              <option value="popular">Default</option>
+              <option value="alphabetical">A-Z</option>
+            </select>
+
+            {/* View Toggle */}
+            <CardSizeToggle value={cardSize} onChange={setCardSize} />
           </div>
-
-          {/* Sort Dropdown */}
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as any)}
-            className={cn(
-              'px-4 py-2 rounded-lg',
-              'bg-background border border-border',
-              'focus:outline-none focus:ring-2 focus:ring-violet-500/50'
-            )}
-          >
-            <option value="popular">Default</option>
-            <option value="alphabetical">A-Z</option>
-          </select>
-
-          {/* View Toggle */}
-          <CardSizeToggle value={cardSize} onChange={setCardSize} />
-        </div>
+        )}
       </div>
 
       {/* Main Content */}
-      <div className="flex gap-6">
-        {/* Filters Sidebar */}
-        <PluginFilters
-          sources={filterOptions.sources}
-          categories={filterOptions.categories}
-          types={filterOptions.types}
-          selectedSources={selectedSources}
-          selectedCategories={selectedCategories}
-          selectedTypes={selectedTypes}
-          onToggleSource={toggleSource}
-          onToggleCategory={toggleCategory}
-          onToggleType={toggleType}
-          onClearFilters={clearFilters}
-          hasActiveFilters={hasActiveFilters}
-        />
+      {statusTab === 'repos' ? (
+        <RepoList />
+      ) : (
+        <div className="flex gap-6">
+          {/* Filters Sidebar */}
+          <PluginFilters
+            sources={filterOptions.sources}
+            categories={filterOptions.categories}
+            types={filterOptions.types}
+            selectedSources={selectedSources}
+            selectedCategories={selectedCategories}
+            selectedTypes={selectedTypes}
+            onToggleSource={toggleSource}
+            onToggleCategory={toggleCategory}
+            onToggleType={toggleType}
+            onClearFilters={clearFilters}
+            hasActiveFilters={hasActiveFilters}
+          />
 
-        {/* Plugin Grid */}
-        <div className="flex-1">
-          {loading ? (
-            <div className="flex items-center justify-center py-12">
-              <div className="text-muted-foreground">Loading plugins...</div>
-            </div>
-          ) : error ? (
-            <div className="flex items-center justify-center py-12">
-              <div className="text-red-400">{error}</div>
-            </div>
-          ) : filteredPlugins.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-12 gap-4">
-              <div className="text-muted-foreground">
-                {statusTab !== 'all'
-                  ? `No ${statusTab} plugins found`
-                  : 'No plugins found'}
+          {/* Plugin Grid */}
+          <div className="flex-1">
+            {loading ? (
+              <div className="flex items-center justify-center py-12">
+                <div className="text-muted-foreground">Loading plugins...</div>
               </div>
-              {hasActiveFilters && (
-                <button
-                  onClick={clearFilters}
-                  className="text-violet-400 hover:text-violet-300 text-sm"
-                >
-                  Clear filters
-                </button>
-              )}
-            </div>
-          ) : (
-            <>
-              <div className="flex items-center justify-between mb-4">
-                <div className="text-sm text-muted-foreground">
-                  {filteredPlugins.length} plugin{filteredPlugins.length !== 1 ? 's' : ''}
+            ) : error ? (
+              <div className="flex items-center justify-center py-12">
+                <div className="text-red-400">{error}</div>
+              </div>
+            ) : filteredPlugins.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-12 gap-4">
+                <div className="text-muted-foreground">
+                  {statusTab !== 'all'
+                    ? `No ${statusTab} plugins found`
+                    : 'No plugins found'}
                 </div>
+                {hasActiveFilters && (
+                  <button
+                    onClick={clearFilters}
+                    className="text-violet-400 hover:text-violet-300 text-sm"
+                  >
+                    Clear filters
+                  </button>
+                )}
               </div>
+            ) : (
+              <>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-sm text-muted-foreground">
+                    {filteredPlugins.length} plugin{filteredPlugins.length !== 1 ? 's' : ''}
+                  </div>
+                </div>
 
-              <div className={cn('grid gap-4', GRID_CLASSES[cardSize])}>
-                {filteredPlugins.map((plugin) => (
-                  <PluginCard
-                    key={plugin.id}
-                    plugin={plugin}
-                    size={cardSize}
-                    onInstall={handleInstall}
-                    onToggle={handleToggle}
-                  />
-                ))}
-              </div>
-            </>
-          )}
+                <div className={cn('grid gap-4', GRID_CLASSES[cardSize])}>
+                  {filteredPlugins.map((plugin) => (
+                    <PluginCard
+                      key={plugin.id}
+                      plugin={plugin}
+                      size={cardSize}
+                      onInstall={handleInstall}
+                      onToggle={handleToggle}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

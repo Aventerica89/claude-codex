@@ -14,6 +14,9 @@ export interface ERNodeData {
   meta2Value: string
   isHighlighted: boolean
   isSelected: boolean
+  isReferenceNode?: boolean
+  isExpanded?: boolean
+  referenceCount?: number
   [key: string]: unknown
 }
 
@@ -68,6 +71,9 @@ function ERNodeComponent({ id, data }: NodeProps) {
   const selectedRing = nodeData.isSelected
     ? 'ring-2 ring-violet-400/80'
     : ''
+  const refNodeStyle = nodeData.isReferenceNode
+    ? 'border-dashed opacity-90'
+    : ''
 
   return (
     <div
@@ -77,6 +83,7 @@ function ERNodeComponent({ id, data }: NodeProps) {
         style.borderColor,
         highlightRing,
         selectedRing,
+        refNodeStyle,
       ].join(' ')}
     >
       <Handle
@@ -102,6 +109,18 @@ function ERNodeComponent({ id, data }: NodeProps) {
             ].join(' ')}>
               {style.badgeText}
             </span>
+            {/* Expand/collapse badge for explore mode */}
+            {typeof nodeData.referenceCount === 'number' && nodeData.referenceCount > 0 && (
+              <span className={[
+                'text-[9px] min-w-[16px] h-4 flex items-center justify-center',
+                'rounded-full px-1 font-bold',
+                nodeData.isExpanded
+                  ? 'bg-cyan-500/30 text-cyan-300'
+                  : 'bg-cyan-500/20 text-cyan-400',
+              ].join(' ')}>
+                {nodeData.isExpanded ? '\u2212' : `+${nodeData.referenceCount}`}
+              </span>
+            )}
             {/* Delete button - visible on hover */}
             <button
               onClick={handleDelete}

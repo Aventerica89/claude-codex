@@ -14,6 +14,7 @@ import {
 import '@xyflow/react/dist/style.css'
 
 import type { BrainItem, BrainItemType } from '@/lib/generated/types'
+import { getItemById, getOutgoingRefs } from '@/lib/generated'
 import {
   generateCommand,
   DEFAULT_CONFIG,
@@ -27,6 +28,8 @@ import { CommandPreview } from './CommandPreview'
 import { WorkflowToolbar } from './WorkflowToolbar'
 import { QuickAddMenu } from './QuickAddMenu'
 import { ResizeHandle } from './ResizeHandle'
+import { ModeToggle, type ComposerMode } from './ModeToggle'
+import { useExploreMode } from './ExploreMode'
 
 interface DroppedItem {
   id: string
@@ -37,6 +40,9 @@ interface DroppedItem {
 }
 
 function buildNodeData(item: DroppedItem) {
+  const brainItem = getItemById(item.id)
+  const refCount = brainItem ? getOutgoingRefs(brainItem).length : 0
+
   return {
     label: item.name,
     itemType: item.type,
@@ -49,6 +55,9 @@ function buildNodeData(item: DroppedItem) {
     meta2Value: item.category || 'general',
     isHighlighted: false,
     isSelected: false,
+    isReferenceNode: false,
+    isExpanded: false,
+    referenceCount: refCount,
   }
 }
 
@@ -72,6 +81,8 @@ export function WorkflowBuilder() {
   const [paletteWidth, setPaletteWidth] = useState(208)
   const [configWidth, setConfigWidth] = useState(256)
   const [previewHeight, setPreviewHeight] = useState(192)
+  const [mode, setMode] = useState<ComposerMode>('build')
+  const explore = useExploreMode()
   const reactFlowWrapper = useRef<HTMLDivElement>(null)
   const rfInstance = useRef<{
     screenToFlowPosition: (pos: { x: number; y: number }) => { x: number; y: number }
@@ -186,6 +197,18 @@ export function WorkflowBuilder() {
     rfInstance.current = instance as typeof rfInstance.current
   }, [])
 
+  // Explore mode: click node to expand/collapse references
+  const onNodeClick = useCallback(
+    (_event: React.MouseEvent, node: Node) => {
+      if (mode !== 'explore') return
+
+      const result = explore.expandNode(node.id, nodes, edges)
+      setNodes(result.nodes)
+      setEdges(result.edges)
+    },
+    [mode, nodes, edges, setNodes, setEdges, explore]
+  )
+
   // Toolbar handlers
   const handleNew = useCallback(() => {
     setNodes([])
@@ -226,13 +249,16 @@ export function WorkflowBuilder() {
       </div>
 
       {/* Toolbar */}
-      <WorkflowToolbar
-        currentId={workflowId}
-        currentName={config.name}
-        onNew={handleNew}
-        onLoad={handleLoad}
-        onSave={handleSave}
-      />
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <WorkflowToolbar
+          currentId={workflowId}
+          currentName={config.name}
+          onNew={handleNew}
+          onLoad={handleLoad}
+          onSave={handleSave}
+        />
+        <ModeToggle mode={mode} onChange={setMode} />
+      </div>
 
       {/* Main layout: Palette | Canvas + Preview | Config */}
       <div className="flex-1 flex rounded-xl border border-border overflow-hidden bg-card">
@@ -262,6 +288,7 @@ export function WorkflowBuilder() {
               onEdgesChange={onEdgesChange}
               onConnect={onConnect}
               onInit={onInit}
+              onNodeClick={onNodeClick}
               onPaneClick={() => setQuickAdd(null)}
               onDoubleClick={onPaneDoubleClick}
               nodeTypes={nodeTypes}
