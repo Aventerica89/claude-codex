@@ -3,7 +3,14 @@
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { useToast } from '../ui/Toast'
+import { ComponentDetailModal } from './ComponentDetailModal'
 import type { CatalogPluginWithStatus } from '@/lib/plugins/types'
+
+interface ComponentInfo {
+  type: string
+  name: string
+  slug: string
+}
 
 interface PluginDetailPageProps {
   pluginId: string
@@ -41,6 +48,7 @@ export function PluginDetailPage({ pluginId }: PluginDetailPageProps) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<Tab>('overview')
+  const [selectedComponent, setSelectedComponent] = useState<ComponentInfo | null>(null)
   const { showToast } = useToast()
 
   useEffect(() => {
@@ -338,9 +346,15 @@ export function PluginDetailPage({ pluginId }: PluginDetailPageProps) {
               </div>
             ) : (
               plugin.components.map((comp) => (
-                <div
+                <button
                   key={`${comp.type}-${comp.slug}`}
-                  className="bg-card border border-border rounded-lg p-4 flex items-center gap-4"
+                  onClick={() => setSelectedComponent(comp)}
+                  className={cn(
+                    'w-full text-left bg-card border border-border rounded-lg p-4',
+                    'flex items-center gap-4',
+                    'hover:border-violet-500/50 hover:bg-card/80',
+                    'transition-all duration-200 cursor-pointer'
+                  )}
                 >
                   <span
                     className={cn(
@@ -350,13 +364,36 @@ export function PluginDetailPage({ pluginId }: PluginDetailPageProps) {
                   >
                     {comp.type}
                   </span>
-                  <span className="font-medium">{comp.name}</span>
-                </div>
+                  <span className="font-medium flex-1">{comp.name}</span>
+                  <svg
+                    className="w-4 h-4 text-muted-foreground"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
               ))
             )}
           </div>
         )}
       </div>
+
+      {/* Component Detail Modal */}
+      {selectedComponent && plugin.repository_url && (
+        <ComponentDetailModal
+          component={selectedComponent}
+          pluginName={plugin.name}
+          repositoryUrl={plugin.repository_url}
+          onClose={() => setSelectedComponent(null)}
+        />
+      )}
     </div>
   )
 }
