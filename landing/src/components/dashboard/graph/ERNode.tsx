@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react'
 import { Handle, Position, useReactFlow, type NodeProps } from '@xyflow/react'
 import type { BrainItemType } from '@/lib/generated/types'
+import { useWorkflowContext } from './WorkflowContext'
 
 export interface ERNodeData {
   label: string
@@ -14,6 +15,9 @@ export interface ERNodeData {
   meta2Value: string
   isHighlighted: boolean
   isSelected: boolean
+  isReferenceNode?: boolean
+  isExpanded?: boolean
+  referenceCount?: number
   [key: string]: unknown
 }
 
@@ -53,6 +57,7 @@ function ERNodeComponent({ id, data }: NodeProps) {
   const nodeData = data as unknown as ERNodeData
   const style = TYPE_STYLES[nodeData.itemType]
   const { deleteElements } = useReactFlow()
+  const { onInfoClick } = useWorkflowContext()
 
   const handleDelete = useCallback(
     (e: React.MouseEvent) => {
@@ -62,11 +67,22 @@ function ERNodeComponent({ id, data }: NodeProps) {
     [id, deleteElements]
   )
 
+  const handleInfo = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation()
+      onInfoClick?.(nodeData.brainItemId)
+    },
+    [onInfoClick, nodeData.brainItemId]
+  )
+
   const highlightRing = nodeData.isHighlighted
     ? 'ring-2 ring-yellow-400/60'
     : ''
   const selectedRing = nodeData.isSelected
     ? 'ring-2 ring-violet-400/80'
+    : ''
+  const refNodeStyle = nodeData.isReferenceNode
+    ? 'border-dashed opacity-90'
     : ''
 
   return (
@@ -77,6 +93,7 @@ function ERNodeComponent({ id, data }: NodeProps) {
         style.borderColor,
         highlightRing,
         selectedRing,
+        refNodeStyle,
       ].join(' ')}
     >
       <Handle
@@ -102,6 +119,40 @@ function ERNodeComponent({ id, data }: NodeProps) {
             ].join(' ')}>
               {style.badgeText}
             </span>
+            {/* Expand/collapse badge for explore mode */}
+            {typeof nodeData.referenceCount === 'number' && nodeData.referenceCount > 0 && (
+              <span className={[
+                'text-[9px] min-w-[16px] h-4 flex items-center justify-center',
+                'rounded-full px-1 font-bold',
+                nodeData.isExpanded
+                  ? 'bg-cyan-500/30 text-cyan-300'
+                  : 'bg-cyan-500/20 text-cyan-400',
+              ].join(' ')}>
+                {nodeData.isExpanded ? '\u2212' : `+${nodeData.referenceCount}`}
+              </span>
+            )}
+            {/* Info button - visible on hover */}
+            <button
+              onClick={handleInfo}
+              className={[
+                'opacity-0 group-hover:opacity-100',
+                'w-4 h-4 flex items-center justify-center',
+                'rounded text-muted-foreground hover:text-cyan-400',
+                'transition-opacity',
+              ].join(' ')}
+              title="View details"
+            >
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4M12 8h.01" />
+              </svg>
+            </button>
             {/* Delete button - visible on hover */}
             <button
               onClick={handleDelete}

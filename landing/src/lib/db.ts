@@ -239,6 +239,16 @@ export async function migratePluginTables(): Promise<void> {
     )
   `)
 
+  // User repo activation tracking
+  await db.execute(`
+    CREATE TABLE IF NOT EXISTS user_repos (
+      repo_name TEXT PRIMARY KEY,
+      owner TEXT NOT NULL,
+      active INTEGER DEFAULT 0,
+      activated_at TEXT
+    )
+  `)
+
   // Insert default plugin sources
   await db.execute({
     sql: `INSERT OR IGNORE INTO plugin_sources (id, name, type, url, description) VALUES
