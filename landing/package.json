@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "generate": "node scripts/generate-brain-data.mjs",
+    "catalog": "node scripts/generate-plugin-catalog.mjs",
     "predev": "node scripts/generate-brain-data.mjs",
     "dev": "astro dev",
     "start": "astro dev",

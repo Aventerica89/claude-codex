@@ -6,7 +6,9 @@ import { CardSizeToggle, type CardSize } from './CardSizeToggle'
 import { PluginCard } from './PluginCard'
 import { PluginFilters } from './PluginFilters'
 import { useToast } from '../ui/Toast'
-import type { Plugin, PluginListResponse } from '@/lib/plugins/types'
+import type { CatalogPluginWithStatus } from '@/lib/plugins/types'
+
+type StatusTab = 'all' | 'installed' | 'active'
 
 const GRID_CLASSES: Record<CardSize, string> = {
   compact: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5',
@@ -14,20 +16,41 @@ const GRID_CLASSES: Record<CardSize, string> = {
   large: 'grid-cols-1 md:grid-cols-2',
 }
 
+interface PluginListResponse {
+  success: boolean
+  data: {
+    plugins: CatalogPluginWithStatus[]
+    total: number
+    catalogTotal: number
+    installedCount: number
+    activeCount: number
+    filters: {
+      sources: Array<{ id: string; name: string; count: number }>
+      categories: Array<{ name: string; count: number }>
+      types: Array<{ type: string; count: number }>
+    }
+  }
+}
+
 export function PluginsPage() {
   const { showToast } = useToast()
-  const [plugins, setPlugins] = useState<Plugin[]>([])
+  const [plugins, setPlugins] = useState<CatalogPluginWithStatus[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [syncing, setSyncing] = useState(false)
 
   // Filter states
   const [search, setSearch] = useState('')
+  const [statusTab, setStatusTab] = useState<StatusTab>('all')
   const [selectedSources, setSelectedSources] = useState<string[]>([])
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [selectedTypes, setSelectedTypes] = useState<string[]>([])
   const [sortBy, setSortBy] = useState<'popular' | 'recent' | 'alphabetical'>('popular')
   const [cardSize, setCardSize] = useState<CardSize>('normal')
+
+  // Counts
+  const [catalogTotal, setCatalogTotal] = useState(0)
+  const [installedCount, setInstalledCount] = useState(0)
+  const [activeCount, setActiveCount] = useState(0)
 
   // Available filter options
   const [filterOptions, setFilterOptions] = useState<{
@@ -48,7 +71,7 @@ export function PluginsPage() {
     return () => {
       abortController.abort()
     }
-  }, [selectedSources, selectedCategories, selectedTypes, sortBy])
+  }, [selectedSources, selectedCategories, selectedTypes, sortBy, statusTab])
 
   const fetchPlugins = async (signal?: AbortSignal) => {
     setLoading(true)
@@ -61,6 +84,9 @@ export function PluginsPage() {
       if (selectedTypes.length > 0) params.set('type', selectedTypes.join(','))
       params.set('sort', sortBy)
 
+      if (statusTab === 'installed') params.set('installed', 'true')
+      if (statusTab === 'active') params.set('installed', 'active')
+
       const response = await fetch(`/api/plugins?${params.toString()}`, { signal })
       if (!response.ok) throw new Error('Failed to fetch plugins')
 
@@ -68,11 +94,13 @@ export function PluginsPage() {
       if (data.success) {
         setPlugins(data.data.plugins)
         setFilterOptions(data.data.filters)
+        setCatalogTotal(data.data.catalogTotal)
+        setInstalledCount(data.data.installedCount)
+        setActiveCount(data.data.activeCount)
       } else {
         throw new Error('Failed to load plugins')
       }
     } catch (err) {
-      // Ignore abort errors
       if (err instanceof Error && err.name === 'AbortError') return
       setError(err instanceof Error ? err.message : 'Failed to load plugins')
     } finally {
@@ -88,32 +116,84 @@ export function PluginsPage() {
     return plugins.filter(
       (p) =>
         p.name.toLowerCase().includes(q) ||
-        p.description?.toLowerCase().includes(q) ||
-        p.keywords.some((k) => k.toLowerCase().includes(q))
+        (p.description?.toLowerCase().includes(q) ?? false) ||
+        (p.author?.toLowerCase().includes(q) ?? false) ||
+        p.categories.some((c) => c.toLowerCase().includes(q))
     )
   }, [plugins, search])
 
-  // Sync plugins
-  const handleSync = async () => {
-    setSyncing(true)
+  // Install/uninstall handler with optimistic update
+  const handleInstall = async (pluginId: string) => {
+    const plugin = plugins.find((p) => p.id === pluginId)
+    if (!plugin) return
+
+    const wasInstalled = plugin.installed
+    const action = wasInstalled ? 'uninstall' : 'install'
+
+    // Optimistic update
+    setPlugins((prev) =>
+      prev.map((p) =>
+        p.id === pluginId
+          ? { ...p, installed: !wasInstalled, active: false }
+          : p
+      )
+    )
+    if (!wasInstalled) {
+      setInstalledCount((c) => c + 1)
+    } else {
+      setInstalledCount((c) => Math.max(0, c - 1))
+      if (plugin.active) setActiveCount((c) => Math.max(0, c - 1))
+    }
+
     try {
-      const response = await fetch('/api/plugins/sync', {
+      const response = await fetch('/api/plugins/install', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ force: true }),
+        body: JSON.stringify({ pluginId, action }),
       })
+      if (!response.ok) throw new Error('Failed')
+      showToast(
+        action === 'install' ? `Installed ${plugin.name}` : `Uninstalled ${plugin.name}`,
+        'success'
+      )
+    } catch {
+      // Revert on failure
+      setPlugins((prev) =>
+        prev.map((p) =>
+          p.id === pluginId ? { ...p, installed: wasInstalled, active: plugin.active } : p
+        )
+      )
+      showToast('Operation failed', 'error')
+    }
+  }
 
-      if (!response.ok) throw new Error('Sync failed')
+  // Toggle active/inactive handler with optimistic update
+  const handleToggle = async (pluginId: string, active: boolean) => {
+    const plugin = plugins.find((p) => p.id === pluginId)
+    if (!plugin || !plugin.installed) return
 
-      const data = await response.json()
-      if (data.success) {
-        await fetchPlugins()
-        showToast(`Synced ${data.data.synced} plugin sources!`, 'success')
-      }
-    } catch (err) {
-      showToast(err instanceof Error ? err.message : 'Failed to sync plugins', 'error')
-    } finally {
-      setSyncing(false)
+    const wasActive = plugin.active
+
+    // Optimistic update
+    setPlugins((prev) =>
+      prev.map((p) => (p.id === pluginId ? { ...p, active } : p))
+    )
+    setActiveCount((c) => (active ? c + 1 : Math.max(0, c - 1)))
+
+    try {
+      const response = await fetch('/api/plugins/toggle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pluginId, active }),
+      })
+      if (!response.ok) throw new Error('Failed')
+    } catch {
+      // Revert on failure
+      setPlugins((prev) =>
+        prev.map((p) => (p.id === pluginId ? { ...p, active: wasActive } : p))
+      )
+      setActiveCount((c) => (wasActive ? c + 1 : Math.max(0, c - 1)))
+      showToast('Toggle failed', 'error')
     }
   }
 
@@ -154,22 +234,34 @@ export function PluginsPage() {
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Plugin Repository</h1>
+            <h1 className="text-3xl font-bold">Plugin Catalog</h1>
             <p className="text-muted-foreground mt-1">
-              Browse and install Claude Code plugins from official and community sources
+              Browse and manage {catalogTotal} Claude Code plugins
             </p>
           </div>
-          <button
-            onClick={handleSync}
-            disabled={syncing}
-            className={cn(
-              'px-4 py-2 rounded-lg font-medium transition-colors',
-              'bg-violet-500/10 text-violet-400 hover:bg-violet-500/20',
-              'disabled:opacity-50 disabled:cursor-not-allowed'
-            )}
-          >
-            {syncing ? 'Syncing...' : 'Sync Plugins'}
-          </button>
+        </div>
+
+        {/* Status Tabs */}
+        <div className="flex items-center gap-2">
+          {([
+            { key: 'all', label: 'All', count: catalogTotal },
+            { key: 'installed', label: 'Installed', count: installedCount },
+            { key: 'active', label: 'Active', count: activeCount },
+          ] as const).map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setStatusTab(tab.key)}
+              className={cn(
+                'px-4 py-1.5 rounded-full text-sm font-medium transition-colors',
+                statusTab === tab.key
+                  ? 'bg-violet-500/20 text-violet-400 border border-violet-500/30'
+                  : 'bg-foreground/5 text-muted-foreground hover:text-foreground border border-transparent'
+              )}
+            >
+              {tab.label}
+              <span className="ml-1.5 text-xs opacity-70">{tab.count}</span>
+            </button>
+          ))}
         </div>
 
         {/* Search Bar */}
@@ -199,8 +291,7 @@ export function PluginsPage() {
               'focus:outline-none focus:ring-2 focus:ring-violet-500/50'
             )}
           >
-            <option value="popular">Popular</option>
-            <option value="recent">Recent</option>
+            <option value="popular">Default</option>
             <option value="alphabetical">A-Z</option>
           </select>
 
@@ -238,7 +329,11 @@ export function PluginsPage() {
             </div>
           ) : filteredPlugins.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 gap-4">
-              <div className="text-muted-foreground">No plugins found</div>
+              <div className="text-muted-foreground">
+                {statusTab !== 'all'
+                  ? `No ${statusTab} plugins found`
+                  : 'No plugins found'}
+              </div>
               {hasActiveFilters && (
                 <button
                   onClick={clearFilters}
@@ -258,7 +353,13 @@ export function PluginsPage() {
 
               <div className={cn('grid gap-4', GRID_CLASSES[cardSize])}>
                 {filteredPlugins.map((plugin) => (
-                  <PluginCard key={plugin.id} plugin={plugin} size={cardSize} />
+                  <PluginCard
+                    key={plugin.id}
+                    plugin={plugin}
+                    size={cardSize}
+                    onInstall={handleInstall}
+                    onToggle={handleToggle}
+                  />
                 ))}
               </div>
             </>

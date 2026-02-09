@@ -1,12 +1,14 @@
 "use client"
 
 import { cn } from '@/lib/utils'
-import type { Plugin } from '@/lib/plugins/types'
+import type { CatalogPluginWithStatus } from '@/lib/plugins/types'
 import type { CardSize } from './CardSizeToggle'
 
 interface PluginCardProps {
-  plugin: Plugin
+  plugin: CatalogPluginWithStatus
   size: CardSize
+  onInstall: (pluginId: string) => void
+  onToggle: (pluginId: string, active: boolean) => void
 }
 
 const sourceBadgeColors: Record<string, string> = {
@@ -22,7 +24,13 @@ const typeColors = {
   rule: 'text-orange-400',
 }
 
-export function PluginCard({ plugin, size }: PluginCardProps) {
+const statusDotColors = {
+  active: 'bg-green-400',
+  installed: 'bg-gray-400',
+  none: '',
+}
+
+export function PluginCard({ plugin, size, onInstall, onToggle }: PluginCardProps) {
   const isCompact = size === 'compact'
   const isLarge = size === 'large'
 
@@ -32,6 +40,8 @@ export function PluginCard({ plugin, size }: PluginCardProps) {
       : plugin.source_id === 'awesome-community'
         ? 'Community'
         : 'Local'
+
+  const statusKey = plugin.active ? 'active' : plugin.installed ? 'installed' : 'none'
 
   return (
     <a
@@ -44,23 +54,69 @@ export function PluginCard({ plugin, size }: PluginCardProps) {
         isCompact ? 'p-3 gap-2' : isLarge ? 'p-6 gap-4' : 'p-4 gap-3'
       )}
     >
-      {/* Source Badge */}
+      {/* Source Badge + Status Dot */}
       <div className="flex items-center justify-between gap-2">
-        <span
-          className={cn(
-            'text-xs font-medium px-2 py-1 rounded border',
-            sourceBadgeColors[plugin.source_id] || sourceBadgeColors.local
+        <div className="flex items-center gap-2">
+          {statusKey !== 'none' && (
+            <span
+              className={cn('w-2 h-2 rounded-full shrink-0', statusDotColors[statusKey])}
+              title={plugin.active ? 'Active' : 'Installed'}
+            />
           )}
-        >
-          {sourceName}
-        </span>
-
-        {/* Install Count */}
-        {!isCompact && plugin.install_count > 0 && (
-          <span className="text-xs text-muted-foreground">
-            {plugin.install_count} install{plugin.install_count !== 1 ? 's' : ''}
+          <span
+            className={cn(
+              'text-xs font-medium px-2 py-1 rounded border',
+              sourceBadgeColors[plugin.source_id] || sourceBadgeColors.local
+            )}
+          >
+            {sourceName}
           </span>
-        )}
+        </div>
+
+        {/* Install / Toggle Control */}
+        <div
+          className="flex items-center"
+          onClick={(e) => e.preventDefault()}
+        >
+          {!plugin.installed ? (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                e.preventDefault()
+                onInstall(plugin.id)
+              }}
+              className={cn(
+                'text-xs font-medium px-2.5 py-1 rounded transition-colors',
+                'bg-violet-500/10 text-violet-400 hover:bg-violet-500/20',
+                'border border-violet-500/20'
+              )}
+            >
+              Install
+            </button>
+          ) : (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                e.preventDefault()
+                onToggle(plugin.id, !plugin.active)
+              }}
+              className={cn(
+                'relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full',
+                'border-2 border-transparent transition-colors duration-200',
+                plugin.active ? 'bg-violet-500' : 'bg-foreground/20'
+              )}
+              title={plugin.active ? 'Deactivate' : 'Activate'}
+            >
+              <span
+                className={cn(
+                  'pointer-events-none inline-block h-4 w-4 rounded-full',
+                  'bg-white shadow-sm transition-transform duration-200',
+                  plugin.active ? 'translate-x-4' : 'translate-x-0'
+                )}
+              />
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Plugin Name */}
@@ -151,12 +207,10 @@ export function PluginCard({ plugin, size }: PluginCardProps) {
         </div>
       )}
 
-      {/* Author & Version */}
-      {isLarge && (
+      {/* Author (large view) */}
+      {isLarge && plugin.author && (
         <div className="flex items-center gap-3 text-xs text-muted-foreground pt-2 border-t border-border">
-          {plugin.author && <span>by {plugin.author}</span>}
-          {plugin.version && <span>v{plugin.version}</span>}
-          {plugin.license && <span>{plugin.license}</span>}
+          <span>by {plugin.author}</span>
         </div>
       )}
 

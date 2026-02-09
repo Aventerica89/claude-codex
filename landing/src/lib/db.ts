@@ -228,6 +228,17 @@ export async function migratePluginTables(): Promise<void> {
     CREATE INDEX IF NOT EXISTS idx_installations_repo ON plugin_installations(target_repository);
   `)
 
+  // User plugin install/activation tracking (works with static catalog)
+  await db.execute(`
+    CREATE TABLE IF NOT EXISTS user_plugins (
+      plugin_id TEXT PRIMARY KEY,
+      installed INTEGER DEFAULT 0,
+      active INTEGER DEFAULT 0,
+      installed_at TEXT,
+      activated_at TEXT
+    )
+  `)
+
   // Insert default plugin sources
   await db.execute({
     sql: `INSERT OR IGNORE INTO plugin_sources (id, name, type, url, description) VALUES

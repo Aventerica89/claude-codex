@@ -92,6 +92,24 @@ export interface PluginFavorite {
   created_at: string
 }
 
+// Static catalog with user status
+export interface CatalogPluginWithStatus {
+  id: string
+  source_id: string
+  name: string
+  description: string | null
+  author: string | null
+  repository_url: string
+  categories: string[]
+  agent_count: number
+  skill_count: number
+  command_count: number
+  rule_count: number
+  components: Array<{ type: string; name: string; slug: string }>
+  installed: boolean
+  active: boolean
+}
+
 // API Request/Response Types
 
 export interface PluginListRequest {

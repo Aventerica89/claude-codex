@@ -7,6 +7,8 @@ dist/
 
 # Generated data (rebuild with: node scripts/generate-brain-data.mjs)
 src/lib/generated/
+# Plugin catalog must be committed (requires GitHub API, can't run in CI)
+!src/lib/generated/plugin-catalog.ts
 
 # Environment
 .env
