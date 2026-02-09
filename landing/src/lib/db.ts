@@ -1,6 +1,7 @@
 import { createClient, type Client } from '@libsql/client'
 
 let client: Client | null = null
+let initialized = false
 
 export function getDb(): Client {
   if (client) return client
@@ -18,6 +19,15 @@ export function getDb(): Client {
   })
 
   return client
+}
+
+export async function ensureDb(): Promise<Client> {
+  const db = getDb()
+  if (!initialized) {
+    await initDb()
+    initialized = true
+  }
+  return db
 }
 
 export async function initDb(): Promise<void> {
@@ -89,6 +99,24 @@ export async function initDb(): Promise<void> {
 
 export async function migratePluginTables(): Promise<void> {
   const db = getDb()
+
+  // Fix stale schema: if plugins table exists without source_id, drop and recreate
+  try {
+    const info = await db.execute("PRAGMA table_info(plugins)")
+    const columns = info.rows.map((r) => r.name as string)
+    if (columns.length > 0 && !columns.includes('source_id')) {
+      await db.executeMultiple(`
+        DROP TABLE IF EXISTS plugin_favorites;
+        DROP TABLE IF EXISTS plugin_installations;
+        DROP TABLE IF EXISTS component_relationships;
+        DROP TABLE IF EXISTS plugin_components;
+        DROP TABLE IF EXISTS plugins;
+        DROP TABLE IF EXISTS plugin_sources;
+      `)
+    }
+  } catch (e) {
+    // Table doesn't exist yet, proceed normally
+  }
 
   await db.executeMultiple(`
     -- Plugin sources registry

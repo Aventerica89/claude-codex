@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import { allItems } from '@/lib/generated'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 
 export const prerender = false
 
@@ -17,7 +17,7 @@ export const GET: APIRoute = async ({ params }) => {
 
   // Check for DB override
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const result = await db.execute({
       sql: 'SELECT content_override, enabled, usage_count, last_used, last_edited FROM codex_items WHERE id = ?',
       args: [id],
@@ -65,7 +65,7 @@ export const PUT: APIRoute = async ({ params, request }) => {
   }
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const now = new Date().toISOString()
 
     await db.execute({

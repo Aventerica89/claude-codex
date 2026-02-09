@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 
 export const prerender = false
 
@@ -16,7 +16,7 @@ export const POST: APIRoute = async ({ params, request }) => {
   }
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
 
     await db.execute({
       sql: `INSERT INTO app_connections (app_id, item_id)
@@ -50,7 +50,7 @@ export const DELETE: APIRoute = async ({ params, request }) => {
   }
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
 
     await db.execute({
       sql: 'DELETE FROM app_connections WHERE app_id = ? AND item_id = ?',

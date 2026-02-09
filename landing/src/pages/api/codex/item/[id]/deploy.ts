@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import { allItems } from '@/lib/generated'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 
 export const prerender = false
 
@@ -25,7 +25,7 @@ export const POST: APIRoute = async ({ params, request }) => {
   }
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const now = new Date().toISOString()
 
     // Record deployment

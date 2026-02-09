@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { syncAllSources, getSyncStatus } from '@/lib/plugins/sync'
 import { detectRelationships } from '@/lib/plugins/relationships'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 import type { PluginSyncResponse } from '@/lib/plugins/types'
 
 export const prerender = false
@@ -47,7 +47,7 @@ export const POST: APIRoute = async ({ request }) => {
     console.log(`Synced ${result.synced} sources`)
 
     // Detect relationships for all synced plugins
-    const db = getDb()
+    const db = await ensureDb()
     const pluginsResult = await db.execute('SELECT id FROM plugins')
     const plugins = pluginsResult.rows as { id: string }[]
 

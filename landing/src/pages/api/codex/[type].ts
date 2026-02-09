@@ -3,7 +3,7 @@ import { commands } from '@/lib/generated/commands'
 import { agents } from '@/lib/generated/agents'
 import { skills } from '@/lib/generated/skills'
 import { rules } from '@/lib/generated/rules'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 import type { BrainItemType } from '@/lib/generated/types'
 
 export const prerender = false
@@ -38,7 +38,7 @@ export const GET: APIRoute = async ({ params }) => {
 
   // Try to merge DB overrides
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const dbRows = await db.execute({
       sql: 'SELECT id, content_override, enabled, usage_count, last_used FROM codex_items WHERE type = ?',
       args: [singular],

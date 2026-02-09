@@ -1,12 +1,12 @@
 import type { APIRoute } from 'astro'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 import type { Plugin, PluginListRequest, PluginListResponse } from '@/lib/plugins/types'
 
 export const prerender = false
 
 export const GET: APIRoute = async ({ url }) => {
   try {
-    const db = getDb()
+    const db = await ensureDb()
 
     // Parse query parameters
     const searchParams = url.searchParams

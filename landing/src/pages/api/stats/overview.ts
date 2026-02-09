@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import { stats } from '@/lib/generated/stats'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 
 export const prerender = false
 
@@ -8,7 +8,7 @@ export const GET: APIRoute = async () => {
   const base = { ...stats }
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
 
     const [usageResult, deploymentsResult, recentActivity] = await Promise.all([
       db.execute('SELECT SUM(usage_count) as total FROM codex_items'),

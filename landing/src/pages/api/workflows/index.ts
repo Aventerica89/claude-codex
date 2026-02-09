@@ -1,11 +1,11 @@
 import type { APIRoute } from 'astro'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 
 export const prerender = false
 
 export const GET: APIRoute = async () => {
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const result = await db.execute(
       'SELECT id, name, description, created_at, updated_at FROM workflows ORDER BY updated_at DESC'
     )
@@ -35,7 +35,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const id = crypto.randomUUID()
     const now = new Date().toISOString()
 

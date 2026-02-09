@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 import { allItems } from '@/lib/generated'
 
 export const prerender = false
@@ -8,7 +8,7 @@ export const GET: APIRoute = async ({ params }) => {
   const { appId } = params
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const result = await db.execute({
       sql: 'SELECT item_id, connected_at FROM app_connections WHERE app_id = ?',
       args: [appId],

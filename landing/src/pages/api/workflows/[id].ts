@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 
 export const prerender = false
 
@@ -7,7 +7,7 @@ export const GET: APIRoute = async ({ params }) => {
   const { id } = params
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const result = await db.execute({
       sql: 'SELECT * FROM workflows WHERE id = ?',
       args: [id],
@@ -47,7 +47,7 @@ export const PUT: APIRoute = async ({ params, request }) => {
   const { name, description, nodes, edges } = body
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
     const now = new Date().toISOString()
 
     await db.execute({
@@ -85,7 +85,7 @@ export const DELETE: APIRoute = async ({ params }) => {
   const { id } = params
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
     await db.execute({
       sql: 'DELETE FROM workflows WHERE id = ?',
       args: [id],

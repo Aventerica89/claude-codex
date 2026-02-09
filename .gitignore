@@ -48,3 +48,4 @@ settings.local.json
 plans/
 tasks/
 .vercel
+.env*.local

@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro'
-import { getDb } from '@/lib/db'
+import { ensureDb, getDb } from '@/lib/db'
 import type {
   Plugin,
   PluginComponent,
@@ -21,7 +21,7 @@ export const GET: APIRoute = async ({ params }) => {
   }
 
   try {
-    const db = getDb()
+    const db = await ensureDb()
 
     // Fetch plugin
     const pluginResult = await db.execute({
