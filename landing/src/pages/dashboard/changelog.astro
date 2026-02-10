@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
+import { ChangelogPage } from '../../components/dashboard/ChangelogPage';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Read CHANGELOG.md at build time from repo root (one level above landing/)
+let markdown = '';
+try {
+  const changelogPath = path.resolve(process.cwd(), '..', 'CHANGELOG.md');
+  markdown = fs.readFileSync(changelogPath, 'utf-8');
+} catch {
+  // Fallback: try current directory
+  try {
+    markdown = fs.readFileSync('CHANGELOG.md', 'utf-8');
+  } catch {
+    markdown = '';
+  }
+}
+---
+
+<BaseLayout title="Changelog - Claude Codex Dashboard">
+  <DashboardLayout currentPath="/dashboard/changelog" client:load>
+    <ChangelogPage markdown={markdown} client:load />
+  </DashboardLayout>
+</BaseLayout>
