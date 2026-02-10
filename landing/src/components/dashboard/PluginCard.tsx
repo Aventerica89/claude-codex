@@ -45,8 +45,7 @@ export function PluginCard({ plugin, size, selected = false, onSelect, onToggle 
   const statusKey = plugin.active ? 'active' : plugin.installed ? 'installed' : 'none'
 
   return (
-    <a
-      href={`/dashboard/plugins/${plugin.id}`}
+    <div
       className={cn(
         'group relative flex flex-col',
         'bg-card border rounded-lg',
@@ -77,17 +76,10 @@ export function PluginCard({ plugin, size, selected = false, onSelect, onToggle 
         </div>
 
         {/* Select / Toggle Control */}
-        <div
-          className="flex items-center gap-2"
-          onClick={(e) => e.preventDefault()}
-        >
+        <div className="flex items-center gap-2">
           {!plugin.installed ? (
             <button
-              onClick={(e) => {
-                e.stopPropagation()
-                e.preventDefault()
-                onSelect(plugin.id)
-              }}
+              onClick={() => onSelect(plugin.id)}
               className={cn(
                 'text-xs font-medium px-2.5 py-1 rounded transition-colors border',
                 selected
@@ -100,11 +92,7 @@ export function PluginCard({ plugin, size, selected = false, onSelect, onToggle 
           ) : (
             <>
               <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  e.preventDefault()
-                  onSelect(plugin.id)
-                }}
+                onClick={() => onSelect(plugin.id)}
                 className={cn(
                   'text-xs font-medium px-2 py-1 rounded transition-colors border',
                   selected
@@ -116,11 +104,7 @@ export function PluginCard({ plugin, size, selected = false, onSelect, onToggle 
                 {selected ? 'Remove' : 'X'}
               </button>
               <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  e.preventDefault()
-                  onToggle(plugin.id, !plugin.active)
-                }}
+                onClick={() => onToggle(plugin.id, !plugin.active)}
                 className={cn(
                   'relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full',
                   'border-2 border-transparent transition-colors duration-200',
@@ -145,11 +129,16 @@ export function PluginCard({ plugin, size, selected = false, onSelect, onToggle 
       <div className="flex-1">
         <h3
           className={cn(
-            'font-semibold group-hover:text-violet-400 transition-colors',
+            'font-semibold transition-colors',
             isCompact ? 'text-sm line-clamp-2' : isLarge ? 'text-xl' : 'text-base'
           )}
         >
-          {plugin.name}
+          <a
+            href={`/dashboard/plugins/${plugin.id}`}
+            className="hover:text-violet-400 transition-colors"
+          >
+            {plugin.name}
+          </a>
         </h3>
 
         {/* Description */}
@@ -246,6 +235,6 @@ export function PluginCard({ plugin, size, selected = false, onSelect, onToggle 
             : 'ring-violet-500/0 group-hover:ring-violet-500/20'
         )}
       />
-    </a>
+    </div>
   )
 }
