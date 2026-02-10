@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { cn } from '@/lib/utils'
 import { CardSizeToggle, type CardSize } from './CardSizeToggle'
 import { PluginCard } from './PluginCard'
 import { PluginFilters } from './PluginFilters'
+import { InstallCommandBar } from './InstallCommandBar'
 import { useToast } from '../ui/Toast'
 import { RepoList } from './RepoList'
 import { MY_REPOS } from '@/lib/repos'
@@ -53,6 +54,14 @@ export function PluginsPage() {
   const [catalogTotal, setCatalogTotal] = useState(0)
   const [installedCount, setInstalledCount] = useState(0)
   const [activeCount, setActiveCount] = useState(0)
+
+  // Plugin selection for command bar
+  const [selectedForInstall, setSelectedForInstall] = useState<
+    Map<string, { id: string; name: string }>
+  >(new Map())
+  const [selectedForRemove, setSelectedForRemove] = useState<
+    Map<string, { id: string; name: string }>
+  >(new Map())
 
   // Available filter options
   const [filterOptions, setFilterOptions] = useState<{
@@ -124,50 +133,43 @@ export function PluginsPage() {
     )
   }, [plugins, search])
 
-  // Install/uninstall handler with optimistic update
-  const handleInstall = async (pluginId: string) => {
+  // Toggle plugin selection for install command bar
+  const handleSelect = useCallback((pluginId: string) => {
     const plugin = plugins.find((p) => p.id === pluginId)
     if (!plugin) return
 
-    const wasInstalled = plugin.installed
-    const action = wasInstalled ? 'uninstall' : 'install'
-
-    // Optimistic update
-    setPlugins((prev) =>
-      prev.map((p) =>
-        p.id === pluginId
-          ? { ...p, installed: !wasInstalled, active: false }
-          : p
-      )
-    )
-    if (!wasInstalled) {
-      setInstalledCount((c) => c + 1)
-    } else {
-      setInstalledCount((c) => Math.max(0, c - 1))
-      if (plugin.active) setActiveCount((c) => Math.max(0, c - 1))
-    }
-
-    try {
-      const response = await fetch('/api/plugins/install', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pluginId, action }),
+    if (plugin.installed) {
+      // Installed plugins toggle in the remove selection
+      setSelectedForRemove((prev) => {
+        const next = new Map(prev)
+        if (next.has(pluginId)) {
+          next.delete(pluginId)
+        } else {
+          next.set(pluginId, { id: pluginId, name: plugin.name })
+        }
+        return next
       })
-      if (!response.ok) throw new Error('Failed')
-      showToast(
-        action === 'install' ? `Installed ${plugin.name}` : `Uninstalled ${plugin.name}`,
-        'success'
-      )
-    } catch {
-      // Revert on failure
-      setPlugins((prev) =>
-        prev.map((p) =>
-          p.id === pluginId ? { ...p, installed: wasInstalled, active: plugin.active } : p
-        )
-      )
-      showToast('Operation failed', 'error')
+    } else {
+      // Uninstalled plugins toggle in the install selection
+      setSelectedForInstall((prev) => {
+        const next = new Map(prev)
+        if (next.has(pluginId)) {
+          next.delete(pluginId)
+        } else {
+          next.set(pluginId, { id: pluginId, name: plugin.name })
+        }
+        return next
+      })
     }
-  }
+  }, [plugins])
+
+  const clearInstallSelection = useCallback(() => {
+    setSelectedForInstall(new Map())
+  }, [])
+
+  const clearRemoveSelection = useCallback(() => {
+    setSelectedForRemove(new Map())
+  }, [])
 
   // Toggle active/inactive handler with optimistic update
   const handleToggle = async (pluginId: string, active: boolean) => {
@@ -326,7 +328,21 @@ export function PluginsPage() {
           />
 
           {/* Plugin Grid */}
-          <div className="flex-1">
+          <div className="flex-1 flex flex-col gap-4">
+            {/* Install Command Bar */}
+            <InstallCommandBar
+              selectedPlugins={[...selectedForInstall.values()]}
+              mode="install"
+              onClear={clearInstallSelection}
+            />
+
+            {/* Remove Command Bar */}
+            <InstallCommandBar
+              selectedPlugins={[...selectedForRemove.values()]}
+              mode="remove"
+              onClear={clearRemoveSelection}
+            />
+
             {loading ? (
               <div className="flex items-center justify-center py-12">
                 <div className="text-muted-foreground">Loading plugins...</div>
@@ -365,7 +381,11 @@ export function PluginsPage() {
                       key={plugin.id}
                       plugin={plugin}
                       size={cardSize}
-                      onInstall={handleInstall}
+                      selected={
+                        selectedForInstall.has(plugin.id) ||
+                        selectedForRemove.has(plugin.id)
+                      }
+                      onSelect={handleSelect}
                       onToggle={handleToggle}
                     />
                   ))}

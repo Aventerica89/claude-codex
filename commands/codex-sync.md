@@ -191,7 +191,144 @@ Claude: Syncing claude-codex...
         ✓ codex.jbcloud.app will auto-deploy with new stats
 ```
 
+## Subcommand: install
+
+When `$ARGUMENTS` starts with `install`, the remaining arguments are plugin names to install.
+
+Example: `/codex-sync install hookify commit-commands coderabbit`
+
+### Install Behavior
+
+1. **Parse plugin names** from arguments (space-separated after `install`)
+
+2. **For each plugin name**, fetch its details from the codex API:
+   ```
+   GET https://codex.jbcloud.app/api/plugins/[source]:[name]
+   ```
+   Try both `anthropic-official:{name}` and `awesome-community:{name}` IDs.
+   The response includes `repository_url` and `components` array.
+
+3. **Download component files** from the plugin's GitHub repository:
+   - Each component has a `type` (agent, skill, command, rule) and `slug`
+   - Fetch the raw .md file from GitHub:
+     ```
+     https://raw.githubusercontent.com/{owner}/{repo}/main/{type}s/{slug}.md
+     ```
+   - For official plugins (anthropic-official), the path is:
+     ```
+     https://raw.githubusercontent.com/anthropics/claude-plugins-official/main/plugins/{name}/{type}s/{slug}.md
+     ```
+   - For community plugins (awesome-community), parse the repository_url for the correct path.
+
+4. **Write files** to the correct local directories:
+   - Agents → `~/.claude/agents/{slug}.md`
+   - Skills → `~/.claude/skills/{slug}.md`
+   - Commands → `~/.claude/commands/{slug}.md`
+   - Rules → `~/.claude/rules/{slug}.md`
+
+5. **Mark as installed** via the codex API:
+   ```
+   POST https://codex.jbcloud.app/api/plugins/install
+   Body: { "pluginId": "{id}", "action": "install" }
+   ```
+
+6. **Report results**:
+   ```
+   Installed 3 plugins:
+   - hookify (2 commands, 1 agent)
+   - commit-commands (2 commands)
+   - coderabbit (1 agent)
+
+   Files added to ~/.claude/:
+   - commands/hookify.md
+   - commands/configure-hookify.md
+   - agents/hookify-analyzer.md
+   - commands/commit.md
+   - commands/commit-push-pr.md
+   - agents/code-reviewer.md
+   ```
+
+### Install Example
+
+```
+User: /codex-sync install hookify commit-commands
+
+Claude: Installing 2 plugins from codex.jbcloud.app...
+
+        hookify:
+        - Fetched plugin details (2 commands, 1 agent)
+        - Downloaded hookify.md → ~/.claude/commands/
+        - Downloaded configure-hookify.md → ~/.claude/commands/
+        - Downloaded hookify-analyzer.md → ~/.claude/agents/
+
+        commit-commands:
+        - Fetched plugin details (2 commands)
+        - Downloaded commit.md → ~/.claude/commands/
+        - Downloaded commit-push-pr.md → ~/.claude/commands/
+
+        Marked 2 plugins as installed on codex.jbcloud.app
+
+        Installed 2 plugins (5 files added)
+```
+
+## Subcommand: remove
+
+When `$ARGUMENTS` starts with `remove`, the remaining arguments are plugin names to remove.
+
+Example: `/codex-sync remove hookify commit-commands`
+
+### Remove Behavior
+
+1. **Parse plugin names** from arguments (space-separated after `remove`)
+
+2. **For each plugin name**, fetch its details from the codex API to get component list.
+
+3. **Delete component files** from local directories:
+   - Check each component's expected path (`~/.claude/{type}s/{slug}.md`)
+   - Delete if it exists
+   - Skip with warning if not found
+
+4. **Mark as uninstalled** via the codex API:
+   ```
+   POST https://codex.jbcloud.app/api/plugins/install
+   Body: { "pluginId": "{id}", "action": "uninstall" }
+   ```
+
+5. **Report results**:
+   ```
+   Removed 2 plugins:
+   - hookify (3 files deleted)
+   - commit-commands (2 files deleted)
+   ```
+
+### Remove Example
+
+```
+User: /codex-sync remove hookify
+
+Claude: Removing 1 plugin...
+
+        hookify:
+        - Deleted ~/.claude/commands/hookify.md
+        - Deleted ~/.claude/commands/configure-hookify.md
+        - Deleted ~/.claude/agents/hookify-analyzer.md
+
+        Marked hookify as uninstalled on codex.jbcloud.app
+
+        Removed 1 plugin (3 files deleted)
+```
+
 ## Error Handling
+
+### Install/Remove errors
+
+- Plugin not found: "Plugin '{name}' not found in catalog. Check the name at codex.jbcloud.app/dashboard/plugins"
+- Download failed: "Failed to download {slug}.md from GitHub: {error}. The repo may be private or the file may have moved."
+- File write failed: Show error and suggest checking permissions on ~/.claude/
+- API update failed: "Plugin installed locally but failed to update codex.jbcloud.app. Run /codex-sync to push state."
+- File not found on remove: "Skipping {slug}.md - file not found (may have been manually removed)"
+
+### Git sync errors
 
 If git operations fail:
 - Check if ~/.claude is a git repository

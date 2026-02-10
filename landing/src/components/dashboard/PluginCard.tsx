@@ -7,7 +7,8 @@ import type { CardSize } from './CardSizeToggle'
 interface PluginCardProps {
   plugin: CatalogPluginWithStatus
   size: CardSize
-  onInstall: (pluginId: string) => void
+  selected?: boolean
+  onSelect: (pluginId: string) => void
   onToggle: (pluginId: string, active: boolean) => void
 }
 
@@ -30,7 +31,7 @@ const statusDotColors = {
   none: '',
 }
 
-export function PluginCard({ plugin, size, onInstall, onToggle }: PluginCardProps) {
+export function PluginCard({ plugin, size, selected = false, onSelect, onToggle }: PluginCardProps) {
   const isCompact = size === 'compact'
   const isLarge = size === 'large'
 
@@ -48,9 +49,11 @@ export function PluginCard({ plugin, size, onInstall, onToggle }: PluginCardProp
       href={`/dashboard/plugins/${plugin.id}`}
       className={cn(
         'group relative flex flex-col',
-        'bg-card border border-border rounded-lg',
-        'hover:border-violet-500/50 hover:bg-card/80',
+        'bg-card border rounded-lg',
         'transition-all duration-200',
+        selected
+          ? 'border-amber-500/50 bg-amber-500/5'
+          : 'border-border hover:border-violet-500/50 hover:bg-card/80',
         isCompact ? 'p-3 gap-2' : isLarge ? 'p-6 gap-4' : 'p-4 gap-3'
       )}
     >
@@ -73,9 +76,9 @@ export function PluginCard({ plugin, size, onInstall, onToggle }: PluginCardProp
           </span>
         </div>
 
-        {/* Install / Toggle Control */}
+        {/* Select / Toggle Control */}
         <div
-          className="flex items-center"
+          className="flex items-center gap-2"
           onClick={(e) => e.preventDefault()}
         >
           {!plugin.installed ? (
@@ -83,38 +86,57 @@ export function PluginCard({ plugin, size, onInstall, onToggle }: PluginCardProp
               onClick={(e) => {
                 e.stopPropagation()
                 e.preventDefault()
-                onInstall(plugin.id)
+                onSelect(plugin.id)
               }}
               className={cn(
-                'text-xs font-medium px-2.5 py-1 rounded transition-colors',
-                'bg-violet-500/10 text-violet-400 hover:bg-violet-500/20',
-                'border border-violet-500/20'
+                'text-xs font-medium px-2.5 py-1 rounded transition-colors border',
+                selected
+                  ? 'bg-amber-500/20 text-amber-400 border-amber-500/30'
+                  : 'bg-violet-500/10 text-violet-400 hover:bg-violet-500/20 border-violet-500/20'
               )}
             >
-              Install
+              {selected ? 'Selected' : 'Install'}
             </button>
           ) : (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                e.preventDefault()
-                onToggle(plugin.id, !plugin.active)
-              }}
-              className={cn(
-                'relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full',
-                'border-2 border-transparent transition-colors duration-200',
-                plugin.active ? 'bg-violet-500' : 'bg-foreground/20'
-              )}
-              title={plugin.active ? 'Deactivate' : 'Activate'}
-            >
-              <span
+            <>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  e.preventDefault()
+                  onSelect(plugin.id)
+                }}
                 className={cn(
-                  'pointer-events-none inline-block h-4 w-4 rounded-full',
-                  'bg-white shadow-sm transition-transform duration-200',
-                  plugin.active ? 'translate-x-4' : 'translate-x-0'
+                  'text-xs font-medium px-2 py-1 rounded transition-colors border',
+                  selected
+                    ? 'bg-red-500/20 text-red-400 border-red-500/30'
+                    : 'bg-foreground/5 text-muted-foreground hover:text-red-400 border-transparent hover:border-red-500/20'
                 )}
-              />
-            </button>
+                title="Select for removal"
+              >
+                {selected ? 'Remove' : 'X'}
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  e.preventDefault()
+                  onToggle(plugin.id, !plugin.active)
+                }}
+                className={cn(
+                  'relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full',
+                  'border-2 border-transparent transition-colors duration-200',
+                  plugin.active ? 'bg-violet-500' : 'bg-foreground/20'
+                )}
+                title={plugin.active ? 'Deactivate' : 'Activate'}
+              >
+                <span
+                  className={cn(
+                    'pointer-events-none inline-block h-4 w-4 rounded-full',
+                    'bg-white shadow-sm transition-transform duration-200',
+                    plugin.active ? 'translate-x-4' : 'translate-x-0'
+                  )}
+                />
+              </button>
+            </>
           )}
         </div>
       </div>
@@ -218,8 +240,10 @@ export function PluginCard({ plugin, size, onInstall, onToggle }: PluginCardProp
       <div
         className={cn(
           'absolute inset-0 rounded-lg pointer-events-none',
-          'ring-2 ring-violet-500/0 group-hover:ring-violet-500/20',
-          'transition-all duration-200'
+          'ring-2 transition-all duration-200',
+          selected
+            ? 'ring-amber-500/30'
+            : 'ring-violet-500/0 group-hover:ring-violet-500/20'
         )}
       />
     </a>
