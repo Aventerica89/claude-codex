@@ -1,0 +1,81 @@
+const GITHUB_API = 'https://api.github.com'
+
+const CLAUDE_DIRS = ['commands', 'agents', 'skills', 'rules'] as const
+type ClaudeDirType = (typeof CLAUDE_DIRS)[number]
+
+export interface ClaudeDirectoryResult {
+  commands: string[]
+  agents: string[]
+  skills: string[]
+  rules: string[]
+}
+
+export function parseRepoUrl(
+  url: string
+): { owner: string; repo: string } | null {
+  const match = url.match(
+    /github\.com\/([^/]+)\/([^/]+?)(?:\.git)?(?:\/|$)/
+  )
+  if (!match) return null
+  return { owner: match[1], repo: match[2] }
+}
+
+async function fetchDirContents(
+  owner: string,
+  repo: string,
+  path: string,
+  token?: string
+): Promise<string[]> {
+  const headers: Record<string, string> = {
+    Accept: 'application/vnd.github.v3+json',
+    'User-Agent': 'claude-codex-sync',
+  }
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`
+  }
+
+  const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${path}`
+  const res = await fetch(url, { headers })
+
+  if (res.status === 404) return []
+  if (!res.ok) {
+    throw new Error(`GitHub API ${res.status}: ${res.statusText}`)
+  }
+
+  const data = await res.json()
+  if (!Array.isArray(data)) return []
+
+  return data
+    .filter((entry: { type: string }) => entry.type === 'file')
+    .map((entry: { name: string }) => entry.name.replace(/\.md$/, ''))
+}
+
+export async function fetchClaudeDirectory(
+  owner: string,
+  repo: string,
+  token?: string
+): Promise<ClaudeDirectoryResult | null> {
+  const result: ClaudeDirectoryResult = {
+    commands: [],
+    agents: [],
+    skills: [],
+    rules: [],
+  }
+
+  let foundAny = false
+
+  const fetches = CLAUDE_DIRS.map(async (dir) => {
+    const slugs = await fetchDirContents(
+      owner,
+      repo,
+      `.claude/${dir}`,
+      token
+    )
+    if (slugs.length > 0) foundAny = true
+    result[dir] = slugs
+  })
+
+  await Promise.all(fetches)
+
+  return foundAny ? result : null
+}

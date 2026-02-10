@@ -60,7 +60,13 @@ export function AppCard({ app, connectedItems, onConnect, onDisconnect }: AppCar
       >
         <div className="flex items-start justify-between mb-3">
           <div className="min-w-0 flex-1">
-            <h3 className="font-semibold truncate">{displayName}</h3>
+            <a
+              href={`/dashboard/apps/${app.id}`}
+              onClick={(e) => e.stopPropagation()}
+              className="font-semibold truncate hover:text-violet-400 transition-colors block"
+            >
+              {displayName}
+            </a>
             {app.display_name && app.name !== app.display_name && (
               <p className="text-xs text-muted-foreground font-mono mt-0.5">
                 {app.name}

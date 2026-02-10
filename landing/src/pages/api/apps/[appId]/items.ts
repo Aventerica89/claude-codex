@@ -10,7 +10,7 @@ export const GET: APIRoute = async ({ params }) => {
   try {
     const db = await ensureDb()
     const result = await db.execute({
-      sql: 'SELECT item_id, connected_at FROM app_connections WHERE app_id = ?',
+      sql: 'SELECT item_id, connected_at, connection_source FROM app_connections WHERE app_id = ?',
       args: [appId],
     })
 
@@ -19,6 +19,7 @@ export const GET: APIRoute = async ({ params }) => {
       return {
         itemId: row.item_id,
         connectedAt: row.connected_at,
+        connectionSource: row.connection_source ?? 'manual',
         name: item?.name ?? 'Unknown',
         type: item?.type ?? 'unknown',
         description: item?.description ?? '',

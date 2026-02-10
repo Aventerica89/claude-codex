@@ -1,0 +1,19 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DashboardLayout from '../../../components/dashboard/DashboardLayout';
+import { AppDetailPage } from '../../../components/dashboard/AppDetailPage';
+
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect('/dashboard/apps');
+}
+---
+
+<BaseLayout title={`App Details - Claude Codex Dashboard`}>
+  <DashboardLayout currentPath="/dashboard/apps" client:load>
+    <AppDetailPage appId={id} client:load />
+  </DashboardLayout>
+</BaseLayout>

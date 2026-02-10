@@ -19,7 +19,7 @@ export const POST: APIRoute = async ({ params, request }) => {
     const db = await ensureDb()
 
     await db.execute({
-      sql: `INSERT INTO app_connections (app_id, item_id)
+      sql: `INSERT OR IGNORE INTO app_connections (app_id, item_id)
             VALUES (?, ?)`,
       args: [appId, itemId],
     })

@@ -70,8 +70,32 @@ export async function initDb(): Promise<void> {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       app_id TEXT NOT NULL,
       item_id TEXT NOT NULL,
-      connected_at TEXT DEFAULT (datetime('now'))
+      connected_at TEXT DEFAULT (datetime('now')),
+      UNIQUE(app_id, item_id)
     );
+  `)
+
+  // Add connection_source to app_connections
+  try {
+    await db.execute(
+      "ALTER TABLE app_connections ADD COLUMN connection_source TEXT DEFAULT 'manual'"
+    )
+  } catch (e) {
+    // Column already exists, ignore
+  }
+
+  // App sync history table
+  await db.execute(`
+    CREATE TABLE IF NOT EXISTS app_sync_history (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      app_id TEXT NOT NULL,
+      synced_at TEXT DEFAULT (datetime('now')),
+      items_found INTEGER DEFAULT 0,
+      items_added INTEGER DEFAULT 0,
+      items_removed INTEGER DEFAULT 0,
+      status TEXT DEFAULT 'success',
+      error_message TEXT
+    )
   `)
 
   // Add plugin-related columns to existing codex_items table
