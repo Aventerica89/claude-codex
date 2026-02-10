@@ -64,15 +64,15 @@ export async function fetchClaudeDirectory(
 
   let foundAny = false
 
+  // Check both .claude/{dir} and root-level {dir} (e.g. claude-codex repo)
   const fetches = CLAUDE_DIRS.map(async (dir) => {
-    const slugs = await fetchDirContents(
-      owner,
-      repo,
-      `.claude/${dir}`,
-      token
-    )
-    if (slugs.length > 0) foundAny = true
-    result[dir] = slugs
+    const [dotClaude, rootLevel] = await Promise.all([
+      fetchDirContents(owner, repo, `.claude/${dir}`, token),
+      fetchDirContents(owner, repo, dir, token),
+    ])
+    const merged = [...new Set([...dotClaude, ...rootLevel])]
+    if (merged.length > 0) foundAny = true
+    result[dir] = merged
   })
 
   await Promise.all(fetches)
