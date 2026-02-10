@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import {
@@ -9,88 +9,66 @@ import {
   getStatusBgColor,
   getStatusLabel,
   type Service,
+  type ServiceType,
 } from '@/lib/services'
 
-interface ServiceItemProps {
-  service: Service
-  isExpanded: boolean
-  onToggle: () => void
+const TYPE_LABELS: Record<ServiceType, string> = {
+  platform: 'Platforms',
+  database: 'Databases',
+  tool: 'Tools',
+  integration: 'MCP',
 }
 
-function ServiceItem({ service, isExpanded, onToggle }: ServiceItemProps) {
+const TYPE_ORDER: ServiceType[] = ['platform', 'database', 'tool', 'integration']
+
+function groupByType(items: Service[]): Record<ServiceType, Service[]> {
+  const groups: Record<ServiceType, Service[]> = {
+    platform: [],
+    database: [],
+    tool: [],
+    integration: [],
+  }
+  for (const service of items) {
+    groups[service.type].push(service)
+  }
+  return groups
+}
+
+interface ServiceChipProps {
+  service: Service
+  isSelected: boolean
+  onSelect: () => void
+}
+
+function ServiceChip({ service, isSelected, onSelect }: ServiceChipProps) {
   return (
-    <div className="flex flex-col">
-      <button
-        onClick={onToggle}
-        className={cn(
-          "flex items-center gap-2 px-3 py-2 rounded-lg transition-colors",
-          "hover:bg-secondary/50",
-          isExpanded && "bg-secondary/50"
-        )}
-      >
-        {/* Status dot */}
+    <button
+      onClick={onSelect}
+      className={cn(
+        'flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs transition-all',
+        'border border-transparent',
+        isSelected
+          ? 'bg-secondary border-border shadow-sm'
+          : 'hover:bg-secondary/40'
+      )}
+    >
+      <span
+        className={cn('w-1.5 h-1.5 rounded-full shrink-0', getStatusBgColor(service.status))}
+      />
+      <span className="font-medium whitespace-nowrap">{service.name}</span>
+      {service.latencyMs !== null ? (
         <span
           className={cn(
-            "w-2 h-2 rounded-full",
-            getStatusBgColor(service.status)
+            'tabular-nums',
+            service.latencyMs < 100 ? 'text-muted-foreground' : 'text-yellow-500'
           )}
-        />
-
-        {/* Service name */}
-        <span className="text-sm font-medium">{service.name}</span>
-
-        {/* Latency */}
-        {service.latencyMs !== null && (
-          <span className={cn(
-            "text-xs",
-            service.latencyMs < 100 ? "text-muted-foreground" : "text-yellow-500"
-          )}>
-            {service.latencyMs}ms
-          </span>
-        )}
-      </button>
-
-      {/* Expanded details */}
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="px-3 py-2 ml-4 border-l-2 border-border">
-              <div className="text-xs space-y-1">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Status</span>
-                  <span className={getStatusColor(service.status)}>
-                    {getStatusLabel(service.status)}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Type</span>
-                  <span className="capitalize">{service.type}</span>
-                </div>
-                {service.endpoint && (
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Endpoint</span>
-                    <span className="text-violet-400 font-mono text-[10px] truncate max-w-[120px]">
-                      {service.endpoint}
-                    </span>
-                  </div>
-                )}
-                {service.lastCheck && (
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Last Check</span>
-                    <span>{formatTimeAgo(service.lastCheck)}</span>
-                  </div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+        >
+          {service.latencyMs}ms
+        </span>
+      ) : (
+        <span className="text-red-400">--</span>
+      )}
+    </button>
   )
 }
 
@@ -102,47 +80,131 @@ function formatTimeAgo(date: Date): string {
   return `${Math.floor(seconds / 86400)}d ago`
 }
 
+interface DetailPanelProps {
+  service: Service
+}
+
+function DetailPanel({ service }: DetailPanelProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: 'auto' }}
+      exit={{ opacity: 0, height: 0 }}
+      className="overflow-hidden"
+    >
+      <div className="flex items-center gap-6 px-4 py-3 bg-secondary/30 rounded-lg text-xs mt-3">
+        <div className="flex items-center gap-2">
+          <span className="text-muted-foreground">Status</span>
+          <span className={cn('font-medium', getStatusColor(service.status))}>
+            {getStatusLabel(service.status)}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-muted-foreground">Type</span>
+          <span className="capitalize">{service.type}</span>
+        </div>
+        {service.endpoint && (
+          <div className="flex items-center gap-2">
+            <span className="text-muted-foreground">Endpoint</span>
+            <span className="text-violet-400 font-mono truncate max-w-[200px]">
+              {service.endpoint}
+            </span>
+          </div>
+        )}
+        {service.latencyMs !== null && (
+          <div className="flex items-center gap-2">
+            <span className="text-muted-foreground">Latency</span>
+            <span className="tabular-nums">{service.latencyMs}ms</span>
+          </div>
+        )}
+        {service.lastCheck && (
+          <div className="flex items-center gap-2">
+            <span className="text-muted-foreground">Checked</span>
+            <span>{formatTimeAgo(service.lastCheck)}</span>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  )
+}
+
 export function ConnectionStrip() {
-  const [expandedId, setExpandedId] = useState<string | null>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
 
   const connectedCount = services.filter(s => s.status === 'connected').length
   const warningCount = services.filter(s => s.status === 'warning').length
   const offlineCount = services.filter(s => s.status === 'offline').length
 
+  const grouped = groupByType(services)
+  const selectedService = selectedId
+    ? services.find(s => s.id === selectedId) ?? null
+    : null
+
   return (
     <div className="bg-card border border-border rounded-xl p-4">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold">Connection Status</h3>
         <div className="flex items-center gap-3 text-xs">
           <span className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-green-500" />
             {connectedCount}
           </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-yellow-500" />
-            {warningCount}
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-red-500" />
-            {offlineCount}
-          </span>
+          {warningCount > 0 && (
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-yellow-500" />
+              {warningCount}
+            </span>
+          )}
+          {offlineCount > 0 && (
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-red-500" />
+              {offlineCount}
+            </span>
+          )}
         </div>
       </div>
 
-      {/* Services grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-1">
-        {services.map((service) => (
-          <ServiceItem
-            key={service.id}
-            service={service}
-            isExpanded={expandedId === service.id}
-            onToggle={() => setExpandedId(
-              expandedId === service.id ? null : service.id
-            )}
-          />
-        ))}
+      {/* Grouped rows */}
+      <div className="space-y-1">
+        {TYPE_ORDER.map(type => {
+          const group = grouped[type]
+          if (group.length === 0) return null
+
+          return (
+            <div key={type} className="flex items-center gap-1">
+              {/* Type label */}
+              <span className="text-[11px] text-muted-foreground w-20 shrink-0 text-right pr-3">
+                {TYPE_LABELS[type]}
+              </span>
+
+              {/* Divider */}
+              <div className="w-px h-5 bg-border shrink-0" />
+
+              {/* Service chips */}
+              <div className="flex items-center gap-1 flex-wrap pl-2">
+                {group.map(service => (
+                  <ServiceChip
+                    key={service.id}
+                    service={service}
+                    isSelected={selectedId === service.id}
+                    onSelect={() =>
+                      setSelectedId(selectedId === service.id ? null : service.id)
+                    }
+                  />
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
+
+      {/* Detail panel */}
+      <AnimatePresence>
+        {selectedService && (
+          <DetailPanel key={selectedService.id} service={selectedService} />
+        )}
+      </AnimatePresence>
     </div>
   )
 }

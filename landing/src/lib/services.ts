@@ -67,7 +67,7 @@ export const services: Service[] = [
   {
     id: 'app-tracker',
     name: 'App Tracker',
-    type: 'integration',
+    type: 'tool',
     status: 'connected',
     latencyMs: 18,
     lastCheck: new Date(),
