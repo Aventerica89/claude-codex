@@ -92,12 +92,12 @@ export function ItemGrid({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder={`Search ${type}s...`}
-          className="flex-1 px-4 py-2 bg-card border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder:text-muted-foreground"
+          className="flex-1 px-4 py-3 min-h-[48px] bg-card border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder:text-muted-foreground"
         />
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedCategory('all')}
-            className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
+            className={`px-3 py-2 min-h-[44px] text-xs rounded-lg transition-all active:scale-95 ${
               selectedCategory === 'all'
                 ? 'bg-violet-600 text-white'
                 : 'bg-secondary text-muted-foreground hover:text-foreground'
@@ -109,7 +109,7 @@ export function ItemGrid({
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
+              className={`px-3 py-2 min-h-[44px] text-xs rounded-lg transition-all active:scale-95 ${
                 selectedCategory === cat
                   ? 'bg-violet-600 text-white'
                   : 'bg-secondary text-muted-foreground hover:text-foreground'

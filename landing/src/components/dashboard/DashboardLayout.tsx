@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { Sidebar } from './Sidebar'
+import { MobileNav } from './MobileNav'
+import { MobileMenu } from './MobileMenu'
 import { ToastProvider } from '../ui/Toast'
 
 interface DashboardLayoutProps {
@@ -15,6 +17,7 @@ export function DashboardLayout({ children, currentPath }: DashboardLayoutProps)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [isVerifying, setIsVerifying] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const auth = sessionStorage.getItem('codex-auth')
@@ -88,7 +91,7 @@ export function DashboardLayout({ children, currentPath }: DashboardLayoutProps)
                   setError('')
                 }}
                 placeholder="Enter 4-digit PIN"
-                className="w-full px-4 py-3 bg-card border border-border rounded-xl text-center text-2xl tracking-[0.5em] font-mono focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-4 py-3 min-h-[48px] bg-card border border-border rounded-xl text-center text-2xl tracking-[0.5em] font-mono focus:outline-none focus:ring-2 focus:ring-violet-500"
                 autoFocus
                 disabled={isVerifying}
               />
@@ -100,7 +103,7 @@ export function DashboardLayout({ children, currentPath }: DashboardLayoutProps)
             <button
               type="submit"
               disabled={pin.length !== 4 || isVerifying}
-              className="w-full px-4 py-3 bg-violet-600 hover:bg-violet-700 disabled:bg-violet-600/50 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors"
+              className="w-full px-4 py-3 min-h-[48px] bg-violet-600 hover:bg-violet-700 disabled:bg-violet-600/50 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-all active:scale-95"
             >
               {isVerifying ? 'Verifying...' : 'Access Dashboard'}
             </button>
@@ -120,11 +123,20 @@ export function DashboardLayout({ children, currentPath }: DashboardLayoutProps)
     <ToastProvider>
       <div className="h-screen bg-background flex overflow-hidden">
         <Sidebar currentPath={currentPath} />
-        <main className="flex-1 overflow-y-auto">
-          <div className="p-6">
+        <main className="flex-1 overflow-y-auto pb-20 md:pb-0">
+          <div className="p-4 sm:p-6">
             {children}
           </div>
         </main>
+        <MobileNav
+          currentPath={currentPath}
+          onMenuClick={() => setMobileMenuOpen(true)}
+        />
+        <MobileMenu
+          isOpen={mobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
+          currentPath={currentPath}
+        />
       </div>
     </ToastProvider>
   )

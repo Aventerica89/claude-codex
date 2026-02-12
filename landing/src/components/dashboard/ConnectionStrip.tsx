@@ -44,9 +44,10 @@ function ServiceChip({ service, isSelected, onSelect }: ServiceChipProps) {
   return (
     <button
       onClick={onSelect}
+      aria-label={`${service.name} service status: ${getStatusLabel(service.status)}`}
       className={cn(
-        'flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs transition-all',
-        'border border-transparent',
+        'flex items-center gap-2 px-3 py-2 rounded-lg text-xs transition-all min-h-[44px]',
+        'border border-transparent active:scale-95',
         isSelected
           ? 'bg-secondary border-border shadow-sm'
           : 'hover:bg-secondary/40'
@@ -92,7 +93,7 @@ function DetailPanel({ service }: DetailPanelProps) {
       exit={{ opacity: 0, height: 0 }}
       className="overflow-hidden"
     >
-      <div className="flex items-center gap-6 px-4 py-3 bg-secondary/30 rounded-lg text-xs mt-3">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 px-3 sm:px-4 py-3 bg-secondary/30 rounded-lg text-xs mt-3">
         <div className="flex items-center gap-2">
           <span className="text-muted-foreground">Status</span>
           <span className={cn('font-medium', getStatusColor(service.status))}>
@@ -141,9 +142,9 @@ export function ConnectionStrip() {
     : null
 
   return (
-    <div className="bg-card border border-border rounded-xl p-4">
+    <div className="bg-card border border-border rounded-xl p-3 sm:p-4">
       {/* Header */}
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
         <h3 className="text-sm font-semibold">Connection Status</h3>
         <div className="flex items-center gap-3 text-xs">
           <span className="flex items-center gap-1">
@@ -166,23 +167,23 @@ export function ConnectionStrip() {
       </div>
 
       {/* Grouped rows */}
-      <div className="space-y-1">
+      <div className="space-y-3 sm:space-y-1">
         {TYPE_ORDER.map(type => {
           const group = grouped[type]
           if (group.length === 0) return null
 
           return (
-            <div key={type} className="flex items-center gap-1">
+            <div key={type} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-1">
               {/* Type label */}
-              <span className="text-[11px] text-muted-foreground w-20 shrink-0 text-right pr-3">
+              <span className="text-[11px] text-muted-foreground sm:w-20 shrink-0 sm:text-right sm:pr-3">
                 {TYPE_LABELS[type]}
               </span>
 
-              {/* Divider */}
-              <div className="w-px h-5 bg-border shrink-0" />
+              {/* Divider - hidden on mobile */}
+              <div className="hidden sm:block w-px h-5 bg-border shrink-0" />
 
               {/* Service chips */}
-              <div className="flex items-center gap-1 flex-wrap pl-2">
+              <div className="flex items-center gap-2 flex-wrap sm:pl-2">
                 {group.map(service => (
                   <ServiceChip
                     key={service.id}
