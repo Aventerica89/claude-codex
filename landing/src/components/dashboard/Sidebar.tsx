@@ -124,7 +124,8 @@ export function Sidebar({ currentPath }: SidebarProps) {
   return (
     <aside
       className={cn(
-        'h-screen bg-card border-r border-border flex flex-col transition-all duration-200',
+        'h-screen bg-card border-r border-border flex-col transition-all duration-200',
+        'hidden md:flex',
         collapsed ? 'w-14' : 'w-64'
       )}
     >
@@ -146,10 +147,11 @@ export function Sidebar({ currentPath }: SidebarProps) {
         )}
         <button
           onClick={toggle}
+          aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           className={cn(
-            'w-8 h-8 flex items-center justify-center rounded-lg',
+            'w-11 h-11 flex items-center justify-center rounded-lg',
             'text-muted-foreground hover:text-foreground hover:bg-secondary/50',
-            'transition-colors shrink-0'
+            'transition-all shrink-0 active:scale-95'
           )}
           title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >

@@ -138,7 +138,7 @@ export function MarketplacePage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search components..."
-          className="flex-1 px-4 py-2 bg-card border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder:text-muted-foreground"
+          className="flex-1 px-4 py-3 min-h-[48px] bg-card border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder:text-muted-foreground"
         />
 
         <div className="flex flex-wrap gap-2">

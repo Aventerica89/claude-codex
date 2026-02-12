@@ -81,21 +81,21 @@ export function MarkdownEditor({
           {hasOverride && (
             <button
               onClick={handleReset}
-              className="px-3 py-1.5 text-xs bg-secondary hover:bg-secondary/80 text-foreground rounded-lg transition-colors"
+              className="px-3 py-2 min-h-[44px] text-xs bg-secondary hover:bg-secondary/80 text-foreground rounded-lg transition-all active:scale-95"
             >
               Reset to File
             </button>
           )}
           <button
             onClick={() => setShowPreview(!showPreview)}
-            className="px-3 py-1.5 text-xs bg-secondary hover:bg-secondary/80 text-foreground rounded-lg transition-colors"
+            className="px-3 py-2 min-h-[44px] text-xs bg-secondary hover:bg-secondary/80 text-foreground rounded-lg transition-all active:scale-95"
           >
             {showPreview ? 'Hide Preview' : 'Show Preview'}
           </button>
           <button
             onClick={handleSave}
             disabled={isSaving}
-            className="px-4 py-1.5 text-xs bg-violet-600 hover:bg-violet-700 disabled:bg-violet-600/50 text-white rounded-lg transition-colors"
+            className="px-4 py-2 min-h-[44px] text-xs bg-violet-600 hover:bg-violet-700 disabled:bg-violet-600/50 text-white rounded-lg transition-all active:scale-95"
           >
             {isSaving ? 'Saving...' : saved ? 'Saved' : 'Save'}
           </button>
