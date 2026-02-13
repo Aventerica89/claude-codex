@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import type { Plugin } from '../../lib/plugins/types';
 import { useToast } from '../ui/Toast';
 
@@ -28,13 +28,17 @@ export function InstallModal({
   const { showToast } = useToast();
 
   useEffect(() => {
-    fetchRepositories();
+    const abortController = new AbortController();
+    fetchRepositories(abortController.signal);
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
-  async function fetchRepositories() {
+  async function fetchRepositories(signal?: AbortSignal) {
     try {
       setLoadingRepos(true);
-      const response = await fetch('/api/repositories');
+      const response = await fetch('/api/repositories', { signal });
 
       if (!response.ok) {
         throw new Error('Failed to fetch repositories');
@@ -93,26 +97,30 @@ export function InstallModal({
     }
   }
 
-  const componentsByType = selectedComponents.reduce((acc, id) => {
-    const type = id.split(':')[2] || 'unknown';
-    acc[type] = (acc[type] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
+  const componentsByType = useMemo(() => {
+    return selectedComponents.reduce((acc, id) => {
+      const type = id.split(':')[2] || 'unknown';
+      acc[type] = (acc[type] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+  }, [selectedComponents]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
+        onKeyDown={(e) => e.key === 'Escape' && onClose()}
+        tabIndex={-1}
       />
 
       {/* Modal */}
       <div className="relative bg-card border border-border rounded-xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 border-b border-border">
-          <h2 className="text-xl font-bold">Install Plugin</h2>
-          <p className="text-sm text-muted-foreground mt-1">{plugin.name}</p>
+          <h2 id="modal-title" className="text-xl font-bold">Install Plugin</h2>
+          <p id="modal-desc" className="text-sm text-muted-foreground mt-1">{plugin.name}</p>
         </div>
 
         {/* Body */}
