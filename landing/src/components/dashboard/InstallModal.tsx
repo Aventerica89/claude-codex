@@ -2,6 +2,13 @@ import { useState, useEffect, useMemo } from 'react';
 import type { Plugin } from '../../lib/plugins/types';
 import { useToast } from '../ui/Toast';
 
+// ISSUE #15 FIX: Constants instead of magic strings
+const UNKNOWN_TYPE = 'unknown';
+const DEFAULT_REPO_PATH = '~/.claude';
+
+// ISSUE #17 FIX: Proper TypeScript types
+type ComponentType = 'agent' | 'skill' | 'command' | 'rule' | typeof UNKNOWN_TYPE;
+
 interface InstallModalProps {
   plugin: Plugin;
   selectedComponents: string[];
@@ -51,9 +58,11 @@ export function InstallModal({
         setSelectedRepo(data.data[0].id);
       }
     } catch (err) {
+      // ISSUE #16 FIX: Log errors for debugging
+      console.error('Failed to fetch repositories:', err);
       showToast('Failed to load repositories', 'error');
       setRepositories([
-        { id: 'local', name: 'Local Repository', path: '~/.claude' }
+        { id: 'local', name: 'Local Repository', path: DEFAULT_REPO_PATH }
       ]);
       setSelectedRepo('local');
     } finally {
@@ -90,6 +99,8 @@ export function InstallModal({
       showToast(`Installed ${result.data.installed_count} components!`, 'success');
       onSuccess();
     } catch (err) {
+      // ISSUE #16 FIX: Log errors for debugging
+      console.error('Installation failed:', err);
       const message = err instanceof Error ? err.message : 'Installation failed';
       showToast(message, 'error');
     } finally {
@@ -97,12 +108,14 @@ export function InstallModal({
     }
   }
 
+  // ISSUE #6 FIX: Robust component type parsing with validation
   const componentsByType = useMemo(() => {
     return selectedComponents.reduce((acc, id) => {
-      const type = id.split(':')[2] || 'unknown';
+      const parts = id.split(':');
+      const type = (parts.length >= 3 ? parts[2] : UNKNOWN_TYPE) as ComponentType;
       acc[type] = (acc[type] || 0) + 1;
       return acc;
-    }, {} as Record<string, number>);
+    }, {} as Record<ComponentType, number>);
   }, [selectedComponents]);
 
   return (
@@ -187,8 +200,15 @@ export function InstallModal({
           <button
             onClick={handleInstall}
             disabled={installing || !selectedRepo || repositories.length === 0}
-            className="px-4 py-2 bg-violet-500 text-white rounded-lg hover:bg-violet-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 bg-violet-500 text-white rounded-lg hover:bg-violet-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
           >
+            {/* ISSUE #8 FIX: Add loading spinner */}
+            {installing && (
+              <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            )}
             {installing ? 'Installing...' : 'Install'}
           </button>
         </div>
