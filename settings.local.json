@@ -223,7 +223,8 @@
       "Bash(launchctl list:*)",
       "Bash(git worktree add:*)",
       "Bash(launchctl stop:*)",
-      "Bash(launchctl start:*)"
+      "Bash(launchctl start:*)",
+      "Bash(git check-ignore:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
