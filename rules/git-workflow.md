@@ -21,6 +21,10 @@ When creating PRs:
 4. Include test plan with TODOs
 5. Push with `-u` flag if new branch
 
+## Worktree-First (Default)
+
+When starting feature work, prefer git worktrees for isolation. Multiple Claude Code sessions may be active on the same repo — worktrees prevent conflicts between them.
+
 ## Feature Implementation Workflow
 
 1. **Plan First**
