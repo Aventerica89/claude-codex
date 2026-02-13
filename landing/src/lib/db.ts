@@ -77,11 +77,18 @@ export async function initDb(): Promise<void> {
 
   // Add connection_source to app_connections
   try {
-    await db.execute(
-      "ALTER TABLE app_connections ADD COLUMN connection_source TEXT DEFAULT 'manual'"
-    )
+    await db.execute({
+      sql: 'ALTER TABLE app_connections ADD COLUMN connection_source TEXT DEFAULT ?',
+      args: ['manual'],
+    })
   } catch (e) {
-    // Column already exists, ignore
+    // Only ignore if column already exists
+    if (e instanceof Error && e.message.includes('duplicate column')) {
+      console.debug('Column connection_source already exists')
+    } else {
+      console.error('Failed to add column connection_source:', e)
+      // Continue anyway - column might exist with different error message
+    }
   }
 
   // App sync history table
@@ -102,19 +109,34 @@ export async function initDb(): Promise<void> {
   try {
     await db.execute('ALTER TABLE codex_items ADD COLUMN plugin_component_id TEXT')
   } catch (e) {
-    // Column already exists, ignore
+    if (e instanceof Error && e.message.includes('duplicate column')) {
+      console.debug('Column plugin_component_id already exists')
+    } else {
+      console.error('Failed to add column plugin_component_id:', e)
+    }
   }
 
   try {
     await db.execute('ALTER TABLE codex_items ADD COLUMN plugin_id TEXT')
   } catch (e) {
-    // Column already exists, ignore
+    if (e instanceof Error && e.message.includes('duplicate column')) {
+      console.debug('Column plugin_id already exists')
+    } else {
+      console.error('Failed to add column plugin_id:', e)
+    }
   }
 
   try {
-    await db.execute('ALTER TABLE codex_items ADD COLUMN is_plugin_managed INTEGER DEFAULT 0')
+    await db.execute({
+      sql: 'ALTER TABLE codex_items ADD COLUMN is_plugin_managed INTEGER DEFAULT ?',
+      args: [0],
+    })
   } catch (e) {
-    // Column already exists, ignore
+    if (e instanceof Error && e.message.includes('duplicate column')) {
+      console.debug('Column is_plugin_managed already exists')
+    } else {
+      console.error('Failed to add column is_plugin_managed:', e)
+    }
   }
 
   // Initialize plugin tables

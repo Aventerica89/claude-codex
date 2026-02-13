@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { cn } from '@/lib/utils'
 import { CardSizeToggle, type CardSize } from './CardSizeToggle'
 import { PluginCard } from './PluginCard'
@@ -63,6 +63,9 @@ export function PluginsPage() {
     Map<string, { id: string; name: string }>
   >(new Map())
 
+  // Track pending toggle operations to prevent race conditions
+  const [pendingToggles, setPendingToggles] = useState<Set<string>>(new Set())
+
   // Available filter options
   const [filterOptions, setFilterOptions] = useState<{
     sources: Array<{ id: string; name: string; count: number }>
@@ -74,17 +77,14 @@ export function PluginsPage() {
     types: [],
   })
 
-  // Fetch plugins
+  // Stable reference for plugins using useRef
+  const pluginsRef = useRef<Map<string, CatalogPluginWithStatus>>(new Map())
+
   useEffect(() => {
-    const abortController = new AbortController()
-    fetchPlugins(abortController.signal)
+    pluginsRef.current = new Map(plugins.map(p => [p.id, p]))
+  }, [plugins])
 
-    return () => {
-      abortController.abort()
-    }
-  }, [selectedSources, selectedCategories, selectedTypes, sortBy, statusTab])
-
-  const fetchPlugins = async (signal?: AbortSignal) => {
+  const fetchPlugins = useCallback(async (signal?: AbortSignal) => {
     setLoading(true)
     setError(null)
 
@@ -117,7 +117,17 @@ export function PluginsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [selectedSources, selectedCategories, selectedTypes, sortBy, statusTab])
+
+  // Fetch plugins with proper cleanup
+  useEffect(() => {
+    const abortController = new AbortController()
+    fetchPlugins(abortController.signal)
+
+    return () => {
+      abortController.abort()
+    }
+  }, [fetchPlugins])
 
   // Client-side search filtering
   const filteredPlugins = useMemo(() => {
@@ -133,9 +143,9 @@ export function PluginsPage() {
     )
   }, [plugins, search])
 
-  // Toggle plugin selection for install command bar
+  // Toggle plugin selection for install command bar (using stable ref)
   const handleSelect = useCallback((pluginId: string) => {
-    const plugin = plugins.find((p) => p.id === pluginId)
+    const plugin = pluginsRef.current.get(pluginId)
     if (!plugin) return
 
     if (plugin.installed) {
@@ -161,7 +171,7 @@ export function PluginsPage() {
         return next
       })
     }
-  }, [plugins])
+  }, [])
 
   const clearInstallSelection = useCallback(() => {
     setSelectedForInstall(new Map())
@@ -171,12 +181,20 @@ export function PluginsPage() {
     setSelectedForRemove(new Map())
   }, [])
 
-  // Toggle active/inactive handler with optimistic update
-  const handleToggle = async (pluginId: string, active: boolean) => {
-    const plugin = plugins.find((p) => p.id === pluginId)
+  // Toggle active/inactive handler with race condition protection
+  const handleToggle = useCallback(async (pluginId: string, active: boolean) => {
+    // Prevent concurrent toggles for the same plugin
+    if (pendingToggles.has(pluginId)) {
+      return
+    }
+
+    const plugin = pluginsRef.current.get(pluginId)
     if (!plugin || !plugin.installed) return
 
     const wasActive = plugin.active
+
+    // Mark as pending
+    setPendingToggles(prev => new Set(prev).add(pluginId))
 
     // Optimistic update
     setPlugins((prev) =>
@@ -198,8 +216,15 @@ export function PluginsPage() {
       )
       setActiveCount((c) => (wasActive ? c + 1 : Math.max(0, c - 1)))
       showToast('Toggle failed', 'error')
+    } finally {
+      // Clear pending state
+      setPendingToggles(prev => {
+        const next = new Set(prev)
+        next.delete(pluginId)
+        return next
+      })
     }
-  }
+  }, [showToast])
 
   const toggleSource = (id: string) => {
     setSelectedSources((prev) =>

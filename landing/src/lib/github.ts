@@ -1,3 +1,5 @@
+import { githubRateLimiter } from './rate-limiter'
+
 const GITHUB_API = 'https://api.github.com'
 
 const CLAUDE_DIRS = ['commands', 'agents', 'skills', 'rules'] as const
@@ -17,7 +19,29 @@ export function parseRepoUrl(
     /github\.com\/([^/]+)\/([^/]+?)(?:\.git)?(?:\/|$)/
   )
   if (!match) return null
-  return { owner: match[1], repo: match[2] }
+
+  const owner = match[1]
+  const repo = match[2]
+
+  // Validate GitHub username/repo name format
+  // GitHub allows alphanumeric, hyphens, and underscores
+  const validPattern = /^[a-zA-Z0-9_.-]+$/
+  if (!validPattern.test(owner) || !validPattern.test(repo)) {
+    return null
+  }
+
+  // Prevent path traversal attacks
+  if (owner.includes('..') || repo.includes('..')) {
+    return null
+  }
+
+  // Prevent other path separators
+  if (owner.includes('/') || owner.includes('\\') ||
+      repo.includes('/') || repo.includes('\\')) {
+    return null
+  }
+
+  return { owner, repo }
 }
 
 async function fetchDirContents(
@@ -35,7 +59,9 @@ async function fetchDirContents(
   }
 
   const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${path}`
-  const res = await fetch(url, { headers })
+
+  // Use rate limiter with automatic retry
+  const res = await githubRateLimiter.fetchWithRetry(url, { headers })
 
   if (res.status === 404) return []
   if (!res.ok) {
