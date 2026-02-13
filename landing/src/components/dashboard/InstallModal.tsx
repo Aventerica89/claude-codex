@@ -35,9 +35,9 @@ export function InstallModal({
     message: string
   } | null>(null)
 
-  const selectedNames = plugin.components
+  // SECURITY FIX: Use component objects instead of just names for unique keys
+  const selectedComps = plugin.components
     .filter(c => selectedComponents.includes(c.id))
-    .map(c => c.name)
 
   const handleInstall = async () => {
     if (!selectedRepo) return
@@ -75,10 +75,17 @@ export function InstallModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="install-modal-title"
+      onKeyDown={(e) => e.key === 'Escape' && onClose()}
+      tabIndex={-1}
+    >
       <div className="w-full max-w-md bg-card border border-border rounded-xl p-6 shadow-xl">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">Install Components</h2>
+          <h2 id="install-modal-title" className="text-lg font-semibold">Install Components</h2>
           <button
             onClick={onClose}
             className="text-muted-foreground hover:text-foreground"
@@ -97,12 +104,12 @@ export function InstallModal({
         {/* Selected components list */}
         <div className="mb-4 max-h-32 overflow-y-auto bg-secondary/30 rounded-lg p-3">
           <div className="flex flex-wrap gap-1.5">
-            {selectedNames.map(name => (
+            {selectedComps.map(comp => (
               <span
-                key={name}
+                key={comp.id}
                 className="px-2 py-0.5 text-xs bg-violet-500/10 text-violet-400 border border-violet-500/30 rounded"
               >
-                {name}
+                {comp.name}
               </span>
             ))}
           </div>
