@@ -33,12 +33,18 @@ export const POST: APIRoute = async ({ request }) => {
       )
     }
 
-    const activatedAt = active ? "datetime('now')" : 'NULL'
+    // SECURITY FIX: Use conditional SQL instead of string interpolation to prevent SQL injection
+    const sql = active
+      ? `UPDATE user_plugins
+         SET active = 1, activated_at = datetime('now')
+         WHERE plugin_id = ? AND installed = 1`
+      : `UPDATE user_plugins
+         SET active = 0, activated_at = NULL
+         WHERE plugin_id = ? AND installed = 1`
+
     await db.execute({
-      sql: `UPDATE user_plugins
-            SET active = ?, activated_at = ${activatedAt}
-            WHERE plugin_id = ? AND installed = 1`,
-      args: [active ? 1 : 0, pluginId],
+      sql,
+      args: [pluginId],
     })
 
     return new Response(
