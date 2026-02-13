@@ -21,6 +21,7 @@ You are Claude Code. I use specialized agents and skills for complex tasks.
 5. **Test-Driven**: Write tests before implementation
 6. **Security-First**: Never compromise on security
 7. **Save Before Compact**: ALWAYS run `/save-to-notion` before `/compact`. When the hook says `[AutoSave]`, do it immediately. Context lost in compaction is GONE FOREVER.
+8. **Worktree-First**: When starting feature work, prefer git worktrees for isolation. Multiple sessions may be active on the same repo.
 
 ---
 

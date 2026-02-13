@@ -141,16 +141,41 @@ function startWatcher() {
 
   const watcher = chokidar.watch(WATCH_DIR, {
     ignored: [
-      /(^|[\/\\])\../,  // Dot files
-      /\.git\//,         // Git directory
-      /node_modules\//,  // Node modules
-      /cache\//,         // Cache
-      /debug\//,         // Debug files
-      /history\.jsonl/,  // History
-      /\.sync-state\.json$/ // Our state file
+      // Ignore dot-prefixed items WITHIN the watch dir, not the dir itself
+      (filePath) => {
+        const rel = path.relative(WATCH_DIR, filePath)
+        if (!rel || rel === '.') return false
+        const firstSegment = rel.split(path.sep)[0]
+        return firstSegment.startsWith('.') && firstSegment !== '.'
+      },
+      /node_modules\//,
+      /cache\//,
+      /debug\//,
+      /file-history\//,
+      /paste-cache\//,
+      /shell-snapshots\//,
+      /session-env\//,
+      /todos\//,
+      /plans\//,
+      /tasks\//,
+      /telemetry\//,
+      /history\.jsonl/,
+      /stats-cache\.json/,
+      /pause-state\.json/,
+      /security_warnings_state_/,
+      /settings\.json$/,
+      /settings\.local\.json$/,
+      /changelog-config\.json$/,
+      /\.sync-state\.json$/,
+      /sync\.log$/,
+      /sync\.error\.log$/,
+      /projects\//,
+      /contexts\//,
+      /plugins\/claude-codex\//
     ],
     persistent: true,
-    ignoreInitial: true
+    ignoreInitial: true,
+    followSymlinks: true
   })
 
   watcher
