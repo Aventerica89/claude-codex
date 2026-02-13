@@ -1,4 +1,38 @@
 
+## 2026-02-12 AI SDK + AI Elements Research (VaporForge)
+
+### ai-sdk-structured-output-pattern.md
+Use generateText/streamText with Output.object() to get typed Zod-validated JSON from AI models instead of raw text. Enables structured UI panels (severity badges, progress bars, typed data) instead of markdown blobs.
+
+**Use when:** Building any AI feature that should render as structured UI, not chat bubbles
+
+**Key insight:** Structured output turns AI from "chat" into "programmable data generator". Combined with AI Elements components, you get rich interactive panels.
+
+---
+
+### ai-sdk-tool-calling-agent-pattern.md
+Build lightweight agents with streamText({ tools, maxSteps }) that run in Workers without sandbox containers. Model decides which tools to call, results feed back automatically.
+
+**Use when:** Need AI to investigate code, read files, search before answering. Want agent behavior without full SDK overhead (~$7/user/mo container cost).
+
+**Key insight:** Quick Chat with tools becomes a lightweight agent. Three architecture options: tools in sandbox (WS proxy), tools in Worker (instant), or hybrid.
+
+---
+
+### ai-elements-component-adoption.md
+How to evaluate and adopt AI Elements (elements.ai-sdk.dev) copy-paste components into React + Tailwind codebases. 30+ components for AI interfaces: Reasoning, Tool, ChainOfThought, Task, Commit, TestResults, Terminal, etc.
+
+**Use when:** Building AI chat, agent, or code UI. Need consistent, accessible components for tool calls, reasoning, code display.
+
+**Key insight:** Not an npm package. Copy source, adapt data flow. All use compound component pattern. Start with leaf components (Tool, Reasoning) before migrating to useChat.
+
+---
+
+### Full reference: `~/.claude/projects/-Users-jb/memory/ai-sdk-reference.md`
+Complete AI SDK capability catalog + AI Elements component library + VaporForge upgrade phases (A through E). Includes implementation pattern code snippets for structured output endpoints, tool-calling agent endpoints, and useChat migration.
+
+---
+
 ## 2026-02-12 Bricks-CC Basecamp Chat Integration
 
 ### llm-context-injection-anti-fetch.md
