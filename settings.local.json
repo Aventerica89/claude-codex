@@ -229,7 +229,9 @@
       "Bash(git worktree remove:*)",
       "Bash(git rm:*)",
       "Bash(vercel logs:*)",
-      "WebFetch(domain:composio.dev)"
+      "WebFetch(domain:composio.dev)",
+      "mcp__chrome-devtools__list_console_messages",
+      "mcp__chrome-devtools__list_network_requests"
     ]
   },
   "enableAllProjectMcpServers": true,

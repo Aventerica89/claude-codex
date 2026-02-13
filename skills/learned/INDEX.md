@@ -1,4 +1,33 @@
 
+## 2026-02-12 Bricks-CC Basecamp Chat Integration
+
+### llm-context-injection-anti-fetch.md
+When pre-fetching data into an LLM's context, the LLM may still say "I'll fetch..." and emit query actions. Fix with explicit CRITICAL RULES in system prompt: "NEVER say I'll fetch", "ANSWER DIRECTLY from context data", and remove read-only actions from supported list.
+
+**Use when:** Building chat interfaces with pre-fetched context (CRM, project management, RAG)
+
+**Key insight:** LLMs follow path of least resistance; if a "query" action is listed as available, they'll use it even when data is already in context. The fix is prompt engineering, not architecture.
+
+---
+
+### auto-match-entities-by-name.md
+Bidirectional case-insensitive substring matching to auto-link entities across systems (e.g., site name <-> Basecamp project name) without requiring manual foreign key IDs.
+
+**Use when:** Linking entities across different systems where users name things consistently
+
+**Key insight:** Check both directions (A contains B, B contains A) with fallback to explicit ID and then to first-available
+
+---
+
+### serverless-api-timeout-guard.md
+Wrapping external API calls in Promise.race with timeout guards for serverless functions. Includes scope limiting (fetch list + 1 detail, not all details) and graceful degradation.
+
+**Use when:** Calling external APIs from Vercel/Lambda/Workers functions, especially chaining sequential calls
+
+**Key insight:** Vercel Hobby = 10s timeout; use 8s safety valve. Fetch details for ONE entity, not all.
+
+---
+
 ## 2026-02-12 VaporForge Gemini MCP Integration
 
 ### zero-dep-mcp-server-pattern.md
