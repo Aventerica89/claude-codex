@@ -235,7 +235,9 @@
       "mcp__chrome-devtools__get_network_request",
       "WebFetch(domain:ai.google.dev)",
       "WebFetch(domain:ai-sdk.dev)",
-      "WebFetch(domain:elements.ai-sdk.dev)"
+      "WebFetch(domain:elements.ai-sdk.dev)",
+      "Bash(sudo dscacheutil:*)",
+      "Bash(sudo killall:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
