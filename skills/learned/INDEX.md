@@ -1,4 +1,24 @@
 
+## 2026-02-12 VaporForge Gemini MCP Integration
+
+### zero-dep-mcp-server-pattern.md
+Template for building zero-dependency MCP servers that run inside Cloudflare Sandbox containers. Covers JSON-RPC 2.0 protocol, stdio transport, tool definition, Dockerfile embedding via heredoc, and SDK spawning config.
+
+**Use when:** Adding new AI providers or external APIs as MCP tools in sandboxed environments, building stdio MCP servers
+
+**Key insight:** Use newline-delimited JSON transport (not content-length headers); tool errors use `isError: true` on the result, not JSON-RPC error objects
+
+---
+
+### vaporforge-provider-integration-pattern.md
+Complete checklist and architecture for adding new AI providers to VaporForge. Covers the two-KV separation (secrets vs config), conditional MCP injection, settings tab pattern, and the 10-file checklist for a new provider.
+
+**Use when:** Adding OpenAI, Mistral, or other AI providers to VaporForge; extending the AI Providers settings system
+
+**Key insight:** Separate API keys (user-secrets) from provider preferences (user-ai-providers) — keys flow via existing collectUserSecrets() pipeline, config is metadata only
+
+---
+
 ## 2026-02-05 Renvio Companion App Patterns
 
 ### shadcn-registry-sync.md
