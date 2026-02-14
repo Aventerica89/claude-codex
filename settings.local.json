@@ -253,7 +253,9 @@
       "Bash(supabase:*)",
       "Bash(brew list:*)",
       "Bash(gem --version:*)",
-      "Bash(gem install:*)"
+      "Bash(gem install:*)",
+      "Bash(mcp__1p__list_api_keys)",
+      "mcp__plugin_playwright_playwright__browser_evaluate"
     ]
   },
   "enableAllProjectMcpServers": true,
