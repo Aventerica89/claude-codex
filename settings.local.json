@@ -246,7 +246,14 @@
       "mcp__claude_ai_Vercel__get_project",
       "WebFetch(domain:apps.jbcloud.app)",
       "Bash(nslookup:*)",
-      "WebFetch(domain:korejgtgfvyegpmkvbngm.supabase.co)"
+      "WebFetch(domain:korejgtgfvyegpmkvbngm.supabase.co)",
+      "Bash(gem list:*)",
+      "Bash(ruby:*)",
+      "Bash(supabase db remote set:*)",
+      "Bash(supabase:*)",
+      "Bash(brew list:*)",
+      "Bash(gem --version:*)",
+      "Bash(gem install:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
