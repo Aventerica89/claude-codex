@@ -1,0 +1,9 @@
+[
+  {
+    "from": "team-lead",
+    "text": "Task 7 (Widget Build Setup) is complete. Here is the summary:\n\n**Commit:** `74dc7a5` on `main` -- \"feat: set up Vite + Preact widget build pipeline\"\n\n**Files created:**\n- `widget/vite.config.ts` -- Vite config with IIFE library mode, outputs to `../public/widget.js`\n- `widget/package.json` -- Separate package (`@devtools/widget`), `type: module`, with `build` and `dev` scripts\n- `widget/tsconfig.json` -- ESNext target, Preact JSX factory (`jsxImportSource: preact`)\n- `widget/src/index.ts` -- Entry point: reads `data-project`/`data-pin` from script tag, creates shadow DOM host, mounts Preact Toolbar, starts interceptors\n- `widget/src/toolbar/FloatingButton.tsx` -- Stub Toolbar component (fixed-position floating button placeholder for Task 8)\n- `widget/src/interceptors/index.ts` -- Stub `initInterceptors()` placeholder for Task 9\n\n**Files modified:**\n- `package.json` -- Added `build:widget` script\n- `tsconfig.json` -- Added `widget` to exclude (prevents conflicts with Next.js compilation)\n- `.gitignore` -- Added `widget/node_modules` and `public/widget.js` (build artifact)\n\n**Dependencies installed in widget/:**\n- Runtime: `preact` (^10.28.3)\n- Dev: `vite` (^7.3.1), `@preact/preset-vite` (^2.10.3), `typescript` (^5.9.3)\n\n**Build verified:**\n- `npm run build:widget` succeeds from root\n- Output: `public/widget.js` -- 11.32 KB (4.92 KB gzipped)\n- Root TypeScript (`npx tsc --noEmit`) still passes cleanly\n\n**Architecture notes:**\n- Shadow DOM isolation prevents host page CSS leaking into widget\n- IIFE format self-executes on load; no external module system needed\n- `document.currentScript` reads config attributes at load time\n- Stubs are minimal but export the correct signatures so Tasks 8-9 can replace them without build changes",
+    "summary": "Task 7 complete: widget build pipeline working",
+    "timestamp": "2026-02-14T19:55:00.986Z",
+    "read": false
+  }
+]
