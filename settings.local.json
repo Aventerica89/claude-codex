@@ -287,7 +287,10 @@
       "Bash(npm init:*)",
       "WebFetch(domain:vercel.com)",
       "WebFetch(domain:v6.ai-sdk.dev)",
-      "Bash(systemsetup:*)"
+      "Bash(systemsetup:*)",
+      "Bash(sudo launchctl:*)",
+      "Bash(ssh:*)",
+      "Bash(nc:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
