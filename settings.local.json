@@ -290,7 +290,10 @@
       "Bash(systemsetup:*)",
       "Bash(sudo launchctl:*)",
       "Bash(ssh:*)",
-      "Bash(nc:*)"
+      "Bash(nc:*)",
+      "mcp__chrome-devtools__new_page",
+      "Bash(~/.ssh/authorized_keys)",
+      "WebFetch(domain:sshid.io)"
     ]
   },
   "enableAllProjectMcpServers": true,
