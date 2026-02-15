@@ -332,7 +332,9 @@
       "mcp__1p__add_token_to_existing",
       "mcp__claude_ai_Vercel__get_runtime_logs",
       "WebFetch(domain:www.hextaui.com)",
-      "WebFetch(domain:www.tryelements.dev)"
+      "WebFetch(domain:www.tryelements.dev)",
+      "Bash(claude setup-token)",
+      "mcp__chrome-devtools__evaluate_script"
     ]
   },
   "enableAllProjectMcpServers": true,
