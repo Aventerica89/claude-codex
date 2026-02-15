@@ -329,7 +329,10 @@
       "Bash(npx next lint:*)",
       "Bash(dotenv -e .env.local -- npx drizzle-kit push:*)",
       "Bash(git status:*)",
-      "mcp__1p__add_token_to_existing"
+      "mcp__1p__add_token_to_existing",
+      "mcp__claude_ai_Vercel__get_runtime_logs",
+      "WebFetch(domain:www.hextaui.com)",
+      "WebFetch(domain:www.tryelements.dev)"
     ]
   },
   "enableAllProjectMcpServers": true,
