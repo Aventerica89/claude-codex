@@ -337,7 +337,9 @@
       "mcp__chrome-devtools__evaluate_script",
       "Bash(TURSO_DATABASE_URL=\"libsql://devtools-aventerica89.aws-us-west-2.turso.io\" TURSO_AUTH_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzExMjE0NjMsImlkIjoiMDAxMWRmYzEtMDJjNC00ZTQ1LTk3ZWMtZmNlODFmOTU4OTI5IiwicmlkIjoiZWNjODU4OGEtZWJjNC00MzQ5LTkyMzYtYjFiYjE3YTIwNWI3In0.7tAqWS-QCPbHoovmTyup9ZJAnsyVe3x_QtLgUql4DTIyGR29J-qL2Yf7-b9lVZTnftRPRV08TNQGdgA4V3QPCQ\" npx drizzle-kit push:*)",
       "Bash(TURSO_DATABASE_URL=\"libsql://devtools-aventerica89.aws-us-west-2.turso.io\" TURSO_AUTH_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzExMjE0NjMsImlkIjoiMDAxMWRmYzEtMDJjNC00ZTQ1LTk3ZWMtZmNlODFmOTU4OTI5IiwicmlkIjoiZWNjODU4OGEtZWJjNC00MzQ5LTkyMzYtYjFiYjE3YTIwNWI3In0.7tAqWS-QCPbHoovmTyup9ZJAnsyVe3x_QtLgUql4DTIyGR29J-qL2Yf7-b9lVZTnftRPRV08TNQGdgA4V3QPCQ\" node:*)",
-      "Bash(TURSO_DATABASE_URL=\"libsql://devtools-aventerica89.aws-us-west-2.turso.io\" TURSO_AUTH_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzExMjE0NjMsImlkIjoiMDAxMWRmYzEtMDJjNC00ZTQ1LTk3ZWMtZmNlODFmOTU4OTI5IiwicmlkIjoiZWNjODU4OGEtZWJjNC00MzQ5LTkyMzYtYjFiYjE3YTIwNWI3In0.7tAqWS-QCPbHoovmTyup9ZJAnsyVe3x_QtLgUql4DTIyGR29J-qL2Yf7-b9lVZTnftRPRV08TNQGdgA4V3QPCQ\" node -e:*)"
+      "Bash(TURSO_DATABASE_URL=\"libsql://devtools-aventerica89.aws-us-west-2.turso.io\" TURSO_AUTH_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzExMjE0NjMsImlkIjoiMDAxMWRmYzEtMDJjNC00ZTQ1LTk3ZWMtZmNlODFmOTU4OTI5IiwicmlkIjoiZWNjODU4OGEtZWJjNC00MzQ5LTkyMzYtYjFiYjE3YTIwNWI3In0.7tAqWS-QCPbHoovmTyup9ZJAnsyVe3x_QtLgUql4DTIyGR29J-qL2Yf7-b9lVZTnftRPRV08TNQGdgA4V3QPCQ\" node -e:*)",
+      "Bash(CLAUDE_PLUGIN_ROOT=/Users/jb/.claude/plugins/cache/claude-codex/claude-codex/1.0.0 node:*)",
+      "Bash(export CLAUDE_PLUGIN_ROOT=/Users/jb/.claude/plugins/cache/claude-codex/claude-codex/1.0.0)"
     ]
   },
   "enableAllProjectMcpServers": true,
