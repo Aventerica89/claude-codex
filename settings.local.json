@@ -341,7 +341,20 @@
       "Bash(CLAUDE_PLUGIN_ROOT=/Users/jb/.claude/plugins/cache/claude-codex/claude-codex/1.0.0 node:*)",
       "Bash(export CLAUDE_PLUGIN_ROOT=/Users/jb/.claude/plugins/cache/claude-codex/claude-codex/1.0.0)",
       "WebFetch(domain:sdk.vercel.ai)",
-      "Bash(ssh-keyscan:*)"
+      "Bash(ssh-keyscan:*)",
+      "Bash(while IFS= read -r line)",
+      "Bash(do echo \"$line\")",
+      "Bash(do)",
+      "Bash(TOKEN='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzZjNGIyMjg4YzU2YmU3ZWYiLCJlbWFpbCI6InVzZXJfNmM0YjIyODhjNTZiZTdlZkBjbGF1ZGUtY2xvdWQubG9jYWwiLCJpYXQiOjE3NzA2MTMwODUsImV4cCI6MTc3MTIxNzg4NX0=.1yZ8w2C7an1d/HjqfS7M2+aIiMGHwBTo8YKYee+qpJ0=')",
+      "Bash(__NEW_LINE_fe0c2d8273a4a295__ curl -sS -X POST \"https://vaporforge.jbcloud.app/api/sessions/90bd647c-21b6-43c2-a84b-08bfe7577475/exec\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"command\"\": \"\"ls -la /opt/claude-agent/ && node -e \\\\\"\"try{require\\(\\\\\\\\\\\\\"\"ws\\\\\\\\\\\\\"\"\\);console.log\\(\\\\\\\\\\\\\"\"ws OK\\\\\\\\\\\\\"\"\\)}catch\\(e\\){console.log\\(\\\\\\\\\\\\\"\"ws MISSING:\\\\\\\\\\\\\"\",e.message\\)}\\\\\"\"\"\"}')",
+      "Bash(__NEW_LINE_420022b904a91646__ curl -sS -X POST \"https://vaporforge.jbcloud.app/api/sessions/90bd647c-21b6-43c2-a84b-08bfe7577475/exec\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"command\"\": \"\"ls -la /opt/claude-agent/\"\"}')",
+      "Bash(__NEW_LINE_5ac5e90fcb2a831e__ curl -sS -X POST \"https://vaporforge.jbcloud.app/api/sessions/90bd647c-21b6-43c2-a84b-08bfe7577475/exec\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"command\"\": \"\"ls /opt/claude-agent/ 2>&1; echo EXIT:$?; test -f /opt/claude-agent/ws-agent-server.js && echo WS_SERVER_EXISTS || echo WS_SERVER_MISSING\"\"}')",
+      "Bash(__NEW_LINE_72cca49ad9d6c1e4__ curl -sS -X POST \"https://vaporforge.jbcloud.app/api/sessions/557b83be-4118-42fe-9eee-058bd0f32eea/exec\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"command\"\": \"\"test -f /opt/claude-agent/ws-agent-server.js && echo WS_EXISTS || echo WS_MISSING; node -e \\\\\"\"try{require\\(\\\\\\\\\\\\\"\"ws\\\\\\\\\\\\\"\"\\);console.log\\(\\\\\\\\\\\\\"\"ws_OK\\\\\\\\\\\\\"\"\\)}catch\\(e\\){console.log\\(\\\\\\\\\\\\\"\"ws_MISSING\\\\\\\\\\\\\"\"\\)}\\\\\"\"\"\"}')",
+      "Bash(docker system prune:*)",
+      "Bash(docker image prune:*)",
+      "Bash(__NEW_LINE_f48590f8fca84724__ curl -sS -X POST \"https://vaporforge.jbcloud.app/api/sessions/84415ee2-3da7-4e3a-9e1d-bd528c8954d9/exec\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"command\"\": \"\"test -f /opt/claude-agent/ws-agent-server.js && echo WS_EXISTS || echo WS_MISSING; node -e \\\\\"\"try{require\\(\\\\\\\\\\\\\"\"ws\\\\\\\\\\\\\"\"\\);console.log\\(\\\\\\\\\\\\\"\"ws_OK\\\\\\\\\\\\\"\"\\)}catch\\(e\\){console.log\\(\\\\\\\\\\\\\"\"ws_MISSING\\\\\\\\\\\\\"\"\\)}\\\\\"\"\"\"}')",
+      "Bash(docker build:*)",
+      "Bash(__NEW_LINE_9cf7ab83f651728c__ curl -sS -X POST \"https://vaporforge.jbcloud.app/api/sessions/84415ee2-3da7-4e3a-9e1d-bd528c8954d9/exec\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"command\"\": \"\"ls -la /opt/claude-agent/; echo ---; cat /opt/claude-agent/ws-agent-server.js 2>&1 | head -5; echo ---; head -1 /opt/claude-agent/gemini-mcp-server.js 2>&1\"\"}')"
     ]
   },
   "enableAllProjectMcpServers": true,
