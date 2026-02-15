@@ -326,7 +326,9 @@
       "Bash(ZONE_ID=\"30b8db8edbd6412b2405a93156134211\")",
       "Bash(npx eslint:*)",
       "Bash(tailscale status:*)",
-      "Bash(npx next lint:*)"
+      "Bash(npx next lint:*)",
+      "Bash(dotenv -e .env.local -- npx drizzle-kit push:*)",
+      "Bash(git status:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
