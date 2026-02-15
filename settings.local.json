@@ -328,7 +328,8 @@
       "Bash(tailscale status:*)",
       "Bash(npx next lint:*)",
       "Bash(dotenv -e .env.local -- npx drizzle-kit push:*)",
-      "Bash(git status:*)"
+      "Bash(git status:*)",
+      "mcp__1p__add_token_to_existing"
     ]
   },
   "enableAllProjectMcpServers": true,
