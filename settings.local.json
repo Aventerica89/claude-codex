@@ -381,7 +381,9 @@
       "Bash(git remote set-url:*)",
       "Bash(unset:*)",
       "WebFetch(domain:termius.com)",
-      "WebFetch(domain:www.podfeet.com)"
+      "WebFetch(domain:www.podfeet.com)",
+      "mcp__claude_ai_Cloudflare_Developer_Platform__workers_get_worker",
+      "mcp__claude_ai_Notion__notion-search"
     ]
   },
   "enableAllProjectMcpServers": true,
