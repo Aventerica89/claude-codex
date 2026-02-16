@@ -377,7 +377,8 @@
       "Bash(~/.claude/contexts/vaporforge-notion-20260216T0728.md:*)",
       "WebFetch(domain:www.notion.so)",
       "Bash(~/.claude/pause-state.json:*)",
-      "Bash(security -v unlock-keychain:*)"
+      "Bash(security -v unlock-keychain:*)",
+      "Bash(git remote set-url:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
