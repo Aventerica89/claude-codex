@@ -378,7 +378,10 @@
       "WebFetch(domain:www.notion.so)",
       "Bash(~/.claude/pause-state.json:*)",
       "Bash(security -v unlock-keychain:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(unset:*)",
+      "WebFetch(domain:termius.com)",
+      "WebFetch(domain:www.podfeet.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
