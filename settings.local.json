@@ -419,7 +419,9 @@
       "Bash(git log:*)",
       "Bash(~/.claude/contexts/wp-dispatch-session-20260216.md:*)",
       "Bash(security unlock-keychain:*)",
-      "WebFetch(domain:codershigh.github.io)"
+      "WebFetch(domain:codershigh.github.io)",
+      "Bash(~/.ssh/known_hosts)",
+      "Bash(SSH_AUTH_SOCK=$SSH_AUTH_SOCK ssh:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
