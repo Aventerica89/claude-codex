@@ -373,7 +373,10 @@
       "Bash(JWT='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzZjNGIyMjg4YzU2YmU3ZWYiLCJlbWFpbCI6InVzZXJfNmM0YjIyODhjNTZiZTdlZkBjbGF1ZGUtY2xvdWQubG9jYWwiLCJpYXQiOjE3NzA2MTMwODUsImV4cCI6MTc3MTIxNzg4NX0=.1yZ8w2C7an1d/HjqfS7M2+aIiMGHwBTo8YKYee+qpJ0=')",
       "Bash(tail:*)",
       "Bash(set -a)",
-      "Bash(set:*)"
+      "Bash(set:*)",
+      "Bash(~/.claude/contexts/vaporforge-notion-20260216T0728.md:*)",
+      "WebFetch(domain:www.notion.so)",
+      "Bash(~/.claude/pause-state.json:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
