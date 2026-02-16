@@ -414,7 +414,9 @@
       "Bash(sudo systemsetup:*)",
       "Bash(tmux list-sessions:*)",
       "Bash(screen:*)",
-      "Bash(w:*)"
+      "Bash(w:*)",
+      "Bash(claude conversation list:*)",
+      "Bash(git log:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
