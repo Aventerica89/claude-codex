@@ -367,7 +367,8 @@
       "mcp__gmail-mcp__list_email_labels",
       "mcp__gmail-mcp__list_filters",
       "mcp__gmail-mcp__create_filter",
-      "mcp__gmail-mcp__get_filter"
+      "mcp__gmail-mcp__get_filter",
+      "mcp__gmail-mcp__batch_modify_emails"
     ]
   },
   "enableAllProjectMcpServers": true,
