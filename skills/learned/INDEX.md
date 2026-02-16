@@ -1,4 +1,24 @@
 
+## 2026-02-15 MCP Server Debugging (VaporForge)
+
+### npx-stdio-mcp-container-preinstall.md
+npx-based stdio MCP servers fail silently in containers because npx tries to download packages at runtime, which times out. SDK silently drops servers that fail to initialize. Fix: pre-install packages with `npm install -g` before agent spawns.
+
+**Use when:** Configuring stdio MCP servers in containers, agent reports fewer servers than configured, HTTP servers work but stdio don't.
+
+**Key insight:** The SDK has zero observability for MCP server startup failures. Add transport-type logging at the injection point to distinguish HTTP vs stdio vs npx servers.
+
+---
+
+### stale-config-fresh-compute-pattern.md
+Config cached at resource creation time becomes stale when users change settings. System keeps reading old cached value. Fix: compute fresh from source of truth on every request instead of reading cached KV key.
+
+**Use when:** "Settings don't take effect until restart", any KV/cache pattern with mutable config, debugging "it works after restart."
+
+**Key insight:** Three cache strategies: write-once (immutable data), write-through (mutable + invalidation), compute-fresh (unpredictably mutable). User settings are always the third kind.
+
+---
+
 ## 2026-02-12 AI SDK + AI Elements Research (VaporForge)
 
 ### ai-sdk-structured-output-pattern.md
