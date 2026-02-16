@@ -360,7 +360,9 @@
       "WebFetch(domain:wp-dispatch.vercel.app)",
       "Bash(VERCEL_TOKEN=\"nflTkwjz7kN7GYd3xPvBnXsI\")",
       "Bash(for proj in landing claude-codex devtools jb-cloud-app-tracker jb-cloud-wp-manager bricks-cc jbcloud-landing renvio-companion-app hd-flowsheet-cloud)",
-      "Bash(do echo \"=== $proj ===\")"
+      "Bash(do echo \"=== $proj ===\")",
+      "Bash(npx @gongrzhe/server-gmail-autoauth-mcp auth:*)",
+      "WebFetch(domain:dispatch.jbcloud.app)"
     ]
   },
   "enableAllProjectMcpServers": true,
