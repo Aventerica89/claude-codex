@@ -388,7 +388,9 @@
       "Bash(git config:*)",
       "Bash(/Users/jb/.turso/turso db shell:*)",
       "Bash(/Users/jb/.turso/turso db list:*)",
-      "Bash(~/.claude/contexts/wp-dispatch-notion-2026-02-16T1540.md:*)"
+      "Bash(~/.claude/contexts/wp-dispatch-notion-2026-02-16T1540.md:*)",
+      "Bash(docker:*)",
+      "Bash(docker buildx:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
