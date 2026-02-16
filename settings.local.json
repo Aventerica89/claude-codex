@@ -393,7 +393,9 @@
       "Bash(docker buildx:*)",
       "Bash(DOCKER_CONFIG=/tmp/docker-nocreds docker pull:*)",
       "Bash(TOKEN=\"x42M2pmYJ-JDb8MJJA4gDItF8QBVAzUSEuyWWcA1Hgo.H4gIFsgDqYv-ecYJHG0Omyx-PEWE78Xik3BotEoLbuk\")",
-      "Bash(DOCKER_CONFIG=/tmp/docker-nocreds docker buildx create:*)"
+      "Bash(DOCKER_CONFIG=/tmp/docker-nocreds docker buildx create:*)",
+      "mcp__claude_ai_Slack__slack_search_channels",
+      "mcp__claude_ai_Slack__slack_search_public"
     ]
   },
   "enableAllProjectMcpServers": true,
