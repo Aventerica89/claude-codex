@@ -365,7 +365,9 @@
       "WebFetch(domain:dispatch.jbcloud.app)",
       "mcp__gmail-mcp__search_emails",
       "mcp__gmail-mcp__list_email_labels",
-      "mcp__gmail-mcp__list_filters"
+      "mcp__gmail-mcp__list_filters",
+      "mcp__gmail-mcp__create_filter",
+      "mcp__gmail-mcp__get_filter"
     ]
   },
   "enableAllProjectMcpServers": true,
