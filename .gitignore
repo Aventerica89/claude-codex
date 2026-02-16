@@ -45,9 +45,9 @@ settings.local.json
 # Plugin marketplace structure (required for installation)
 # plugins/claude-codex/ contains symlinks to root content
 
-# Plan files (temporary)
-plans/
-tasks/
+# Plan files (temporary, root-level only)
+/plans/
+/tasks/
 .vercel
 
 # OS files
