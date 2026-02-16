@@ -402,7 +402,9 @@
       "WebFetch(domain:useyourloaf.com)",
       "WebFetch(domain:kapeli.com)",
       "WebFetch(domain:frankrausch.com)",
-      "WebFetch(domain:createwithplay.com)"
+      "WebFetch(domain:createwithplay.com)",
+      "WebFetch(domain:sosumi.ai)",
+      "Bash(CLAUDECODE= claude mcp add --transport http --scope user sosumi https://sosumi.ai/mcp)"
     ]
   },
   "enableAllProjectMcpServers": true,
