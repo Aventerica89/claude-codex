@@ -16,7 +16,7 @@ Replace the single-purpose session save with a **multi-type knowledge management
 
 **Name:** Knowledge Base
 **Parent:** Claude Sessions page (`301cc9ae-33da-8169-8542-e8379afabe4f`)
-**Data source ID:** TBD (created during implementation)
+**Data source ID:** `2fabdc9f-eca4-4431-b16c-d6b03dae3667`
 
 ### Properties
 
@@ -247,6 +247,6 @@ JB Cloud
 
 | Database | data_source_id |
 |----------|---------------|
-| Knowledge Base | TBD |
+| Knowledge Base | `2fabdc9f-eca4-4431-b16c-d6b03dae3667` |
 | Sessions (old) | eda52d03-6a95-48f0-904e-3a57cc5e3719 |
 | Lessons Learned | fcd9c1dd-b87c-4fa8-9a62-b7eb1f17d012 |
