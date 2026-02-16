@@ -17,9 +17,13 @@
 ## How to Save
 
 Run `/save-to-notion` which will:
-1. Generate a comprehensive session summary
-2. Create a Notion page via the Notion MCP server
-3. Save a local backup to `~/.claude/contexts/`
+1. Detect content type (session, plan, table, decision, memory, reference, verbatim)
+2. Generate structured content using type-specific template
+3. Create a Notion page in the **Knowledge Base** database (`2fabdc9f-eca4-4431-b16c-d6b03dae3667`)
+4. Save a local backup to `~/.claude/contexts/`
+
+Supports explicit types: `/save-to-notion plan`, `/save-to-notion decision`, etc.
+Or auto-detects from conversation content when no type given.
 
 ## What to Include
 
