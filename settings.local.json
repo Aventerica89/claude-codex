@@ -409,7 +409,12 @@
       "Bash(~/.claude/contexts/renvio-session-2026-02-16-flowsheet-revamp.md:*)",
       "Bash(systemctl status:*)",
       "Bash(networksetup -getairportnetwork:*)",
-      "Bash(networksetup:*)"
+      "Bash(networksetup:*)",
+      "Bash(ping:*)",
+      "Bash(sudo systemsetup:*)",
+      "Bash(tmux list-sessions:*)",
+      "Bash(screen:*)",
+      "Bash(w:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
