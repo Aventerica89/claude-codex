@@ -417,7 +417,8 @@
       "Bash(w:*)",
       "Bash(claude conversation list:*)",
       "Bash(git log:*)",
-      "Bash(~/.claude/contexts/wp-dispatch-session-20260216.md:*)"
+      "Bash(~/.claude/contexts/wp-dispatch-session-20260216.md:*)",
+      "Bash(security unlock-keychain:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
