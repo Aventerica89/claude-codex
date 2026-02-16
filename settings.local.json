@@ -355,7 +355,12 @@
       "Bash(__NEW_LINE_f48590f8fca84724__ curl -sS -X POST \"https://vaporforge.jbcloud.app/api/sessions/84415ee2-3da7-4e3a-9e1d-bd528c8954d9/exec\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"command\"\": \"\"test -f /opt/claude-agent/ws-agent-server.js && echo WS_EXISTS || echo WS_MISSING; node -e \\\\\"\"try{require\\(\\\\\\\\\\\\\"\"ws\\\\\\\\\\\\\"\"\\);console.log\\(\\\\\\\\\\\\\"\"ws_OK\\\\\\\\\\\\\"\"\\)}catch\\(e\\){console.log\\(\\\\\\\\\\\\\"\"ws_MISSING\\\\\\\\\\\\\"\"\\)}\\\\\"\"\"\"}')",
       "Bash(docker build:*)",
       "Bash(__NEW_LINE_9cf7ab83f651728c__ curl -sS -X POST \"https://vaporforge.jbcloud.app/api/sessions/84415ee2-3da7-4e3a-9e1d-bd528c8954d9/exec\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"command\"\": \"\"ls -la /opt/claude-agent/; echo ---; cat /opt/claude-agent/ws-agent-server.js 2>&1 | head -5; echo ---; head -1 /opt/claude-agent/gemini-mcp-server.js 2>&1\"\"}')",
-      "WebFetch(domain:docs.warp.dev)"
+      "WebFetch(domain:docs.warp.dev)",
+      "WebFetch(domain:dispatch.vercel.app)",
+      "WebFetch(domain:wp-dispatch.vercel.app)",
+      "Bash(VERCEL_TOKEN=\"nflTkwjz7kN7GYd3xPvBnXsI\")",
+      "Bash(for proj in landing claude-codex devtools jb-cloud-app-tracker jb-cloud-wp-manager bricks-cc jbcloud-landing renvio-companion-app hd-flowsheet-cloud)",
+      "Bash(do echo \"=== $proj ===\")"
     ]
   },
   "enableAllProjectMcpServers": true,
