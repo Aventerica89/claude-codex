@@ -371,7 +371,9 @@
       "mcp__gmail-mcp__batch_modify_emails",
       "Bash(__NEW_LINE_75be6f2e27ecf1a9__ curl -s -X POST \"https://vaporforge.jbcloud.app/api/sessions\" -H \"Authorization: Bearer $TOKEN\" -H \"Content-Type: application/json\" -d '{\"\"name\"\":\"\"gmail-test\"\"}')",
       "Bash(JWT='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzZjNGIyMjg4YzU2YmU3ZWYiLCJlbWFpbCI6InVzZXJfNmM0YjIyODhjNTZiZTdlZkBjbGF1ZGUtY2xvdWQubG9jYWwiLCJpYXQiOjE3NzA2MTMwODUsImV4cCI6MTc3MTIxNzg4NX0=.1yZ8w2C7an1d/HjqfS7M2+aIiMGHwBTo8YKYee+qpJ0=')",
-      "Bash(tail:*)"
+      "Bash(tail:*)",
+      "Bash(set -a)",
+      "Bash(set:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
