@@ -418,7 +418,8 @@
       "Bash(claude conversation list:*)",
       "Bash(git log:*)",
       "Bash(~/.claude/contexts/wp-dispatch-session-20260216.md:*)",
-      "Bash(security unlock-keychain:*)"
+      "Bash(security unlock-keychain:*)",
+      "WebFetch(domain:codershigh.github.io)"
     ]
   },
   "enableAllProjectMcpServers": true,
