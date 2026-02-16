@@ -5,5 +5,19 @@
     "summary": "Task 7 complete: widget build pipeline working",
     "timestamp": "2026-02-14T19:55:00.986Z",
     "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "Task 3 complete: Upgraded MobileTabBar to Apple HIG spec.\n\n**File:** `ui/src/components/mobile/MobileTabBar.tsx`\n**Commit:** `ad62469` on `refine/mobile-ux-hardening`\n\nKey changes:\n- Icons: 20pt -> 25pt (HIG spec)\n- Active color: Tailwind `text-primary` -> inline `#1dd3e6` (brand cyan)\n- Inactive color: Tailwind `text-muted-foreground` -> inline `#8E8E93` (HIG system gray)\n- Background: Tailwind classes -> inline `rgba(30,30,30,0.94)` + `blur(20px)`\n- Border: Tailwind -> inline `0.5px solid rgba(255,255,255,0.15)`\n- Touch targets: explicit `minHeight: 44px`, `minWidth: 44px`\n- Tap highlight: `-webkit-tap-highlight-color: transparent`\n- Removed fixed positioning (parent handles it)\n- Color constants extracted to module level\n\nBuild passed all 4 stages. Ready for next task.",
+    "summary": "Task 3 done: MobileTabBar Apple HIG upgrade",
+    "timestamp": "2026-02-16T18:50:37.634Z",
+    "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "Task 4 complete. Created `/Users/jb/vaporforge/ui/src/components/mobile/MobileNavBar.tsx` -- a memoized 44pt HIG nav bar with back button (haptic feedback), centered title with status dot, and right action slot. Full build passed. Committed as `e7b6902` on `refine/mobile-ux-hardening`.",
+    "summary": "Task 4 done: MobileNavBar created, built, committed",
+    "timestamp": "2026-02-16T18:50:47.036Z",
+    "read": false
   }
 ]
