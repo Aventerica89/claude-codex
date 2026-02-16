@@ -395,7 +395,14 @@
       "Bash(TOKEN=\"x42M2pmYJ-JDb8MJJA4gDItF8QBVAzUSEuyWWcA1Hgo.H4gIFsgDqYv-ecYJHG0Omyx-PEWE78Xik3BotEoLbuk\")",
       "Bash(DOCKER_CONFIG=/tmp/docker-nocreds docker buildx create:*)",
       "mcp__claude_ai_Slack__slack_search_channels",
-      "mcp__claude_ai_Slack__slack_search_public"
+      "mcp__claude_ai_Slack__slack_search_public",
+      "WebFetch(domain:ivomynttinen.com)",
+      "WebFetch(domain:gist.github.com)",
+      "WebFetch(domain:sebastix.nl)",
+      "WebFetch(domain:useyourloaf.com)",
+      "WebFetch(domain:kapeli.com)",
+      "WebFetch(domain:frankrausch.com)",
+      "WebFetch(domain:createwithplay.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
