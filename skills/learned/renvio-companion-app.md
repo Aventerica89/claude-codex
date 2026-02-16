@@ -3,7 +3,7 @@
 ## Context
 - **Type**: Healthcare EMR Companion App
 - **Stack**: Next.js 15, Turso (libSQL), Drizzle ORM, Better Auth, Tailwind CSS, shadcn/ui
-- **Status**: Foundation phase - authentication complete
+- **Status**: Flowsheet dashboard revamp complete (v0.1.0)
 - **Domain**: Hemodialysis clinic charting and workflow optimization
 
 ## Key Decisions
@@ -38,40 +38,33 @@
 - [x] Custom login/signup forms
 - [x] Middleware with route protection
 - [x] Vercel deployment
+- [x] HD Companion merge (all 6 phases)
+- [x] Flowsheet dashboard revamp (21 tasks, subagent-driven)
 - [ ] RBAC role implementation
-- [ ] Flowsheet module
 - [ ] Vitals capture
-- [ ] Patient dashboard
+- [ ] Patient management
 
-## Recent Session (2026-01-30)
+## Recent Session (2026-02-16)
 
 ### Accomplished
-1. Successfully reverted from Clerk to Better Auth
-2. Fixed Vercel build with correct dependencies
-3. Removed Clerk environment variables from production
-4. Deployed working Better Auth setup to production
-5. Both domains working correctly
+1. Completed 21-task flowsheet dashboard revamp
+2. 3-tier tab hierarchy: Shift > Pod > Patient
+3. 7 collapsible flowsheet sections (AtAGlance, TreatmentOrders, TimeTracking, Assignment, Vitals, Meds, Notes)
+4. Excel import for treatment orders
+5. State persistence via appData table (debounced save/load)
+6. Floating actions: Quick Chart, Quick Tools (Snippets + Calculator), Import
+7. Applied HIPAA-safe exact patient name matching
+8. Zod v4 API validation on state persistence route
 
-### PRs Merged
-- **PR #16**: Complete Better Auth reversion with schema fix
-- **PR #17**: Dependency fix (Clerk → Better Auth packages)
-
-### Files Changed
-- `middleware.ts` - Better Auth session validation
-- `src/lib/auth/` - Better Auth server and client
-- `src/app/api/auth/[...all]/route.ts` - Auth API handler
-- `src/app/(auth)/` - Login/signup pages
-- `src/components/layout/header.tsx` - Auth hooks
-- `src/lib/db/schema.ts` - Better Auth tables
-- `package.json` - Dependencies
+### Key Commits
+- `0ff04b1` to `56837ef` (24 commits on main)
 
 ## Next Session
 
 ### Start With
-1. Implement RBAC roles (clinicRole field)
-2. Create role-based route guards
-3. Build admin dashboard for role management
-4. Begin flowsheet module design
+1. Test state persistence end-to-end in production
+2. Check for QuickToolsPanel overlap with FloatingActions on flowsheets page
+3. Add tests for flowsheet reducer and API route
 
 ### Blockers
 - None currently

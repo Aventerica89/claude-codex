@@ -405,7 +405,8 @@
       "WebFetch(domain:createwithplay.com)",
       "WebFetch(domain:sosumi.ai)",
       "Bash(CLAUDECODE= claude mcp add --transport http --scope user sosumi https://sosumi.ai/mcp)",
-      "Bash(openssl x509:*)"
+      "Bash(openssl x509:*)",
+      "Bash(~/.claude/contexts/renvio-session-2026-02-16-flowsheet-revamp.md:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
