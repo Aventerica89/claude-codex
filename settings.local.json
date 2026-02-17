@@ -430,7 +430,9 @@
       "mcp__sosumi__fetchAppleDocumentation",
       "WebFetch(domain:thebcms.com)",
       "Bash(npx astro add:*)",
-      "mcp__claude_ai_Notion__notion-update-data-source"
+      "mcp__claude_ai_Notion__notion-update-data-source",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=e2613c1c17024c32ab14618614e2b309 npx wrangler pages project create:*)",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=e2613c1c17024c32ab14618614e2b309 npx wrangler pages deploy:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
