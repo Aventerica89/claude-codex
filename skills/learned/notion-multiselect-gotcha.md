@@ -28,7 +28,8 @@ Use a single predefined value that exists in the target database:
 "Tags": "UI/UX"
 ```
 
-Or check which values are predefined in the database before setting them.
+### Knowledge Base Tags (20 options)
+MCP, Streaming, Mobile, Docker, AI SDK, WebSocket, Cloudflare, React, SDK, Auth, Database, UI/UX, Performance, Security, Billing, Notion, Git, Testing, DevTools, WordPress
 
 ## When to Apply
 

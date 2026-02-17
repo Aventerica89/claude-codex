@@ -305,7 +305,7 @@ Determine Project from the current working directory:
 | Git Commit | `git log --oneline -1` (short SHA) |
 | Deploy Status | N/A (default, update manually) |
 | Context Level | Estimate from session length/work done |
-| Tags | Auto-suggest from content (e.g., MCP, Docker, AI SDK) |
+| Tags | Pick ONE from available options (see below) |
 | Date | Today's date |
 
 **Context Level estimation:**
@@ -335,7 +335,9 @@ Determine Project from the current working directory:
 - Plans and tables are ALWAYS saved complete -- never truncate
 - If the conversation is very long, prioritize recent context over early exploration
 - This command should complete quickly -- don't over-format or over-research
-- Tags should be meaningful keywords (technology names, feature areas, bug types)
+- Tags must be ONE of the predefined values (multi_select only accepts known options):
+  MCP, Streaming, Mobile, Docker, AI SDK, WebSocket, Cloudflare, React, SDK, Auth, Database, UI/UX, Performance, Security, Billing, Notion, Git, Testing, DevTools, WordPress
+- Use only ONE tag per save (Notion MCP treats multi_select value as single option)
 
 ## Integration
 
