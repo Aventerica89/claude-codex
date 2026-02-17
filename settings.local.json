@@ -445,7 +445,11 @@
       "Bash(__NEW_LINE_1adba9b7049db3d5__ rm /tmp/vf-expose.json)",
       "Bash(JWT='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzZjNGIyMjg4YzU2YmU3ZWYiLCJlbWFpbCI6InVzZXJfNmM0YjIyODhjNTZiZTdlZkBjbGF1ZGUtY2xvdWQubG9jYWwiLCJpYXQiOjE3NzEzNjM1ODksImV4cCI6MTc3MTQ0OTk4OX0=.5Y4ySmMz0uucrT0eVqJCxcL8fH+flLGLnpsEyW9X3PU=')",
       "Bash(SESSION_ID='b42d0a20-b295-4715-a017-f87d7b93fdf1')",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=\"/Users/jb/Desktop/HIPAA/HDFlowsheet-HIPAA-Disclosure-v2.pdf\" \"file:///Users/jb/Desktop/HIPAA/HDFlowsheet-HIPAA-Disclosure-v2.html\")"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=\"/Users/jb/Desktop/HIPAA/HDFlowsheet-HIPAA-Disclosure-v2.pdf\" \"file:///Users/jb/Desktop/HIPAA/HDFlowsheet-HIPAA-Disclosure-v2.html\")",
+      "Bash(pandoc:*)",
+      "Bash(JWT=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzZjNGIyMjg4YzU2YmU3ZWYiLCJlbWFpbCI6InVzZXJfNmM0YjIyODhjNTZiZTdlZkBjbGF1ZGUtY2xvdWQubG9jYWwiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzEzNjYwNTEsImV4cCI6MTc3MTQ1MjQ1MX0=.pqDvphnE5RXnFnC8DagMwdkEYWcgKJShW7i1yZJK4vY=\":*)",
+      "Bash(__NEW_LINE_7ded3b8c1698dbfe__ echo \"=== 1. Create site ===\")",
+      "Bash(__NEW_LINE_4ae7188f2d5543cd__ echo \"\")"
     ]
   },
   "enableAllProjectMcpServers": true,
