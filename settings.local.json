@@ -428,7 +428,8 @@
       "WebFetch(domain:www.learnui.design)",
       "mcp__sosumi__searchAppleDocumentation",
       "mcp__sosumi__fetchAppleDocumentation",
-      "WebFetch(domain:thebcms.com)"
+      "WebFetch(domain:thebcms.com)",
+      "Bash(npx astro add:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
