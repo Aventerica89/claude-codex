@@ -421,7 +421,10 @@
       "Bash(security unlock-keychain:*)",
       "WebFetch(domain:codershigh.github.io)",
       "Bash(~/.ssh/known_hosts)",
-      "Bash(SSH_AUTH_SOCK=$SSH_AUTH_SOCK ssh:*)"
+      "Bash(SSH_AUTH_SOCK=$SSH_AUTH_SOCK ssh:*)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --print-to-pdf=\"/Users/jb/Desktop/HDFlowsheet-HIPAA-Disclosure-Draft.pdf\" --no-margins \"file:///Users/jb/Desktop/HDFlowsheet-HIPAA-Disclosure-Draft.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --print-to-pdf=\"/Users/jb/Desktop/HIPAA/HDFlowsheet-HIPAA-Disclosure-Draft.pdf\" --no-margins \"file:///Users/jb/Desktop/HIPAA/HDFlowsheet-HIPAA-Disclosure-Draft.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --print-to-pdf=\"/Users/jb/Desktop/HIPAA/Attorney-Research-HIPAA-Tribal.pdf\" --no-margins \"file:///Users/jb/Desktop/HIPAA/Attorney-Research-HIPAA-Tribal.html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
