@@ -1,5 +1,5 @@
 {
-  "enabled": true,
+  "enabled": false,
   "project": "/Users/jb/vaporforge",
   "changelogFile": "ui/src/lib/version.ts",
   "enabledAt": "2026-02-14T20:00:00Z"
