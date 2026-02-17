@@ -19,5 +19,12 @@
     "summary": "Task 4 done: MobileNavBar created, built, committed",
     "timestamp": "2026-02-16T18:50:47.036Z",
     "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "Task 6 (Integrations) is complete. All 3 components created, build verified, committed.\n\n**Files created:**\n- `src/components/integrations/CalEmbed.astro` -- Cal.com iframe embed with `--cal-height` CSS custom property (600px desktop, 500px mobile via media query), loading=\"lazy\", bg-alt loading state, section + __inner wrapper\n- `src/components/integrations/StripeButton.astro` -- Styled `<a>` tag with primary/accent variants via `class:list`, optional price tag with border separator, `<div>` wrapper (inline, not section)\n- `src/components/integrations/MapEmbed.astro` -- Google Maps iframe with configurable height via inline style prop (default 400px), rounded corners, loading=\"lazy\", section + __inner wrapper\n\n**Self-review passed:**\n- Zero hardcoded colors, font sizes, spacing, radii, shadows, or transitions -- all use `var(--*)`\n- Only acceptable hardcoded values: `1px` border, `font-weight`, unitless `line-height`, `opacity`, structural `100%`/`0 auto`\n- `data-vf-component` + `data-vf-file` on all root elements\n- BEM class naming throughout\n- 768px breakpoint for responsive\n- Typed Props interfaces\n- No JavaScript\n\n**Commit:** `0618085` -- `feat: add CalEmbed, StripeButton, MapEmbed integration components` (260 insertions, 3 files)",
+    "summary": "Task 6 complete: 3 integration components committed",
+    "timestamp": "2026-02-17T17:07:15.324Z",
+    "read": false
   }
 ]
