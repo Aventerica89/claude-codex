@@ -432,7 +432,8 @@
       "Bash(npx astro add:*)",
       "mcp__claude_ai_Notion__notion-update-data-source",
       "Bash(CLOUDFLARE_ACCOUNT_ID=e2613c1c17024c32ab14618614e2b309 npx wrangler pages project create:*)",
-      "Bash(CLOUDFLARE_ACCOUNT_ID=e2613c1c17024c32ab14618614e2b309 npx wrangler pages deploy:*)"
+      "Bash(CLOUDFLARE_ACCOUNT_ID=e2613c1c17024c32ab14618614e2b309 npx wrangler pages deploy:*)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=\"/Users/jb/Desktop/HIPAA/HIPAA-Attorney-Options-AZ.pdf\" \"file:///Users/jb/Desktop/HIPAA/HIPAA-Attorney-Options-AZ.html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
