@@ -427,7 +427,8 @@
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --print-to-pdf=\"/Users/jb/Desktop/HIPAA/Attorney-Research-HIPAA-Tribal.pdf\" --no-margins \"file:///Users/jb/Desktop/HIPAA/Attorney-Research-HIPAA-Tribal.html\")",
       "WebFetch(domain:www.learnui.design)",
       "mcp__sosumi__searchAppleDocumentation",
-      "mcp__sosumi__fetchAppleDocumentation"
+      "mcp__sosumi__fetchAppleDocumentation",
+      "WebFetch(domain:thebcms.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
