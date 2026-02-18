@@ -464,7 +464,8 @@
       "Bash(CF_TOKEN='3dy-buem1jENcTPSgXslSIEIgSB5qfp53fbn5HOd')",
       "Bash(export CF_TOKEN='3dy-buem1jENcTPSgXslSIEIgSB5qfp53fbn5HOd')",
       "Bash(/tmp/migrate_chat.py:*)",
-      "Bash(security find-generic-password:*)"
+      "Bash(security find-generic-password:*)",
+      "Bash(dscacheutil:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
