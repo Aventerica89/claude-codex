@@ -450,7 +450,8 @@
       "Bash(JWT=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzZjNGIyMjg4YzU2YmU3ZWYiLCJlbWFpbCI6InVzZXJfNmM0YjIyODhjNTZiZTdlZkBjbGF1ZGUtY2xvdWQubG9jYWwiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzEzNjYwNTEsImV4cCI6MTc3MTQ1MjQ1MX0=.pqDvphnE5RXnFnC8DagMwdkEYWcgKJShW7i1yZJK4vY=\":*)",
       "Bash(__NEW_LINE_7ded3b8c1698dbfe__ echo \"=== 1. Create site ===\")",
       "Bash(__NEW_LINE_4ae7188f2d5543cd__ echo \"\")",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=\"/Users/jb/Desktop/HIPAA/HIPAA-Action-Plan.pdf\" \"file:///Users/jb/Desktop/HIPAA/HIPAA-Action-Plan.html\")"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=\"/Users/jb/Desktop/HIPAA/HIPAA-Action-Plan.pdf\" \"file:///Users/jb/Desktop/HIPAA/HIPAA-Action-Plan.html\")",
+      "Bash(/Users/jb/Desktop/HIPAA/forensic-log.sh)"
     ]
   },
   "enableAllProjectMcpServers": true,
