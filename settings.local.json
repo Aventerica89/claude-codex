@@ -465,7 +465,9 @@
       "Bash(export CF_TOKEN='3dy-buem1jENcTPSgXslSIEIgSB5qfp53fbn5HOd')",
       "Bash(/tmp/migrate_chat.py:*)",
       "Bash(security find-generic-password:*)",
-      "Bash(dscacheutil:*)"
+      "Bash(dscacheutil:*)",
+      "Bash(npx magicui@latest add animated-grid-pattern:*)",
+      "WebFetch(domain:magicui.design)"
     ]
   },
   "enableAllProjectMcpServers": true,
