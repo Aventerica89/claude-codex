@@ -461,7 +461,8 @@
       "WebFetch(domain:ui.shadcn.com)",
       "WebFetch(domain:tryelements.dev)",
       "Bash(CF_TOKEN=\"3dy-buem1jENcTPSgXslSIEIgSB5qfp53fbn5HOd\")",
-      "Bash(CF_TOKEN='3dy-buem1jENcTPSgXslSIEIgSB5qfp53fbn5HOd')"
+      "Bash(CF_TOKEN='3dy-buem1jENcTPSgXslSIEIgSB5qfp53fbn5HOd')",
+      "Bash(export CF_TOKEN='3dy-buem1jENcTPSgXslSIEIgSB5qfp53fbn5HOd')"
     ]
   },
   "enableAllProjectMcpServers": true,
