@@ -1,20 +1,35 @@
 ---
 name: changelog-dev
-description: Toggle persistent dev changelog updates. When enabled, ALWAYS update version.ts CHANGELOG before every commit.
+description: Toggle dev changelog tracking and show the two-changelog system status.
 ---
 
 # Dev Changelog Toggle
 
 **Command:** `/changelog-dev`
-**Purpose:** Toggle automatic dev changelog updates on/off. When enabled, Claude MUST update the project's dev changelog before every commit.
+**Purpose:** Toggle dev changelog tracking on/off. Shows status of the two-changelog system.
+
+## Two-Changelog System
+
+VaporForge uses two separate changelogs in `ui/src/lib/version.ts`:
+
+### DEV_CHANGELOG (every commit)
+- Updated on **every single commit** — always growing
+- Simple `{ date, summary }` entries
+- Tracks granular dev progress
+- Enforcement: **CLAUDE.md mandatory rule #4** (always in context)
+
+### CHANGELOG (feature releases)
+- Updated only when a **complete feature ships**
+- Rich entries with version, tag, title, items
+- May take 8+ dev commits per feature changelog bump
+- Updated manually when bumping `APP_VERSION`
 
 ## Arguments
 
-Parse arguments for:
-- No arguments - Toggle on/off (flip current state)
-- `on` - Force enable
-- `off` - Force disable
-- `status` - Show current state without changing
+- No arguments: Toggle on/off
+- `on`: Force enable
+- `off`: Force disable
+- `status`: Show current state
 
 ## State File
 
@@ -24,23 +39,23 @@ Parse arguments for:
   "enabled": true,
   "project": "/Users/jb/vaporforge",
   "changelogFile": "ui/src/lib/version.ts",
-  "enabledAt": "2026-02-14T12:00:00Z"
+  "enabledAt": "2026-02-18T00:00:00Z"
 }
 ```
 
 ## Toggle Behavior
 
 ### When toggling ON:
-1. Detect the current project directory
-2. Find the changelog file (look for `version.ts` with `CHANGELOG` export)
-3. Write state file with `enabled: true`
-4. Confirm:
+1. Detect current project directory
+2. Write state file with `enabled: true`
+3. Confirm:
 ```
 Dev changelog tracking: ON
 Project: vaporforge
 File: ui/src/lib/version.ts
 
-Every commit will now include a CHANGELOG update.
+DEV_CHANGELOG will be updated on every commit.
+CHANGELOG updates only on feature releases.
 ```
 
 ### When toggling OFF:
@@ -48,66 +63,38 @@ Every commit will now include a CHANGELOG update.
 2. Confirm:
 ```
 Dev changelog tracking: OFF
+(CLAUDE.md rule #4 still applies — this toggle is advisory)
 ```
 
-## MANDATORY BEHAVIOR WHEN ENABLED
+## How DEV_CHANGELOG Works
 
-**Before EVERY git commit**, Claude MUST:
+Before every `git commit` in VaporForge:
 
-1. **Check state**: Read `~/.claude/changelog-dev-state.json`
-2. **If enabled**: Update the CHANGELOG array in the changelog file
-3. **Rules for updating**:
-   - If the current `APP_VERSION` already has an entry, ADD new items to it
-   - If the version was bumped, CREATE a new entry at the top
-   - Each item should be a concise, user-facing description (not a commit message)
-   - Use the correct `tag`: `feature`, `fix`, `security`, or `breaking`
-   - Set `date` to today's date in `YYYY-MM-DD` format
-   - Keep items under 120 characters each
-   - Focus on WHAT changed for the user, not implementation details
+1. Add a new entry at position [0] in `DEV_CHANGELOG`:
+   ```typescript
+   { date: '2026-02-18', summary: 'One-line description of what changed' }
+   ```
+2. Stage `ui/src/lib/version.ts`
+3. Proceed with commit
 
-### Entry Format
+Rules:
+- One entry per commit (not per file changed)
+- Summary should be concise (under 120 chars)
+- Focus on what changed, not implementation details
+- Include every commit — refactoring, fixes, features, all of it
 
-```typescript
-{
-  version: '0.13.1',
-  date: '2026-02-14',
-  tag: 'feature',
-  title: 'Short Title Describing the Release',
-  items: [
-    'User-facing change description 1',
-    'User-facing change description 2',
-  ],
-}
-```
+## How CHANGELOG Works (Feature Releases)
 
-### Updating vs Creating
+Only update `CHANGELOG` when:
+- A complete user-visible feature is ready
+- `APP_VERSION` is being bumped
+- A meaningful fix or security patch ships
 
-- **Same version, same title context**: Add items to the existing entry's `items` array
-- **Same version, different feature area**: Update the title to be broader, merge items
-- **New version**: Create a new entry at position [0] in the array
+Do NOT update `CHANGELOG` for:
+- Intermediate development commits
+- Internal refactoring
+- Work-in-progress changes
 
-### What NOT to include
+## Enforcement
 
-- Internal refactoring (unless it enables user-visible improvements)
-- Build/CI changes
-- Comment or documentation-only changes
-- Dependency updates (unless they fix user-visible bugs)
-
-## Integration
-
-This skill integrates with the commit workflow. When Claude is about to commit:
-
-1. Read `~/.claude/changelog-dev-state.json`
-2. If `enabled` is `true` AND the project directory matches:
-   - Analyze the staged changes
-   - Determine if they warrant a changelog entry
-   - Update the changelog file
-   - Stage the changelog file (`git add`)
-   - Then proceed with the commit
-
-## Project Detection
-
-The `changelogFile` path is relative to the project root. To find it:
-1. Check state file for saved path
-2. If not saved, search: `grep -rl "export const CHANGELOG" ui/src/lib/`
-3. Common locations: `ui/src/lib/version.ts`, `src/lib/version.ts`
+DEV_CHANGELOG enforcement lives in **CLAUDE.md mandatory rule #4** — it is always in context for every Claude session working on VaporForge. The `/changelog-dev` toggle is advisory and helps track whether the user wants this behavior.
