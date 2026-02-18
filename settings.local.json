@@ -467,7 +467,8 @@
       "Bash(security find-generic-password:*)",
       "Bash(dscacheutil:*)",
       "Bash(npx magicui@latest add animated-grid-pattern:*)",
-      "WebFetch(domain:magicui.design)"
+      "WebFetch(domain:magicui.design)",
+      "WebFetch(domain:mainwp.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
