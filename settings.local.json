@@ -478,7 +478,12 @@
       "WebFetch(domain:grictraining.org)",
       "WebFetch(domain:libguides.law.asu.edu)",
       "WebFetch(domain:www.gilariver.org)",
-      "WebFetch(domain:www.hctravelnursing.com)"
+      "WebFetch(domain:www.hctravelnursing.com)",
+      "Bash(CHROME=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\")",
+      "Bash(DIR=\"$HOME/Desktop/HIPAA\")",
+      "Bash(__NEW_LINE_25d324e9ecf98379__ for f in \"HIPAA-Action-Plan\" \"Attorney-Research-HIPAA-Tribal\" \"HIPAA-Attorney-Options-AZ\" \"interaction-log\")",
+      "Bash(\"$CHROME\" --headless=new --disable-gpu --no-sandbox --print-to-pdf=\"$DIR/$f.pdf\" --print-to-pdf-no-header \"file://$DIR/$f.html\")",
+      "Bash(__NEW_LINE_79d38a1e6c27a491__ for f in \"HIPAA-Action-Plan\" \"interaction-log\")"
     ]
   },
   "enableAllProjectMcpServers": true,
