@@ -473,7 +473,12 @@
       "Bash(~/.claude/contexts/wp-dispatch-memory-oauth-20260218.md:*)",
       "Bash(~/.claude/skills/learned/cf-sandbox-ws-trigger-pattern.md:*)",
       "Bash(awk:*)",
-      "WebFetch(domain:tweakcn.com)"
+      "WebFetch(domain:tweakcn.com)",
+      "WebFetch(domain:narf.org)",
+      "WebFetch(domain:grictraining.org)",
+      "WebFetch(domain:libguides.law.asu.edu)",
+      "WebFetch(domain:www.gilariver.org)",
+      "WebFetch(domain:www.hctravelnursing.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
