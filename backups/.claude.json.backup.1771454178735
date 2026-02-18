@@ -1,0 +1,1367 @@
+{
+  "numStartups": 167,
+  "installMethod": "native",
+  "autoUpdates": false,
+  "hasSeenTasksHint": true,
+  "tipsHistory": {
+    "new-user-warmup": 8,
+    "plan-mode-for-complex-tasks": 12,
+    "memory-command": 153,
+    "theme-command": 162,
+    "status-line": 151,
+    "stickers-command": 1,
+    "prompt-queue": 7,
+    "enter-to-steer-in-relatime": 163,
+    "todo-list": 164,
+    "install-github-app": 165,
+    "install-slack-app": 54,
+    "drag-and-drop-images": 160,
+    "paste-images-mac": 158,
+    "double-esc-code-restore": 165,
+    "continue": 165,
+    "shift-tab": 165,
+    "image-paste": 164,
+    "ultrathink-keyword": 2,
+    "desktop-app": 157,
+    "web-app": 157,
+    "mobile-app": 159,
+    "guest-passes": 165,
+    "ide-upsell-external-terminal": 104,
+    "shift-enter": 73,
+    "frontend-design-plugin": 166,
+    "custom-agents": 159,
+    "agent-flag": 159,
+    "permissions": 165,
+    "rename-conversation": 161,
+    "custom-commands": 161,
+    "terminal-setup": 165,
+    "colorterm-truecolor": 140,
+    "default-permission-mode-config": 165,
+    "git-worktrees": 164,
+    "shift-enter-setup": 160,
+    "overage-promo": 97
+  },
+  "promptQueueUseCount": 7054,
+  "cachedStatsigGates": {
+    "tengu_prompt_suggestion": true,
+    "tengu_session_memory": false
+  },
+  "cachedGrowthBookFeatures": {
+    "tengu_1p_event_batch_config": {
+      "scheduledDelayMillis": 5000,
+      "maxExportBatchSize": 200,
+      "maxQueueSize": 8192
+    },
+    "tengu_mcp_tool_search": true,
+    "tengu_scratch": false,
+    "tengu_log_segment_events": false,
+    "tengu_log_datadog_events": true,
+    "tengu_event_sampling_config": {},
+    "tengu_tool_pear": false,
+    "tengu_thinkback": false,
+    "tengu_sumi": true,
+    "tengu_disable_bypass_permissions_mode": false,
+    "tengu_pid_based_version_locking": true,
+    "tengu_c4w_usage_limit_notifications_enabled": true,
+    "tengu-top-of-feed-tip": {
+      "tip": "",
+      "color": ""
+    },
+    "tengu_react_vulnerability_warning": false,
+    "tengu_code_diff_cli": true,
+    "tengu_post_compact_survey": false,
+    "enhanced_telemetry_beta": false,
+    "tengu_tool_search_unsupported_models": [
+      "haiku"
+    ],
+    "tengu_ant_attribution_header_new": true,
+    "tengu_streaming_tool_execution2": true,
+    "tengu_permission_explainer": true,
+    "tengu_brass_pebble": false,
+    "tengu_keybinding_customization": false,
+    "tengu_claudeai_mcp_connectors": true,
+    "tengu_attribution_header": true,
+    "tengu_cache_plum_violet": true,
+    "tengu_session_memory": false,
+    "tengu_bash_haiku_prefetch": true,
+    "tengu_plank_river_frost": "user_intent",
+    "tengu_file_write_optimization": true,
+    "tengu_plan_mode_interview_phase": false,
+    "tengu_compact_streaming_retry": false,
+    "tengu_sm_compact": false,
+    "tengu_scarf_coffee": false,
+    "tengu_keybinding_customization_release": true,
+    "tengu_pr_status_cli": true,
+    "tengu_marble_kite": false,
+    "tengu_kv7_prompt_sort": true,
+    "tengu_cork_m4q": true,
+    "tengu_compact_cache_prefix": true,
+    "tengu_plum_vx3": true,
+    "tengu_marble_anvil": true,
+    "tengu_tst_kx7": false,
+    "tengu_coral_fern": false,
+    "tengu_system_prompt_global_cache": true,
+    "tengu_workout": false,
+    "tengu_chrome_auto_enable": false,
+    "tengu_oboe": true,
+    "tengu_tst_names_in_messages": false,
+    "tengu_vinteuil_phrase": true,
+    "tengu_vscode_review_upsell": false,
+    "tengu_vscode_onboarding": false,
+    "tengu_quiet_fern": true,
+    "tengu_chomp_inflection": true,
+    "tengu_silver_lantern": false,
+    "tengu_copper_lantern": false,
+    "tengu_workout2": true,
+    "tengu_marble_lantern_disabled": false,
+    "tengu_amber_flint": true,
+    "tengu_penguins_enabled": true,
+    "tengu_copper_lantern_config": {
+      "meridian": "2026-02-05T07:59:00Z"
+    },
+    "tengu_penguins_off": null,
+    "tengu_mcp_elicitation": false,
+    "tengu_copper_bridge": true,
+    "tengu_snippet_save": false,
+    "tengu_bergotte_lantern": false,
+    "tengu_birthday_hat": true,
+    "tengu_fgts": false,
+    "tengu_mulberry_fog": false,
+    "tengu_prompt_cache_1h_config": {
+      "allowlist": [
+        "repl_main_thread*",
+        "sdk"
+      ]
+    },
+    "tengu_amber_prism": false,
+    "tengu_immediate_model_command": false,
+    "tengu_disable_streaming_to_non_streaming_fallback": false,
+    "tengu_moth_copse": false,
+    "tengu_slate_nexus": true,
+    "tengu_marble_sandcastle": true,
+    "tengu_birch_mist": false,
+    "tengu_oak_drum": false,
+    "tengu_destructive_command_warning": false
+  },
+  "userID": "93c6352d834b2ac516169b950f4fa2839145591d89631beb8b49edd1b29b1442",
+  "firstStartTime": "2026-01-14T04:53:11.063Z",
+  "sonnet45MigrationComplete": true,
+  "opus45MigrationComplete": true,
+  "opusProMigrationComplete": true,
+  "thinkingMigrationComplete": true,
+  "cachedChromeExtensionInstalled": true,
+  "changelogLastFetched": 1771453953430,
+  "autoUpdatesProtectedForNative": true,
+  "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
+  "appleTerminalSetupInProgress": false,
+  "appleTerminalBackupPath": "/Users/jb/Library/Preferences/com.apple.Terminal.plist.bak",
+  "optionAsMetaKeyInstalled": true,
+  "hasCompletedOnboarding": true,
+  "lastOnboardingVersion": "2.1.7",
+  "lastReleaseNotesSeen": "2.1.45",
+  "projects": {
+    "/Users/jb": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {
+        "shadcn": {
+          "type": "http",
+          "url": "https://www.shadcn.io/api/mcp"
+        },
+        "figma-desktop": {
+          "type": "http",
+          "url": "http://127.0.0.1:3845/mcp"
+        }
+      },
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 359,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "index.ts",
+        "filler.js",
+        "patterns.js",
+        "popup.js",
+        "host.js"
+      ],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 127.59120789999984,
+      "lastAPIDuration": 19054133,
+      "lastAPIDurationWithoutRetries": 18872552,
+      "lastToolDuration": 6360196,
+      "lastDuration": 142073734,
+      "lastLinesAdded": 14529,
+      "lastLinesRemoved": 924,
+      "lastTotalInputTokens": 634869,
+      "lastTotalOutputTokens": 908906,
+      "lastTotalCacheCreationInputTokens": 5886786,
+      "lastTotalCacheReadInputTokens": 157992822,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 594887,
+          "outputTokens": 52293,
+          "cacheReadInputTokens": 1012699,
+          "cacheCreationInputTokens": 540084,
+          "webSearchRequests": 0,
+          "costUSD": 1.632726900000002
+        },
+        "claude-opus-4-6": {
+          "inputTokens": 39621,
+          "outputTokens": 695559,
+          "cacheReadInputTokens": 136921225,
+          "cacheCreationInputTokens": 4478825,
+          "webSearchRequests": 0,
+          "costUSD": 114.04034874999999
+        },
+        "claude-sonnet-4-5-20250929": {
+          "inputTokens": 9,
+          "outputTokens": 2086,
+          "cacheReadInputTokens": 330053,
+          "cacheCreationInputTokens": 56857,
+          "webSearchRequests": 0,
+          "costUSD": 0.57257775
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 352,
+          "outputTokens": 158968,
+          "cacheReadInputTokens": 19728845,
+          "cacheCreationInputTokens": 811020,
+          "webSearchRequests": 0,
+          "costUSD": 11.345554500000006
+        }
+      },
+      "lastSessionId": "4a90a126-4d2f-46ea-8fc3-7ac542e4833b",
+      "hasCompletedProjectOnboarding": true,
+      "lastFpsAverage": 9.24,
+      "lastFpsLow1Pct": 65.76,
+      "exampleFilesGeneratedAt": 1769594801082,
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 842735,
+        "frame_duration_ms_min": 0.04908299446105957,
+        "frame_duration_ms_max": 2226.0609159991145,
+        "frame_duration_ms_avg": 2.650602827722633,
+        "frame_duration_ms_p50": 1.9662495031952858,
+        "frame_duration_ms_p95": 5.438372310623524,
+        "frame_duration_ms_p99": 19.642234997749178
+      }
+    },
+    "/Users/jb/Downloads": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0,
+      "lastAPIDuration": 0,
+      "lastAPIDurationWithoutRetries": 0,
+      "lastToolDuration": 0,
+      "lastDuration": 76954,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 0,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 0.57,
+      "lastFpsLow1Pct": 11.67,
+      "lastModelUsage": {},
+      "lastSessionId": "d83c9bd7-bb7a-4ded-a2be-09e8ec8eaa34"
+    },
+    "/Users/jb/my-supabase-app": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      }
+    },
+    "/Users/jb/Documents": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 3.8015415499999987,
+      "lastAPIDuration": 543066,
+      "lastAPIDurationWithoutRetries": 542651,
+      "lastToolDuration": 379345,
+      "lastDuration": 10858453,
+      "lastLinesAdded": 227,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 41976,
+      "lastTotalOutputTokens": 20510,
+      "lastTotalCacheCreationInputTokens": 325321,
+      "lastTotalCacheReadInputTokens": 3298963,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 2.94,
+      "lastFpsLow1Pct": 28.79,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 36396,
+          "outputTokens": 1314,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 56749,
+          "webSearchRequests": 0,
+          "costUSD": 0.11390224999999998
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 488,
+          "outputTokens": 16307,
+          "cacheReadInputTokens": 3108272,
+          "cacheCreationInputTokens": 240170,
+          "webSearchRequests": 0,
+          "costUSD": 3.4653135
+        },
+        "claude-sonnet-4-5-20250929": {
+          "inputTokens": 5092,
+          "outputTokens": 2889,
+          "cacheReadInputTokens": 190691,
+          "cacheCreationInputTokens": 28402,
+          "webSearchRequests": 0,
+          "costUSD": 0.22232580000000002
+        }
+      },
+      "lastSessionId": "82ad1f72-5cdc-403e-b55a-94eb854b2720"
+    },
+    "/": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 5,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 26.832177749999992,
+      "lastAPIDuration": 3493284,
+      "lastAPIDurationWithoutRetries": 3492747,
+      "lastToolDuration": 2098646,
+      "lastDuration": 172038827,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 10347,
+      "lastTotalOutputTokens": 67372,
+      "lastTotalCacheCreationInputTokens": 404963,
+      "lastTotalCacheReadInputTokens": 45358162,
+      "lastTotalWebSearchRequests": 1,
+      "lastFpsAverage": 13.15,
+      "lastFpsLow1Pct": 21.71,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 8113,
+          "outputTokens": 824,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 15005,
+          "webSearchRequests": 1,
+          "costUSD": 0.040989250000000005
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 2234,
+          "outputTokens": 66548,
+          "cacheReadInputTokens": 45358162,
+          "cacheCreationInputTokens": 389958,
+          "webSearchRequests": 0,
+          "costUSD": 26.79118849999999
+        }
+      },
+      "lastSessionId": "bded8939-f577-41b8-8270-ecfdc48bd786",
+      "hasCompletedProjectOnboarding": true
+    },
+    "/Users/jb/.21st/worktrees/claude-codex/zealous-plain": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "wp-manager.md",
+        "CLAUDE.md",
+        "new-project.md",
+        "jbdocs.md",
+        "ideas.md"
+      ],
+      "exampleFilesGeneratedAt": 1769943188972,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 5.143907950000002,
+      "lastAPIDuration": 523333,
+      "lastAPIDurationWithoutRetries": 523221,
+      "lastToolDuration": 83697,
+      "lastDuration": 3190747,
+      "lastLinesAdded": 45,
+      "lastLinesRemoved": 36,
+      "lastTotalInputTokens": 85063,
+      "lastTotalOutputTokens": 20637,
+      "lastTotalCacheCreationInputTokens": 486217,
+      "lastTotalCacheReadInputTokens": 3706841,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 16.77,
+      "lastFpsLow1Pct": 22.87,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 84459,
+          "outputTokens": 4876,
+          "cacheReadInputTokens": 84207,
+          "cacheCreationInputTokens": 44114,
+          "webSearchRequests": 0,
+          "costUSD": 0.17240220000000003
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 604,
+          "outputTokens": 15761,
+          "cacheReadInputTokens": 3622634,
+          "cacheCreationInputTokens": 442103,
+          "webSearchRequests": 0,
+          "costUSD": 4.97150575
+        }
+      },
+      "lastSessionId": "7b98fbd3-5033-4245-a5f9-6be9bbedd70c"
+    },
+    "/Users/jb/.21st/repos/Aventerica89/wp-neptune": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {
+        "acss-bricks": {
+          "command": "node",
+          "args": [
+            "/Users/jb/.21st/repos/Aventerica89/wp-neptune/mcp-server/acss-bricks/dist/index.js"
+          ]
+        }
+      },
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 0.37975975,
+      "lastAPIDuration": 29741,
+      "lastAPIDurationWithoutRetries": 29726,
+      "lastToolDuration": 3146,
+      "lastDuration": 811898,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 1529,
+      "lastTotalOutputTokens": 1464,
+      "lastTotalCacheCreationInputTokens": 48311,
+      "lastTotalCacheReadInputTokens": 82302,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 6.07,
+      "lastFpsLow1Pct": 76.76,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1505,
+          "outputTokens": 78,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001895
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 24,
+          "outputTokens": 1386,
+          "cacheReadInputTokens": 82302,
+          "cacheCreationInputTokens": 48311,
+          "webSearchRequests": 0,
+          "costUSD": 0.37786474999999997
+        }
+      },
+      "lastSessionId": "c879c7d2-9f14-4f12-8052-50f18ad615f4"
+    },
+    "/Users/jb/.21st/worktrees/renvio-companion-app/outrageous-grove": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "client.ts",
+        "header.tsx",
+        "schema.ts",
+        "signup/page.tsx",
+        "sidebar.tsx"
+      ],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "exampleFilesGeneratedAt": 1770014972170,
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 1.1509464999999997,
+      "lastAPIDuration": 167594,
+      "lastAPIDurationWithoutRetries": 167542,
+      "lastToolDuration": 33466,
+      "lastDuration": 2932490,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 108570,
+      "lastTotalOutputTokens": 6231,
+      "lastTotalCacheCreationInputTokens": 94652,
+      "lastTotalCacheReadInputTokens": 655485,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 14.45,
+      "lastFpsLow1Pct": 61.36,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 108404,
+          "outputTokens": 1669,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.11674899999999998
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 166,
+          "outputTokens": 4562,
+          "cacheReadInputTokens": 655485,
+          "cacheCreationInputTokens": 94652,
+          "webSearchRequests": 0,
+          "costUSD": 1.0341974999999999
+        }
+      },
+      "lastSessionId": "48aa3853-1a63-4696-9fd6-ef765fdda226"
+    },
+    "/Users/jb/.21st/worktrees/jb-cloud-docs/sensitive-jungle": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {
+        "vercel": {
+          "type": "http",
+          "url": "https://mcp.vercel.com"
+        }
+      },
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "exampleFiles": [
+        "astro.config.mjs",
+        "changelog.md",
+        "validate-sidebar.mjs",
+        "custom.css",
+        "login.ts"
+      ],
+      "exampleFilesGeneratedAt": 1770090160625,
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 0.23866149999999997,
+      "lastAPIDuration": 12066,
+      "lastAPIDurationWithoutRetries": 12054,
+      "lastToolDuration": 1659,
+      "lastDuration": 13454363,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 2495,
+      "lastTotalOutputTokens": 349,
+      "lastTotalCacheCreationInputTokens": 33886,
+      "lastTotalCacheReadInputTokens": 33684,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 3.46,
+      "lastFpsLow1Pct": 188.86,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 2477,
+          "outputTokens": 63,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.002792
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 18,
+          "outputTokens": 286,
+          "cacheReadInputTokens": 33684,
+          "cacheCreationInputTokens": 33886,
+          "webSearchRequests": 0,
+          "costUSD": 0.23586949999999998
+        }
+      },
+      "lastSessionId": "3d240c0c-5cb8-4016-be21-8a5e43dcad93"
+    },
+    "/Users/jb/.21st/worktrees/bricks-cc/xenogeneic-cliff": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0.00196,
+      "lastAPIDuration": 2707,
+      "lastAPIDurationWithoutRetries": 2701,
+      "lastToolDuration": 0,
+      "lastDuration": 4269821,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 1395,
+      "lastTotalOutputTokens": 113,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 5.09,
+      "lastFpsLow1Pct": 181.81,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1395,
+          "outputTokens": 113,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.00196
+        }
+      },
+      "lastSessionId": "ec9faa5e-1b3b-409d-9917-f796ed472c69"
+    },
+    "/Users/jb/.21st/worktrees/artifact-manager/rainy-orchard": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "worker.js",
+        "ContentView.swift",
+        "Item.swift",
+        "content.js",
+        "Artifact_ManagerApp.swift"
+      ],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "hasCompletedProjectOnboarding": true,
+      "exampleFilesGeneratedAt": 1770090300014,
+      "lastCost": 0.211018,
+      "lastAPIDuration": 33416,
+      "lastAPIDurationWithoutRetries": 33398,
+      "lastToolDuration": 4805,
+      "lastDuration": 13531110,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 3282,
+      "lastTotalOutputTokens": 1158,
+      "lastTotalCacheCreationInputTokens": 14866,
+      "lastTotalCacheReadInputTokens": 176691,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 4.49,
+      "lastFpsLow1Pct": 125.75,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 3230,
+          "outputTokens": 134,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0039
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 52,
+          "outputTokens": 1024,
+          "cacheReadInputTokens": 176691,
+          "cacheCreationInputTokens": 14866,
+          "webSearchRequests": 0,
+          "costUSD": 0.207118
+        }
+      },
+      "lastSessionId": "fb1a4e94-e5e4-4be6-8e89-2fb926ffd6db"
+    },
+    "/private/tmp/jb-cloud-app-tracker": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "database.ts",
+        "applications.ts",
+        "application-form.tsx",
+        "application.ts",
+        "auth.ts"
+      ],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "exampleFilesGeneratedAt": 1770342431534,
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 16.419011500000003,
+      "lastAPIDuration": 1997739,
+      "lastAPIDurationWithoutRetries": 1997277,
+      "lastToolDuration": 2218177,
+      "lastDuration": 9351290,
+      "lastLinesAdded": 2156,
+      "lastLinesRemoved": 312,
+      "lastTotalInputTokens": 167359,
+      "lastTotalOutputTokens": 99016,
+      "lastTotalCacheCreationInputTokens": 1415024,
+      "lastTotalCacheReadInputTokens": 19313383,
+      "lastTotalWebSearchRequests": 1,
+      "lastFpsAverage": 15.3,
+      "lastFpsLow1Pct": 11.74,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 161133,
+          "outputTokens": 27979,
+          "cacheReadInputTokens": 3721970,
+          "cacheCreationInputTokens": 542175,
+          "webSearchRequests": 1,
+          "costUSD": 1.3609437500000001
+        },
+        "claude-opus-4-6": {
+          "inputTokens": 6199,
+          "outputTokens": 65375,
+          "cacheReadInputTokens": 15496182,
+          "cacheCreationInputTokens": 797715,
+          "webSearchRequests": 0,
+          "costUSD": 14.399179750000009
+        },
+        "claude-sonnet-4-5-20250929": {
+          "inputTokens": 27,
+          "outputTokens": 5662,
+          "cacheReadInputTokens": 95231,
+          "cacheCreationInputTokens": 75134,
+          "webSearchRequests": 0,
+          "costUSD": 0.658888
+        }
+      },
+      "lastSessionId": "7a6be4d4-d7a2-4999-b87e-31d25836a8fa"
+    },
+    "/Users/jb/bricks-cc": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "route.ts",
+        "validators.ts",
+        "page.tsx",
+        "basecamp.ts",
+        "schema.ts"
+      ],
+      "exampleFilesGeneratedAt": 1770524536512
+    },
+    "/Users/jb/vaporforge": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {
+        "apple-docs": {
+          "type": "stdio",
+          "command": "npx",
+          "args": [
+            "apple-doc-mcp-server@latest"
+          ],
+          "env": {}
+        }
+      },
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false
+    }
+  },
+  "hasShownOpus45Notice": {
+    "5e7e1b4d-d163-4fef-b44a-46f56e6e7ae5": true
+  },
+  "s1mAccessCache": {
+    "5e7e1b4d-d163-4fef-b44a-46f56e6e7ae5": {
+      "hasAccess": false,
+      "hasAccessNotAsDefault": false,
+      "timestamp": 1771315682986
+    }
+  },
+  "groveConfigCache": {
+    "a9b563a1-8bfb-41fc-91f9-d28f83d27234": {
+      "grove_enabled": true,
+      "timestamp": 1771403932973
+    }
+  },
+  "passesEligibilityCache": {
+    "5e7e1b4d-d163-4fef-b44a-46f56e6e7ae5": {
+      "eligible": true,
+      "referral_code_details": {
+        "code": "lXdL35LuYA",
+        "campaign": "claude_code_guest_pass_a47c",
+        "referral_link": "https://claude.ai/referral/lXdL35LuYA"
+      },
+      "referrer_reward": {
+        "amount_minor_units": 1000,
+        "currency": "USD"
+      },
+      "remaining_passes": 3,
+      "timestamp": 1771450766837
+    }
+  },
+  "officialMarketplaceAutoInstallAttempted": true,
+  "officialMarketplaceAutoInstalled": true,
+  "githubRepoPaths": {
+    "aventerica89/my-supabase-app": [
+      "/Users/jb/my-supabase-app"
+    ],
+    "aventerica89/bricks-builder-agent": [
+      "/Users/jb/Documents",
+      "/Users/jb"
+    ],
+    "aventerica89/claude-codex": [
+      "/Users/jb/.21st/worktrees/claude-codex/zealous-plain"
+    ],
+    "aventerica89/wp-neptune": [
+      "/Users/jb/.21st/repos/Aventerica89/wp-neptune"
+    ],
+    "aventerica89/renvio-companion-app": [
+      "/Users/jb/.21st/worktrees/renvio-companion-app/outrageous-grove"
+    ],
+    "aventerica89/bricks-cc": [
+      "/Users/jb/.21st/worktrees/bricks-cc/xenogeneic-cliff"
+    ],
+    "aventerica89/jb-cloud-docs": [
+      "/Users/jb/.21st/worktrees/jb-cloud-docs/sensitive-jungle"
+    ],
+    "aventerica89/artifact-manager": [
+      "/Users/jb/.21st/worktrees/artifact-manager/rainy-orchard"
+    ],
+    "aventerica89/jb-cloud-app-tracker": [
+      "/private/tmp/jb-cloud-app-tracker"
+    ]
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1771395483046
+  },
+  "passesUpsellSeenCount": 4,
+  "passesLastSeenCampaign": "claude_code_guest_pass",
+  "anonymousId": "claudecode.v1.adb9b3f9-85dd-4f99-89ec-2e79b3fa4ac1",
+  "lastPlanModeUse": 1770947461465,
+  "skillUsage": {
+    "everything-claude-code:plan": {
+      "usageCount": 2,
+      "lastUsedAt": 1769334405196
+    },
+    "everything-claude-code:update-docs": {
+      "usageCount": 2,
+      "lastUsedAt": 1769335705438
+    },
+    "security-review": {
+      "usageCount": 4,
+      "lastUsedAt": 1769591149270
+    },
+    "everything-claude-code:setup-pm": {
+      "usageCount": 1,
+      "lastUsedAt": 1769334338638
+    },
+    "coding-standards": {
+      "usageCount": 1,
+      "lastUsedAt": 1769335876433
+    },
+    "continuous-learning": {
+      "usageCount": 16,
+      "lastUsedAt": 1771410675227
+    },
+    "frontend-patterns": {
+      "usageCount": 1,
+      "lastUsedAt": 1769335941653
+    },
+    "backend-patterns": {
+      "usageCount": 1,
+      "lastUsedAt": 1769336046378
+    },
+    "tdd-workflow": {
+      "usageCount": 1,
+      "lastUsedAt": 1769337616256
+    },
+    "everything-claude-code:learn": {
+      "usageCount": 3,
+      "lastUsedAt": 1769656231291
+    },
+    "everything-claude-code:project-guidelines-example": {
+      "usageCount": 1,
+      "lastUsedAt": 1769363821091
+    },
+    "everything-claude-code:update-codemaps": {
+      "usageCount": 1,
+      "lastUsedAt": 1769366465486
+    },
+    "everything-claude-code:build-fix": {
+      "usageCount": 1,
+      "lastUsedAt": 1769373296196
+    },
+    "everything-claude-code:code-review": {
+      "usageCount": 3,
+      "lastUsedAt": 1769589606431
+    },
+    "everything-claude-code:tdd": {
+      "usageCount": 4,
+      "lastUsedAt": 1769639861489
+    },
+    "learn": {
+      "usageCount": 26,
+      "lastUsedAt": 1771417270954
+    },
+    "new-project": {
+      "usageCount": 3,
+      "lastUsedAt": 1771038235356
+    },
+    "end": {
+      "usageCount": 70,
+      "lastUsedAt": 1771418895364
+    },
+    "checkpoint": {
+      "usageCount": 1,
+      "lastUsedAt": 1769495432488
+    },
+    "ideas": {
+      "usageCount": 4,
+      "lastUsedAt": 1769564362032
+    },
+    "remind": {
+      "usageCount": 19,
+      "lastUsedAt": 1769646265830
+    },
+    "frontend-design": {
+      "usageCount": 7,
+      "lastUsedAt": 1770957719187
+    },
+    "jbdocs": {
+      "usageCount": 16,
+      "lastUsedAt": 1770536191354
+    },
+    "security": {
+      "usageCount": 3,
+      "lastUsedAt": 1771412029240
+    },
+    "deploy-check": {
+      "usageCount": 2,
+      "lastUsedAt": 1769596281257
+    },
+    "deploy-env": {
+      "usageCount": 1,
+      "lastUsedAt": 1769594224377
+    },
+    "context-save": {
+      "usageCount": 6,
+      "lastUsedAt": 1771147644439
+    },
+    "plan": {
+      "usageCount": 1,
+      "lastUsedAt": 1769633891112
+    },
+    "cli": {
+      "usageCount": 4,
+      "lastUsedAt": 1770865214120
+    },
+    "secrets-audit": {
+      "usageCount": 1,
+      "lastUsedAt": 1769639388316
+    },
+    "env-example": {
+      "usageCount": 1,
+      "lastUsedAt": 1769639786097
+    },
+    "routine-merge": {
+      "usageCount": 6,
+      "lastUsedAt": 1770946166956
+    },
+    "start": {
+      "usageCount": 16,
+      "lastUsedAt": 1771446904452
+    },
+    "codex-sync": {
+      "usageCount": 4,
+      "lastUsedAt": 1771307614087
+    },
+    "frontend-design:frontend-design": {
+      "usageCount": 1,
+      "lastUsedAt": 1770358613898
+    },
+    "strategic-compact": {
+      "usageCount": 6,
+      "lastUsedAt": 1771405678374
+    },
+    "routine-sync": {
+      "usageCount": 1,
+      "lastUsedAt": 1770431508330
+    },
+    "Notion:find": {
+      "usageCount": 3,
+      "lastUsedAt": 1770511454354
+    },
+    "Notion:search": {
+      "usageCount": 1,
+      "lastUsedAt": 1770511479786
+    },
+    "save-to-notion": {
+      "usageCount": 55,
+      "lastUsedAt": 1771416878542
+    },
+    "Notion:create-database-row": {
+      "usageCount": 1,
+      "lastUsedAt": 1770520205307
+    },
+    "commit-commands:commit": {
+      "usageCount": 3,
+      "lastUsedAt": 1771140088861
+    },
+    "tdd": {
+      "usageCount": 1,
+      "lastUsedAt": 1770579666294
+    },
+    "changelog": {
+      "usageCount": 3,
+      "lastUsedAt": 1771141382371
+    },
+    "resume": {
+      "usageCount": 13,
+      "lastUsedAt": 1771361618541
+    },
+    "commit-commands:commit-push-pr": {
+      "usageCount": 2,
+      "lastUsedAt": 1770864533089
+    },
+    "github-automation": {
+      "usageCount": 1,
+      "lastUsedAt": 1770941919159
+    },
+    "using-git-worktrees": {
+      "usageCount": 1,
+      "lastUsedAt": 1770942228119
+    },
+    "brainstorming": {
+      "usageCount": 6,
+      "lastUsedAt": 1771407151856
+    },
+    "superpowers:writing-plans": {
+      "usageCount": 10,
+      "lastUsedAt": 1771448854423
+    },
+    "superpowers:executing-plans": {
+      "usageCount": 3,
+      "lastUsedAt": 1771188953164
+    },
+    "superpowers:brainstorming": {
+      "usageCount": 12,
+      "lastUsedAt": 1771447014561
+    },
+    "pause": {
+      "usageCount": 4,
+      "lastUsedAt": 1771360977926
+    },
+    "superpowers:subagent-driven-development": {
+      "usageCount": 5,
+      "lastUsedAt": 1771450785496
+    },
+    "context-restore": {
+      "usageCount": 1,
+      "lastUsedAt": 1771099102560
+    },
+    "claude-automation-recommender": {
+      "usageCount": 1,
+      "lastUsedAt": 1771118952099
+    },
+    "claude-md-improver": {
+      "usageCount": 3,
+      "lastUsedAt": 1771410984855
+    },
+    "using-superpowers": {
+      "usageCount": 1,
+      "lastUsedAt": 1771132643490
+    },
+    "superpowers:systematic-debugging": {
+      "usageCount": 2,
+      "lastUsedAt": 1771255158360
+    },
+    "changelog-generator": {
+      "usageCount": 2,
+      "lastUsedAt": 1771144426000
+    },
+    "superpowers:brainstorm": {
+      "usageCount": 1,
+      "lastUsedAt": 1771187552740
+    },
+    "superpowers:finishing-a-development-branch": {
+      "usageCount": 1,
+      "lastUsedAt": 1771196334026
+    },
+    "superpowers:writing-skills": {
+      "usageCount": 1,
+      "lastUsedAt": 1771225000376
+    },
+    "playground": {
+      "usageCount": 1,
+      "lastUsedAt": 1771255194450
+    },
+    "executing-plans": {
+      "usageCount": 2,
+      "lastUsedAt": 1771408226289
+    },
+    "changelog-dev": {
+      "usageCount": 4,
+      "lastUsedAt": 1771409773368
+    },
+    "writing-plans": {
+      "usageCount": 2,
+      "lastUsedAt": 1771360379574
+    },
+    "subagent-driven-development": {
+      "usageCount": 1,
+      "lastUsedAt": 1771315953546
+    }
+  },
+  "slackAppInstallCount": 1,
+  "mcpServers": {
+    "magic": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@21st-dev/magic@latest"
+      ],
+      "env": {
+        "API_KEY": "ca2d5c452744540f195a865c335688f12b581152282cd25923c47fd090f71972"
+      }
+    },
+    "figma-desktop": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "figma-remote": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ],
+      "env": {}
+    },
+    "cloudflare-docs": {
+      "type": "http",
+      "url": "https://docs.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-workers-bindings": {
+      "type": "http",
+      "url": "https://bindings.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-workers-builds": {
+      "type": "http",
+      "url": "https://builds.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-observability": {
+      "type": "http",
+      "url": "https://observability.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-radar": {
+      "type": "http",
+      "url": "https://radar.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-containers": {
+      "type": "http",
+      "url": "https://containers.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-browser": {
+      "type": "http",
+      "url": "https://browser.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-logpush": {
+      "type": "http",
+      "url": "https://logs.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-ai-gateway": {
+      "type": "http",
+      "url": "https://ai-gateway.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-autorag": {
+      "type": "http",
+      "url": "https://autorag.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-audit-logs": {
+      "type": "http",
+      "url": "https://auditlogs.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-dns-analytics": {
+      "type": "http",
+      "url": "https://dns-analytics.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-dex": {
+      "type": "http",
+      "url": "https://dex.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-casb": {
+      "type": "http",
+      "url": "https://casb.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-graphql": {
+      "type": "http",
+      "url": "https://graphql.mcp.cloudflare.com/mcp"
+    },
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp"
+    },
+    "acss-docs": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/jb/acss-mcp-server/dist/index.js"
+      ],
+      "env": {}
+    },
+    "gmail-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@gongrzhe/server-gmail-autoauth-mcp"
+      ],
+      "env": {}
+    },
+    "sosumi": {
+      "type": "http",
+      "url": "https://sosumi.ai/mcp"
+    }
+  },
+  "hasVisitedPasses": false,
+  "passesLastSeenRemaining": 3,
+  "clientDataCache": {
+    "data": {},
+    "timestamp": 1771454134802
+  },
+  "hasCompletedClaudeInChromeOnboarding": true,
+  "claudeInChromeDefaultEnabled": true,
+  "hasShownOpus46Notice": {
+    "5e7e1b4d-d163-4fef-b44a-46f56e6e7ae5": true
+  },
+  "penguinModeOrgEnabled": false,
+  "opus46FeedSeenCount": 90,
+  "hasVisitedExtraUsage": true,
+  "showSpinnerTree": false,
+  "oauthAccount": {
+    "accountUuid": "a9b563a1-8bfb-41fc-91f9-d28f83d27234",
+    "emailAddress": "admin@jbmdcreations.com",
+    "organizationUuid": "5e7e1b4d-d163-4fef-b44a-46f56e6e7ae5",
+    "hasExtraUsageEnabled": false,
+    "billingType": "stripe_subscription",
+    "accountCreatedAt": "2025-02-08T04:45:16.882217Z",
+    "subscriptionCreatedAt": "2025-11-28T14:14:26.159361Z",
+    "displayName": "John"
+  },
+  "effortCalloutDismissed": true,
+  "sonnet1m45MigrationComplete": true,
+  "cachedExtraUsageDisabledReason": "org_level_disabled",
+  "hasUsedBackslashReturn": true,
+  "birthdayHatAnimationCount": 3
+}
