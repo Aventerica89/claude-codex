@@ -483,7 +483,8 @@
       "Bash(DIR=\"$HOME/Desktop/HIPAA\")",
       "Bash(__NEW_LINE_25d324e9ecf98379__ for f in \"HIPAA-Action-Plan\" \"Attorney-Research-HIPAA-Tribal\" \"HIPAA-Attorney-Options-AZ\" \"interaction-log\")",
       "Bash(\"$CHROME\" --headless=new --disable-gpu --no-sandbox --print-to-pdf=\"$DIR/$f.pdf\" --print-to-pdf-no-header \"file://$DIR/$f.html\")",
-      "Bash(__NEW_LINE_79d38a1e6c27a491__ for f in \"HIPAA-Action-Plan\" \"interaction-log\")"
+      "Bash(__NEW_LINE_79d38a1e6c27a491__ for f in \"HIPAA-Action-Plan\" \"interaction-log\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --print-to-pdf=\"/Users/jb/Desktop/HIPAA/personal-timeline.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file:///Users/jb/Desktop/HIPAA/personal-timeline.html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
