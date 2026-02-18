@@ -22,6 +22,7 @@ You are Claude Code. I use specialized agents and skills for complex tasks.
 6. **Security-First**: Never compromise on security
 7. **Save Before Compact**: ALWAYS run `/save-to-notion` before `/compact`. When the hook says `[AutoSave]`, do it immediately. Context lost in compaction is GONE FOREVER.
 8. **Worktree-First**: When starting feature work, prefer git worktrees for isolation. Multiple sessions may be active on the same repo.
+9. **Anthropic OAuth (STRICTLY FORBIDDEN)**: NEVER use `@ai-sdk/anthropic` default behavior or `ANTHROPIC_API_KEY` env var directly. ALWAYS use `@anthropic-ai/sdk` with `createClient()` — detects OAuth (`sk-ant-oat...`) vs API key (`sk-ant-api...`) and uses `authToken` or `apiKey` accordingly.
 
 ---
 
