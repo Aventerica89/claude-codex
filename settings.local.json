@@ -451,7 +451,8 @@
       "Bash(__NEW_LINE_7ded3b8c1698dbfe__ echo \"=== 1. Create site ===\")",
       "Bash(__NEW_LINE_4ae7188f2d5543cd__ echo \"\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=\"/Users/jb/Desktop/HIPAA/HIPAA-Action-Plan.pdf\" \"file:///Users/jb/Desktop/HIPAA/HIPAA-Action-Plan.html\")",
-      "Bash(/Users/jb/Desktop/HIPAA/forensic-log.sh)"
+      "Bash(/Users/jb/Desktop/HIPAA/forensic-log.sh)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --print-to-pdf=\"/Users/jb/Desktop/HIPAA/interaction-log.pdf\" \"file:///Users/jb/Desktop/HIPAA/interaction-log.html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
