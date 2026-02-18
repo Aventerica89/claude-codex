@@ -472,7 +472,8 @@
       "Bash(TOKEN=\"72f66629058e8dcb6ef2fa7ad9ec52601411a4a0f6ab0c2bf831680e37a7026e\")",
       "Bash(~/.claude/contexts/wp-dispatch-memory-oauth-20260218.md:*)",
       "Bash(~/.claude/skills/learned/cf-sandbox-ws-trigger-pattern.md:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "WebFetch(domain:tweakcn.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
