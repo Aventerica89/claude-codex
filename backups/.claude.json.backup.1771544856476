@@ -12,7 +12,7 @@
     "stickers-command": 1,
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 183,
-    "todo-list": 164,
+    "todo-list": 184,
     "install-github-app": 175,
     "install-slack-app": 54,
     "drag-and-drop-images": 180,
@@ -20,7 +20,7 @@
     "double-esc-code-restore": 175,
     "continue": 175,
     "shift-tab": 175,
-    "image-paste": 164,
+    "image-paste": 184,
     "ultrathink-keyword": 2,
     "desktop-app": 172,
     "web-app": 172,
@@ -28,7 +28,7 @@
     "guest-passes": 183,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 181,
+    "frontend-design-plugin": 184,
     "custom-agents": 174,
     "agent-flag": 174,
     "permissions": 175,
@@ -37,11 +37,11 @@
     "terminal-setup": 175,
     "colorterm-truecolor": 140,
     "default-permission-mode-config": 175,
-    "git-worktrees": 174,
+    "git-worktrees": 184,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7304,
+  "promptQueueUseCount": 7307,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -153,7 +153,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771544114232,
+  "changelogLastFetched": 1771544182097,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -161,7 +161,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.49",
+  "lastReleaseNotesSeen": "2.1.47",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -970,7 +970,7 @@
     ]
   },
   "feedbackSurveyState": {
-    "lastShownTime": 1771395483046
+    "lastShownTime": 1771544419818
   },
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
@@ -1413,7 +1413,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771544119056
+    "timestamp": 1771544539570
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
