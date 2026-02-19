@@ -38,10 +38,10 @@
     "colorterm-truecolor": 140,
     "default-permission-mode-config": 165,
     "git-worktrees": 164,
-    "shift-enter-setup": 160,
+    "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7096,
+  "promptQueueUseCount": 7101,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771468023085,
+  "changelogLastFetched": 1771468586319,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -1360,13 +1360,17 @@
         "/Users/jb/patchstack-mcp-server/dist/index.js"
       ],
       "env": {}
+    },
+    "clerk": {
+      "type": "http",
+      "url": "https://mcp.clerk.com/mcp"
     }
   },
   "hasVisitedPasses": false,
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771468022707
+    "timestamp": 1771468586245
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
