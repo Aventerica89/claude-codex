@@ -554,7 +554,8 @@
       "Bash(gcloud help:*)",
       "Bash(gcloud alpha:*)",
       "Bash(bash /tmp/deploy-clarity-env.sh)",
-      "Bash(npx llmstxt-cli install:*)"
+      "Bash(npx llmstxt-cli install:*)",
+      "mcp__claude_ai_Vercel__get_deployment_build_logs"
     ]
   },
   "enableAllProjectMcpServers": true,
