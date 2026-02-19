@@ -1,5 +1,5 @@
 {
-  "numStartups": 173,
+  "numStartups": 174,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -29,8 +29,8 @@
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 173,
-    "custom-agents": 159,
-    "agent-flag": 159,
+    "custom-agents": 174,
+    "agent-flag": 174,
     "permissions": 165,
     "rename-conversation": 161,
     "custom-commands": 161,
@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771477155118,
+  "changelogLastFetched": 1771478310041,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -908,7 +908,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771470059833
+      "timestamp": 1771478389486
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1012,8 +1012,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 28,
-      "lastUsedAt": 1771460168877
+      "usageCount": 29,
+      "lastUsedAt": 1771478371870
     },
     "new-project": {
       "usageCount": 4,
@@ -1370,7 +1370,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771478149320
+    "timestamp": 1771478455347
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
