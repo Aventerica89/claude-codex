@@ -590,7 +590,8 @@
       "WebFetch(domain:docs.cloud.google.com)",
       "Bash(~/wp-dispatch/src/lib/db/schema.ts:*)",
       "Bash(npx dotenv-cli:*)",
-      "Bash(DOTENV_CONFIG_PATH=.env.local node:*)"
+      "Bash(DOTENV_CONFIG_PATH=.env.local node:*)",
+      "Bash(~/.claude/contexts/wp-dispatch-reference-help-hub-20260219.md:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
