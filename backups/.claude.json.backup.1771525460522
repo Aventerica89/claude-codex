@@ -28,7 +28,7 @@
     "guest-passes": 177,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 173,
+    "frontend-design-plugin": 178,
     "custom-agents": 174,
     "agent-flag": 174,
     "permissions": 175,
@@ -1080,8 +1080,8 @@
       "lastUsedAt": 1770946166956
     },
     "start": {
-      "usageCount": 18,
-      "lastUsedAt": 1771523175311
+      "usageCount": 19,
+      "lastUsedAt": 1771524970918
     },
     "codex-sync": {
       "usageCount": 7,
@@ -1379,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771524885033
+    "timestamp": 1771525413763
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
