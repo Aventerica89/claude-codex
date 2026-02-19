@@ -41,7 +41,7 @@
     "shift-enter-setup": 160,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7068,
+  "promptQueueUseCount": 7069,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771464037366,
+  "changelogLastFetched": 1771464517792,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -1234,6 +1234,10 @@
     "hipaa-sync": {
       "usageCount": 1,
       "lastUsedAt": 1771458135152
+    },
+    "reverse-engineer": {
+      "usageCount": 1,
+      "lastUsedAt": 1771464444723
     }
   },
   "slackAppInstallCount": 1,
@@ -1362,7 +1366,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771464058384
+    "timestamp": 1771464518187
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
