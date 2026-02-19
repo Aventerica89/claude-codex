@@ -512,7 +512,8 @@
       "Bash(unzip:*)",
       "Bash(its children\" \\(the old wording was confusing the agent\\)\n- agency.ts/diff: add git status --short alongside git diff so untracked\n  new files created by the agent show up in the Changes viewer\nEOF\n\\)\")",
       "Bash(npx @clerk/clerk-cli:*)",
-      "WebFetch(domain:patchstack.com)"
+      "WebFetch(domain:patchstack.com)",
+      "Bash(claude mcp remove:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
