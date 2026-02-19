@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771459299492,
+  "changelogLastFetched": 1771460438154,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -158,7 +158,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.45",
+  "lastReleaseNotesSeen": "2.1.47",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -1000,8 +1000,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 27,
-      "lastUsedAt": 1771458879183
+      "usageCount": 28,
+      "lastUsedAt": 1771460168877
     },
     "new-project": {
       "usageCount": 3,
@@ -1096,8 +1096,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 55,
-      "lastUsedAt": 1771416878542
+      "usageCount": 56,
+      "lastUsedAt": 1771459543257
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1334,7 +1334,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771459371501
+    "timestamp": 1771460438214
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
