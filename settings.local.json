@@ -563,7 +563,8 @@
       "Bash(__NEW_LINE_f3875f8b9d292a2c__ touch /Users/jb/devtools/changelog-action.json)",
       "Bash(__NEW_LINE_f3875f8b9d292a2c__ echo '[]')",
       "Bash(__NEW_LINE_f3875f8b9d292a2c__ echo \"Done\")",
-      "Bash(npm config:*)"
+      "Bash(npm config:*)",
+      "Bash(arch -arm64 npm install:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
