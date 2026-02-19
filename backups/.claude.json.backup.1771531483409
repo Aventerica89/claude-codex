@@ -15,7 +15,7 @@
     "todo-list": 164,
     "install-github-app": 175,
     "install-slack-app": 54,
-    "drag-and-drop-images": 170,
+    "drag-and-drop-images": 180,
     "paste-images-mac": 178,
     "double-esc-code-restore": 175,
     "continue": 175,
@@ -25,7 +25,7 @@
     "desktop-app": 172,
     "web-app": 172,
     "mobile-app": 174,
-    "guest-passes": 177,
+    "guest-passes": 180,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 178,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7279,
+  "promptQueueUseCount": 7281,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1383,7 +1383,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771531136111
+    "timestamp": 1771531479080
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
