@@ -556,7 +556,13 @@
       "Bash(bash /tmp/deploy-clarity-env.sh)",
       "Bash(npx llmstxt-cli install:*)",
       "mcp__claude_ai_Vercel__get_deployment_build_logs",
-      "WebFetch(domain:www.mcpserverfinder.com)"
+      "WebFetch(domain:www.mcpserverfinder.com)",
+      "Bash(/Users/jb/devtools/CHANGELOG.md:*)",
+      "Bash(__NEW_LINE_f3875f8b9d292a2c__ cat)",
+      "Bash(/Users/jb/devtools/CHANGELOG-DEV.md:*)",
+      "Bash(__NEW_LINE_f3875f8b9d292a2c__ touch /Users/jb/devtools/changelog-action.json)",
+      "Bash(__NEW_LINE_f3875f8b9d292a2c__ echo '[]')",
+      "Bash(__NEW_LINE_f3875f8b9d292a2c__ echo \"Done\")"
     ]
   },
   "enableAllProjectMcpServers": true,
