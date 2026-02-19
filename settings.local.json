@@ -552,7 +552,8 @@
       "Bash(gcloud alpha iap oauth-brands list:*)",
       "Bash(ToolSearch)",
       "Bash(gcloud help:*)",
-      "Bash(gcloud alpha:*)"
+      "Bash(gcloud alpha:*)",
+      "Bash(bash /tmp/deploy-clarity-env.sh)"
     ]
   },
   "enableAllProjectMcpServers": true,
