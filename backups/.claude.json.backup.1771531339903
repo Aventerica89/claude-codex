@@ -1,5 +1,5 @@
 {
-  "numStartups": 179,
+  "numStartups": 180,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -15,7 +15,7 @@
     "todo-list": 164,
     "install-github-app": 175,
     "install-slack-app": 54,
-    "drag-and-drop-images": 170,
+    "drag-and-drop-images": 180,
     "paste-images-mac": 178,
     "double-esc-code-restore": 175,
     "continue": 175,
@@ -25,7 +25,7 @@
     "desktop-app": 172,
     "web-app": 172,
     "mobile-app": 174,
-    "guest-passes": 177,
+    "guest-passes": 180,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 178,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7279,
+  "promptQueueUseCount": 7280,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -109,7 +109,7 @@
     "tengu_vscode_review_upsell": false,
     "tengu_vscode_onboarding": false,
     "tengu_quiet_fern": true,
-    "tengu_chomp_inflection": true,
+    "tengu_chomp_inflection": false,
     "tengu_silver_lantern": false,
     "tengu_copper_lantern": false,
     "tengu_workout2": true,
@@ -193,49 +193,49 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 121.69373380000016,
-      "lastAPIDuration": 18174308,
-      "lastAPIDurationWithoutRetries": 18172784,
-      "lastToolDuration": 6679144,
-      "lastDuration": 53522571,
-      "lastLinesAdded": 5279,
-      "lastLinesRemoved": 499,
-      "lastTotalInputTokens": 972265,
-      "lastTotalOutputTokens": 838833,
-      "lastTotalCacheCreationInputTokens": 7397860,
-      "lastTotalCacheReadInputTokens": 139702886,
+      "lastCost": 11.126264749999995,
+      "lastAPIDuration": 1128177,
+      "lastAPIDurationWithoutRetries": 1128011,
+      "lastToolDuration": 154340,
+      "lastDuration": 6430101,
+      "lastLinesAdded": 545,
+      "lastLinesRemoved": 32,
+      "lastTotalInputTokens": 61245,
+      "lastTotalOutputTokens": 47819,
+      "lastTotalCacheCreationInputTokens": 581407,
+      "lastTotalCacheReadInputTokens": 12471830,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 873930,
-          "outputTokens": 86959,
-          "cacheReadInputTokens": 18260273,
-          "cacheCreationInputTokens": 1537495,
+          "inputTokens": 53431,
+          "outputTokens": 1571,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 5.056621049999994
+          "costUSD": 0.06128599999999999
         },
         "claude-sonnet-4-6": {
-          "inputTokens": 98335,
-          "outputTokens": 751874,
-          "cacheReadInputTokens": 121442613,
-          "cacheCreationInputTokens": 5860365,
+          "inputTokens": 7814,
+          "outputTokens": 46248,
+          "cacheReadInputTokens": 12471830,
+          "cacheCreationInputTokens": 581407,
           "webSearchRequests": 0,
-          "costUSD": 116.63711275000011
+          "costUSD": 11.064978749999998
         }
       },
-      "lastSessionId": "9a3ae0ac-e0e1-4f2e-94df-13cd4a16dd54",
+      "lastSessionId": "2858cef0-fba1-4c42-973d-f392832676c0",
       "hasCompletedProjectOnboarding": true,
-      "lastFpsAverage": 9.56,
-      "lastFpsLow1Pct": 112.49,
+      "lastFpsAverage": 8.07,
+      "lastFpsLow1Pct": 71.63,
       "exampleFilesGeneratedAt": 1769594801082,
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 511089,
-        "frame_duration_ms_min": 0.07841599732637405,
-        "frame_duration_ms_max": 2582.4409580007195,
-        "frame_duration_ms_avg": 2.010037918634699,
-        "frame_duration_ms_p50": 1.4962915005162358,
-        "frame_duration_ms_p95": 3.8344339020550247,
-        "frame_duration_ms_p99": 7.611116749532514
+        "frame_duration_ms_count": 51893,
+        "frame_duration_ms_min": 0.09999999962747097,
+        "frame_duration_ms_max": 214.30804099992383,
+        "frame_duration_ms_avg": 2.4016221275503744,
+        "frame_duration_ms_p50": 1.867729000048712,
+        "frame_duration_ms_p95": 4.260918699717148,
+        "frame_duration_ms_p99": 6.456327749626222
       }
     },
     "/Users/jb/Downloads": {
@@ -1383,7 +1383,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771530950990
+    "timestamp": 1771531325343
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
