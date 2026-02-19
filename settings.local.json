@@ -491,7 +491,8 @@
       "Bash(__NEW_LINE_cc1c6f6b5d5fc20b__ \"$CHROME\" --headless=new --print-to-pdf=\"$BASE/HIPAA-Attorney-Options-AZ.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$BASE/Source/HIPAA-Attorney-Options-AZ.html\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --print-to-pdf=\"/Users/jb/Desktop/HIPAA/interaction-log.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file:///Users/jb/Desktop/HIPAA/Source/interaction-log.html\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/HIPAA-Action-Plan.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/HIPAA-Action-Plan.html\")",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/interaction-log.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/interaction-log.html\")"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/interaction-log.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/interaction-log.html\")",
+      "mcp__gmail-mcp__read_email"
     ]
   },
   "enableAllProjectMcpServers": true,
