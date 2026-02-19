@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771488634786,
+  "changelogLastFetched": 1771489043180,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -158,7 +158,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.47",
+  "lastReleaseNotesSeen": "2.1.45",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -1012,8 +1012,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 33,
-      "lastUsedAt": 1771488110589
+      "usageCount": 34,
+      "lastUsedAt": 1771489103620
     },
     "new-project": {
       "usageCount": 4,
@@ -1379,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771488673266
+    "timestamp": 1771489103878
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
