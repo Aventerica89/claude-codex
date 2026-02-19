@@ -594,7 +594,8 @@
       "Bash(~/.claude/contexts/wp-dispatch-reference-help-hub-20260219.md:*)",
       "Bash(dotenv -e .env.local npm run db:push:*)",
       "Bash(npx --yes dotenv-cli -e .env.local npm run db:push:*)",
-      "Bash(__NEW_LINE_b01fded0279bf1ac__ for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)"
+      "Bash(__NEW_LINE_b01fded0279bf1ac__ for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)",
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/index.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/index.html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
