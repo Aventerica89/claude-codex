@@ -553,7 +553,8 @@
       "Bash(ToolSearch)",
       "Bash(gcloud help:*)",
       "Bash(gcloud alpha:*)",
-      "Bash(bash /tmp/deploy-clarity-env.sh)"
+      "Bash(bash /tmp/deploy-clarity-env.sh)",
+      "Bash(npx llmstxt-cli install:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
