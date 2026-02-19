@@ -28,7 +28,7 @@
     "guest-passes": 177,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 173,
+    "frontend-design-plugin": 178,
     "custom-agents": 174,
     "agent-flag": 174,
     "permissions": 175,
@@ -1379,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771525045689
+    "timestamp": 1771525604650
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
