@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7248,
+  "promptQueueUseCount": 7249,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771488116674,
+  "changelogLastFetched": 1771488396430,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -158,7 +158,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.45",
+  "lastReleaseNotesSeen": "2.1.47",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -908,7 +908,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771482240545
+      "timestamp": 1771488152746
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1124,8 +1124,8 @@
       "lastUsedAt": 1770579666294
     },
     "changelog": {
-      "usageCount": 3,
-      "lastUsedAt": 1771141382371
+      "usageCount": 4,
+      "lastUsedAt": 1771488235067
     },
     "resume": {
       "usageCount": 13,
@@ -1364,13 +1364,22 @@
     "clerk": {
       "type": "http",
       "url": "https://mcp.clerk.com/mcp"
+    },
+    "tailwindcss-mcp-server": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "tailwindcss-mcp-server"
+      ],
+      "env": {}
     }
   },
   "hasVisitedPasses": false,
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771488112969
+    "timestamp": 1771488532542
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
