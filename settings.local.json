@@ -520,7 +520,8 @@
       "Bash(SRC=~/Desktop/HIPAA/Source)",
       "Bash(for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)",
       "Bash($PANDOC \"$SRC/$name.html\" -o \"$SRC/$name.docx\")",
-      "mcp__plugin_playwright_playwright__browser_type"
+      "mcp__plugin_playwright_playwright__browser_type",
+      "Bash(bunx shadcn@latest add:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
