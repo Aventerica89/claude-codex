@@ -495,7 +495,9 @@
       "mcp__gmail-mcp__read_email",
       "Bash(pip3:*)",
       "Bash(/opt/homebrew/bin/python3:*)",
-      "Bash(git clone:*)"
+      "Bash(git clone:*)",
+      "Bash(./venv/bin/pip install:*)",
+      "Bash(brew --version:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
