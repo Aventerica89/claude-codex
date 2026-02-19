@@ -521,7 +521,8 @@
       "Bash(for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)",
       "Bash($PANDOC \"$SRC/$name.html\" -o \"$SRC/$name.docx\")",
       "mcp__plugin_playwright_playwright__browser_type",
-      "Bash(bunx shadcn@latest add:*)"
+      "Bash(bunx shadcn@latest add:*)",
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/HIPAA-Attorney-Options-AZ.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/HIPAA-Attorney-Options-AZ.html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
