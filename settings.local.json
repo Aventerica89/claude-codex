@@ -508,7 +508,8 @@
       "mcp__apple-mail__get_recent_from_sender",
       "mcp__apple-mail__get_recent_emails",
       "mcp__apple-mail__list_mailboxes",
-      "WebFetch(domain:clerk.com)"
+      "WebFetch(domain:clerk.com)",
+      "Bash(unzip:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
