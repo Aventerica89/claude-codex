@@ -507,7 +507,8 @@
       "mcp__apple-mail__list_inbox_emails",
       "mcp__apple-mail__get_recent_from_sender",
       "mcp__apple-mail__get_recent_emails",
-      "mcp__apple-mail__list_mailboxes"
+      "mcp__apple-mail__list_mailboxes",
+      "WebFetch(domain:clerk.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
