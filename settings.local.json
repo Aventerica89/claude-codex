@@ -542,7 +542,9 @@
       "Bash(gcloud projects list:*)",
       "Bash(\"$CHROME\" --headless=new --screenshot=\"$HOME/Desktop/HIPAA/call-cheat-sheet.png\" --window-size=800,1050 \"file://$HOME/Desktop/HIPAA/Source/call-cheat-sheet.html\")",
       "Bash(gcloud config get-value:*)",
-      "Bash(gcloud alpha iap oauth-clients list:*)"
+      "Bash(gcloud alpha iap oauth-clients list:*)",
+      "Bash(gcloud services list:*)",
+      "mcp__gmail-mcp__batch_delete_emails"
     ]
   },
   "enableAllProjectMcpServers": true,
