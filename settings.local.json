@@ -565,7 +565,8 @@
       "Bash(__NEW_LINE_f3875f8b9d292a2c__ echo \"Done\")",
       "Bash(npm config:*)",
       "Bash(arch -arm64 npm install:*)",
-      "Bash(npx better-auth:*)"
+      "Bash(npx better-auth:*)",
+      "Bash(npx --yes better-auth generate:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
