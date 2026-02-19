@@ -567,7 +567,8 @@
       "Bash(arch -arm64 npm install:*)",
       "Bash(npx better-auth:*)",
       "Bash(npx --yes better-auth generate:*)",
-      "Bash(selected\"> — cyan/purple border box\n  with all:initial inside shadow root; host gets position:fixed\n- <vf-tooltip label=\"...\"> — purple label chip, setAttribute-driven\n- Both guarded with customElements.get\\(\\) check to survive hot reload\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(selected\"> — cyan/purple border box\n  with all:initial inside shadow root; host gets position:fixed\n- <vf-tooltip label=\"...\"> — purple label chip, setAttribute-driven\n- Both guarded with customElements.get\\(\\) check to survive hot reload\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(./node_modules/.bin/better-auth generate:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
