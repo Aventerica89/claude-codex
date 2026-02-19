@@ -515,7 +515,11 @@
       "WebFetch(domain:patchstack.com)",
       "Bash(claude mcp remove:*)",
       "Bash(tr:*)",
-      "Bash(DRY_RUN=1 ~/.claude/scripts/deploy-changelog-hook.sh:*)"
+      "Bash(DRY_RUN=1 ~/.claude/scripts/deploy-changelog-hook.sh:*)",
+      "Bash(PANDOC=/opt/homebrew/bin/pandoc:*)",
+      "Bash(SRC=~/Desktop/HIPAA/Source)",
+      "Bash(for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)",
+      "Bash($PANDOC \"$SRC/$name.html\" -o \"$SRC/$name.docx\")"
     ]
   },
   "enableAllProjectMcpServers": true,
