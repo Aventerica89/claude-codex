@@ -22,8 +22,8 @@
     "shift-tab": 165,
     "image-paste": 164,
     "ultrathink-keyword": 2,
-    "desktop-app": 157,
-    "web-app": 157,
+    "desktop-app": 172,
+    "web-app": 172,
     "mobile-app": 159,
     "guest-passes": 171,
     "ide-upsell-external-terminal": 104,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7101,
+  "promptQueueUseCount": 7104,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1370,7 +1370,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771470314821
+    "timestamp": 1771470653386
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
