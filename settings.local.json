@@ -501,7 +501,8 @@
       "Bash(SERVICE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtvcmVqdGdmdnllZ3Bta3ZibmdtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2OTU2ODA2MiwiZXhwIjoyMDg1MTQ0MDYyfQ.ARPZ3NLIufQvdtJO3zL0J-cPhwLh1KyvxFq7RW2Gieg\")",
       "mcp__apple-mail__get_inbox_overview",
       "mcp__apple-mail__search_emails",
-      "mcp__apple-mail__search_by_sender"
+      "mcp__apple-mail__search_by_sender",
+      "mcp__apple-mail__search_all_accounts"
     ]
   },
   "enableAllProjectMcpServers": true,
