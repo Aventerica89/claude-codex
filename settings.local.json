@@ -571,7 +571,8 @@
       "Bash(./node_modules/.bin/better-auth generate:*)",
       "Bash(arch -arm64 npx drizzle-kit push:*)",
       "Bash(arch -arm64 sh -c 'set -a; . .env.local; set +a; npx drizzle-kit push')",
-      "Bash(arch -arm64 npm run build:*)"
+      "Bash(arch -arm64 npm run build:*)",
+      "Bash(gcloud config set:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
