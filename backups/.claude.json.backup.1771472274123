@@ -28,7 +28,7 @@
     "guest-passes": 171,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 166,
+    "frontend-design-plugin": 173,
     "custom-agents": 159,
     "agent-flag": 159,
     "permissions": 165,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7107,
+  "promptQueueUseCount": 7108,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1224,8 +1224,8 @@
       "lastUsedAt": 1771315953546
     },
     "hipaa-sync": {
-      "usageCount": 1,
-      "lastUsedAt": 1771458135152
+      "usageCount": 2,
+      "lastUsedAt": 1771472189497
     },
     "reverse-engineer": {
       "usageCount": 2,
@@ -1370,7 +1370,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771471857532
+    "timestamp": 1771472197280
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
