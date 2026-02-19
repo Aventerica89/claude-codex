@@ -522,7 +522,8 @@
       "Bash($PANDOC \"$SRC/$name.html\" -o \"$SRC/$name.docx\")",
       "mcp__plugin_playwright_playwright__browser_type",
       "Bash(bunx shadcn@latest add:*)",
-      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/HIPAA-Attorney-Options-AZ.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/HIPAA-Attorney-Options-AZ.html\")"
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/HIPAA-Attorney-Options-AZ.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/HIPAA-Attorney-Options-AZ.html\")",
+      "mcp__plugin_context7_context7__resolve-library-id"
     ]
   },
   "enableAllProjectMcpServers": true,
