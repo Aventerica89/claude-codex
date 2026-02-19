@@ -1012,16 +1012,16 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 36,
-      "lastUsedAt": 1771493433655
+      "usageCount": 37,
+      "lastUsedAt": 1771500562348
     },
     "new-project": {
       "usageCount": 4,
       "lastUsedAt": 1771470302854
     },
     "end": {
-      "usageCount": 78,
-      "lastUsedAt": 1771500244465
+      "usageCount": 79,
+      "lastUsedAt": 1771500679059
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1080,12 +1080,12 @@
       "lastUsedAt": 1770946166956
     },
     "start": {
-      "usageCount": 17,
-      "lastUsedAt": 1771470074153
+      "usageCount": 18,
+      "lastUsedAt": 1771523175311
     },
     "codex-sync": {
-      "usageCount": 6,
-      "lastUsedAt": 1771491932476
+      "usageCount": 7,
+      "lastUsedAt": 1771500728127
     },
     "frontend-design:frontend-design": {
       "usageCount": 1,
@@ -1379,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771500475037
+    "timestamp": 1771523187196
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
