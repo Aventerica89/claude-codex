@@ -544,7 +544,8 @@
       "Bash(gcloud config get-value:*)",
       "Bash(gcloud alpha iap oauth-clients list:*)",
       "Bash(gcloud services list:*)",
-      "mcp__gmail-mcp__batch_delete_emails"
+      "mcp__gmail-mcp__batch_delete_emails",
+      "Bash(TURSO_DATABASE_URL=libsql://clarity-aventerica89.aws-us-west-2.turso.io TURSO_AUTH_TOKEN=eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzE0NzkyNDksImlkIjoiNTNmY2M2MzctYzZmNy00MGRlLThjNDktNTEwNGIzNTBlNWJkIiwicmlkIjoiODcxNGM3OWQtOGVlNi00ZDVlLWIzMDEtNGQxM2ZhNDdmMDRiIn0.NnbWHfU2eQ8b6S_AevHojEAyxGcKu3DoKHsv20C-zrISAakMlN5S8rae33kFKNoB_ERQX4sUE3VwOAWDsZP1AA npx drizzle-kit push)"
     ]
   },
   "enableAllProjectMcpServers": true,
