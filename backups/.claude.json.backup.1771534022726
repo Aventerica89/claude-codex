@@ -1,17 +1,17 @@
 {
-  "numStartups": 182,
+  "numStartups": 183,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
   "tipsHistory": {
     "new-user-warmup": 8,
     "plan-mode-for-complex-tasks": 12,
-    "memory-command": 168,
+    "memory-command": 183,
     "theme-command": 182,
     "status-line": 176,
     "stickers-command": 1,
     "prompt-queue": 7,
-    "enter-to-steer-in-relatime": 163,
+    "enter-to-steer-in-relatime": 183,
     "todo-list": 164,
     "install-github-app": 175,
     "install-slack-app": 54,
@@ -25,7 +25,7 @@
     "desktop-app": 172,
     "web-app": 172,
     "mobile-app": 174,
-    "guest-passes": 180,
+    "guest-passes": 183,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 181,
@@ -41,8 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7283,
-  "showExpandedTodos": true,
+  "promptQueueUseCount": 7286,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -929,7 +928,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771529619837
+      "timestamp": 1771533937092
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1407,7 +1406,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771533443941
+    "timestamp": 1771533946509
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
