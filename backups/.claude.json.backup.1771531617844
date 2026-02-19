@@ -1,5 +1,5 @@
 {
-  "numStartups": 180,
+  "numStartups": 181,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -28,7 +28,7 @@
     "guest-passes": 180,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 178,
+    "frontend-design-plugin": 181,
     "custom-agents": 174,
     "agent-flag": 174,
     "permissions": 175,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7280,
+  "promptQueueUseCount": 7281,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -877,6 +877,26 @@
       "projectOnboardingSeenCount": 0,
       "hasClaudeMdExternalIncludesApproved": false,
       "hasClaudeMdExternalIncludesWarningShown": false
+    },
+    "/Users/jb/clarity": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "auth.ts",
+        "sync-button.tsx",
+        "login/page.tsx",
+        "todoist.ts",
+        "middleware.ts"
+      ],
+      "exampleFilesGeneratedAt": 1771531558981,
+      "hasCompletedProjectOnboarding": true
     }
   },
   "hasShownOpus45Notice": {
@@ -941,6 +961,9 @@
     ],
     "aventerica89/jb-cloud-app-tracker": [
       "/private/tmp/jb-cloud-app-tracker"
+    ],
+    "aventerica89/clarity": [
+      "/Users/jb/clarity"
     ]
   },
   "feedbackSurveyState": {
@@ -1080,8 +1103,8 @@
       "lastUsedAt": 1770946166956
     },
     "start": {
-      "usageCount": 19,
-      "lastUsedAt": 1771524970918
+      "usageCount": 20,
+      "lastUsedAt": 1771531571025
     },
     "codex-sync": {
       "usageCount": 7,
@@ -1383,7 +1406,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771531262788
+    "timestamp": 1771531610803
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
