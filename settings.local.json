@@ -493,7 +493,9 @@
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/HIPAA-Action-Plan.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/HIPAA-Action-Plan.html\")",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/interaction-log.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/interaction-log.html\")",
       "mcp__gmail-mcp__read_email",
-      "Bash(pip3:*)"
+      "Bash(pip3:*)",
+      "Bash(/opt/homebrew/bin/python3:*)",
+      "Bash(git clone:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
