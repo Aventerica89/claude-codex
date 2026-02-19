@@ -1020,8 +1020,8 @@
       "lastUsedAt": 1771470302854
     },
     "end": {
-      "usageCount": 79,
-      "lastUsedAt": 1771500679059
+      "usageCount": 80,
+      "lastUsedAt": 1771530146396
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1373,13 +1373,17 @@
         "tailwindcss-mcp-server"
       ],
       "env": {}
+    },
+    "todoist": {
+      "type": "http",
+      "url": "https://ai.todoist.net/mcp"
     }
   },
   "hasVisitedPasses": false,
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771530120729
+    "timestamp": 1771530735852
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
