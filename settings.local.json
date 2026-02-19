@@ -539,7 +539,9 @@
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/call-cheat-sheet.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/call-cheat-sheet.html\")",
       "Bash(__NEW_LINE_6dee994f103376df__ ls -lh ~/Desktop/HIPAA/call-cheat-sheet.pdf)",
       "Bash(~/.zshrc)",
-      "Bash(gcloud projects list:*)"
+      "Bash(gcloud projects list:*)",
+      "Bash(\"$CHROME\" --headless=new --screenshot=\"$HOME/Desktop/HIPAA/call-cheat-sheet.png\" --window-size=800,1050 \"file://$HOME/Desktop/HIPAA/Source/call-cheat-sheet.html\")",
+      "Bash(gcloud config get-value:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
