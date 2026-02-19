@@ -1,5 +1,5 @@
 {
-  "numStartups": 183,
+  "numStartups": 184,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -12,7 +12,7 @@
     "stickers-command": 1,
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 183,
-    "todo-list": 164,
+    "todo-list": 184,
     "install-github-app": 175,
     "install-slack-app": 54,
     "drag-and-drop-images": 180,
@@ -20,7 +20,7 @@
     "double-esc-code-restore": 175,
     "continue": 175,
     "shift-tab": 175,
-    "image-paste": 164,
+    "image-paste": 184,
     "ultrathink-keyword": 2,
     "desktop-app": 172,
     "web-app": 172,
@@ -28,7 +28,7 @@
     "guest-passes": 183,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 181,
+    "frontend-design-plugin": 184,
     "custom-agents": 174,
     "agent-flag": 174,
     "permissions": 175,
@@ -37,11 +37,11 @@
     "terminal-setup": 175,
     "colorterm-truecolor": 140,
     "default-permission-mode-config": 175,
-    "git-worktrees": 174,
+    "git-worktrees": 184,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7302,
+  "promptQueueUseCount": 7305,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -109,7 +109,7 @@
     "tengu_vscode_review_upsell": false,
     "tengu_vscode_onboarding": false,
     "tengu_quiet_fern": true,
-    "tengu_chomp_inflection": false,
+    "tengu_chomp_inflection": true,
     "tengu_silver_lantern": false,
     "tengu_copper_lantern": false,
     "tengu_workout2": true,
@@ -141,7 +141,10 @@
     "tengu_marble_sandcastle": true,
     "tengu_birch_mist": false,
     "tengu_oak_drum": false,
-    "tengu_destructive_command_warning": false
+    "tengu_destructive_command_warning": false,
+    "tengu_worktree_mode": true,
+    "tengu_pebble_leaf_prune": false,
+    "tengu_swann_brevity": "control"
   },
   "userID": "93c6352d834b2ac516169b950f4fa2839145591d89631beb8b49edd1b29b1442",
   "firstStartTime": "2026-01-14T04:53:11.063Z",
@@ -150,7 +153,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771500431641,
+  "changelogLastFetched": 1771544182097,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -928,7 +931,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771533937092
+      "timestamp": 1771544100608
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1410,7 +1413,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771543902829
+    "timestamp": 1771544217181
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
