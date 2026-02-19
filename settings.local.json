@@ -573,7 +573,11 @@
       "Bash(arch -arm64 sh -c 'set -a; . .env.local; set +a; npx drizzle-kit push')",
       "Bash(arch -arm64 npm run build:*)",
       "Bash(gcloud config set:*)",
-      "WebFetch(domain:developer.todoist.com)"
+      "WebFetch(domain:developer.todoist.com)",
+      "Bash(OUT=~/Desktop/HIPAA/Source)",
+      "Bash(__NEW_LINE_b7af53f5e200d502__ for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)",
+      "Bash($PANDOC \"$SRC/$name.html\" -o \"$OUT/$name.docx\")",
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/Denker-Call-Script.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Denker-Call-Script.html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
