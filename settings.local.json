@@ -577,7 +577,10 @@
       "Bash(OUT=~/Desktop/HIPAA/Source)",
       "Bash(__NEW_LINE_b7af53f5e200d502__ for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)",
       "Bash($PANDOC \"$SRC/$name.html\" -o \"$OUT/$name.docx\")",
-      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/Denker-Call-Script.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Denker-Call-Script.html\")"
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/Denker-Call-Script.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Denker-Call-Script.html\")",
+      "Bash(__NEW_LINE_2e862809ba04c928__ echo \"\")",
+      "Bash(__NEW_LINE_8e2cb536ab7e87ee__ echo \"\")",
+      "Bash(__NEW_LINE_9f3ad2458e7325cc__ echo \"\")"
     ]
   },
   "enableAllProjectMcpServers": true,
