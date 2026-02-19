@@ -550,7 +550,9 @@
       "Bash(jobs:*)",
       "Bash(gcloud components install:*)",
       "Bash(gcloud alpha iap oauth-brands list:*)",
-      "Bash(ToolSearch)"
+      "Bash(ToolSearch)",
+      "Bash(gcloud help:*)",
+      "Bash(gcloud alpha:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
