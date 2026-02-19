@@ -42,7 +42,6 @@
     "overage-promo": 97
   },
   "promptQueueUseCount": 7251,
-  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -151,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771491694364,
+  "changelogLastFetched": 1771492021078,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -159,7 +158,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.47",
+  "lastReleaseNotesSeen": "2.1.45",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -1085,8 +1084,8 @@
       "lastUsedAt": 1771470074153
     },
     "codex-sync": {
-      "usageCount": 4,
-      "lastUsedAt": 1771307614087
+      "usageCount": 6,
+      "lastUsedAt": 1771491932476
     },
     "frontend-design:frontend-design": {
       "usageCount": 1,
@@ -1117,8 +1116,8 @@
       "lastUsedAt": 1770520205307
     },
     "commit-commands:commit": {
-      "usageCount": 3,
-      "lastUsedAt": 1771140088861
+      "usageCount": 4,
+      "lastUsedAt": 1771491741096
     },
     "tdd": {
       "usageCount": 1,
@@ -1149,8 +1148,8 @@
       "lastUsedAt": 1771407151856
     },
     "superpowers:writing-plans": {
-      "usageCount": 11,
-      "lastUsedAt": 1771472447429
+      "usageCount": 12,
+      "lastUsedAt": 1771491996483
     },
     "superpowers:executing-plans": {
       "usageCount": 4,
@@ -1380,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771491689354
+    "timestamp": 1771492021539
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
