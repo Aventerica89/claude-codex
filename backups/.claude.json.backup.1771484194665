@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7215,
+  "promptQueueUseCount": 7219,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771483541849,
+  "changelogLastFetched": 1771484194135,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -158,7 +158,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.47",
+  "lastReleaseNotesSeen": "2.1.45",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -193,49 +193,49 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 8.255422750000003,
-      "lastAPIDuration": 772484,
-      "lastAPIDurationWithoutRetries": 772298,
-      "lastToolDuration": 137583,
-      "lastDuration": 10798215,
-      "lastLinesAdded": 474,
-      "lastLinesRemoved": 20,
-      "lastTotalInputTokens": 40599,
-      "lastTotalOutputTokens": 29724,
-      "lastTotalCacheCreationInputTokens": 554563,
-      "lastTotalCacheReadInputTokens": 8033402,
+      "lastCost": 6.50445,
+      "lastAPIDuration": 915447,
+      "lastAPIDurationWithoutRetries": 915338,
+      "lastToolDuration": 291736,
+      "lastDuration": 5659722,
+      "lastLinesAdded": 201,
+      "lastLinesRemoved": 58,
+      "lastTotalInputTokens": 35307,
+      "lastTotalOutputTokens": 24844,
+      "lastTotalCacheCreationInputTokens": 424756,
+      "lastTotalCacheReadInputTokens": 6438292,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
-        "claude-sonnet-4-6": {
-          "inputTokens": 3926,
-          "outputTokens": 28389,
-          "cacheReadInputTokens": 8033402,
-          "cacheCreationInputTokens": 554563,
-          "webSearchRequests": 0,
-          "costUSD": 8.21207475
-        },
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 36673,
-          "outputTokens": 1335,
+          "inputTokens": 33764,
+          "outputTokens": 1600,
           "cacheReadInputTokens": 0,
           "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 0.04334799999999999
+          "costUSD": 0.041764
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 1543,
+          "outputTokens": 23244,
+          "cacheReadInputTokens": 6438292,
+          "cacheCreationInputTokens": 424756,
+          "webSearchRequests": 0,
+          "costUSD": 6.462686
         }
       },
-      "lastSessionId": "3af7ee6b-d547-48c0-9d67-ee12851808d0",
+      "lastSessionId": "b5b61b33-b770-4b9e-8a4d-3090ad396557",
       "hasCompletedProjectOnboarding": true,
-      "lastFpsAverage": 7.09,
-      "lastFpsLow1Pct": 106.25,
+      "lastFpsAverage": 11.48,
+      "lastFpsLow1Pct": 80.48,
       "exampleFilesGeneratedAt": 1769594801082,
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 76525,
-        "frame_duration_ms_min": 0.1911250000121072,
-        "frame_duration_ms_max": 339.59062499925494,
-        "frame_duration_ms_avg": 2.0861998672478292,
-        "frame_duration_ms_p50": 1.419250000268221,
-        "frame_duration_ms_p95": 3.1179436500999134,
-        "frame_duration_ms_p99": 7.669651820277792
+        "frame_duration_ms_count": 64912,
+        "frame_duration_ms_min": 0.3300840000156313,
+        "frame_duration_ms_max": 474.71266700001433,
+        "frame_duration_ms_avg": 2.2807195129715794,
+        "frame_duration_ms_p50": 1.777541499817744,
+        "frame_duration_ms_p95": 3.7878374999389033,
+        "frame_duration_ms_p99": 7.1254201599978755
       }
     },
     "/Users/jb/Downloads": {
@@ -1370,7 +1370,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771483838081
+    "timestamp": 1771484115099
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
