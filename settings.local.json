@@ -587,7 +587,8 @@
       "Bash(__NEW_LINE_abeab4a227d64117__ PANDOC=/opt/homebrew/bin/pandoc)",
       "Bash(for name in interaction-log HIPAA-Action-Plan)",
       "Bash(TURSO_AUTH_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzExMjE0NjMsImlkIjoiMDAxMWRmYzEtMDJjNC00ZTQ1LTk3ZWMtZmNlODFmOTU4OTI5IiwicmlkIjoiZWNjODU4OGEtZWJjNC00MzQ5LTkyMzYtYjFiYjE3YTIwNWI3In0.7tAqWS-QCPbHoovmTyup9ZJAnsyVe3x_QtLgUql4DTIyGR29J-qL2Yf7-b9lVZTnftRPRV08TNQGdgA4V3QPCQ\")",
-      "WebFetch(domain:docs.cloud.google.com)"
+      "WebFetch(domain:docs.cloud.google.com)",
+      "Bash(~/wp-dispatch/src/lib/db/schema.ts:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
