@@ -1,5 +1,5 @@
 {
-  "numStartups": 168,
+  "numStartups": 169,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771462162958,
+  "changelogLastFetched": 1771462835989,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -158,7 +158,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.45",
+  "lastReleaseNotesSeen": "2.1.47",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -865,6 +865,26 @@
       "projectOnboardingSeenCount": 0,
       "hasClaudeMdExternalIncludesApproved": false,
       "hasClaudeMdExternalIncludesWarningShown": false
+    },
+    "/Users/jb/apple-mail-mcp": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {
+        "apple-mail": {
+          "type": "stdio",
+          "command": "/Users/jb/apple-mail-mcp/venv/bin/python3.11",
+          "args": [
+            "/Users/jb/apple-mail-mcp/apple_mail_mcp.py"
+          ],
+          "env": {}
+        }
+      },
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false
     }
   },
   "hasShownOpus45Notice": {
@@ -896,7 +916,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771459217855
+      "timestamp": 1771462918239
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1044,8 +1064,8 @@
       "lastUsedAt": 1769594224377
     },
     "context-save": {
-      "usageCount": 6,
-      "lastUsedAt": 1771147644439
+      "usageCount": 7,
+      "lastUsedAt": 1771462624732
     },
     "plan": {
       "usageCount": 1,
@@ -1156,8 +1176,8 @@
       "lastUsedAt": 1771450785496
     },
     "context-restore": {
-      "usageCount": 1,
-      "lastUsedAt": 1771099102560
+      "usageCount": 2,
+      "lastUsedAt": 1771462934252
     },
     "claude-automation-recommender": {
       "usageCount": 1,
@@ -1328,13 +1348,21 @@
     "sosumi": {
       "type": "http",
       "url": "https://sosumi.ai/mcp"
+    },
+    "apple-mail": {
+      "type": "stdio",
+      "command": "/Users/jb/apple-mail-mcp/venv/bin/python3.11",
+      "args": [
+        "/Users/jb/apple-mail-mcp/apple_mail_mcp.py"
+      ],
+      "env": {}
     }
   },
   "hasVisitedPasses": false,
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771462162889
+    "timestamp": 1771462949794
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
