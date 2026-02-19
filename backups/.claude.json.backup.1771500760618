@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7259,
+  "promptQueueUseCount": 7260,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771500308932,
+  "changelogLastFetched": 1771500431641,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -193,49 +193,49 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 91.97343030000006,
-      "lastAPIDuration": 10172968,
-      "lastAPIDurationWithoutRetries": 10171919,
-      "lastToolDuration": 1778942,
-      "lastDuration": 30223206,
-      "lastLinesAdded": 4267,
-      "lastLinesRemoved": 290,
-      "lastTotalInputTokens": 216529,
-      "lastTotalOutputTokens": 457704,
-      "lastTotalCacheCreationInputTokens": 5243640,
-      "lastTotalCacheReadInputTokens": 97727607,
+      "lastCost": 121.69373380000016,
+      "lastAPIDuration": 18174308,
+      "lastAPIDurationWithoutRetries": 18172784,
+      "lastToolDuration": 6679144,
+      "lastDuration": 53522571,
+      "lastLinesAdded": 5279,
+      "lastLinesRemoved": 499,
+      "lastTotalInputTokens": 972265,
+      "lastTotalOutputTokens": 838833,
+      "lastTotalCacheCreationInputTokens": 7397860,
+      "lastTotalCacheReadInputTokens": 139702886,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 139211,
-          "outputTokens": 13876,
-          "cacheReadInputTokens": 962673,
-          "cacheCreationInputTokens": 193787,
+          "inputTokens": 873930,
+          "outputTokens": 86959,
+          "cacheReadInputTokens": 18260273,
+          "cacheCreationInputTokens": 1537495,
           "webSearchRequests": 0,
-          "costUSD": 0.5470920499999998
+          "costUSD": 5.056621049999994
         },
         "claude-sonnet-4-6": {
-          "inputTokens": 77318,
-          "outputTokens": 443828,
-          "cacheReadInputTokens": 96764934,
-          "cacheCreationInputTokens": 5049853,
+          "inputTokens": 98335,
+          "outputTokens": 751874,
+          "cacheReadInputTokens": 121442613,
+          "cacheCreationInputTokens": 5860365,
           "webSearchRequests": 0,
-          "costUSD": 91.42633825000007
+          "costUSD": 116.63711275000011
         }
       },
-      "lastSessionId": "3dd5397e-759e-4014-9259-55a5c1bb5cb3",
+      "lastSessionId": "9a3ae0ac-e0e1-4f2e-94df-13cd4a16dd54",
       "hasCompletedProjectOnboarding": true,
-      "lastFpsAverage": 11.18,
-      "lastFpsLow1Pct": 54.75,
+      "lastFpsAverage": 9.56,
+      "lastFpsLow1Pct": 112.49,
       "exampleFilesGeneratedAt": 1769594801082,
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 337982,
-        "frame_duration_ms_min": 0.054917000234127045,
-        "frame_duration_ms_max": 1328.4485420007259,
-        "frame_duration_ms_avg": 2.3614707190842945,
-        "frame_duration_ms_p50": 1.6598540004342794,
-        "frame_duration_ms_p95": 4.179114300303626,
-        "frame_duration_ms_p99": 21.99694409118024
+        "frame_duration_ms_count": 511089,
+        "frame_duration_ms_min": 0.07841599732637405,
+        "frame_duration_ms_max": 2582.4409580007195,
+        "frame_duration_ms_avg": 2.010037918634699,
+        "frame_duration_ms_p50": 1.4962915005162358,
+        "frame_duration_ms_p95": 3.8344339020550247,
+        "frame_duration_ms_p99": 7.611116749532514
       }
     },
     "/Users/jb/Downloads": {
@@ -1012,16 +1012,16 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 36,
-      "lastUsedAt": 1771493433655
+      "usageCount": 37,
+      "lastUsedAt": 1771500562348
     },
     "new-project": {
       "usageCount": 4,
       "lastUsedAt": 1771470302854
     },
     "end": {
-      "usageCount": 78,
-      "lastUsedAt": 1771500244465
+      "usageCount": 79,
+      "lastUsedAt": 1771500679059
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1084,8 +1084,8 @@
       "lastUsedAt": 1771470074153
     },
     "codex-sync": {
-      "usageCount": 6,
-      "lastUsedAt": 1771491932476
+      "usageCount": 7,
+      "lastUsedAt": 1771500728127
     },
     "frontend-design:frontend-design": {
       "usageCount": 1,
@@ -1379,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771500323906
+    "timestamp": 1771500757134
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
