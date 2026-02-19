@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771480087260,
+  "changelogLastFetched": 1771480638719,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -193,57 +193,49 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 17.964654400000008,
-      "lastAPIDuration": 2515880,
-      "lastAPIDurationWithoutRetries": 2515577,
-      "lastToolDuration": 1097607,
-      "lastDuration": 9427778,
-      "lastLinesAdded": 2734,
-      "lastLinesRemoved": 29,
-      "lastTotalInputTokens": 211339,
-      "lastTotalOutputTokens": 116540,
-      "lastTotalCacheCreationInputTokens": 925984,
-      "lastTotalCacheReadInputTokens": 18583226,
+      "lastCost": 13.5886202,
+      "lastAPIDuration": 1875671,
+      "lastAPIDurationWithoutRetries": 1875393,
+      "lastToolDuration": 2483682,
+      "lastDuration": 13886241,
+      "lastLinesAdded": 1154,
+      "lastLinesRemoved": 93,
+      "lastTotalInputTokens": 40602,
+      "lastTotalOutputTokens": 66299,
+      "lastTotalCacheCreationInputTokens": 991526,
+      "lastTotalCacheReadInputTokens": 16070517,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
-        "claude-sonnet-4-6": {
-          "inputTokens": 2555,
-          "outputTokens": 86476,
-          "cacheReadInputTokens": 18451390,
-          "cacheCreationInputTokens": 827366,
-          "webSearchRequests": 0,
-          "costUSD": 16.571407499999996
-        },
-        "claude-opus-4-6": {
-          "inputTokens": 9,
-          "outputTokens": 25433,
-          "cacheReadInputTokens": 103177,
-          "cacheCreationInputTokens": 69544,
-          "webSearchRequests": 0,
-          "costUSD": 1.1221085000000002
-        },
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 208775,
-          "outputTokens": 4631,
-          "cacheReadInputTokens": 28659,
-          "cacheCreationInputTokens": 29074,
+          "inputTokens": 33338,
+          "outputTokens": 7093,
+          "cacheReadInputTokens": 2609222,
+          "cacheCreationInputTokens": 237052,
           "webSearchRequests": 0,
-          "costUSD": 0.27113839999999995
+          "costUSD": 0.6260401999999998
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 7264,
+          "outputTokens": 59206,
+          "cacheReadInputTokens": 13461295,
+          "cacheCreationInputTokens": 754474,
+          "webSearchRequests": 0,
+          "costUSD": 12.96258
         }
       },
-      "lastSessionId": "48b23354-e2e7-4310-a62d-d1ccdf5a88de",
+      "lastSessionId": "b56bdb39-add2-48ef-931d-00f3b97c1b19",
       "hasCompletedProjectOnboarding": true,
-      "lastFpsAverage": 9.41,
-      "lastFpsLow1Pct": 52.13,
+      "lastFpsAverage": 6.48,
+      "lastFpsLow1Pct": 76.77,
       "exampleFilesGeneratedAt": 1769594801082,
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 88683,
-        "frame_duration_ms_min": 0.1023750000167638,
-        "frame_duration_ms_max": 495.6361250001937,
-        "frame_duration_ms_avg": 2.0231070263411666,
-        "frame_duration_ms_p50": 1.3985625002533197,
-        "frame_duration_ms_p95": 3.0829232998192304,
-        "frame_duration_ms_p99": 9.142075749936039
+        "frame_duration_ms_count": 89686,
+        "frame_duration_ms_min": 0.12595799937844276,
+        "frame_duration_ms_max": 472.95716599933803,
+        "frame_duration_ms_avg": 2.132462456640713,
+        "frame_duration_ms_p50": 1.665874999947846,
+        "frame_duration_ms_p95": 3.7556874998845124,
+        "frame_duration_ms_p99": 9.034988250285382
       }
     },
     "/Users/jb/Downloads": {
@@ -1378,7 +1370,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771480087464
+    "timestamp": 1771480638687
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
