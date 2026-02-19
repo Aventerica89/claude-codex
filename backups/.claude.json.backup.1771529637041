@@ -1,5 +1,5 @@
 {
-  "numStartups": 178,
+  "numStartups": 179,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7276,
+  "promptQueueUseCount": 7278,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -908,7 +908,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771524678241
+      "timestamp": 1771529619837
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1224,8 +1224,8 @@
       "lastUsedAt": 1771315953546
     },
     "hipaa-sync": {
-      "usageCount": 3,
-      "lastUsedAt": 1771526870080
+      "usageCount": 4,
+      "lastUsedAt": 1771529231173
     },
     "reverse-engineer": {
       "usageCount": 3,
@@ -1379,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771529060068
+    "timestamp": 1771529617467
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
