@@ -28,7 +28,7 @@
     "guest-passes": 183,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 181,
+    "frontend-design-plugin": 184,
     "custom-agents": 174,
     "agent-flag": 174,
     "permissions": 175,
@@ -37,11 +37,11 @@
     "terminal-setup": 175,
     "colorterm-truecolor": 140,
     "default-permission-mode-config": 175,
-    "git-worktrees": 174,
+    "git-worktrees": 184,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7304,
+  "promptQueueUseCount": 7307,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -970,7 +970,7 @@
     ]
   },
   "feedbackSurveyState": {
-    "lastShownTime": 1771395483046
+    "lastShownTime": 1771544419818
   },
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
@@ -1413,7 +1413,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771544183125
+    "timestamp": 1771544856484
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
