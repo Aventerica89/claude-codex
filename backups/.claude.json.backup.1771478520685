@@ -1,5 +1,5 @@
 {
-  "numStartups": 173,
+  "numStartups": 174,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -24,20 +24,20 @@
     "ultrathink-keyword": 2,
     "desktop-app": 172,
     "web-app": 172,
-    "mobile-app": 159,
-    "guest-passes": 171,
+    "mobile-app": 174,
+    "guest-passes": 174,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 173,
-    "custom-agents": 159,
-    "agent-flag": 159,
+    "custom-agents": 174,
+    "agent-flag": 174,
     "permissions": 165,
     "rename-conversation": 161,
     "custom-commands": 161,
     "terminal-setup": 165,
     "colorterm-truecolor": 140,
     "default-permission-mode-config": 165,
-    "git-worktrees": 164,
+    "git-worktrees": 174,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
@@ -150,7 +150,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771477155118,
+  "changelogLastFetched": 1771478310041,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -908,7 +908,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771470059833
+      "timestamp": 1771478389486
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -972,8 +972,8 @@
       "lastUsedAt": 1769335876433
     },
     "continuous-learning": {
-      "usageCount": 16,
-      "lastUsedAt": 1771410675227
+      "usageCount": 17,
+      "lastUsedAt": 1771478481953
     },
     "frontend-patterns": {
       "usageCount": 1,
@@ -1012,8 +1012,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 28,
-      "lastUsedAt": 1771460168877
+      "usageCount": 29,
+      "lastUsedAt": 1771478371870
     },
     "new-project": {
       "usageCount": 4,
@@ -1108,8 +1108,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 57,
-      "lastUsedAt": 1771467406861
+      "usageCount": 58,
+      "lastUsedAt": 1771478496425
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1370,7 +1370,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771478208485
+    "timestamp": 1771478514335
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
