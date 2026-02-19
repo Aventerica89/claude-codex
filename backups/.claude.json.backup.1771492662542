@@ -1,5 +1,5 @@
 {
-  "numStartups": 175,
+  "numStartups": 176,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -8,7 +8,7 @@
     "plan-mode-for-complex-tasks": 12,
     "memory-command": 168,
     "theme-command": 162,
-    "status-line": 151,
+    "status-line": 176,
     "stickers-command": 1,
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 163,
@@ -32,8 +32,8 @@
     "custom-agents": 174,
     "agent-flag": 174,
     "permissions": 175,
-    "rename-conversation": 161,
-    "custom-commands": 161,
+    "rename-conversation": 176,
+    "custom-commands": 176,
     "terminal-setup": 175,
     "colorterm-truecolor": 140,
     "default-permission-mode-config": 175,
@@ -42,6 +42,7 @@
     "overage-promo": 97
   },
   "promptQueueUseCount": 7251,
+  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -150,7 +151,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771492333242,
+  "changelogLastFetched": 1771492613133,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -158,7 +159,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.47",
+  "lastReleaseNotesSeen": "2.1.45",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -892,7 +893,7 @@
   "groveConfigCache": {
     "a9b563a1-8bfb-41fc-91f9-d28f83d27234": {
       "grove_enabled": true,
-      "timestamp": 1771403932973
+      "timestamp": 1771492554574
     }
   },
   "passesEligibilityCache": {
@@ -908,7 +909,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771488152746
+      "timestamp": 1771492555979
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1108,8 +1109,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 61,
-      "lastUsedAt": 1771484991899
+      "usageCount": 62,
+      "lastUsedAt": 1771492499766
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1152,8 +1153,8 @@
       "lastUsedAt": 1771491996483
     },
     "superpowers:executing-plans": {
-      "usageCount": 4,
-      "lastUsedAt": 1771474670814
+      "usageCount": 6,
+      "lastUsedAt": 1771492599436
     },
     "superpowers:brainstorming": {
       "usageCount": 14,
@@ -1379,7 +1380,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771492333153
+    "timestamp": 1771492653004
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
