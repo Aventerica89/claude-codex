@@ -505,7 +505,8 @@
       "mcp__apple-mail__search_all_accounts",
       "mcp__apple-mail__search_email_content",
       "mcp__apple-mail__list_inbox_emails",
-      "mcp__apple-mail__get_recent_from_sender"
+      "mcp__apple-mail__get_recent_from_sender",
+      "mcp__apple-mail__get_recent_emails"
     ]
   },
   "enableAllProjectMcpServers": true,
