@@ -532,7 +532,10 @@
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/interaction-log.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/interaction-log.html\")",
       "Bash(__NEW_LINE_a5fe98f1b7b23026__ /opt/homebrew/bin/pandoc \"$HOME/Desktop/HIPAA/Source/interaction-log.html\" -o \"$HOME/Desktop/HIPAA/Source/interaction-log.docx\")",
       "Bash(__NEW_LINE_a5fe98f1b7b23026__ ls -lh ~/Desktop/HIPAA/interaction-log.pdf)",
-      "Bash(gcloud version:*)"
+      "Bash(gcloud version:*)",
+      "Bash(export PATH=/opt/homebrew/share/google-cloud-sdk/bin:\"$PATH\")",
+      "Bash(gcloud auth:*)",
+      "Bash(export PATH=/opt/homebrew/share/google-cloud-sdk/bin:$PATH)"
     ]
   },
   "enableAllProjectMcpServers": true,
