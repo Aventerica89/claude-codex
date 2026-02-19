@@ -151,7 +151,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771492719096,
+  "changelogLastFetched": 1771493223983,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -159,7 +159,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.47",
+  "lastReleaseNotesSeen": "2.1.45",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -194,49 +194,49 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 77.80249615000002,
-      "lastAPIDuration": 9200973,
-      "lastAPIDurationWithoutRetries": 8991885,
-      "lastToolDuration": 3793646,
-      "lastDuration": 37936813,
-      "lastLinesAdded": 1883,
-      "lastLinesRemoved": 202,
-      "lastTotalInputTokens": 234274,
-      "lastTotalOutputTokens": 344759,
-      "lastTotalCacheCreationInputTokens": 3490957,
-      "lastTotalCacheReadInputTokens": 96238885,
+      "lastCost": 0.7506565,
+      "lastAPIDuration": 22891,
+      "lastAPIDurationWithoutRetries": 22883,
+      "lastToolDuration": 1639,
+      "lastDuration": 431773,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 1455,
+      "lastTotalOutputTokens": 854,
+      "lastTotalCacheCreationInputTokens": 108320,
+      "lastTotalCacheReadInputTokens": 104319,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 212665,
-          "outputTokens": 14182,
-          "cacheReadInputTokens": 128169,
-          "cacheCreationInputTokens": 148041,
+          "inputTokens": 1447,
+          "outputTokens": 67,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 0.48144315000000004
+          "costUSD": 0.001782
         },
         "claude-sonnet-4-6": {
-          "inputTokens": 21609,
-          "outputTokens": 330577,
-          "cacheReadInputTokens": 96110716,
-          "cacheCreationInputTokens": 3342916,
+          "inputTokens": 8,
+          "outputTokens": 787,
+          "cacheReadInputTokens": 104319,
+          "cacheCreationInputTokens": 108320,
           "webSearchRequests": 0,
-          "costUSD": 77.32105300000005
+          "costUSD": 0.7488745
         }
       },
-      "lastSessionId": "a1f713f1-9d50-474b-ac82-4509affe7a75",
+      "lastSessionId": "6fb71307-c7a5-4632-9662-0f17823de55a",
       "hasCompletedProjectOnboarding": true,
-      "lastFpsAverage": 10.16,
-      "lastFpsLow1Pct": 88.2,
+      "lastFpsAverage": 1.98,
+      "lastFpsLow1Pct": 72.41,
       "exampleFilesGeneratedAt": 1769594801082,
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 384925,
-        "frame_duration_ms_min": 0.05566699802875519,
-        "frame_duration_ms_max": 460.81700000166893,
-        "frame_duration_ms_avg": 2.2878240737026627,
-        "frame_duration_ms_p50": 1.683541502803564,
-        "frame_duration_ms_p95": 4.58474824923323,
-        "frame_duration_ms_p99": 10.361512339413155
+        "frame_duration_ms_count": 848,
+        "frame_duration_ms_min": 0.38399999999819556,
+        "frame_duration_ms_max": 51.36004099999991,
+        "frame_duration_ms_avg": 1.7539146474058862,
+        "frame_duration_ms_p50": 0.9809789999999339,
+        "frame_duration_ms_p95": 5.462960749999909,
+        "frame_duration_ms_p99": 13.546254750001811
       }
     },
     "/Users/jb/Downloads": {
@@ -1380,7 +1380,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771492720905
+    "timestamp": 1771493226566
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
