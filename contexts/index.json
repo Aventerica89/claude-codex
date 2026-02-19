@@ -31,6 +31,14 @@
       "saved": "2026-02-18T00:00:00Z",
       "file": "hipaa-financial-2026-02-18.md",
       "summary": "HIPAA attorney follow-ups set for Feb 19. Apple Mail MCP installed, needs restart + permission grant to scan personal Gmail accounts for subscription audit."
+    },
+    {
+      "name": "clarity-phase1-2026-02-19",
+      "project": "clarity",
+      "branch": "feat/phase-1-foundation",
+      "saved": "2026-02-19T00:00:00Z",
+      "file": "clarity-phase1-2026-02-19.md",
+      "summary": "Phase 1 foundation built (auth, app shell, login). MCPs added: Supabase (project lktavesbpbpmyexcmrjp) + gcloud. Waiting on gcloud auth login + Claude restart to provision DB/Google OAuth."
     }
   ]
 }
