@@ -523,7 +523,12 @@
       "mcp__plugin_playwright_playwright__browser_type",
       "Bash(bunx shadcn@latest add:*)",
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/HIPAA-Attorney-Options-AZ.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/HIPAA-Attorney-Options-AZ.html\")",
-      "mcp__plugin_context7_context7__resolve-library-id"
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs",
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/HIPAA-Action-Plan.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/HIPAA-Action-Plan.html\")",
+      "Bash(__NEW_LINE_653888f922e73264__ /opt/homebrew/bin/pandoc \"$HOME/Desktop/HIPAA/Source/HIPAA-Action-Plan.html\" -o \"$HOME/Desktop/HIPAA/Source/HIPAA-Action-Plan.docx\")",
+      "Bash(pbcopy)",
+      "Bash(output\" label\\) so errors/debug info don''t vanish\n- EditPanel: show \"No output yet...\" placeholder while streaming before any\n  output arrives\n- AgencyEditor: remove setStreamingOutput\\(''''\\) from success path — output was\n  being cleared after 3s wait, hiding any errors or debug lines\n- AgencyEditor: add error message to ws.onerror so network failures surface\n  in the panel instead of silently resolving\nEOF\n\\)\")"
     ]
   },
   "enableAllProjectMcpServers": true,
