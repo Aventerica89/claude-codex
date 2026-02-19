@@ -514,7 +514,8 @@
       "Bash(npx @clerk/clerk-cli:*)",
       "WebFetch(domain:patchstack.com)",
       "Bash(claude mcp remove:*)",
-      "Bash(tr:*)"
+      "Bash(tr:*)",
+      "Bash(DRY_RUN=1 ~/.claude/scripts/deploy-changelog-hook.sh:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
