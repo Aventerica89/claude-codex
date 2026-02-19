@@ -509,7 +509,8 @@
       "mcp__apple-mail__get_recent_emails",
       "mcp__apple-mail__list_mailboxes",
       "WebFetch(domain:clerk.com)",
-      "Bash(unzip:*)"
+      "Bash(unzip:*)",
+      "Bash(its children\" \\(the old wording was confusing the agent\\)\n- agency.ts/diff: add git status --short alongside git diff so untracked\n  new files created by the agent show up in the Changes viewer\nEOF\n\\)\")"
     ]
   },
   "enableAllProjectMcpServers": true,
