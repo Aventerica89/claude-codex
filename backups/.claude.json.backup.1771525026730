@@ -1,5 +1,5 @@
 {
-  "numStartups": 176,
+  "numStartups": 178,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -16,7 +16,7 @@
     "install-github-app": 175,
     "install-slack-app": 54,
     "drag-and-drop-images": 170,
-    "paste-images-mac": 168,
+    "paste-images-mac": 178,
     "double-esc-code-restore": 175,
     "continue": 175,
     "shift-tab": 175,
@@ -25,7 +25,7 @@
     "desktop-app": 172,
     "web-app": 172,
     "mobile-app": 174,
-    "guest-passes": 174,
+    "guest-passes": 177,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 173,
@@ -137,7 +137,7 @@
     "tengu_immediate_model_command": false,
     "tengu_disable_streaming_to_non_streaming_fallback": false,
     "tengu_moth_copse": false,
-    "tengu_slate_nexus": true,
+    "tengu_slate_nexus": false,
     "tengu_marble_sandcastle": true,
     "tengu_birch_mist": false,
     "tengu_oak_drum": false,
@@ -908,7 +908,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771492555979
+      "timestamp": 1771524678241
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1080,8 +1080,8 @@
       "lastUsedAt": 1770946166956
     },
     "start": {
-      "usageCount": 18,
-      "lastUsedAt": 1771523175311
+      "usageCount": 19,
+      "lastUsedAt": 1771524970918
     },
     "codex-sync": {
       "usageCount": 7,
@@ -1379,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771523797443
+    "timestamp": 1771525006952
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
