@@ -1,5 +1,5 @@
 {
-  "numStartups": 177,
+  "numStartups": 178,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -16,7 +16,7 @@
     "install-github-app": 175,
     "install-slack-app": 54,
     "drag-and-drop-images": 170,
-    "paste-images-mac": 168,
+    "paste-images-mac": 178,
     "double-esc-code-restore": 175,
     "continue": 175,
     "shift-tab": 175,
@@ -28,7 +28,7 @@
     "guest-passes": 177,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 173,
+    "frontend-design-plugin": 178,
     "custom-agents": 174,
     "agent-flag": 174,
     "permissions": 175,
@@ -1080,8 +1080,8 @@
       "lastUsedAt": 1770946166956
     },
     "start": {
-      "usageCount": 18,
-      "lastUsedAt": 1771523175311
+      "usageCount": 19,
+      "lastUsedAt": 1771524970918
     },
     "codex-sync": {
       "usageCount": 7,
@@ -1379,7 +1379,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771524778080
+    "timestamp": 1771525287483
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
