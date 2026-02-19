@@ -24,5 +24,13 @@
       "file": "1p-mcp-testing-2026-01-28.md",
       "summary": "Tested deploy_env_vars across Vercel/Cloudflare/GitHub, documented workarounds"
     }
+    ,{
+      "name": "hipaa-financial-2026-02-18",
+      "project": "HIPAA + Financial Planning",
+      "branch": "N/A",
+      "saved": "2026-02-18T00:00:00Z",
+      "file": "hipaa-financial-2026-02-18.md",
+      "summary": "HIPAA attorney follow-ups set for Feb 19. Apple Mail MCP installed, needs restart + permission grant to scan personal Gmail accounts for subscription audit."
+    }
   ]
 }
