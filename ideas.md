@@ -85,6 +85,54 @@ op item edit "Supabase" "CLI Tokens.Token Name[password]=value"
 
 ---
 
+## DevTools
+
+### DevTools Widget - Ideas Capture Section
+**Added:** 2026-02-18
+**Status:** Idea
+**Project:** https://github.com/Aventerica89/devtools
+
+A dedicated "Ideas" panel in the embeddable DevTools widget — same concept as the screenshot function but for capturing quick notes, observations, and micro-adjustments while working.
+
+- Ideas section in the widget toolbar alongside Console/Network/Errors etc.
+- Quick text input to jot down ideas mid-session without breaking flow
+- Screenshots captured in the widget go to a DevTools file manager (not browser downloads)
+- Pile up many small ideas and preference notes while large tasks are running, then paste them all at once as a batch input to Claude
+- Pairs well with the `/ideas` workflow for structured capture
+
+---
+
+### DevTools Widget - Expanded Ideas Panel + Batch Copy
+**Added:** 2026-02-18
+**Status:** Idea
+**Project:** https://github.com/Aventerica89/devtools
+
+The ideas panel should expand into a larger overlay (not just a small widget section) for reviewing and batching captured ideas.
+
+- "Open full panel" button expands ideas list into a bigger centered overlay or drawer
+- Select multiple ideas (checkboxes) and copy them all at once
+- "Copy all" button dumps every idea as a formatted block ready to paste into Claude
+- Sort ideas by time captured, type, or project
+- Sorting + filtering like VaporForge's bug tracker (status, severity, project filter)
+- Optional: tag ideas (UX, Bug, Feature, Preference) for easier filtering
+
+---
+
+### DevTools Widget - Screenshot File Manager
+**Added:** 2026-02-18
+**Status:** Idea
+**Project:** https://github.com/Aventerica89/devtools
+
+Instead of screenshots downloading to the browser default folder (or requiring FSAA picker), route them through a DevTools file manager.
+
+- Debug Snapshot screenshots go to a "Files" section in the DevTools dashboard
+- Viewable in-browser without needing to navigate Finder
+- Claude can reference them via full path (already partially implemented in DebugSnapshot.tsx)
+- Could support image annotations or tagging before sending to Claude
+- Possible backend: store as blobs in Turso or as base64 in devlog entries
+
+---
+
 ## Web Apps
 
 ### JB Cloud App Tracker - Feature Ideas
