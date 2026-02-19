@@ -549,7 +549,8 @@
       "Bash(arch -arm64 node:*)",
       "Bash(jobs:*)",
       "Bash(gcloud components install:*)",
-      "Bash(gcloud alpha iap oauth-brands list:*)"
+      "Bash(gcloud alpha iap oauth-brands list:*)",
+      "Bash(ToolSearch)"
     ]
   },
   "enableAllProjectMcpServers": true,
