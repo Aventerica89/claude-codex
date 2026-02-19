@@ -580,7 +580,12 @@
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/Denker-Call-Script.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Denker-Call-Script.html\")",
       "Bash(__NEW_LINE_2e862809ba04c928__ echo \"\")",
       "Bash(__NEW_LINE_8e2cb536ab7e87ee__ echo \"\")",
-      "Bash(__NEW_LINE_9f3ad2458e7325cc__ echo \"\")"
+      "Bash(__NEW_LINE_9f3ad2458e7325cc__ echo \"\")",
+      "Bash(OUT=~/Desktop/HIPAA)",
+      "Bash(__NEW_LINE_abeab4a227d64117__ for name in interaction-log HIPAA-Action-Plan)",
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$OUT/$name.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$SRC/$name.html\")",
+      "Bash(__NEW_LINE_abeab4a227d64117__ PANDOC=/opt/homebrew/bin/pandoc)",
+      "Bash(for name in interaction-log HIPAA-Action-Plan)"
     ]
   },
   "enableAllProjectMcpServers": true,
