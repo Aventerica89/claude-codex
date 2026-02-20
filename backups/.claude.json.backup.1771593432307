@@ -1325,6 +1325,14 @@
     "superpowers:dispatching-parallel-agents": {
       "usageCount": 1,
       "lastUsedAt": 1771566207988
+    },
+    "hookify:hookify": {
+      "usageCount": 1,
+      "lastUsedAt": 1771592889621
+    },
+    "hookify:writing-rules": {
+      "usageCount": 1,
+      "lastUsedAt": 1771592893356
     }
   },
   "slackAppInstallCount": 1,
@@ -1478,7 +1486,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771592661305
+    "timestamp": 1771593397656
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
