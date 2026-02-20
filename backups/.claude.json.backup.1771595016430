@@ -1103,8 +1103,8 @@
       "lastUsedAt": 1771470302854
     },
     "end": {
-      "usageCount": 89,
-      "lastUsedAt": 1771588249127
+      "usageCount": 90,
+      "lastUsedAt": 1771594425960
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1486,7 +1486,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771594383425
+    "timestamp": 1771594874972
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
