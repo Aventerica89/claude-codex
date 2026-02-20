@@ -1,4 +1,24 @@
 
+## 2026-02-19 Security Audit (Clarity)
+
+### cron-auth-fail-open.md
+`if (secret) { check }` is fail-open — if env var is unset, auth is bypassed entirely. Fix: fail closed with 503 when secret is missing, then 401 if wrong. Applies to cron endpoints, webhooks, any bearer-token auth.
+
+**Use when:** Auditing cron/webhook routes, code review of env-var gated auth, any `if (secret) { ... }` pattern around authentication logic.
+
+**Key insight:** Always validate the secret *exists* before checking its *value*. Missing config should be a hard failure, not silent permission grant.
+
+---
+
+### nextjs-security-headers-template.md
+Complete security headers config for `next.config.ts`: CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy. Includes connect-src domain table for common integrations (Turso, Anthropic, Gemini, Todoist, Google APIs, Supabase, Stripe).
+
+**Use when:** Any new Next.js project before first deploy, security audit of existing apps, adding a new third-party API (update connect-src).
+
+**Key insight:** `unsafe-inline`/`unsafe-eval` in script-src are unavoidable with Next.js hydration; `unsafe-inline` in style-src unavoidable with Tailwind v4. Both are known trade-offs, not bugs.
+
+---
+
 ## 2026-02-15 MCP Server Debugging (VaporForge)
 
 ### npx-stdio-mcp-container-preinstall.md
