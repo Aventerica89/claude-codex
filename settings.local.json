@@ -602,7 +602,8 @@
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/attorney-brief-ames.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/attorney-brief-ames.html\")",
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"/Users/jb/Desktop/HIPAA/attorney-brief-ames.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file:///Users/jb/Desktop/HIPAA/Source/attorney-brief-ames.html\")",
       "Bash(__NEW_LINE_6c15e4d883f3cf43__ for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)",
-      "Bash(# Step 6 - Cross-document consistency check echo \"\"=== Checking attorney status consistency ===\"\" grep -l \"\"Rosati\\\\|Denker\\\\|ARTEMiS\\\\|Ames\"\" ~/Desktop/HIPAA/Source/*.html echo \"\"\"\" echo \"\"=== Checking for Rosati as #1 or ''primary'' ===\"\" grep -n \"\"Rosati.*primary\\\\|primary.*Rosati\\\\|#1.*Rosati\\\\|Rosati.*#1\"\" ~/Desktop/HIPAA/Source/*.html || echo \"\"No bad Rosati references\"\" echo \"\"\"\" echo \"\"=== Checking risk table consistency ===\"\" grep -n \"\"BON\\\\|Board of Nursing\\\\|Criminal\"\" ~/Desktop/HIPAA/Source/HIPAA-Action-Plan.html)"
+      "Bash(# Step 6 - Cross-document consistency check echo \"\"=== Checking attorney status consistency ===\"\" grep -l \"\"Rosati\\\\|Denker\\\\|ARTEMiS\\\\|Ames\"\" ~/Desktop/HIPAA/Source/*.html echo \"\"\"\" echo \"\"=== Checking for Rosati as #1 or ''primary'' ===\"\" grep -n \"\"Rosati.*primary\\\\|primary.*Rosati\\\\|#1.*Rosati\\\\|Rosati.*#1\"\" ~/Desktop/HIPAA/Source/*.html || echo \"\"No bad Rosati references\"\" echo \"\"\"\" echo \"\"=== Checking risk table consistency ===\"\" grep -n \"\"BON\\\\|Board of Nursing\\\\|Criminal\"\" ~/Desktop/HIPAA/Source/HIPAA-Action-Plan.html)",
+      "WebFetch(domain:wsform.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
