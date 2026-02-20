@@ -1,5 +1,5 @@
 {
-  "numStartups": 185,
+  "numStartups": 186,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -25,7 +25,7 @@
     "desktop-app": 172,
     "web-app": 172,
     "mobile-app": 174,
-    "guest-passes": 183,
+    "guest-passes": 186,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 184,
@@ -35,13 +35,13 @@
     "rename-conversation": 176,
     "custom-commands": 176,
     "terminal-setup": 185,
-    "colorterm-truecolor": 140,
+    "colorterm-truecolor": 186,
     "default-permission-mode-config": 185,
     "git-worktrees": 184,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7355,
+  "promptQueueUseCount": 7356,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -154,7 +154,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771548996630,
+  "changelogLastFetched": 1771549577799,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -162,7 +162,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.47",
+  "lastReleaseNotesSeen": "2.1.49",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -1428,7 +1428,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771549102966
+    "timestamp": 1771549665096
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
