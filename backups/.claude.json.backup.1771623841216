@@ -1,5 +1,5 @@
 {
-  "numStartups": 193,
+  "numStartups": 194,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -37,11 +37,11 @@
     "terminal-setup": 185,
     "colorterm-truecolor": 186,
     "default-permission-mode-config": 185,
-    "git-worktrees": 184,
+    "git-worktrees": 194,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7525,
+  "promptQueueUseCount": 7527,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -972,7 +972,7 @@
   "groveConfigCache": {
     "a9b563a1-8bfb-41fc-91f9-d28f83d27234": {
       "grove_enabled": true,
-      "timestamp": 1771492554574
+      "timestamp": 1771623133642
     }
   },
   "passesEligibilityCache": {
@@ -988,7 +988,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771554277493
+      "timestamp": 1771623137423
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1032,7 +1032,7 @@
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
   "anonymousId": "claudecode.v1.adb9b3f9-85dd-4f99-89ec-2e79b3fa4ac1",
-  "lastPlanModeUse": 1771551930912,
+  "lastPlanModeUse": 1771623140886,
   "skillUsage": {
     "everything-claude-code:plan": {
       "usageCount": 2,
@@ -1486,7 +1486,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771622858663
+    "timestamp": 1771623746969
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
