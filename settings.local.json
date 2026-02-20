@@ -621,7 +621,8 @@
       "mcp__patchstack-docs__get_article",
       "WebFetch(domain:docs.openclaw.ai)",
       "WebFetch(domain:www.npmjs.com)",
-      "WebFetch(domain:status.monarch.com)"
+      "WebFetch(domain:status.monarch.com)",
+      "Bash(~/.claude/contexts/vaporforge-session-20260220-component-registry.md:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
