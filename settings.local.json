@@ -612,7 +612,8 @@
       "Bash(/Users/jb/.claude/projects/-Users-jb/memory/1code-competitive.md:*)",
       "mcp__patchstack-docs__search_patchstack",
       "mcp__patchstack-docs__list_articles",
-      "mcp__patchstack-docs__get_paired"
+      "mcp__patchstack-docs__get_paired",
+      "WebFetch(domain:useworkflow.dev)"
     ]
   },
   "enableAllProjectMcpServers": true,
