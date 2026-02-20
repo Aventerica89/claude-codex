@@ -10,14 +10,18 @@ Save structured context to the Knowledge Base database in Notion. Supports 7 con
 ## Arguments
 
 Parse `$ARGUMENTS`:
-- **First word** = type (session, plan, table, decision, memory, reference, verbatim)
+- **First word** = type (session, plan, table, decision, memory, reference, verbatim, standards)
 - **Remaining words** = custom title suffix
 - **No arguments** = auto-detect type (default: session)
+
+Special flags:
+- `standards [subject]` — save a command/system convention. Uses Standards DB, Type="Convention". Subject defaults to current command/topic.
 
 Examples:
 - `/save-to-notion` -> auto-detect, likely "session"
 - `/save-to-notion plan` -> plan type, auto-generated title
 - `/save-to-notion decision WebSocket vs SSE` -> decision type, title suffix "WebSocket vs SSE"
+- `/save-to-notion standards changelog` -> convention entry for changelog standard
 
 ## Type Detection (when no type given)
 
@@ -35,10 +39,17 @@ Scan the current conversation for signals:
 
 If unsure, default to **session**.
 
-## Knowledge Base Database
+## Databases
 
-**data_source_id:** `2fabdc9f-eca4-4431-b16c-d6b03dae3667`
-**Parent:** Claude Sessions (`301cc9ae-33da-8169-8542-e8379afabe4f`)
+**Knowledge Base (default):**
+- `data_source_id`: `2fabdc9f-eca4-4431-b16c-d6b03dae3667`
+- **Parent:** Claude Sessions (`301cc9ae-33da-8169-8542-e8379afabe4f`)
+- Used for: session, plan, table, decision, memory, reference, verbatim
+
+**Standards / Conventions DB (use when type=standards):**
+- `data_source_id`: `885cd9c275bd45bb93e17fe0f156d1b1`
+- Used for: command conventions, system standards, formal specifications
+- Type property value: `Convention`
 
 This is the NEW Knowledge Base database. The old Sessions DB (`eda52d03-6a95-48f0-904e-3a57cc5e3719`) is archived.
 
@@ -79,7 +90,32 @@ Use the type-specific template (see Content Templates below) to generate the pag
 - Verbatim: curate key exchanges for Notion, dump full raw text locally
 - Session: comprehensive but focused on decisions and next steps
 
-### Step 4: Create Notion Page
+### Step 4 (standards only): Create Convention Page
+
+**When type=standards**, use `mcp__claude_ai_Notion__notion-create-pages` with:
+
+```json
+{
+  "parent": {"data_source_id": "885cd9c275bd45bb93e17fe0f156d1b1"},
+  "pages": [{
+    "properties": {
+      "Title": "Convention: {subject}",
+      "Type": "Convention",
+      "date:Date:start": "{YYYY-MM-DD}",
+      "date:Date:is_datetime": 0
+    },
+    "content": "{convention specification from conversation context}"
+  }]
+}
+```
+
+Content for convention pages: write the formal spec — what the standard is, when to use it, exact format/rules, examples, anti-patterns. No session metadata needed.
+
+Then **skip** to Step 5 (local backup) and Step 6 (confirm).
+
+---
+
+### Step 4: Create Notion Page (all other types)
 
 Use `mcp__claude_ai_Notion__notion-create-pages` with:
 
@@ -114,6 +150,7 @@ Use `mcp__claude_ai_Notion__notion-create-pages` with:
 - memory: `{Project} | Memory: {pattern name}`
 - reference: `{Project} | Ref: {subject}`
 - verbatim: `{Project} | Transcript: {date} {topic}`
+- standards: `Convention: {subject}` (no project prefix)
 
 If user provided a title suffix in `$ARGUMENTS`, use it as the description/name part.
 
