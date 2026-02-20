@@ -64,8 +64,8 @@ Three-tier system. Every project uses this exact format. No deviations.
 ## Tier 2 — Developer Log
 
 **File:** `CHANGELOG-DEV.md`
-**Trigger:** Every deploy, automatic via deploy hook. Manual via `/changelog dev`.
-**When:** Every deploy without exception.
+**Trigger:** Every commit, automatic via commit hook. Manual via `/changelog dev`.
+**When:** Every commit without exception. Includes build notes — TYPE + scope + description.
 **Displayed:** Admin-only toggle panel, co-located with footer version badge.
 
 ### Entry template (copy exactly, fill variables):
