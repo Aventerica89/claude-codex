@@ -1191,8 +1191,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 68,
-      "lastUsedAt": 1771578676226
+      "usageCount": 69,
+      "lastUsedAt": 1771595329261
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1486,7 +1486,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771594874972
+    "timestamp": 1771596650856
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
