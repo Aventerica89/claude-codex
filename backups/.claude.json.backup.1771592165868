@@ -1255,12 +1255,12 @@
       "lastUsedAt": 1771478526769
     },
     "claude-automation-recommender": {
-      "usageCount": 3,
-      "lastUsedAt": 1771584568206
+      "usageCount": 4,
+      "lastUsedAt": 1771591985316
     },
     "claude-md-improver": {
-      "usageCount": 3,
-      "lastUsedAt": 1771410984855
+      "usageCount": 4,
+      "lastUsedAt": 1771591378442
     },
     "using-superpowers": {
       "usageCount": 1,
@@ -1478,7 +1478,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771591290307
+    "timestamp": 1771592118459
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
