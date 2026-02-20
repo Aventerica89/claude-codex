@@ -1255,8 +1255,8 @@
       "lastUsedAt": 1771478526769
     },
     "claude-automation-recommender": {
-      "usageCount": 3,
-      "lastUsedAt": 1771584568206
+      "usageCount": 4,
+      "lastUsedAt": 1771591985316
     },
     "claude-md-improver": {
       "usageCount": 4,
@@ -1478,7 +1478,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771591611761
+    "timestamp": 1771592397875
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
