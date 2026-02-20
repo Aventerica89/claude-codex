@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7542,
+  "promptQueueUseCount": 7547,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1032,7 +1032,7 @@
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
   "anonymousId": "claudecode.v1.adb9b3f9-85dd-4f99-89ec-2e79b3fa4ac1",
-  "lastPlanModeUse": 1771623140886,
+  "lastPlanModeUse": 1771626496339,
   "skillUsage": {
     "everything-claude-code:plan": {
       "usageCount": 2,
@@ -1490,7 +1490,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771626460457
+    "timestamp": 1771626832521
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
