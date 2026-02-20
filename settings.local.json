@@ -625,7 +625,9 @@
       "Bash(~/.claude/contexts/vaporforge-session-20260220-component-registry.md:*)",
       "Bash(/Users/jb/vaporforge/changelog-action.json:*)",
       "Bash(/Users/jb/clarity/node_modules/.bin/vitest run:*)",
-      "WebFetch(domain:v0.dev)"
+      "WebFetch(domain:v0.dev)",
+      "WebFetch(domain:www.assistant-ui.com)",
+      "WebFetch(domain:www.prompt-kit.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
