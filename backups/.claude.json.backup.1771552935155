@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7356,
+  "promptQueueUseCount": 7357,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -154,7 +154,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771550895837,
+  "changelogLastFetched": 1771551923939,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -990,7 +990,7 @@
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
   "anonymousId": "claudecode.v1.adb9b3f9-85dd-4f99-89ec-2e79b3fa4ac1",
-  "lastPlanModeUse": 1770947461465,
+  "lastPlanModeUse": 1771551930912,
   "skillUsage": {
     "everything-claude-code:plan": {
       "usageCount": 2,
@@ -1085,8 +1085,8 @@
       "lastUsedAt": 1770536191354
     },
     "security": {
-      "usageCount": 3,
-      "lastUsedAt": 1771412029240
+      "usageCount": 4,
+      "lastUsedAt": 1771552008668
     },
     "deploy-check": {
       "usageCount": 4,
@@ -1432,7 +1432,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771551328858
+    "timestamp": 1771552761181
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
