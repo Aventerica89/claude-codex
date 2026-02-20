@@ -608,7 +608,8 @@
       "WebFetch(domain:plugins.svn.wordpress.org)",
       "Bash(fi)",
       "WebFetch(domain:groq.com)",
-      "WebFetch(domain:openrouter.ai)"
+      "WebFetch(domain:openrouter.ai)",
+      "Bash(/Users/jb/.claude/projects/-Users-jb/memory/1code-competitive.md:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
