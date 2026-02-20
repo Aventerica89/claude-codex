@@ -41,7 +41,8 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7537,
+  "promptQueueUseCount": 7540,
+  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1231,8 +1232,8 @@
       "lastUsedAt": 1771624535296
     },
     "superpowers:writing-plans": {
-      "usageCount": 12,
-      "lastUsedAt": 1771491996483
+      "usageCount": 13,
+      "lastUsedAt": 1771625854094
     },
     "superpowers:executing-plans": {
       "usageCount": 8,
@@ -1247,8 +1248,8 @@
       "lastUsedAt": 1771360977926
     },
     "superpowers:subagent-driven-development": {
-      "usageCount": 6,
-      "lastUsedAt": 1771472800489
+      "usageCount": 7,
+      "lastUsedAt": 1771626035082
     },
     "context-restore": {
       "usageCount": 3,
@@ -1490,7 +1491,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771625737096
+    "timestamp": 1771626078680
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
