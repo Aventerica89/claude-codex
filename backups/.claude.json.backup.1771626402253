@@ -41,7 +41,8 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7539,
+  "promptQueueUseCount": 7541,
+  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1115,8 +1116,8 @@
       "lastUsedAt": 1771467717793
     },
     "remind": {
-      "usageCount": 20,
-      "lastUsedAt": 1771529751817
+      "usageCount": 21,
+      "lastUsedAt": 1771626137903
     },
     "frontend-design": {
       "usageCount": 7,
@@ -1207,8 +1208,8 @@
       "lastUsedAt": 1770579666294
     },
     "changelog": {
-      "usageCount": 6,
-      "lastUsedAt": 1771586265541
+      "usageCount": 7,
+      "lastUsedAt": 1771626225896
     },
     "resume": {
       "usageCount": 13,
@@ -1247,8 +1248,8 @@
       "lastUsedAt": 1771360977926
     },
     "superpowers:subagent-driven-development": {
-      "usageCount": 6,
-      "lastUsedAt": 1771472800489
+      "usageCount": 7,
+      "lastUsedAt": 1771626035082
     },
     "context-restore": {
       "usageCount": 3,
@@ -1490,7 +1491,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771625950407
+    "timestamp": 1771626362992
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
