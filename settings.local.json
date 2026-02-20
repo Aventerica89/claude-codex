@@ -627,7 +627,8 @@
       "Bash(/Users/jb/clarity/node_modules/.bin/vitest run:*)",
       "WebFetch(domain:v0.dev)",
       "WebFetch(domain:www.assistant-ui.com)",
-      "WebFetch(domain:www.prompt-kit.com)"
+      "WebFetch(domain:www.prompt-kit.com)",
+      "WebFetch(domain:www.shadcn.io)"
     ]
   },
   "enableAllProjectMcpServers": true,
