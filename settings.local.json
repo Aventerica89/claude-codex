@@ -616,7 +616,8 @@
       "WebFetch(domain:useworkflow.dev)",
       "Bash(__NEW_LINE_3d4832cbe663bfc8__ curl -s -X POST \"https://api.vercel.com/v10/projects/prj_ubYLGkM92excbEj8stFZutXDmt6z/env?teamId=jb-cloud-apps\" -H \"Authorization: Bearer nflTkwjz7kN7GYd3xPvBnXsI\" -H \"Content-Type: application/json\" -d \"{:*)",
       "WebFetch(domain:www.tool-ui.com)",
-      "Skill(hookify:hookify)"
+      "Skill(hookify:hookify)",
+      "Bash(~/.claude/contexts/vaporforge-memory-1code-competitive-priorities-20260220.md:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
