@@ -1095,8 +1095,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 38,
-      "lastUsedAt": 1771591277522
+      "usageCount": 39,
+      "lastUsedAt": 1771594245673
     },
     "new-project": {
       "usageCount": 4,
@@ -1486,7 +1486,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771593979532
+    "timestamp": 1771594383425
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
