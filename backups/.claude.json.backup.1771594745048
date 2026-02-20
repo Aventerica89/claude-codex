@@ -1095,16 +1095,16 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 38,
-      "lastUsedAt": 1771591277522
+      "usageCount": 39,
+      "lastUsedAt": 1771594245673
     },
     "new-project": {
       "usageCount": 4,
       "lastUsedAt": 1771470302854
     },
     "end": {
-      "usageCount": 89,
-      "lastUsedAt": 1771588249127
+      "usageCount": 90,
+      "lastUsedAt": 1771594425960
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1486,7 +1486,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771594153020
+    "timestamp": 1771594697178
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
