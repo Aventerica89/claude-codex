@@ -600,7 +600,8 @@
       "Bash(for name in attorney-brief-ames phi-exposure-assessment)",
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/$name.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/$name.html\")",
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/attorney-brief-ames.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/attorney-brief-ames.html\")",
-      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"/Users/jb/Desktop/HIPAA/attorney-brief-ames.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file:///Users/jb/Desktop/HIPAA/Source/attorney-brief-ames.html\")"
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"/Users/jb/Desktop/HIPAA/attorney-brief-ames.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file:///Users/jb/Desktop/HIPAA/Source/attorney-brief-ames.html\")",
+      "Bash(__NEW_LINE_6c15e4d883f3cf43__ for name in HIPAA-Action-Plan interaction-log HDFlowsheet-HIPAA-Disclosure-v2 personal-timeline)"
     ]
   },
   "enableAllProjectMcpServers": true,
