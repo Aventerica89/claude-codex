@@ -607,7 +607,8 @@
       "WebFetch(domain:plugins.trac.wordpress.org)",
       "WebFetch(domain:plugins.svn.wordpress.org)",
       "Bash(fi)",
-      "WebFetch(domain:groq.com)"
+      "WebFetch(domain:groq.com)",
+      "WebFetch(domain:openrouter.ai)"
     ]
   },
   "enableAllProjectMcpServers": true,
