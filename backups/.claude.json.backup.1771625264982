@@ -28,7 +28,7 @@
     "guest-passes": 195,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 190,
+    "frontend-design-plugin": 195,
     "custom-agents": 189,
     "agent-flag": 189,
     "permissions": 195,
@@ -41,8 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7532,
-  "showExpandedTodos": true,
+  "promptQueueUseCount": 7535,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1491,7 +1490,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771624889647
+    "timestamp": 1771625234466
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
