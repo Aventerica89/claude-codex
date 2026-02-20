@@ -606,7 +606,8 @@
       "WebFetch(domain:wsform.com)",
       "WebFetch(domain:plugins.trac.wordpress.org)",
       "WebFetch(domain:plugins.svn.wordpress.org)",
-      "Bash(fi)"
+      "Bash(fi)",
+      "WebFetch(domain:groq.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
