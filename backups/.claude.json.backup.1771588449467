@@ -154,7 +154,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771584809636,
+  "changelogLastFetched": 1771588439558,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -914,7 +914,49 @@
         "middleware.ts"
       ],
       "exampleFilesGeneratedAt": 1771531558981,
-      "hasCompletedProjectOnboarding": true
+      "hasCompletedProjectOnboarding": true,
+      "lastCost": 31.548609000000017,
+      "lastAPIDuration": 4136745,
+      "lastAPIDurationWithoutRetries": 4136233,
+      "lastToolDuration": 7298316,
+      "lastDuration": 56887061,
+      "lastLinesAdded": 1390,
+      "lastLinesRemoved": 452,
+      "lastTotalInputTokens": 225353,
+      "lastTotalOutputTokens": 202441,
+      "lastTotalCacheCreationInputTokens": 1337108,
+      "lastTotalCacheReadInputTokens": 36509930,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 6.08,
+      "lastFpsLow1Pct": 66.72,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 222429,
+          "outputTokens": 9842,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 32903,
+          "webSearchRequests": 0,
+          "costUSD": 0.31276775
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 2924,
+          "outputTokens": 192599,
+          "cacheReadInputTokens": 36509930,
+          "cacheCreationInputTokens": 1304205,
+          "webSearchRequests": 0,
+          "costUSD": 31.23584124999999
+        }
+      },
+      "lastSessionId": "8339280d-d2d4-40ab-9d1b-2a0478dbca20",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 330282,
+        "frame_duration_ms_min": 0.09737500175833702,
+        "frame_duration_ms_max": 388.6379579999484,
+        "frame_duration_ms_avg": 3.710747805535726,
+        "frame_duration_ms_p50": 2.309249500045553,
+        "frame_duration_ms_p95": 7.382540100160984,
+        "frame_duration_ms_p99": 10.048615179900075
+      }
     }
   },
   "hasShownOpus45Notice": {
@@ -1061,8 +1103,8 @@
       "lastUsedAt": 1771470302854
     },
     "end": {
-      "usageCount": 88,
-      "lastUsedAt": 1771584525531
+      "usageCount": 89,
+      "lastUsedAt": 1771588249127
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1436,7 +1478,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771588035052
+    "timestamp": 1771588439985
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
