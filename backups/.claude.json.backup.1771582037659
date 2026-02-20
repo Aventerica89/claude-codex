@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7435,
+  "promptQueueUseCount": 7436,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -197,49 +197,63 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 13.27060725,
-      "lastAPIDuration": 2249601,
-      "lastAPIDurationWithoutRetries": 2249401,
-      "lastToolDuration": 302165,
-      "lastDuration": 32254932,
-      "lastLinesAdded": 1596,
-      "lastLinesRemoved": 287,
-      "lastTotalInputTokens": 77060,
-      "lastTotalOutputTokens": 100889,
-      "lastTotalCacheCreationInputTokens": 568277,
-      "lastTotalCacheReadInputTokens": 15801338,
+      "lastCost": 1.4514315000000004,
+      "lastAPIDuration": 260251,
+      "lastAPIDurationWithoutRetries": 260221,
+      "lastToolDuration": 25139,
+      "lastDuration": 11105596,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 123683,
+      "lastTotalOutputTokens": 7011,
+      "lastTotalCacheCreationInputTokens": 81960,
+      "lastTotalCacheReadInputTokens": 1305607,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
-        "claude-sonnet-4-6": {
-          "inputTokens": 218,
-          "outputTokens": 96764,
-          "cacheReadInputTokens": 15801338,
-          "cacheCreationInputTokens": 428387,
-          "webSearchRequests": 0,
-          "costUSD": 12.998277750000002
-        },
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 76842,
-          "outputTokens": 4125,
+          "inputTokens": 121593,
+          "outputTokens": 1047,
           "cacheReadInputTokens": 0,
-          "cacheCreationInputTokens": 139890,
+          "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 0.27232950000000006
+          "costUSD": 0.126828
+        },
+        "claude-sonnet-4-6": {
+          "inputTokens": 2090,
+          "outputTokens": 5964,
+          "cacheReadInputTokens": 1305607,
+          "cacheCreationInputTokens": 81960,
+          "webSearchRequests": 0,
+          "costUSD": 1.3246035000000003
         }
       },
-      "lastSessionId": "3f89e90a-94c7-4c20-af20-38f3a8e485be",
+      "lastSessionId": "0fff26cb-0c5c-4704-9661-b58659e07a97",
       "hasCompletedProjectOnboarding": true,
-      "lastFpsAverage": 5.37,
-      "lastFpsLow1Pct": 130.02,
+      "lastFpsAverage": 0.48,
+      "lastFpsLow1Pct": 103.52,
       "exampleFilesGeneratedAt": 1769594801082,
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 159222,
-        "frame_duration_ms_min": 0.1414170004427433,
-        "frame_duration_ms_max": 368.53274999931455,
-        "frame_duration_ms_avg": 2.8676277462785293,
-        "frame_duration_ms_p50": 2.3052289998158813,
-        "frame_duration_ms_p95": 4.8582062497036524,
-        "frame_duration_ms_p99": 10.603423229735277
+        "frame_duration_ms_count": 5307,
+        "frame_duration_ms_min": 0.45129099999030586,
+        "frame_duration_ms_max": 113.93004200048745,
+        "frame_duration_ms_avg": 1.7987989685324475,
+        "frame_duration_ms_p50": 1.2731455000175629,
+        "frame_duration_ms_p95": 3.0018437500140815,
+        "frame_duration_ms_p99": 10.384391838859298,
+        "hook_duration_ms_count": 23,
+        "hook_duration_ms_min": 101,
+        "hook_duration_ms_max": 537,
+        "hook_duration_ms_avg": 182.7391304347826,
+        "hook_duration_ms_p50": 132,
+        "hook_duration_ms_p95": 315.29999999999995,
+        "hook_duration_ms_p99": 488.8200000000003,
+        "pre_tool_hook_duration_ms_count": 4,
+        "pre_tool_hook_duration_ms_min": 122,
+        "pre_tool_hook_duration_ms_max": 162,
+        "pre_tool_hook_duration_ms_avg": 138.5,
+        "pre_tool_hook_duration_ms_p50": 135,
+        "pre_tool_hook_duration_ms_p95": 158.85,
+        "pre_tool_hook_duration_ms_p99": 161.37
       }
     },
     "/Users/jb/Downloads": {
@@ -1422,7 +1436,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771581281923
+    "timestamp": 1771582012893
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
