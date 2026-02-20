@@ -13,13 +13,13 @@
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 183,
     "todo-list": 184,
-    "install-github-app": 175,
+    "install-github-app": 185,
     "install-slack-app": 54,
     "drag-and-drop-images": 180,
     "paste-images-mac": 178,
-    "double-esc-code-restore": 175,
-    "continue": 175,
-    "shift-tab": 175,
+    "double-esc-code-restore": 185,
+    "continue": 185,
+    "shift-tab": 185,
     "image-paste": 184,
     "ultrathink-keyword": 2,
     "desktop-app": 172,
@@ -31,17 +31,17 @@
     "frontend-design-plugin": 184,
     "custom-agents": 174,
     "agent-flag": 174,
-    "permissions": 175,
+    "permissions": 185,
     "rename-conversation": 176,
     "custom-commands": 176,
-    "terminal-setup": 175,
+    "terminal-setup": 185,
     "colorterm-truecolor": 140,
-    "default-permission-mode-config": 175,
+    "default-permission-mode-config": 185,
     "git-worktrees": 184,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7337,
+  "promptQueueUseCount": 7341,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -154,7 +154,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771548037098,
+  "changelogLastFetched": 1771548310178,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -1265,8 +1265,8 @@
       "lastUsedAt": 1771315953546
     },
     "hipaa-sync": {
-      "usageCount": 6,
-      "lastUsedAt": 1771546594139
+      "usageCount": 7,
+      "lastUsedAt": 1771548312690
     },
     "reverse-engineer": {
       "usageCount": 4,
@@ -1428,7 +1428,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771548033818
+    "timestamp": 1771548342236
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
