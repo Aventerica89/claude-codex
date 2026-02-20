@@ -598,7 +598,8 @@
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/index.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/index.html\")",
       "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/phi-exposure-assessment.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/phi-exposure-assessment.html\")",
       "Bash(for name in attorney-brief-ames phi-exposure-assessment)",
-      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/$name.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/$name.html\")"
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/$name.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/$name.html\")",
+      "Bash(\"$CHROME\" --headless=new --print-to-pdf=\"$HOME/Desktop/HIPAA/attorney-brief-ames.pdf\" --no-pdf-header-footer --print-to-pdf-no-header \"file://$HOME/Desktop/HIPAA/Source/attorney-brief-ames.html\")"
     ]
   },
   "enableAllProjectMcpServers": true,
