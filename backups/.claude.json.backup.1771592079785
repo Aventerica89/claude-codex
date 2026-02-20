@@ -1095,8 +1095,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 37,
-      "lastUsedAt": 1771500562348
+      "usageCount": 38,
+      "lastUsedAt": 1771591277522
     },
     "new-project": {
       "usageCount": 4,
@@ -1255,12 +1255,12 @@
       "lastUsedAt": 1771478526769
     },
     "claude-automation-recommender": {
-      "usageCount": 3,
-      "lastUsedAt": 1771584568206
+      "usageCount": 4,
+      "lastUsedAt": 1771591985316
     },
     "claude-md-improver": {
-      "usageCount": 3,
-      "lastUsedAt": 1771410984855
+      "usageCount": 4,
+      "lastUsedAt": 1771591378442
     },
     "using-superpowers": {
       "usageCount": 1,
@@ -1478,7 +1478,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771591134831
+    "timestamp": 1771591993369
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
