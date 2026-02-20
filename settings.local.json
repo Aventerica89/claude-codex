@@ -620,7 +620,8 @@
       "Bash(~/.claude/contexts/vaporforge-memory-1code-competitive-priorities-20260220.md:*)",
       "mcp__patchstack-docs__get_article",
       "WebFetch(domain:docs.openclaw.ai)",
-      "WebFetch(domain:www.npmjs.com)"
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:status.monarch.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
