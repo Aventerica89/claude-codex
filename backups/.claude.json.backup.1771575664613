@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7419,
+  "promptQueueUseCount": 7421,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1135,8 +1135,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 66,
-      "lastUsedAt": 1771574719909
+      "usageCount": 67,
+      "lastUsedAt": 1771575576768
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1179,8 +1179,8 @@
       "lastUsedAt": 1771491996483
     },
     "superpowers:executing-plans": {
-      "usageCount": 7,
-      "lastUsedAt": 1771556728522
+      "usageCount": 8,
+      "lastUsedAt": 1771575263785
     },
     "superpowers:brainstorming": {
       "usageCount": 14,
@@ -1422,7 +1422,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771575173028
+    "timestamp": 1771575594089
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
