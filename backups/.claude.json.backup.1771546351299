@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7326,
+  "promptQueueUseCount": 7327,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -154,7 +154,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771545956255,
+  "changelogLastFetched": 1771546336294,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -1047,8 +1047,8 @@
       "lastUsedAt": 1771470302854
     },
     "end": {
-      "usageCount": 80,
-      "lastUsedAt": 1771530146396
+      "usageCount": 82,
+      "lastUsedAt": 1771546335606
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1414,7 +1414,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771546004237
+    "timestamp": 1771546347260
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
