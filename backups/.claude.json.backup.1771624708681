@@ -1,5 +1,5 @@
 {
-  "numStartups": 194,
+  "numStartups": 195,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -13,12 +13,12 @@
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 183,
     "todo-list": 184,
-    "install-github-app": 185,
+    "install-github-app": 195,
     "install-slack-app": 54,
     "drag-and-drop-images": 190,
     "paste-images-mac": 188,
-    "double-esc-code-restore": 185,
-    "continue": 185,
+    "double-esc-code-restore": 195,
+    "continue": 195,
     "shift-tab": 185,
     "image-paste": 184,
     "ultrathink-keyword": 2,
@@ -31,17 +31,17 @@
     "frontend-design-plugin": 190,
     "custom-agents": 189,
     "agent-flag": 189,
-    "permissions": 185,
+    "permissions": 195,
     "rename-conversation": 191,
     "custom-commands": 191,
-    "terminal-setup": 185,
+    "terminal-setup": 195,
     "colorterm-truecolor": 186,
-    "default-permission-mode-config": 185,
+    "default-permission-mode-config": 195,
     "git-worktrees": 194,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7530,
+  "promptQueueUseCount": 7531,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1227,8 +1227,8 @@
       "lastUsedAt": 1770942228119
     },
     "brainstorming": {
-      "usageCount": 6,
-      "lastUsedAt": 1771407151856
+      "usageCount": 7,
+      "lastUsedAt": 1771624535296
     },
     "superpowers:writing-plans": {
       "usageCount": 12,
@@ -1486,7 +1486,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771624146638
+    "timestamp": 1771624619447
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
