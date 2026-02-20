@@ -618,7 +618,8 @@
       "WebFetch(domain:www.tool-ui.com)",
       "Skill(hookify:hookify)",
       "Bash(~/.claude/contexts/vaporforge-memory-1code-competitive-priorities-20260220.md:*)",
-      "mcp__patchstack-docs__get_article"
+      "mcp__patchstack-docs__get_article",
+      "WebFetch(domain:docs.openclaw.ai)"
     ]
   },
   "enableAllProjectMcpServers": true,
