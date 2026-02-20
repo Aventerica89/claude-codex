@@ -609,7 +609,10 @@
       "Bash(fi)",
       "WebFetch(domain:groq.com)",
       "WebFetch(domain:openrouter.ai)",
-      "Bash(/Users/jb/.claude/projects/-Users-jb/memory/1code-competitive.md:*)"
+      "Bash(/Users/jb/.claude/projects/-Users-jb/memory/1code-competitive.md:*)",
+      "mcp__patchstack-docs__search_patchstack",
+      "mcp__patchstack-docs__list_articles",
+      "mcp__patchstack-docs__get_paired"
     ]
   },
   "enableAllProjectMcpServers": true,
