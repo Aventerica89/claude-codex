@@ -112,13 +112,20 @@ Use the type-specific template (see Content Templates below) to generate the pag
 
 #### Part A: Archive existing conventions with the same subject
 
-Use `mcp__claude_ai_Notion__notion-search` to find existing pages titled `Convention: {subject}` in the Standards DB. For each match with `Group = "Latest"`, set it to `Group = "Archive"` using `notion-update-page`:
+Use `mcp__claude_ai_Notion__notion-search` to find existing pages titled `Convention: {subject}` in the Standards DB. For each match:
+
+1. Read its `Version` value (to compute `max_version` — the highest Version found across all matches)
+2. If `Group = "Latest"`, set it to `Group = "Archive"` using `notion-update-page`:
 
 ```json
 { "page_id": "{existing-page-id}", "command": "update_properties", "properties": { "Group": "Archive" } }
 ```
 
-Skip this if no matches found.
+**Track the highest Version found** — the new page uses `max_version + 1`.
+
+If no matches found: skip archiving, new page gets `Version = 1`.
+
+**IMPORTANT:** Only change the `Group` property — never replace or delete old page content. Old conventions are preserved forever.
 
 #### Part B: Create the new convention page
 
@@ -134,6 +141,7 @@ Use `mcp__claude_ai_Notion__notion-create-pages` with the `data_source_id` obtai
       "Status": "Active",
       "Scope": "Global",
       "Group": "Latest",
+      "Version": "{max_version + 1, or 1 if no prior pages}",
       "Invoke": "{slash commands that trigger this convention}",
       "Notes": "{one-line summary}"
     },
@@ -141,6 +149,8 @@ Use `mcp__claude_ai_Notion__notion-create-pages` with the `data_source_id` obtai
   }]
 }
 ```
+
+Note: `Version` is a **number** property — pass an integer (e.g., `1`, `2`), not a string.
 
 Content for convention pages: write the formal spec — what the standard is, when to use it, exact format/rules, examples, anti-patterns. No session metadata needed.
 
