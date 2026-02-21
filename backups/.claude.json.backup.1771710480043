@@ -1,5 +1,5 @@
 {
-  "numStartups": 204,
+  "numStartups": 205,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -13,7 +13,7 @@
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 203,
     "todo-list": 204,
-    "install-github-app": 195,
+    "install-github-app": 205,
     "install-slack-app": 54,
     "drag-and-drop-images": 200,
     "paste-images-mac": 198,
@@ -31,12 +31,12 @@
     "frontend-design-plugin": 204,
     "custom-agents": 204,
     "agent-flag": 204,
-    "permissions": 195,
+    "permissions": 205,
     "rename-conversation": 191,
     "custom-commands": 191,
-    "terminal-setup": 195,
+    "terminal-setup": 205,
     "colorterm-truecolor": 186,
-    "default-permission-mode-config": 195,
+    "default-permission-mode-config": 205,
     "git-worktrees": 204,
     "shift-enter-setup": 170,
     "overage-promo": 97
@@ -974,7 +974,7 @@
   "groveConfigCache": {
     "a9b563a1-8bfb-41fc-91f9-d28f83d27234": {
       "grove_enabled": true,
-      "timestamp": 1771623133642
+      "timestamp": 1771710274621
     }
   },
   "passesEligibilityCache": {
@@ -990,7 +990,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771704728566
+      "timestamp": 1771710275747
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1592,7 +1592,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771709230673
+    "timestamp": 1771710475603
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
