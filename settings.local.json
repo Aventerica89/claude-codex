@@ -629,7 +629,9 @@
       "WebFetch(domain:www.assistant-ui.com)",
       "WebFetch(domain:www.prompt-kit.com)",
       "WebFetch(domain:www.shadcn.io)",
-      "Bash(./node_modules/.bin/tsx:*)"
+      "Bash(./node_modules/.bin/tsx:*)",
+      "Bash(claude:*)",
+      "Bash(npx skills add:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
