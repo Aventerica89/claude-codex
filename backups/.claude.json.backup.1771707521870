@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8050,
+  "promptQueueUseCount": 8052,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1257,8 +1257,8 @@
       "lastUsedAt": 1771478526769
     },
     "claude-automation-recommender": {
-      "usageCount": 4,
-      "lastUsedAt": 1771591985316
+      "usageCount": 5,
+      "lastUsedAt": 1771707214827
     },
     "claude-md-improver": {
       "usageCount": 5,
@@ -1435,6 +1435,10 @@
     "interface-design": {
       "usageCount": 3,
       "lastUsedAt": 1771707095905
+    },
+    "interface-design:audit": {
+      "usageCount": 1,
+      "lastUsedAt": 1771707176891
     }
   },
   "slackAppInstallCount": 1,
@@ -1588,7 +1592,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771707106222
+    "timestamp": 1771707455974
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
