@@ -631,7 +631,8 @@
       "WebFetch(domain:www.shadcn.io)",
       "Bash(./node_modules/.bin/tsx:*)",
       "Bash(claude:*)",
-      "Bash(npx skills add:*)"
+      "Bash(npx skills add:*)",
+      "WebFetch(domain:plaid.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
