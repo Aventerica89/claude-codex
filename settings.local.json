@@ -655,7 +655,8 @@
       "Bash(TURSO_DB=\"clarity-aventerica89.aws-us-west-2.turso.io\":*)",
       "Bash(__NEW_LINE_434db23d3fea3c8e__ curl -s -X POST \"https://$TURSO_DB/v2/pipeline\" -H \"Authorization: Bearer $TURSO_TOKEN\" -H \"Content-Type: application/json\" -d '{:*)",
       "Bash(~/.claude/skills/learned/kv-threshold-alert-dedup.md:*)",
-      "Bash(echo Backup saved.:*)"
+      "Bash(echo Backup saved.:*)",
+      "Bash(git ls-tree:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
