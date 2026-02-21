@@ -43,7 +43,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          40+ commands, 12 specialized agents, 47 skills, and seamless integrations.
+          54+ commands, 14 specialized agents, 23 skills, and seamless integrations.
           The universal configuration system that syncs across all your machines.
         </motion.p>
 
