@@ -640,7 +640,8 @@
       "Bash(cd:*)",
       "Bash(cp:*)",
       "Bash(cd ~/wp-dispatch && \\\\\n  rm scripts/gen-splashes.mjs && \\\\\n  git add \\\\\n    public/splash-1170x2532.png \\\\\n    public/splash-1179x2556.png \\\\\n    public/splash-1284x2778.png \\\\\n    public/splash-1290x2796.png \\\\\n    public/apple-splash-1640-2360.png \\\\\n    public/apple-splash-1668-2388.png \\\\\n    public/apple-splash-2048-1536.png \\\\\n    public/apple-splash-2048-2732.png \\\\\n    src/lib/version.ts && \\\\\ngit commit -m \"$\\(cat <<'EOF'\nfix: regenerate all PWA splash screens with correct app name\n\nReplace all 8 splash screens \\(iPhone + iPad\\) — old PNGs were baked\nwith incorrect \"WP Manager\" name. Regenerated via puppeteer with\n\"WP Dispatch\" branding on dark \\(#0f172a\\) background. Bump 14.2 → 14.3.\nEOF\n\\)\" && \\\\\ngit push origin main 2>&1)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "mcp__cloudflare-workers-bindings__d1_database_query"
     ]
   },
   "enableAllProjectMcpServers": true,
