@@ -19,7 +19,7 @@
     "paste-images-mac": 198,
     "double-esc-code-restore": 205,
     "continue": 205,
-    "shift-tab": 195,
+    "shift-tab": 205,
     "image-paste": 204,
     "ultrathink-keyword": 2,
     "desktop-app": 202,
@@ -1592,7 +1592,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771710507146
+    "timestamp": 1771710987739
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
