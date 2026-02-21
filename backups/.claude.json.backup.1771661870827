@@ -157,7 +157,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771661406600,
+  "changelogLastFetched": 1771661866274,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -1098,8 +1098,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 44,
-      "lastUsedAt": 1771658563984
+      "usageCount": 45,
+      "lastUsedAt": 1771661765547
     },
     "new-project": {
       "usageCount": 5,
@@ -1194,8 +1194,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 75,
-      "lastUsedAt": 1771634637023
+      "usageCount": 76,
+      "lastUsedAt": 1771661695762
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1569,7 +1569,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771661406517
+    "timestamp": 1771661866258
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
