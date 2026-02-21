@@ -134,7 +134,106 @@ Update the existing About/Help card in `/settings/page.tsx` to point to `/help`:
 { title: "About & Help", href: "/help", icon: HelpCircle, available: true }
 ```
 
+---
+
+## Settings Deep Links (From Help Content)
+
+**Always link from help content directly to the relevant settings panel** so users can act on instructions immediately rather than hunting for the right page.
+
+### Next.js Apps (Standard Pattern)
+
+Settings tabs are real routes — use `<Link>`:
+
+```tsx
+// In Getting Started steps or Connections Guide cards:
+<Link href="/settings/api-keys" className="text-primary underline">
+  Settings → API Keys
+</Link>
+<Link href="/settings/git-sync">
+  Settings → Git Sync
+</Link>
+```
+
+### Single-Page Apps / CF Workers (Hash Routing)
+
+When the app is served from a single route (e.g., Cloudflare Workers serving `/admin`), real routes aren't available. Use `#` fragment routing instead.
+
+**Pattern:** `/{app-path}#settings/{tab}` and `/{app-path}#help/{tab}`
+
+**Implementation:**
+
+```javascript
+// 1. Update hash when navigating to settings
+function showSettingsView(tab) {
+  // ... show/hide views ...
+  history.replaceState(null, '', '/admin#settings/' + tab);
+  switchSettingsTab(tab);
+}
+
+// 2. Update hash when navigating to help
+function showHelpView(tab) {
+  // ... show/hide views ...
+  history.replaceState(null, '', '/admin#help/' + (tab || 'getting-started'));
+  switchHelpTab(tab || 'getting-started');
+}
+
+// 3. Clear hash when navigating to main view
+function showMainView() {
+  // ...
+  history.replaceState(null, '', '/admin');
+}
+
+// 4. Handle hashchange for <a href> link clicks
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash.slice(1);
+  if (hash.startsWith('settings/')) {
+    showSettingsView(hash.slice('settings/'.length) || 'default-tab');
+  } else if (hash.startsWith('help/')) {
+    showHelpView(hash.slice('help/'.length) || 'getting-started');
+  } else if (!hash) {
+    showMainView();
+  }
+});
+
+// 5. Read hash on init for direct deep links / bookmarks
+async function init() {
+  await loadData();
+  const hash = window.location.hash.slice(1);
+  if (hash.startsWith('settings/')) {
+    showSettingsView(hash.slice('settings/'.length));
+  } else if (hash.startsWith('help/')) {
+    showHelpView(hash.slice('help/'.length));
+  }
+}
+```
+
+**Key rule:** Use `history.replaceState` (not `location.hash =`) in view functions — avoids triggering the `hashchange` listener during programmatic navigation, preventing feedback loops.
+
+**Link from help content in SPA:**
+
+```javascript
+// In Getting Started steps or Connections Guide cards:
+'<a href="/admin#settings/api-keys">Settings → API Keys</a>'
+'<a href="/admin#settings/git-sync">Settings → Git Sync</a>'
+```
+
+### Deep Link Reference Table
+
+| Target | Next.js route | SPA/CF Workers hash |
+|--------|--------------|---------------------|
+| API Keys settings | `/settings/api-keys` | `/admin#settings/api-keys` |
+| Git Sync settings | `/settings/git-sync` | `/admin#settings/git-sync` |
+| Help: Getting Started | `/help?tab=getting-started` | `/admin#help/getting-started` |
+| Help: Connections | `/help?tab=connections` | `/admin#help/connections` |
+
+---
+
 ## WP Dispatch Reference
 
 Live implementation: `src/app/(dashboard)/help/page.tsx` in wp-dispatch repo.
 Commit: `3f23368` — 14 features, 6 getting-started steps, connection tier table.
+
+## URLsToGo Reference (SPA/Hash Routing)
+
+Live implementation: `src/index.js` in URLsToGo repo (Cloudflare Workers single-file SPA).
+Commit: `4863d06` — hash deep links + repo search/pagination/favorites in Git Sync settings.
