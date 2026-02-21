@@ -1,5 +1,5 @@
 {
-  "numStartups": 205,
+  "numStartups": 206,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -41,7 +41,8 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8059,
+  "promptQueueUseCount": 8060,
+  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1241,8 +1242,8 @@
       "lastUsedAt": 1771666788830
     },
     "superpowers:brainstorming": {
-      "usageCount": 16,
-      "lastUsedAt": 1771657273280
+      "usageCount": 17,
+      "lastUsedAt": 1771712499293
     },
     "pause": {
       "usageCount": 7,
@@ -1592,7 +1593,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771710987739
+    "timestamp": 1771712763333
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
