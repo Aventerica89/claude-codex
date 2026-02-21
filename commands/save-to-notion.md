@@ -119,6 +119,7 @@ Use the type-specific template (see Content Templates below) to generate the pag
       "Type": "Convention",
       "Status": "Active",
       "Scope": "Global",
+      "Group": "Latest",
       "Invoke": "{slash commands that trigger this convention}",
       "Notes": "{one-line summary}"
     },
