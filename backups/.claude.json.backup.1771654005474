@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7722,
+  "promptQueueUseCount": 7726,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -146,7 +146,8 @@
     "tengu_pebble_leaf_prune": false,
     "tengu_swann_brevity": "control",
     "tengu_tool_input_aliasing": false,
-    "tengu_streaming_text": false
+    "tengu_streaming_text": false,
+    "tengu_auto_background_agents": false
   },
   "userID": "93c6352d834b2ac516169b950f4fa2839145591d89631beb8b49edd1b29b1442",
   "firstStartTime": "2026-01-14T04:53:11.063Z",
@@ -155,7 +156,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771653583850,
+  "changelogLastFetched": 1771653967407,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -163,7 +164,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.49",
+  "lastReleaseNotesSeen": "2.1.50",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -1096,8 +1097,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 41,
-      "lastUsedAt": 1771636888542
+      "usageCount": 42,
+      "lastUsedAt": 1771653901126
     },
     "new-project": {
       "usageCount": 5,
@@ -1168,8 +1169,8 @@
       "lastUsedAt": 1771614271815
     },
     "codex-sync": {
-      "usageCount": 9,
-      "lastUsedAt": 1771627541391
+      "usageCount": 10,
+      "lastUsedAt": 1771653942433
     },
     "frontend-design:frontend-design": {
       "usageCount": 2,
@@ -1354,6 +1355,62 @@
     "help-hub": {
       "usageCount": 1,
       "lastUsedAt": 1771652601373
+    },
+    "hig-foundations": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653871954
+    },
+    "hig-platforms": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653879150
+    },
+    "hig-components-layout": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653879387
+    },
+    "hig-components-dialogs": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653879726
+    },
+    "hig-components-status": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653879970
+    },
+    "hig-components-controls": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653880241
+    },
+    "hig-components-menus": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653880507
+    },
+    "hig-components-search": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653880761
+    },
+    "hig-components-system": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653881086
+    },
+    "hig-components-content": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653881315
+    },
+    "hig-patterns": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653881604
+    },
+    "hig-technologies": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653881962
+    },
+    "hig-inputs": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653882215
+    },
+    "hig-project-context": {
+      "usageCount": 1,
+      "lastUsedAt": 1771653882507
     }
   },
   "slackAppInstallCount": 1,
@@ -1507,7 +1564,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771653595349
+    "timestamp": 1771653998119
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
