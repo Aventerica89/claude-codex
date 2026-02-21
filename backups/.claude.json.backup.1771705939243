@@ -1,5 +1,5 @@
 {
-  "numStartups": 202,
+  "numStartups": 203,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -11,7 +11,7 @@
     "status-line": 201,
     "stickers-command": 1,
     "prompt-queue": 7,
-    "enter-to-steer-in-relatime": 183,
+    "enter-to-steer-in-relatime": 203,
     "todo-list": 184,
     "install-github-app": 195,
     "install-slack-app": 54,
@@ -23,7 +23,7 @@
     "image-paste": 184,
     "ultrathink-keyword": 2,
     "desktop-app": 202,
-    "web-app": 187,
+    "web-app": 202,
     "mobile-app": 189,
     "guest-passes": 201,
     "ide-upsell-external-terminal": 104,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8048,
+  "promptQueueUseCount": 8049,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1169,8 +1169,8 @@
       "lastUsedAt": 1771614271815
     },
     "codex-sync": {
-      "usageCount": 14,
-      "lastUsedAt": 1771673860861
+      "usageCount": 15,
+      "lastUsedAt": 1771705772516
     },
     "frontend-design:frontend-design": {
       "usageCount": 2,
@@ -1261,8 +1261,8 @@
       "lastUsedAt": 1771591985316
     },
     "claude-md-improver": {
-      "usageCount": 4,
-      "lastUsedAt": 1771591378442
+      "usageCount": 5,
+      "lastUsedAt": 1771705807717
     },
     "using-superpowers": {
       "usageCount": 1,
@@ -1588,7 +1588,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771704786100
+    "timestamp": 1771705819179
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
