@@ -1,5 +1,5 @@
 {
-  "numStartups": 196,
+  "numStartups": 197,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -41,8 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7612,
-  "showExpandedTodos": true,
+  "promptQueueUseCount": 7621,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -146,7 +145,8 @@
     "tengu_worktree_mode": true,
     "tengu_pebble_leaf_prune": false,
     "tengu_swann_brevity": "control",
-    "tengu_tool_input_aliasing": false
+    "tengu_tool_input_aliasing": false,
+    "tengu_streaming_text": false
   },
   "userID": "93c6352d834b2ac516169b950f4fa2839145591d89631beb8b49edd1b29b1442",
   "firstStartTime": "2026-01-14T04:53:11.063Z",
@@ -155,7 +155,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771588439558,
+  "changelogLastFetched": 1771648678990,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -989,7 +989,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771623137423
+      "timestamp": 1771648463848
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1499,7 +1499,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771648353510
+    "timestamp": 1771648695237
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
