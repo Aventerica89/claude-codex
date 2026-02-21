@@ -1,12 +1,12 @@
 {
-  "numStartups": 197,
+  "numStartups": 198,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
   "tipsHistory": {
     "new-user-warmup": 8,
     "plan-mode-for-complex-tasks": 12,
-    "memory-command": 183,
+    "memory-command": 198,
     "theme-command": 182,
     "status-line": 176,
     "stickers-command": 1,
@@ -16,7 +16,7 @@
     "install-github-app": 195,
     "install-slack-app": 54,
     "drag-and-drop-images": 190,
-    "paste-images-mac": 188,
+    "paste-images-mac": 198,
     "double-esc-code-restore": 195,
     "continue": 195,
     "shift-tab": 195,
@@ -25,7 +25,7 @@
     "desktop-app": 187,
     "web-app": 187,
     "mobile-app": 189,
-    "guest-passes": 195,
+    "guest-passes": 198,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 195,
@@ -41,8 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7656,
-  "showExpandedTodos": true,
+  "promptQueueUseCount": 7665,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -156,7 +155,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771651184663,
+  "changelogLastFetched": 1771651563271,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -1504,7 +1503,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771651225986
+    "timestamp": 1771651566912
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
