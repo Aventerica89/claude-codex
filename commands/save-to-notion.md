@@ -47,9 +47,12 @@ If unsure, default to **session**.
 - Used for: session, plan, table, decision, memory, reference, verbatim
 
 **Standards / Conventions DB (use when type=standards):**
-- `data_source_id`: `885cd9c275bd45bb93e17fe0f156d1b1`
+- DB URL ID (browser): `885cd9c275bd45bb93e17fe0f156d1b1`
+- API `data_source_id` (for page creation): `8049bc40-29af-4ce1-ad80-cc973d78cc98`
+- Title property: `Standard` (NOT "Title")
 - Used for: command conventions, system standards, formal specifications
 - Type property value: `Convention`
+- **NOTE:** These two IDs are different — always use the API data_source_id above, or re-fetch to confirm
 
 This is the NEW Knowledge Base database. The old Sessions DB (`eda52d03-6a95-48f0-904e-3a57cc5e3719`) is archived.
 
@@ -90,19 +93,34 @@ Use the type-specific template (see Content Templates below) to generate the pag
 - Verbatim: curate key exchanges for Notion, dump full raw text locally
 - Session: comprehensive but focused on decisions and next steps
 
+### Step 3.5 (MANDATORY before any page creation): Fetch DB Schema
+
+**ALWAYS** call `mcp__claude_ai_Notion__notion-fetch` on the target database URL before creating pages. The URL-visible database ID is NOT the same as the API `data_source_id` (collection ID). Fetching first reveals:
+
+1. The actual `data_source_id` to use in page creation (shown as `collection://{id}`)
+2. The correct title property name (may not be `Title` — e.g., could be `Standard`, `Name`, `Task`)
+3. Valid select/multi-select options for all properties
+
+**Standards DB fetch URL:** `https://www.notion.so/885cd9c275bd45bb93e17fe0f156d1b1`
+**Knowledge Base fetch:** skip if using known `data_source_id: 2fabdc9f-eca4-4431-b16c-d6b03dae3667`
+
+---
+
 ### Step 4 (standards only): Create Convention Page
 
-**When type=standards**, use `mcp__claude_ai_Notion__notion-create-pages` with:
+**When type=standards**, use `mcp__claude_ai_Notion__notion-create-pages` with the `data_source_id` obtained from the Step 3.5 fetch (NOT the URL ID):
 
 ```json
 {
-  "parent": {"data_source_id": "885cd9c275bd45bb93e17fe0f156d1b1"},
+  "parent": {"data_source_id": "8049bc40-29af-4ce1-ad80-cc973d78cc98"},
   "pages": [{
     "properties": {
-      "Title": "Convention: {subject}",
+      "Standard": "Convention: {subject}",
       "Type": "Convention",
-      "date:Date:start": "{YYYY-MM-DD}",
-      "date:Date:is_datetime": 0
+      "Status": "Active",
+      "Scope": "Global",
+      "Invoke": "{slash commands that trigger this convention}",
+      "Notes": "{one-line summary}"
     },
     "content": "{convention specification from conversation context}"
   }]
