@@ -637,7 +637,8 @@
       "Bash(cd ~/wp-dispatch && npx pwa-asset-generator public/logo.svg public \\\\\n  --icon-only \\\\\n  --background \"#0f172a\" \\\\\n  --padding \"0%\" \\\\\n  --type png \\\\\n  --no-sandbox 2>&1)",
       "Bash(cd ~/wp-dispatch && npx pwa-asset-generator public/logo.svg public \\\\\n  --splash-only \\\\\n  --background \"#0f172a\" \\\\\n  --padding \"30%\" \\\\\n  --type png \\\\\n  --no-sandbox 2>&1)",
       "Bash(sort -k2)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(cp:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
