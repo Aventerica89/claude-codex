@@ -17,9 +17,9 @@
     "install-slack-app": 54,
     "drag-and-drop-images": 200,
     "paste-images-mac": 198,
-    "double-esc-code-restore": 195,
-    "continue": 195,
-    "shift-tab": 195,
+    "double-esc-code-restore": 205,
+    "continue": 205,
+    "shift-tab": 205,
     "image-paste": 204,
     "ultrathink-keyword": 2,
     "desktop-app": 202,
@@ -1592,7 +1592,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771710475603
+    "timestamp": 1771710957615
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
