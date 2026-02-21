@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7621,
+  "promptQueueUseCount": 7627,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1208,8 +1208,8 @@
       "lastUsedAt": 1770579666294
     },
     "changelog": {
-      "usageCount": 7,
-      "lastUsedAt": 1771626225896
+      "usageCount": 8,
+      "lastUsedAt": 1771648931248
     },
     "resume": {
       "usageCount": 15,
@@ -1499,7 +1499,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771648695237
+    "timestamp": 1771649042747
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
