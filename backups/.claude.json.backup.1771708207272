@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8052,
+  "promptQueueUseCount": 8058,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1105,8 +1105,8 @@
       "lastUsedAt": 1771649682203
     },
     "end": {
-      "usageCount": 100,
-      "lastUsedAt": 1771681976783
+      "usageCount": 102,
+      "lastUsedAt": 1771708016038
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1133,8 +1133,8 @@
       "lastUsedAt": 1771583140187
     },
     "deploy-check": {
-      "usageCount": 4,
-      "lastUsedAt": 1771523367667
+      "usageCount": 5,
+      "lastUsedAt": 1771707749635
     },
     "deploy-env": {
       "usageCount": 1,
@@ -1205,8 +1205,8 @@
       "lastUsedAt": 1771632127340
     },
     "tdd": {
-      "usageCount": 1,
-      "lastUsedAt": 1770579666294
+      "usageCount": 2,
+      "lastUsedAt": 1771708059458
     },
     "changelog": {
       "usageCount": 10,
@@ -1261,8 +1261,8 @@
       "lastUsedAt": 1771707214827
     },
     "claude-md-improver": {
-      "usageCount": 5,
-      "lastUsedAt": 1771705807717
+      "usageCount": 6,
+      "lastUsedAt": 1771708011911
     },
     "using-superpowers": {
       "usageCount": 1,
@@ -1592,7 +1592,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771707700343
+    "timestamp": 1771708117681
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
