@@ -650,7 +650,10 @@
       "WebFetch(domain:billingsdk.com)",
       "Bash(npx @billingsdk/cli add:*)",
       "Bash(for f in chat-container message prompt-input prompt-suggestion scroll-button response-stream loader markdown)",
-      "Bash(TURSO_DATABASE_URL=\"libsql://wp-dispatch-aventerica89.aws-us-west-2.turso.io\" TURSO_AUTH_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzE0MDYyODcsImlkIjoiNTM0MjZiODQtNjE1Yy00ZGFlLWFkMzctNjQzOTI3NjZiNmE5IiwicmlkIjoiNTI2NTgyZGQtZjRhMC00NjIyLWEzMjAtN2FhZDk3MTMzODE0In0.qehEm2UcoK2WvNNF9_IgO1Pzw8Bxci3d0WTB9IhVfx6nMR7Mr15Dr82BdYM-KExm9gDAprdReoS6w47q0iSXBQ\" npm run:*)"
+      "Bash(TURSO_DATABASE_URL=\"libsql://wp-dispatch-aventerica89.aws-us-west-2.turso.io\" TURSO_AUTH_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzE0MDYyODcsImlkIjoiNTM0MjZiODQtNjE1Yy00ZGFlLWFkMzctNjQzOTI3NjZiNmE5IiwicmlkIjoiNTI2NTgyZGQtZjRhMC00NjIyLWEzMjAtN2FhZDk3MTMzODE0In0.qehEm2UcoK2WvNNF9_IgO1Pzw8Bxci3d0WTB9IhVfx6nMR7Mr15Dr82BdYM-KExm9gDAprdReoS6w47q0iSXBQ\" npm run:*)",
+      "Bash(TURSO_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzE0NzkyNDksImlkIjoiNTNmY2M2MzctYzZmNy00MGRlLThjNDktNTEwNGIzNTBlNWJkIiwicmlkIjoiODcxNGM3OWQtOGVlNi00ZDVlLWIzMDEtNGQxM2ZhNDdmMDRiIn0.NnbWHfU2eQ8b6S_AevHojEAyxGcKu3DoKHsv20C-zrISAakMlN5S8rae33kFKNoB_ERQX4sUE3VwOAWDsZP1AA\")",
+      "Bash(TURSO_DB=\"clarity-aventerica89.aws-us-west-2.turso.io\":*)",
+      "Bash(__NEW_LINE_434db23d3fea3c8e__ curl -s -X POST \"https://$TURSO_DB/v2/pipeline\" -H \"Authorization: Bearer $TURSO_TOKEN\" -H \"Content-Type: application/json\" -d '{:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
