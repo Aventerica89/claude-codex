@@ -1,5 +1,5 @@
 {
-  "numStartups": 199,
+  "numStartups": 200,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -15,7 +15,7 @@
     "todo-list": 184,
     "install-github-app": 195,
     "install-slack-app": 54,
-    "drag-and-drop-images": 190,
+    "drag-and-drop-images": 200,
     "paste-images-mac": 198,
     "double-esc-code-restore": 195,
     "continue": 195,
@@ -41,7 +41,8 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7788,
+  "promptQueueUseCount": 7790,
+  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -156,7 +157,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771656911728,
+  "changelogLastFetched": 1771657367786,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -164,7 +165,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.49",
+  "lastReleaseNotesSeen": "2.1.50",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -990,7 +991,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771652531418
+      "timestamp": 1771657181922
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1097,8 +1098,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 42,
-      "lastUsedAt": 1771653901126
+      "usageCount": 43,
+      "lastUsedAt": 1771657297581
     },
     "new-project": {
       "usageCount": 5,
@@ -1241,8 +1242,8 @@
       "lastUsedAt": 1771575263785
     },
     "superpowers:brainstorming": {
-      "usageCount": 15,
-      "lastUsedAt": 1771633741710
+      "usageCount": 16,
+      "lastUsedAt": 1771657273280
     },
     "pause": {
       "usageCount": 7,
@@ -1568,7 +1569,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771657042337
+    "timestamp": 1771657367489
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
