@@ -19,9 +19,9 @@ Special flags:
 
 Examples:
 - `/save-to-notion` -> auto-detect, likely "session"
-- `/save-to-notion plan` -> plan type, auto-generated title
-- `/save-to-notion decision WebSocket vs SSE` -> decision type, title suffix "WebSocket vs SSE"
-- `/save-to-notion standards changelog` -> convention entry for changelog standard
+- `/save-to-notion:plan` -> plan type, auto-generated title
+- `/save-to-notion:decision WebSocket vs SSE` -> decision type, title suffix "WebSocket vs SSE"
+- `/save-to-notion:standards changelog` -> convention entry for changelog standard
 
 ## Type Detection (when no type given)
 

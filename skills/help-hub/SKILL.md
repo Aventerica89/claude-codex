@@ -5,6 +5,11 @@ description: Use when adding an in-app help/onboarding hub to a dashboard app. T
 
 # In-App Help Hub
 
+## Commands
+
+- `/help-hub` — run this skill to add an in-app help hub to a project
+- `/help-hub:sync` — sync an existing help hub with the latest template (see `help-hub-sync` skill)
+
 ## Overview
 
 A tabbed help hub positioned as a first-class nav item (above Dashboard) with a visual divider. Three standard tabs: **Getting Started** (numbered steps), **Feature Guide** (feature cards), **Connections Guide** (how the app's integration layers work).

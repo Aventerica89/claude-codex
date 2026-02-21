@@ -10,11 +10,11 @@ Three-tier system. Every project uses this exact format. No deviations.
 ## Commands
 
 - `/changelog` — show status: files initialized? latest entry per tier? current version?
-- `/changelog init` — scaffold all three files with headers + one example entry
-- `/changelog feature "desc"` — write Tier 1 entry (Added/Fixed/Changed/Removed)
-- `/changelog dev` — manually write Tier 2 entry outside a deploy
-- `/changelog sync` — regenerate `changelog.json` from `CHANGELOG.md`
-- `/changelog standards` — print this full spec inline (for VaporForge sessions)
+- `/changelog:init` — scaffold all three files with headers + one example entry
+- `/changelog:feature "desc"` — write Tier 1 entry (Added/Fixed/Changed/Removed)
+- `/changelog:dev` — manually write Tier 2 entry outside a deploy
+- `/changelog:sync` — regenerate `changelog.json` from `CHANGELOG.md`
+- `/changelog:standards` — print this full spec inline (for VaporForge sessions)
 
 **Flags:** `--dry-run` | `--version 1.3.0` | `--project vaporforge` | `--feature`
 
@@ -23,7 +23,7 @@ Three-tier system. Every project uses this exact format. No deviations.
 ## Tier 1 — Public Feature Log
 
 **File:** `CHANGELOG.md`
-**Trigger:** Explicit only — `--feature` flag or `/changelog feature "desc"`
+**Trigger:** Explicit only — `--feature` flag or `/changelog:feature "desc"`
 **When:** Minor and major version bumps only. User-visible changes only.
 **Displayed:** Settings → "What's New" tab. All users.
 
@@ -64,7 +64,7 @@ Three-tier system. Every project uses this exact format. No deviations.
 ## Tier 2 — Developer Log
 
 **File:** `CHANGELOG-DEV.md`
-**Trigger:** Every commit, automatic via commit hook. Manual via `/changelog dev`.
+**Trigger:** Every commit, automatic via commit hook. Manual via `/changelog:dev`.
 **When:** Every commit without exception. Includes build notes — TYPE + scope + description.
 **Displayed:** Admin-only toggle panel, co-located with footer version badge.
 
@@ -147,7 +147,7 @@ FIX     ws-agent — reconnect loop on session timeout
 
 ---
 
-## Initialization (`/changelog init`)
+## Initialization (`/changelog:init`)
 
 Creates these files if they don't exist:
 
