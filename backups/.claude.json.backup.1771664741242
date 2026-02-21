@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7839,
+  "promptQueueUseCount": 7844,
   "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
@@ -157,7 +157,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771664400147,
+  "changelogLastFetched": 1771664728419,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -165,7 +165,7 @@
   "optionAsMetaKeyInstalled": true,
   "hasCompletedOnboarding": true,
   "lastOnboardingVersion": "2.1.7",
-  "lastReleaseNotesSeen": "2.1.50",
+  "lastReleaseNotesSeen": "2.1.49",
   "projects": {
     "/Users/jb": {
       "allowedTools": [],
@@ -1194,8 +1194,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 77,
-      "lastUsedAt": 1771662412686
+      "usageCount": 78,
+      "lastUsedAt": 1771664680993
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1234,8 +1234,8 @@
       "lastUsedAt": 1771624535296
     },
     "superpowers:writing-plans": {
-      "usageCount": 14,
-      "lastUsedAt": 1771634697252
+      "usageCount": 15,
+      "lastUsedAt": 1771664503037
     },
     "superpowers:executing-plans": {
       "usageCount": 8,
@@ -1569,7 +1569,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771664400369
+    "timestamp": 1771664726259
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
