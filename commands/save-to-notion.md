@@ -106,9 +106,23 @@ Use the type-specific template (see Content Templates below) to generate the pag
 
 ---
 
-### Step 4 (standards only): Create Convention Page
+### Step 4 (standards only): Archive Old + Create New Convention Page
 
-**When type=standards**, use `mcp__claude_ai_Notion__notion-create-pages` with the `data_source_id` obtained from the Step 3.5 fetch (NOT the URL ID):
+**When type=standards**, follow this two-part process:
+
+#### Part A: Archive existing conventions with the same subject
+
+Use `mcp__claude_ai_Notion__notion-search` to find existing pages titled `Convention: {subject}` in the Standards DB. For each match with `Group = "Latest"`, set it to `Group = "Archive"` using `notion-update-page`:
+
+```json
+{ "page_id": "{existing-page-id}", "command": "update_properties", "properties": { "Group": "Archive" } }
+```
+
+Skip this if no matches found.
+
+#### Part B: Create the new convention page
+
+Use `mcp__claude_ai_Notion__notion-create-pages` with the `data_source_id` obtained from the Step 3.5 fetch (NOT the URL ID):
 
 ```json
 {
