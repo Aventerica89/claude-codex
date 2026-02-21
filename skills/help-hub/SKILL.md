@@ -108,6 +108,43 @@ export default function HelpPage() {
 | Feature Guide | One card per feature — icon + summary + detail + optional note | shadcn `<Card>` |
 | Connections Guide | Prose sections per integration tier + summary table (Required/Recommended/Optional/Best) | shadcn `<Card>` |
 
+### Getting Started Cards — Exact Spacing (CRITICAL)
+
+Use `space-y-3` between cards and `p-4` padding inside. **Do not use `space-y-6` or `gap-6`** — it creates excessive visual gaps between steps.
+
+```tsx
+function GettingStartedTab() {
+  return (
+    <div className="space-y-3 mt-6">
+      {gettingStarted.map((item) => (
+        <Link key={item.step} href={item.href}>
+          <div className="flex gap-4 p-4 rounded-lg border hover:border-primary/50 hover:bg-muted/30 transition-colors cursor-pointer group">
+            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+              {item.step}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-0.5">
+                <p className="font-medium">{item.title}</p>
+                {item.step <= 3 && (
+                  <Badge variant="secondary" className="text-xs">Recommended</Badge>
+                )}
+              </div>
+              <p className="text-sm text-muted-foreground">{item.detail}</p>
+            </div>
+            <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0 self-center opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+}
+```
+
+**Key classes:**
+- Container: `space-y-3 mt-6` — 12px gap, not 24px
+- Card: `p-4 rounded-lg border` — compact internal padding
+- Step circle: `h-7 w-7 rounded-full` — 28px circle
+
 ## Redirect Old About Page
 
 ```tsx
