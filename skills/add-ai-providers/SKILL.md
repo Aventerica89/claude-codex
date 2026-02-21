@@ -107,21 +107,22 @@ Keep all component logic, state patterns, and CSS classes identical unless adapt
 
 ### Step 2.5: Copy Provider Logo Files
 
-Copy the SVG logos from the shared assets directory to the target project's public folder:
+Logos are stored in the claude-codex assets directory (`~/.claude/assets/logos/`). Copy the three square-icon logos to the target project:
 
 ```bash
 mkdir -p public/logos
-cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/claude-logo.svg  public/logos/
-cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/google-logo.svg  public/logos/
-cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/groq-logo.svg    public/logos/
+cp ~/.claude/assets/logos/claude-logo.svg  public/logos/
+cp ~/.claude/assets/logos/google-logo.svg  public/logos/
+cp ~/.claude/assets/logos/groq-logo.svg    public/logos/
 ```
 
-DeepSeek has no logo — it renders as the teal-colored "D" initial.
+DeepSeek has a logo (`DeepSeek_idPu03Khfd_1.svg`) but it is a wide wordmark — not suitable for an 8×8 avatar. Use the teal "D" initial instead.
 
 Logo notes:
 - `claude-logo.svg` — coral swirl mark (#D97757), transparent background
 - `google-logo.svg` — multicolor Google "G", transparent background
 - `groq-logo.svg` — red square background (#F54F35) with white "Q" mark baked in
+- `DeepSeek_idPu03Khfd_1.svg` — blue wordmark (icon + text), wide aspect ratio, use initial at small sizes
 
 ### Step 3: Add integrations Table to Schema
 
@@ -359,14 +360,9 @@ Check `public/logos/` for each logo. Copy any that are missing:
 mkdir -p public/logos
 
 # Copy only if not already present
-[ -f public/logos/claude-logo.svg ] || \
-  cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/claude-logo.svg public/logos/
-
-[ -f public/logos/google-logo.svg ] || \
-  cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/google-logo.svg public/logos/
-
-[ -f public/logos/groq-logo.svg ] || \
-  cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/groq-logo.svg public/logos/
+[ -f public/logos/claude-logo.svg ] || cp ~/.claude/assets/logos/claude-logo.svg public/logos/
+[ -f public/logos/google-logo.svg ] || cp ~/.claude/assets/logos/google-logo.svg public/logos/
+[ -f public/logos/groq-logo.svg   ] || cp ~/.claude/assets/logos/groq-logo.svg   public/logos/
 ```
 
 ### Step 4: Report
