@@ -8,6 +8,7 @@ description: Add multi-provider AI settings panel to a JB Cloud Next.js app. Cop
 ## Commands
 
 - `/add-ai-providers` — implement the full AI provider settings panel in the current project
+- `/add-ai-providers:update` — bring an existing AI providers panel up to date with the latest Clarity pattern
 
 ## Overview
 
@@ -288,3 +289,99 @@ Next: add ENCRYPTION_KEY env var if not already present
 
 - Notion convention: https://www.notion.so/30ecc9ae33da819b87b9f44d50439686
 - Source component: `~/clarity/src/components/settings/ai-providers-panel.tsx`
+
+---
+
+## Subcommand: update (`/add-ai-providers:update`)
+
+Brings an **existing** AI providers panel up to date with the latest Clarity pattern. Run this in projects that already have the panel implemented but may be behind on:
+
+- SVG logos (added 2026-02-21)
+- Model name updates
+- New providers
+
+### Step 1: Read Existing Component
+
+Read the current component:
+
+```
+src/components/settings/ai-providers-panel.tsx
+```
+
+Check for:
+- Does `ProviderConfig` have `logoSrc?: string`?
+- Are model names current? (see canonical list below)
+- Is the avatar render using the conditional logo/initial pattern?
+- Are logo files present in `public/logos/`?
+
+### Step 2: Apply Updates
+
+**Add `logoSrc` if missing:**
+
+Add to `ProviderConfig` interface:
+```ts
+logoSrc?: string  // path to SVG in public/logos/; absent = colored initial
+```
+
+**Update PROVIDERS entries** with current models and logos:
+
+| Provider | Current model | logoSrc |
+|----------|--------------|---------|
+| anthropic | `claude-sonnet-4-6` | `/logos/claude-logo.svg` |
+| gemini | `gemini-2.0-flash` | `/logos/google-logo.svg` |
+| deepseek | `deepseek-chat` | *(none)* |
+| groq | `llama-3.3-70b-versatile` | `/logos/groq-logo.svg` |
+
+**Update avatar render** if it uses the old colored-div-only pattern:
+
+```tsx
+{provider.logoSrc ? (
+  <img
+    src={provider.logoSrc}
+    alt={provider.label}
+    className="w-8 h-8 rounded-lg object-contain shrink-0"
+  />
+) : (
+  <div className={cn(
+    "w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-semibold shrink-0",
+    provider.avatarColor
+  )}>
+    {provider.initial}
+  </div>
+)}
+```
+
+### Step 3: Copy Missing Logo Files
+
+Check `public/logos/` for each logo. Copy any that are missing:
+
+```bash
+mkdir -p public/logos
+
+# Copy only if not already present
+[ -f public/logos/claude-logo.svg ] || \
+  cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/claude-logo.svg public/logos/
+
+[ -f public/logos/google-logo.svg ] || \
+  cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/google-logo.svg public/logos/
+
+[ -f public/logos/groq-logo.svg ] || \
+  cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/groq-logo.svg public/logos/
+```
+
+### Step 4: Report
+
+```
+AI providers panel updated!
+
+Changes applied:
+  - ProviderConfig: added logoSrc field         [or: already present]
+  - Avatar render: updated to logo/initial       [or: already updated]
+  - Model names: updated to current versions     [or: already current]
+  - Logos copied to public/logos/:
+      claude-logo.svg  [copied / already present]
+      google-logo.svg  [copied / already present]
+      groq-logo.svg    [copied / already present]
+
+No schema or API route changes needed.
+```
