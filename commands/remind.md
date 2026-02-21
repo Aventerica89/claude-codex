@@ -9,12 +9,43 @@ Quick context reminder for users with multiple windows/sessions.
 ## Arguments
 
 Parse `$ARGUMENTS` for flags:
+- `today` - Show recent git commit history grouped by theme/session
 - `--on` - Enable auto-reminders (every 2nd pause by default)
 - `--off` - Disable auto-reminders
 - `--frequency <n>` or `-f <n>` - Set reminder frequency (every nth pause)
 - `--full` - Include git status and modified files
 - `--tasks` or `-t` - Include current task list
 - No flags - Show manual reminder once
+
+## Today Mode (`/remind today`)
+
+When `today` is passed as the argument:
+
+1. Run `git log --oneline -20` in the current working directory
+2. Group the commits into logical clusters by theme or time (e.g., "This session", "Yesterday", feature sprints)
+3. Output a brief human-readable summary of each group with commit hashes
+
+### Output Format
+
+```
+**Recent Work: {project-name}**
+
+**{Group Label}** (e.g. "This session", "Security sprint", "Yesterday")
+- `abc1234` — What was done
+- `def5678` — What was done
+
+**{Group Label}**
+- `ghi9012` — What was done
+```
+
+### Grouping Strategy
+
+- Group by date first (today's commits vs earlier)
+- Within a date, group by theme if multiple related commits are clustered (e.g., several "fix: lint" commits = "Lint fixes sprint")
+- Label groups descriptively: "This session", "Earlier today", "Yesterday", or a theme like "Security hardening" / "PWA assets"
+- Show at most 20 commits total
+
+---
 
 ## Auto-Remind Mode
 
@@ -98,6 +129,31 @@ Add after the standard output:
 ---
 
 ## Example Outputs
+
+### Today Mode
+
+```
+/remind today
+
+**Recent Work: WP Dispatch**
+
+**This session**
+- `f66f407` — HIG PWA overhaul — CSS master control system + full compliance
+- `6e1e928` — Fix Next.js 16 proxy export bug
+- `88b4e66` / `ecad2f2` — PWA icons regenerated, splash screens fixed
+
+**CI lint fixes**
+- `cb7b737` / `03dcbf8` / `90fdd57` / `59631ea` — ESLint errors from GitHub Actions
+
+**Automation**
+- `41a0de1` — GitHub Actions CI + Claude Code hooks
+
+**Security hardening**
+- `824da48` — Rate limit waitlist, clean up dead env var
+- `b0cbb32` — Enforce auth, remove secret from JS bundle, CSP + HSTS
+- `4b02669` — Require AUTH_SECRET separate from ENCRYPTION_SECRET
+- `4338ade` — Remove RCE vectors from WP-CLI allowlist
+```
 
 ### Manual Remind
 
