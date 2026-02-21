@@ -643,7 +643,8 @@
       "Bash(rm:*)",
       "mcp__cloudflare-workers-bindings__d1_database_query",
       "Bash(npx drizzle-kit migrate:*)",
-      "Bash(claude mcp list 2>/dev/null | grep -i supa || npx supabase --version 2>/dev/null)"
+      "Bash(claude mcp list 2>/dev/null | grep -i supa || npx supabase --version 2>/dev/null)",
+      "Bash(sleep 5 && npx supabase --workdir /Users/jb/tam-compliance link --project-ref cvmovksckkawphansvwg 2>&1)"
     ]
   },
   "enableAllProjectMcpServers": true,
