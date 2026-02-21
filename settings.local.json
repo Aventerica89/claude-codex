@@ -649,7 +649,8 @@
       "Bash(npx supabase:*)",
       "WebFetch(domain:billingsdk.com)",
       "Bash(npx @billingsdk/cli add:*)",
-      "Bash(for f in chat-container message prompt-input prompt-suggestion scroll-button response-stream loader markdown)"
+      "Bash(for f in chat-container message prompt-input prompt-suggestion scroll-button response-stream loader markdown)",
+      "Bash(TURSO_DATABASE_URL=\"libsql://wp-dispatch-aventerica89.aws-us-west-2.turso.io\" TURSO_AUTH_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzE0MDYyODcsImlkIjoiNTM0MjZiODQtNjE1Yy00ZGFlLWFkMzctNjQzOTI3NjZiNmE5IiwicmlkIjoiNTI2NTgyZGQtZjRhMC00NjIyLWEzMjAtN2FhZDk3MTMzODE0In0.qehEm2UcoK2WvNNF9_IgO1Pzw8Bxci3d0WTB9IhVfx6nMR7Mr15Dr82BdYM-KExm9gDAprdReoS6w47q0iSXBQ\" npm run:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
