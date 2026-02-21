@@ -1,5 +1,5 @@
 {
-  "numStartups": 201,
+  "numStartups": 203,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -7,7 +7,7 @@
     "new-user-warmup": 8,
     "plan-mode-for-complex-tasks": 12,
     "memory-command": 198,
-    "theme-command": 182,
+    "theme-command": 202,
     "status-line": 201,
     "stickers-command": 1,
     "prompt-queue": 7,
@@ -22,8 +22,8 @@
     "shift-tab": 195,
     "image-paste": 184,
     "ultrathink-keyword": 2,
-    "desktop-app": 187,
-    "web-app": 187,
+    "desktop-app": 202,
+    "web-app": 202,
     "mobile-app": 189,
     "guest-passes": 201,
     "ide-upsell-external-terminal": 104,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8048,
+  "promptQueueUseCount": 8049,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -990,7 +990,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771676931462
+      "timestamp": 1771704728566
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1588,7 +1588,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771682062864
+    "timestamp": 1771705044284
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
