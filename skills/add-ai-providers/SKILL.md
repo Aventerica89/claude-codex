@@ -56,7 +56,71 @@ Adapt the `PROVIDERS` array if needed:
 - Update model names to current versions
 - Adjust descriptions to match app context
 
+Add `logoSrc?: string` to `ProviderConfig` and set it for providers that have logos:
+
+```tsx
+interface ProviderConfig {
+  id: ProviderId
+  label: string
+  model: string
+  description: string
+  placeholder: string
+  docsUrl: string
+  avatarColor: string
+  initial: string
+  logoSrc?: string  // path to SVG in public/logos/; absent = colored initial
+}
+
+const PROVIDERS: ProviderConfig[] = [
+  { id: "anthropic", label: "Claude", logoSrc: "/logos/claude-logo.svg",
+    avatarColor: "bg-violet-500", initial: "A", ... },
+  { id: "gemini",    label: "Gemini", logoSrc: "/logos/google-logo.svg",
+    avatarColor: "bg-blue-500",   initial: "G", ... },
+  { id: "deepseek",  label: "DeepSeek",
+    avatarColor: "bg-teal-500",   initial: "D", ... },
+  { id: "groq",      label: "Groq",  logoSrc: "/logos/groq-logo.svg",
+    avatarColor: "bg-orange-500", initial: "Gr", ... },
+]
+```
+
+Update the avatar render in the component to conditionally show the logo:
+
+```tsx
+{provider.logoSrc ? (
+  <img
+    src={provider.logoSrc}
+    alt={provider.label}
+    className="w-8 h-8 rounded-lg object-contain shrink-0"
+  />
+) : (
+  <div className={cn(
+    "w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-semibold shrink-0",
+    provider.avatarColor
+  )}>
+    {provider.initial}
+  </div>
+)}
+```
+
 Keep all component logic, state patterns, and CSS classes identical unless adapting for a non-shadcn/non-Tailwind project.
+
+### Step 2.5: Copy Provider Logo Files
+
+Copy the SVG logos from the shared assets directory to the target project's public folder:
+
+```bash
+mkdir -p public/logos
+cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/claude-logo.svg  public/logos/
+cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/google-logo.svg  public/logos/
+cp ~/Creative\ Cloud/Client\ Assets/App\ Dev/Logos/groq-logo.svg    public/logos/
+```
+
+DeepSeek has no logo — it renders as the teal-colored "D" initial.
+
+Logo notes:
+- `claude-logo.svg` — coral swirl mark (#D97757), transparent background
+- `google-logo.svg` — multicolor Google "G", transparent background
+- `groq-logo.svg` — red square background (#F54F35) with white "Q" mark baked in
 
 ### Step 3: Add integrations Table to Schema
 
@@ -201,10 +265,10 @@ Schema: integrations table added to src/lib/schema.ts
 Migration: generated — run npx drizzle-kit push or use Turso HTTP API
 
 Providers configured:
-  - Claude (Anthropic)   bg-violet-500
-  - Gemini               bg-blue-500
-  - DeepSeek             bg-teal-500
-  - Groq                 bg-orange-500
+  - Claude (Anthropic)   logo: claude-logo.svg
+  - Gemini               logo: google-logo.svg
+  - DeepSeek             initial: D  bg-teal-500
+  - Groq                 logo: groq-logo.svg
 
 Next: add ENCRYPTION_KEY env var if not already present
 ```
