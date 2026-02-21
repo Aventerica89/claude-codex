@@ -654,7 +654,8 @@
       "Bash(TURSO_TOKEN=\"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzE0NzkyNDksImlkIjoiNTNmY2M2MzctYzZmNy00MGRlLThjNDktNTEwNGIzNTBlNWJkIiwicmlkIjoiODcxNGM3OWQtOGVlNi00ZDVlLWIzMDEtNGQxM2ZhNDdmMDRiIn0.NnbWHfU2eQ8b6S_AevHojEAyxGcKu3DoKHsv20C-zrISAakMlN5S8rae33kFKNoB_ERQX4sUE3VwOAWDsZP1AA\")",
       "Bash(TURSO_DB=\"clarity-aventerica89.aws-us-west-2.turso.io\":*)",
       "Bash(__NEW_LINE_434db23d3fea3c8e__ curl -s -X POST \"https://$TURSO_DB/v2/pipeline\" -H \"Authorization: Bearer $TURSO_TOKEN\" -H \"Content-Type: application/json\" -d '{:*)",
-      "Bash(~/.claude/skills/learned/kv-threshold-alert-dedup.md:*)"
+      "Bash(~/.claude/skills/learned/kv-threshold-alert-dedup.md:*)",
+      "Bash(echo Backup saved.:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
