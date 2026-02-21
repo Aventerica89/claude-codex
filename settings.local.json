@@ -645,7 +645,8 @@
       "Bash(npx drizzle-kit migrate:*)",
       "Bash(claude mcp list 2>/dev/null | grep -i supa || npx supabase --version 2>/dev/null)",
       "Bash(sleep 5 && npx supabase --workdir /Users/jb/tam-compliance link --project-ref cvmovksckkawphansvwg 2>&1)",
-      "Bash(sleep 20 && npx supabase --workdir /Users/jb/tam-compliance db push --project-ref cvmovksckkawphansvwg 2>&1)"
+      "Bash(sleep 20 && npx supabase --workdir /Users/jb/tam-compliance db push --project-ref cvmovksckkawphansvwg 2>&1)",
+      "Bash(npx supabase:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
