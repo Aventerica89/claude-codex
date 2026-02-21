@@ -648,7 +648,8 @@
       "Bash(sleep 20 && npx supabase --workdir /Users/jb/tam-compliance db push --project-ref cvmovksckkawphansvwg 2>&1)",
       "Bash(npx supabase:*)",
       "WebFetch(domain:billingsdk.com)",
-      "Bash(npx @billingsdk/cli add:*)"
+      "Bash(npx @billingsdk/cli add:*)",
+      "Bash(for f in chat-container message prompt-input prompt-suggestion scroll-button response-stream loader markdown)"
     ]
   },
   "enableAllProjectMcpServers": true,
