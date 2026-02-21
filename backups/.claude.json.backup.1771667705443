@@ -41,7 +41,8 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 7858,
+  "promptQueueUseCount": 7861,
+  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -156,7 +157,7 @@
   "opusProMigrationComplete": true,
   "thinkingMigrationComplete": true,
   "cachedChromeExtensionInstalled": true,
-  "changelogLastFetched": 1771667170018,
+  "changelogLastFetched": 1771667404913,
   "autoUpdatesProtectedForNative": true,
   "claudeCodeFirstTokenDate": "2025-11-30T05:27:43.745910Z",
   "appleTerminalSetupInProgress": false,
@@ -1169,8 +1170,8 @@
       "lastUsedAt": 1771614271815
     },
     "codex-sync": {
-      "usageCount": 11,
-      "lastUsedAt": 1771665833919
+      "usageCount": 12,
+      "lastUsedAt": 1771667267815
     },
     "frontend-design:frontend-design": {
       "usageCount": 2,
@@ -1249,8 +1250,8 @@
       "lastUsedAt": 1771637012280
     },
     "superpowers:subagent-driven-development": {
-      "usageCount": 8,
-      "lastUsedAt": 1771636866950
+      "usageCount": 9,
+      "lastUsedAt": 1771667257344
     },
     "context-restore": {
       "usageCount": 3,
@@ -1572,7 +1573,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771667169493
+    "timestamp": 1771667655552
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
