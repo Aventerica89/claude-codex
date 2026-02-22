@@ -1348,8 +1348,8 @@
       "lastUsedAt": 1771668005294
     },
     "superpowers:using-git-worktrees": {
-      "usageCount": 3,
-      "lastUsedAt": 1771740669377
+      "usageCount": 4,
+      "lastUsedAt": 1771795932683
     },
     "feature-dev:feature-dev": {
       "usageCount": 1,
@@ -1615,7 +1615,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771795630650
+    "timestamp": 1771796173307
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
