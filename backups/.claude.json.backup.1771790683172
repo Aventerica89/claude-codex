@@ -1458,6 +1458,10 @@
     "interface-design:critique": {
       "usageCount": 1,
       "lastUsedAt": 1771752241948
+    },
+    "prompt-kit-convert": {
+      "usageCount": 1,
+      "lastUsedAt": 1771790623217
     }
   },
   "slackAppInstallCount": 1,
@@ -1611,7 +1615,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771790278598
+    "timestamp": 1771790665380
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
