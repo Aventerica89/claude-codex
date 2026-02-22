@@ -1,5 +1,5 @@
 {
-  "numStartups": 207,
+  "numStartups": 209,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -16,7 +16,7 @@
     "install-github-app": 205,
     "install-slack-app": 54,
     "drag-and-drop-images": 200,
-    "paste-images-mac": 198,
+    "paste-images-mac": 208,
     "double-esc-code-restore": 205,
     "continue": 205,
     "shift-tab": 205,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8060,
+  "promptQueueUseCount": 8061,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -990,7 +990,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771710275747
+      "timestamp": 1771719549540
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1592,7 +1592,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771719334939
+    "timestamp": 1771719825051
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
