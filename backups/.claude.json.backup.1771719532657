@@ -25,15 +25,15 @@
     "desktop-app": 202,
     "web-app": 202,
     "mobile-app": 204,
-    "guest-passes": 204,
+    "guest-passes": 207,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 204,
     "custom-agents": 204,
     "agent-flag": 204,
     "permissions": 205,
-    "rename-conversation": 191,
-    "custom-commands": 191,
+    "rename-conversation": 207,
+    "custom-commands": 207,
     "terminal-setup": 205,
     "colorterm-truecolor": 186,
     "default-permission-mode-config": 205,
@@ -1097,8 +1097,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 47,
-      "lastUsedAt": 1771677376180
+      "usageCount": 48,
+      "lastUsedAt": 1771719320032
     },
     "new-project": {
       "usageCount": 5,
@@ -1592,7 +1592,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771713636573
+    "timestamp": 1771719514384
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
