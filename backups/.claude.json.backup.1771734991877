@@ -1604,7 +1604,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771734553547
+    "timestamp": 1771734957040
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
