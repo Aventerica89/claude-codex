@@ -664,7 +664,8 @@
       "Bash(mkdir:*)",
       "Bash(cd ~/clarity && rm -f public/pwa/*.png public/pwa/*.jpg && npx pwa-asset-generator ./public/pwa-source.html ./public/pwa --background \"#0f172a\" --padding \"0\" --type png --favicon --maskable --manifest ./public/manifest.json --path \"/pwa\" --quality 90 --log true 2>&1)",
       "Bash(yes | npx ai-elements@latest add conversation message reasoning sources suggestion 2>&1)",
-      "WebFetch(domain:prompt-kit.com)"
+      "WebFetch(domain:prompt-kit.com)",
+      "Bash(cd ~/clarity/public/pwa && sips -z 192 192 manifest-icon-512.maskable.png --out manifest-icon-192.maskable.png 2>&1 && sips -z 180 180 manifest-icon-512.maskable.png --out apple-icon-180.png 2>&1 && sips -z 196 196 manifest-icon-512.maskable.png --out favicon-196.png 2>&1)"
     ]
   },
   "enableAllProjectMcpServers": true,
