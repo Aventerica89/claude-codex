@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8198,
+  "promptQueueUseCount": 8200,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1462,6 +1462,10 @@
     "hig-mobile-pass": {
       "usageCount": 1,
       "lastUsedAt": 1771730459132
+    },
+    "interface-design:critique": {
+      "usageCount": 1,
+      "lastUsedAt": 1771752241948
     }
   },
   "slackAppInstallCount": 1,
@@ -1615,7 +1619,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771751756223
+    "timestamp": 1771752242076
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
