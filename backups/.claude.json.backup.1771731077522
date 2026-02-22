@@ -17,7 +17,7 @@
     "install-slack-app": 54,
     "drag-and-drop-images": 211,
     "paste-images-mac": 208,
-    "double-esc-code-restore": 205,
+    "double-esc-code-restore": 216,
     "continue": 205,
     "shift-tab": 205,
     "image-paste": 204,
@@ -31,7 +31,7 @@
     "frontend-design-plugin": 212,
     "custom-agents": 204,
     "agent-flag": 204,
-    "permissions": 205,
+    "permissions": 216,
     "rename-conversation": 207,
     "custom-commands": 207,
     "terminal-setup": 216,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8103,
+  "promptQueueUseCount": 8108,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1289,8 +1289,8 @@
       "lastUsedAt": 1771721460796
     },
     "playground": {
-      "usageCount": 3,
-      "lastUsedAt": 1771670006315
+      "usageCount": 4,
+      "lastUsedAt": 1771730952126
     },
     "executing-plans": {
       "usageCount": 2,
@@ -1604,7 +1604,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771730607799
+    "timestamp": 1771730952236
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
