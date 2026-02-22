@@ -18,17 +18,17 @@
     "drag-and-drop-images": 211,
     "paste-images-mac": 208,
     "double-esc-code-restore": 216,
-    "continue": 205,
-    "shift-tab": 205,
+    "continue": 216,
+    "shift-tab": 216,
     "image-paste": 204,
     "ultrathink-keyword": 2,
     "desktop-app": 202,
     "web-app": 202,
     "mobile-app": 204,
-    "guest-passes": 211,
+    "guest-passes": 216,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 212,
+    "frontend-design-plugin": 216,
     "custom-agents": 204,
     "agent-flag": 204,
     "permissions": 216,
@@ -1289,8 +1289,8 @@
       "lastUsedAt": 1771721460796
     },
     "playground": {
-      "usageCount": 3,
-      "lastUsedAt": 1771670006315
+      "usageCount": 4,
+      "lastUsedAt": 1771730952126
     },
     "executing-plans": {
       "usageCount": 2,
@@ -1604,7 +1604,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771730878247
+    "timestamp": 1771731459708
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
