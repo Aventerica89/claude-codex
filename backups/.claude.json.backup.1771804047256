@@ -1,5 +1,5 @@
 {
-  "numStartups": 220,
+  "numStartups": 222,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -7,7 +7,7 @@
     "new-user-warmup": 8,
     "plan-mode-for-complex-tasks": 12,
     "memory-command": 213,
-    "theme-command": 202,
+    "theme-command": 222,
     "status-line": 201,
     "stickers-command": 1,
     "prompt-queue": 7,
@@ -15,7 +15,7 @@
     "todo-list": 204,
     "install-github-app": 216,
     "install-slack-app": 54,
-    "drag-and-drop-images": 211,
+    "drag-and-drop-images": 221,
     "paste-images-mac": 218,
     "double-esc-code-restore": 216,
     "continue": 216,
@@ -32,7 +32,7 @@
     "custom-agents": 219,
     "agent-flag": 219,
     "permissions": 216,
-    "rename-conversation": 207,
+    "rename-conversation": 222,
     "custom-commands": 207,
     "terminal-setup": 216,
     "colorterm-truecolor": 186,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8285,
+  "promptQueueUseCount": 8286,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -202,63 +202,56 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 17.760360950000013,
-      "lastAPIDuration": 2214487,
-      "lastAPIDurationWithoutRetries": 2213957,
-      "lastToolDuration": 667808,
-      "lastDuration": 7716621,
-      "lastLinesAdded": 1134,
-      "lastLinesRemoved": 184,
-      "lastTotalInputTokens": 54426,
-      "lastTotalOutputTokens": 110007,
-      "lastTotalCacheCreationInputTokens": 1023709,
-      "lastTotalCacheReadInputTokens": 25555423,
+      "lastCost": 0.53422275,
+      "lastAPIDuration": 17831,
+      "lastAPIDurationWithoutRetries": 17825,
+      "lastToolDuration": 0,
+      "lastDuration": 298617,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 893,
+      "lastTotalOutputTokens": 541,
+      "lastTotalCacheCreationInputTokens": 74117,
+      "lastTotalCacheReadInputTokens": 112179,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
-        "claude-opus-4-6": {
-          "inputTokens": 5857,
-          "outputTokens": 77670,
-          "cacheReadInputTokens": 22392246,
-          "cacheCreationInputTokens": 557399,
-          "webSearchRequests": 0,
-          "costUSD": 16.650901750000003
-        },
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 48569,
-          "outputTokens": 32337,
-          "cacheReadInputTokens": 3163177,
-          "cacheCreationInputTokens": 466310,
+          "inputTokens": 592,
+          "outputTokens": 36,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 1.1094592
+          "costUSD": 0.0007720000000000001
+        },
+        "claude-opus-4-6": {
+          "inputTokens": 301,
+          "outputTokens": 505,
+          "cacheReadInputTokens": 112179,
+          "cacheCreationInputTokens": 74117,
+          "webSearchRequests": 0,
+          "costUSD": 0.53345075
         }
       },
-      "lastSessionId": "9f53c2fb-1ee7-4ef7-9df9-1cf0288e1608",
+      "lastSessionId": "b7373f0e-7421-4331-a250-90c9e73a3892",
       "hasCompletedProjectOnboarding": true,
-      "lastFpsAverage": 8.07,
-      "lastFpsLow1Pct": 34.71,
+      "lastFpsAverage": 1.67,
+      "lastFpsLow1Pct": 25.66,
       "exampleFilesGeneratedAt": 1769594801082,
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 62228,
-        "frame_duration_ms_min": 0.10091699939221144,
-        "frame_duration_ms_max": 323.8829169999808,
-        "frame_duration_ms_avg": 3.397278858458076,
-        "frame_duration_ms_p50": 2.2763750000158325,
-        "frame_duration_ms_p95": 6.431240200018506,
-        "frame_duration_ms_p99": 59.61584318004764,
-        "hook_duration_ms_count": 538,
-        "hook_duration_ms_min": 92,
-        "hook_duration_ms_max": 1192,
-        "hook_duration_ms_avg": 154.4721189591078,
-        "hook_duration_ms_p50": 124,
-        "hook_duration_ms_p95": 316.15,
-        "hook_duration_ms_p99": 479.40999999999997,
-        "pre_tool_hook_duration_ms_count": 248,
-        "pre_tool_hook_duration_ms_min": 105,
-        "pre_tool_hook_duration_ms_max": 859,
-        "pre_tool_hook_duration_ms_avg": 167.74193548387098,
-        "pre_tool_hook_duration_ms_p50": 146,
-        "pre_tool_hook_duration_ms_p95": 295.949999999999,
-        "pre_tool_hook_duration_ms_p99": 530.4000000000001
+        "frame_duration_ms_count": 492,
+        "frame_duration_ms_min": 0.4330410000111442,
+        "frame_duration_ms_max": 116.84312499999942,
+        "frame_duration_ms_avg": 2.9713429715441513,
+        "frame_duration_ms_p50": 1.6313329999975394,
+        "frame_duration_ms_p95": 6.755899699998917,
+        "frame_duration_ms_p99": 34.473521970001954,
+        "hook_duration_ms_count": 5,
+        "hook_duration_ms_min": 143,
+        "hook_duration_ms_max": 329,
+        "hook_duration_ms_avg": 219.2,
+        "hook_duration_ms_p50": 212,
+        "hook_duration_ms_p95": 308.4,
+        "hook_duration_ms_p99": 324.88
       }
     },
     "/Users/jb/Downloads": {
@@ -977,7 +970,7 @@
   "groveConfigCache": {
     "a9b563a1-8bfb-41fc-91f9-d28f83d27234": {
       "grove_enabled": true,
-      "timestamp": 1771710274621
+      "timestamp": 1771803675382
     }
   },
   "passesEligibilityCache": {
@@ -993,7 +986,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771789358839
+      "timestamp": 1771803676421
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1037,7 +1030,7 @@
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
   "anonymousId": "claudecode.v1.adb9b3f9-85dd-4f99-89ec-2e79b3fa4ac1",
-  "lastPlanModeUse": 1771800389830,
+  "lastPlanModeUse": 1771803837820,
   "skillUsage": {
     "everything-claude-code:plan": {
       "usageCount": 2,
@@ -1615,7 +1608,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771803513227
+    "timestamp": 1771804022327
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
