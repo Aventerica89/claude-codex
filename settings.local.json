@@ -666,7 +666,8 @@
       "Bash(yes | npx ai-elements@latest add conversation message reasoning sources suggestion 2>&1)",
       "WebFetch(domain:prompt-kit.com)",
       "Bash(cd ~/clarity/public/pwa && sips -z 192 192 manifest-icon-512.maskable.png --out manifest-icon-192.maskable.png 2>&1 && sips -z 180 180 manifest-icon-512.maskable.png --out apple-icon-180.png 2>&1 && sips -z 196 196 manifest-icon-512.maskable.png --out favicon-196.png 2>&1)",
-      "WebFetch(domain:www.ui-skills.com)"
+      "WebFetch(domain:www.ui-skills.com)",
+      "WebFetch(domain:www.better-auth.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
