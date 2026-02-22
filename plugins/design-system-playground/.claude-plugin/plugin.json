@@ -1,0 +1,10 @@
+{
+  "name": "design-system-playground",
+  "version": "1.0.0",
+  "description": "Living design system playground — interactive HTML reference for tokens, components, HIG rules, and responsive behavior. Starter standard for all projects.",
+  "author": {
+    "name": "JB",
+    "url": "https://jbcloud.app"
+  },
+  "keywords": ["design-system", "playground", "hig", "tokens", "tailwind", "shadcn"]
+}
