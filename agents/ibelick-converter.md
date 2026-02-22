@@ -181,6 +181,172 @@ data-[state=closed]:animate-out data-[state=open]:animate-in
 </ScrollArea>
 ```
 
+### TextShimmer (polymorphic shimmer text)
+```tsx
+// Polymorphic — default renders as <span>
+// Uses CSS variables directly in inline style (not hardcoded hex)
+// spread controls gradient width (5–45%), duration controls speed
+<TextShimmer className="font-medium">{text}</TextShimmer>
+<TextShimmer as="p" duration={3} spread={30}>Processing…</TextShimmer>
+
+// Override gradient for brand color:
+<TextShimmer style={{ backgroundImage: 'linear-gradient(to right, #7c3aed 0%, #d946ef 50%, #7c3aed 100%)' }}>
+  Claude is working...
+</TextShimmer>
+```
+Key rules: always `bg-clip-text text-transparent` + inline gradient + `shimmer` keyframe animation. Never hardcode colors — use `var(--muted-foreground)` / `var(--foreground)` as defaults.
+
+### ThinkingBar (AI thinking state)
+```tsx
+// Static shimmer label only
+<ThinkingBar text="Thinking" />
+
+// With expand/collapse trigger (chevron appears)
+<ThinkingBar text="Thinking" onClick={() => setOpen(v => !v)} />
+
+// With stop action (dotted underline button)
+<ThinkingBar text="Reasoning" onStop={handleStop} stopLabel="Answer now" />
+```
+Key rules: `flex w-full items-center justify-between`. Stop button uses `border-b border-dotted border-muted-foreground/50 hover:border-foreground` — never a filled button. Shimmer label uses `cursor-default` when non-clickable.
+
+### FeedbackBar (inline feedback)
+```tsx
+<FeedbackBar
+  icon={<SparklesIcon className="size-4 text-muted-foreground" />}
+  title="Was this response helpful?"
+  onHelpful={handleHelpful}
+  onNotHelpful={handleNotHelpful}
+  onClose={handleClose}
+/>
+```
+Key rules: `inline-flex rounded-[12px] border` — note `rounded-[12px]` is an arbitrary value (not standard scale). Left: icon + title with `gap-4 py-3 pl-4`. Center: thumbs up/down at `size-8` with `gap-0.5 px-3`. Right: close button separated by `border-l border-border` with `p-3`. All buttons: `text-muted-foreground hover:text-foreground transition-colors`.
+
+### ScrollButton (stick-to-bottom scroll indicator)
+```tsx
+// Must be inside a StickToBottom context
+<ScrollButton />  // default: variant="outline" size="sm"
+```
+Key rules: `h-10 w-10 rounded-full`. Visible when `!isAtBottom`: `translate-y-0 scale-100 opacity-100`. Hidden when at bottom: `pointer-events-none translate-y-4 scale-95 opacity-0`. Always `transition-all duration-150 ease-out`.
+
+### ChatContainer (scroll-anchored log)
+```tsx
+// Compound — three parts, no context needed (StickToBottom provides it)
+<ChatContainerRoot className="h-full" role="log">
+  <ChatContainerContent className="gap-4 p-4">
+    {messages}
+  </ChatContainerContent>
+</ChatContainerRoot>
+// Optionally add scroll anchor at top for bidirectional scroll:
+<ChatContainerScrollAnchor />
+```
+Key rules: Root wraps `StickToBottom` with `role="log"` for a11y. Content wraps `StickToBottom.Content`. Scroll anchor is `h-px w-full shrink-0 scroll-mt-4` with `aria-hidden="true"`.
+
+### Steps (tool-use / web-search steps)
+```tsx
+<Steps defaultOpen>
+  <StepsTrigger>Web search: Next.js project structure</StepsTrigger>
+  <StepsContent>
+    <StepsItem>Searching across curated sources...</StepsItem>
+    <StepsItem>Top matches</StepsItem>
+  </StepsContent>
+</Steps>
+
+// With leftIcon that swaps to chevron on hover
+<StepsTrigger leftIcon={<SearchIcon className="size-4" />} swapIconOnHover>
+  Searching...
+</StepsTrigger>
+```
+Key rules: `StepsContent` uses `grid-cols-[min-content_minmax(0,1fr)] gap-x-3` — left col is the vertical bar (`bg-muted h-full w-[2px]`), right col is content with `space-y-2`. Animation: `animate-collapsible-up / animate-collapsible-down`. `StepsItem` is simply `text-muted-foreground text-sm`.
+
+### Reasoning (collapsible thought process)
+```tsx
+// Uncontrolled
+<Reasoning>
+  <ReasoningTrigger className="text-xs text-muted-foreground">
+    Thought for 4s
+  </ReasoningTrigger>
+  <ReasoningContent markdown contentClassName="mt-2 text-xs">
+    {reasoningText}
+  </ReasoningContent>
+</Reasoning>
+
+// Controlled + streaming (auto-opens while streaming, auto-closes when done)
+<Reasoning open={isOpen} onOpenChange={setIsOpen} isStreaming={isStreaming}>
+```
+Key rules: Uses React Context (controlled/uncontrolled pattern). `ReasoningContent` uses ResizeObserver + `transition-[max-height] duration-150 ease-out` (NOT Radix Collapsible — manual maxHeight animation to support dynamic streaming content). Inner content: `text-muted-foreground prose prose-sm`. Trigger children wrapped in `text-primary` span; chevron rotates 180° when open.
+
+### Source / SourceTrigger / SourceContent (inline source chip with HoverCard)
+```tsx
+// Inline chip — domain auto-extracted from href
+<Source href="https://react.dev/reference/react">
+  <SourceTrigger showFavicon />                    {/* shows domain label + favicon */}
+  <SourceTrigger label="React Docs" showFavicon /> {/* custom label */}
+  <SourceContent title="React Documentation" description="Complete API reference." />
+</Source>
+```
+Key rules: Trigger is `bg-muted text-muted-foreground h-5 rounded-full inline-flex` pill with `hover:bg-muted-foreground/30 hover:text-primary`. Favicon from Google S2 API `https://www.google.com/s2/favicons?sz=64&domain_url=...`. Content card: `w-80 border-purple-500/40 bg-background p-0` — uses pseudo-element grid overlay + `[&>*]:z-10` to lift children above it. `HoverCard openDelay={150} closeDelay={0}`.
+
+### Markdown (block-memoized renderer)
+```tsx
+<Markdown className="prose prose-sm">
+  {markdownString}
+</Markdown>
+```
+Key rules: Parses with `marked.lexer` into token blocks; each block is a separate memoized `ReactMarkdown` instance (prevents full re-render on streaming append). Inline code: `bg-primary-foreground rounded-sm px-1 font-mono text-sm`. Block code delegates to `<CodeBlock>`. Plugins: `remarkGfm` + `remarkBreaks`. Always add `not-prose` to nested `<CodeBlock>` to escape prose styles.
+
+### CodeBlock / CodeBlockCode / CodeBlockGroup
+```tsx
+<CodeBlock>
+  <CodeBlockGroup className="border-b border-zinc-700/60 py-2 pl-4 pr-2">
+    <span className="text-xs text-zinc-400">filename.ts</span>
+    <CopyButton />
+  </CodeBlockGroup>
+  <CodeBlockCode code={code} language="typescript" theme="github-dark" />
+</CodeBlock>
+```
+Key rules: `CodeBlock` uses **hardcoded zinc** palette (`border-zinc-700/60 bg-zinc-900 text-zinc-100`) — intentional, not CSS variables. Add `not-prose` on root. Uses Shiki `codeToHtml` async — shows plain `<pre><code>` fallback until highlighted. `[&>pre]:px-4 [&>pre]:py-4 [&>pre]:bg-transparent!` styles Shiki's output. `CodeBlockGroup` is `flex items-center justify-between`.
+
+### Loader (loading indicators, 12 variants)
+```tsx
+// Generic dispatcher
+<Loader variant="dots" size="sm" />
+<Loader variant="text-shimmer" text="Processing" size="md" />
+
+// Direct named exports (preferred when variant is fixed)
+<PulseLoader size="sm" className="[&>div]:border-purple-500" />
+<DotsLoader size="md" />
+<TextShimmerLoader text="Thinking" size="sm" />
+<TerminalLoader size="md" />
+```
+Variants: `circular` (spin border), `classic` (12-bar), `pulse` (ring pulse), `pulse-dot` (dot scale), `dots` (3-dot bounce), `typing` (3-dot translateY), `wave` (5-bar scaleY), `bars` (3-bar scaleY), `terminal` (> cursor blink), `text-blink` (opacity blink), `text-shimmer` (gradient shimmer), `loading-dots` (staggered dots). All include `<span className="sr-only">Loading</span>`. Sizes: `sm/md/lg` drive both container and element dimensions via lookup object.
+
+### ResponseStream (streaming text animation)
+```tsx
+// Typewriter mode (default) — chunked requestAnimationFrame
+<ResponseStream textStream={text} mode="typewriter" speed={20} />
+
+// Fade mode — per-word fade-in via Intl.Segmenter
+<ResponseStream textStream={asyncIterable} mode="fade" speed={50} onComplete={handleDone} />
+
+// Custom element
+<ResponseStream textStream={text} as="p" className="text-sm" />
+```
+Key rules: Accepts `string | AsyncIterable<string>`. `useTextStream` hook is exported separately for headless use. Fade mode injects a `<style>` tag with `@keyframes fadeIn` — avoid using this in SSR contexts. Speed 1–100 maps to delay and chunk size non-linearly. Always provides `isComplete` signal via `onComplete` callback.
+
+### Tool (tool-call status inspector)
+```tsx
+<Tool
+  toolPart={{
+    type: 'search_web',
+    state: 'output-available',
+    input: { query: 'React hooks' },
+    output: { results: [...] },
+  }}
+  defaultOpen={false}
+/>
+```
+State → icon mapping: `input-streaming` → Loader2 spin (blue), `input-available` → Settings (orange), `output-available` → CheckCircle (green), `output-error` → XCircle (red). Container: `rounded-lg border border-teal-500/40`. Ghost button trigger shows tool name in `font-mono`. Status badge uses semantic color pairs (bg + text) for light/dark. Error content uses `border-red-200 dark:border-red-950 dark:bg-red-900/20`.
+
 ---
 
 ## Accessibility Rules (always apply)
