@@ -22,8 +22,8 @@
     "shift-tab": 216,
     "image-paste": 204,
     "ultrathink-keyword": 2,
-    "desktop-app": 202,
-    "web-app": 202,
+    "desktop-app": 217,
+    "web-app": 217,
     "mobile-app": 204,
     "guest-passes": 216,
     "ide-upsell-external-terminal": 104,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8139,
+  "promptQueueUseCount": 8142,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1345,8 +1345,8 @@
       "lastUsedAt": 1771668005294
     },
     "superpowers:using-git-worktrees": {
-      "usageCount": 2,
-      "lastUsedAt": 1771678596326
+      "usageCount": 3,
+      "lastUsedAt": 1771740669377
     },
     "feature-dev:feature-dev": {
       "usageCount": 1,
@@ -1604,7 +1604,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771740458117
+    "timestamp": 1771740832324
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
