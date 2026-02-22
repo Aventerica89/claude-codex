@@ -1,0 +1,7 @@
+{
+  "name": "hig-ui",
+  "version": "1.0.0",
+  "description": "Full-platform Apple HIG + web standards compliance pass for Next.js PWAs",
+  "author": { "name": "JB" },
+  "keywords": ["hig", "pwa", "mobile", "ios", "apple", "design-system"]
+}
