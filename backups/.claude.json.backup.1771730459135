@@ -1,12 +1,12 @@
 {
-  "numStartups": 212,
+  "numStartups": 216,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
   "tipsHistory": {
     "new-user-warmup": 8,
     "plan-mode-for-complex-tasks": 12,
-    "memory-command": 198,
+    "memory-command": 213,
     "theme-command": 202,
     "status-line": 201,
     "stickers-command": 1,
@@ -36,12 +36,12 @@
     "custom-commands": 207,
     "terminal-setup": 205,
     "colorterm-truecolor": 186,
-    "default-permission-mode-config": 205,
-    "git-worktrees": 204,
+    "default-permission-mode-config": 216,
+    "git-worktrees": 216,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8102,
+  "promptQueueUseCount": 8103,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -990,7 +990,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771719549540
+      "timestamp": 1771729958418
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1165,8 +1165,8 @@
       "lastUsedAt": 1770946166956
     },
     "start": {
-      "usageCount": 25,
-      "lastUsedAt": 1771720366199
+      "usageCount": 26,
+      "lastUsedAt": 1771730241337
     },
     "codex-sync": {
       "usageCount": 18,
@@ -1600,7 +1600,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771725592504
+    "timestamp": 1771730363933
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
