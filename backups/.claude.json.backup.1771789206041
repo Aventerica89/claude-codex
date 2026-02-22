@@ -1168,8 +1168,8 @@
       "lastUsedAt": 1770946166956
     },
     "start": {
-      "usageCount": 27,
-      "lastUsedAt": 1771740445447
+      "usageCount": 28,
+      "lastUsedAt": 1771789023493
     },
     "codex-sync": {
       "usageCount": 19,
@@ -1611,7 +1611,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771764036957
+    "timestamp": 1771789135824
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
