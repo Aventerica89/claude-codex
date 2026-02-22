@@ -663,7 +663,8 @@
       "mcp__cloudflare-containers__container_exec",
       "Bash(mkdir:*)",
       "Bash(cd ~/clarity && rm -f public/pwa/*.png public/pwa/*.jpg && npx pwa-asset-generator ./public/pwa-source.html ./public/pwa --background \"#0f172a\" --padding \"0\" --type png --favicon --maskable --manifest ./public/manifest.json --path \"/pwa\" --quality 90 --log true 2>&1)",
-      "Bash(yes | npx ai-elements@latest add conversation message reasoning sources suggestion 2>&1)"
+      "Bash(yes | npx ai-elements@latest add conversation message reasoning sources suggestion 2>&1)",
+      "WebFetch(domain:prompt-kit.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
