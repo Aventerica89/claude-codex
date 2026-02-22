@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8141,
+  "promptQueueUseCount": 8143,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1345,8 +1345,8 @@
       "lastUsedAt": 1771668005294
     },
     "superpowers:using-git-worktrees": {
-      "usageCount": 2,
-      "lastUsedAt": 1771678596326
+      "usageCount": 3,
+      "lastUsedAt": 1771740669377
     },
     "feature-dev:feature-dev": {
       "usageCount": 1,
@@ -1604,7 +1604,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771740544040
+    "timestamp": 1771740897282
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
