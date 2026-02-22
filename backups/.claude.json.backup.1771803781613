@@ -1,5 +1,5 @@
 {
-  "numStartups": 220,
+  "numStartups": 221,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -15,7 +15,7 @@
     "todo-list": 204,
     "install-github-app": 216,
     "install-slack-app": 54,
-    "drag-and-drop-images": 211,
+    "drag-and-drop-images": 221,
     "paste-images-mac": 218,
     "double-esc-code-restore": 216,
     "continue": 216,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8285,
+  "promptQueueUseCount": 8286,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -977,7 +977,7 @@
   "groveConfigCache": {
     "a9b563a1-8bfb-41fc-91f9-d28f83d27234": {
       "grove_enabled": true,
-      "timestamp": 1771710274621
+      "timestamp": 1771803675382
     }
   },
   "passesEligibilityCache": {
@@ -993,7 +993,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771789358839
+      "timestamp": 1771803676421
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1615,7 +1615,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771803284862
+    "timestamp": 1771803695971
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
