@@ -147,7 +147,10 @@
     "tengu_swann_brevity": "control",
     "tengu_tool_input_aliasing": false,
     "tengu_streaming_text": false,
-    "tengu_auto_background_agents": false
+    "tengu_auto_background_agents": false,
+    "tengu_crystal_beam": {
+      "budgetTokens": 0
+    }
   },
   "userID": "93c6352d834b2ac516169b950f4fa2839145591d89631beb8b49edd1b29b1442",
   "firstStartTime": "2026-01-14T04:53:11.063Z",
@@ -1105,8 +1108,8 @@
       "lastUsedAt": 1771649682203
     },
     "end": {
-      "usageCount": 108,
-      "lastUsedAt": 1771737747748
+      "usageCount": 109,
+      "lastUsedAt": 1771743379391
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1604,7 +1607,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771743253320
+    "timestamp": 1771743942854
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
