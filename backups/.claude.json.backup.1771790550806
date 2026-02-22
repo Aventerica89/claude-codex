@@ -1452,8 +1452,8 @@
       "lastUsedAt": 1771758144463
     },
     "hig-mobile-pass": {
-      "usageCount": 1,
-      "lastUsedAt": 1771730459132
+      "usageCount": 2,
+      "lastUsedAt": 1771790229660
     },
     "interface-design:critique": {
       "usageCount": 1,
@@ -1611,7 +1611,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771790087808
+    "timestamp": 1771790511422
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
