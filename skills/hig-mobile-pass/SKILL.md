@@ -1,7 +1,11 @@
 ---
 name: hig-mobile-pass
-description: Use when doing a mobile optimization or PWA compliance pass on a web app. Triggers when user says "mobile pass", "HIG compliance", "make it feel native", or wants to improve mobile UX on a Next.js/React PWA.
+status: deprecated
+deprecated_by: hig-ui-pass
+description: "DEPRECATED: Use /hig-ui-pass instead. hig-mobile-pass has been superseded by the full-platform hig-ui plugin which covers Mobile, iPad, Desktop, CSS token audit, PWA asset generation, and web standards."
 ---
+
+> **Deprecated.** Use `/hig-ui-pass` instead — it supersedes this skill with full-platform coverage (Mobile, iPad, Desktop), CSS token master control, optional PWA asset generation, web standards (Vercel WIG), and design consistency audit.
 
 # HIG Mobile Pass
 
