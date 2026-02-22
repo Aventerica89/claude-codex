@@ -25,10 +25,10 @@
     "desktop-app": 202,
     "web-app": 202,
     "mobile-app": 204,
-    "guest-passes": 211,
+    "guest-passes": 216,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 212,
+    "frontend-design-plugin": 216,
     "custom-agents": 204,
     "agent-flag": 204,
     "permissions": 216,
@@ -1604,7 +1604,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771731085240
+    "timestamp": 1771731621461
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
