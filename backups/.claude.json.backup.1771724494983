@@ -42,7 +42,6 @@
     "overage-promo": 97
   },
   "promptQueueUseCount": 8101,
-  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1170,8 +1169,8 @@
       "lastUsedAt": 1771720366199
     },
     "codex-sync": {
-      "usageCount": 17,
-      "lastUsedAt": 1771723560860
+      "usageCount": 18,
+      "lastUsedAt": 1771724393272
     },
     "frontend-design:frontend-design": {
       "usageCount": 2,
@@ -1194,8 +1193,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 80,
-      "lastUsedAt": 1771721755606
+      "usageCount": 81,
+      "lastUsedAt": 1771724139017
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1444,6 +1443,10 @@
     "plugin-dev:plugin-structure": {
       "usageCount": 2,
       "lastUsedAt": 1771723542089
+    },
+    "save-to-notion-standards": {
+      "usageCount": 1,
+      "lastUsedAt": 1771724136205
     }
   },
   "slackAppInstallCount": 1,
@@ -1597,7 +1600,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771723934584
+    "timestamp": 1771724393428
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
