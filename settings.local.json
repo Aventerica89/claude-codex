@@ -661,7 +661,8 @@
       "Bash(mkdir -p ~/.claude/contexts && cat > ~/.claude/contexts/global-convention-hig-mobile-pass-20260221-175646.md << 'EOF'\n# Convention: hig-mobile-pass\nType: Convention | Version: 1 | Status: Active | Scope: Global\n\n## Invoke\n/hig-mobile-pass\n\n## Skill File\n~/.claude/skills/hig-mobile-pass/SKILL.md\n\n## Summary\nFull Apple HIG mobile compliance pass for Next.js/React PWAs. Uses project-specific context file + targeted Sosumi MCP fetches to produce native-feel results.\n\n## Notion\nhttps://www.notion.so/30fcc9ae33da8197823bf05ea5714b88\nEOF)",
       "mcp__cloudflare-containers__container_initialize",
       "mcp__cloudflare-containers__container_exec",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(cd ~/clarity && rm -f public/pwa/*.png public/pwa/*.jpg && npx pwa-asset-generator ./public/pwa-source.html ./public/pwa --background \"#0f172a\" --padding \"0\" --type png --favicon --maskable --manifest ./public/manifest.json --path \"/pwa\" --quality 90 --log true 2>&1)"
     ]
   },
   "enableAllProjectMcpServers": true,
