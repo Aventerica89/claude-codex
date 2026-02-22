@@ -1,5 +1,5 @@
 {
-  "numStartups": 207,
+  "numStartups": 209,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -16,7 +16,7 @@
     "install-github-app": 205,
     "install-slack-app": 54,
     "drag-and-drop-images": 200,
-    "paste-images-mac": 198,
+    "paste-images-mac": 208,
     "double-esc-code-restore": 205,
     "continue": 205,
     "shift-tab": 205,
@@ -990,7 +990,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771710275747
+      "timestamp": 1771719549540
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1097,8 +1097,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 47,
-      "lastUsedAt": 1771677376180
+      "usageCount": 48,
+      "lastUsedAt": 1771719320032
     },
     "new-project": {
       "usageCount": 5,
@@ -1592,7 +1592,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771719203403
+    "timestamp": 1771719755031
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
