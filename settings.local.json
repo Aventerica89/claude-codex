@@ -656,7 +656,8 @@
       "Bash(__NEW_LINE_434db23d3fea3c8e__ curl -s -X POST \"https://$TURSO_DB/v2/pipeline\" -H \"Authorization: Bearer $TURSO_TOKEN\" -H \"Content-Type: application/json\" -d '{:*)",
       "Bash(~/.claude/skills/learned/kv-threshold-alert-dedup.md:*)",
       "Bash(echo Backup saved.:*)",
-      "Bash(git ls-tree:*)"
+      "Bash(git ls-tree:*)",
+      "Bash(base64:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
