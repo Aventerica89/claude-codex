@@ -1,5 +1,5 @@
 {
-  "numStartups": 214,
+  "numStartups": 216,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -13,7 +13,7 @@
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 203,
     "todo-list": 204,
-    "install-github-app": 205,
+    "install-github-app": 216,
     "install-slack-app": 54,
     "drag-and-drop-images": 211,
     "paste-images-mac": 208,
@@ -34,14 +34,14 @@
     "permissions": 205,
     "rename-conversation": 207,
     "custom-commands": 207,
-    "terminal-setup": 205,
+    "terminal-setup": 216,
     "colorterm-truecolor": 186,
-    "default-permission-mode-config": 205,
-    "git-worktrees": 204,
+    "default-permission-mode-config": 216,
+    "git-worktrees": 216,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8102,
+  "promptQueueUseCount": 8107,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1165,8 +1165,8 @@
       "lastUsedAt": 1770946166956
     },
     "start": {
-      "usageCount": 25,
-      "lastUsedAt": 1771720366199
+      "usageCount": 26,
+      "lastUsedAt": 1771730241337
     },
     "codex-sync": {
       "usageCount": 18,
@@ -1361,8 +1361,8 @@
       "lastUsedAt": 1771653871954
     },
     "hig-platforms": {
-      "usageCount": 1,
-      "lastUsedAt": 1771653879150
+      "usageCount": 2,
+      "lastUsedAt": 1771730480211
     },
     "hig-components-layout": {
       "usageCount": 1,
@@ -1409,8 +1409,8 @@
       "lastUsedAt": 1771653882215
     },
     "hig-project-context": {
-      "usageCount": 1,
-      "lastUsedAt": 1771653882507
+      "usageCount": 2,
+      "lastUsedAt": 1771730514817
     },
     "setup-preview": {
       "usageCount": 1,
@@ -1447,6 +1447,10 @@
     "save-to-notion-standards": {
       "usageCount": 1,
       "lastUsedAt": 1771724136205
+    },
+    "hig-mobile-pass": {
+      "usageCount": 1,
+      "lastUsedAt": 1771730459132
     }
   },
   "slackAppInstallCount": 1,
@@ -1600,7 +1604,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771729957000
+    "timestamp": 1771730664428
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
