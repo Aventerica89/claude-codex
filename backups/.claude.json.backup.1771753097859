@@ -1,5 +1,5 @@
 {
-  "numStartups": 218,
+  "numStartups": 219,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8198,
+  "promptQueueUseCount": 8200,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1001,7 +1001,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771744415237
+      "timestamp": 1771753012483
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1045,7 +1045,7 @@
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
   "anonymousId": "claudecode.v1.adb9b3f9-85dd-4f99-89ec-2e79b3fa4ac1",
-  "lastPlanModeUse": 1771722101448,
+  "lastPlanModeUse": 1771753015556,
   "skillUsage": {
     "everything-claude-code:plan": {
       "usageCount": 2,
@@ -1462,6 +1462,10 @@
     "hig-mobile-pass": {
       "usageCount": 1,
       "lastUsedAt": 1771730459132
+    },
+    "interface-design:critique": {
+      "usageCount": 1,
+      "lastUsedAt": 1771752241948
     }
   },
   "slackAppInstallCount": 1,
@@ -1615,7 +1619,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771752225274
+    "timestamp": 1771753011005
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
