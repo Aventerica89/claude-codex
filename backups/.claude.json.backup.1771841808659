@@ -41,7 +41,8 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8411,
+  "promptQueueUseCount": 8413,
+  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1037,7 +1038,7 @@
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
   "anonymousId": "claudecode.v1.adb9b3f9-85dd-4f99-89ec-2e79b3fa4ac1",
-  "lastPlanModeUse": 1771835999886,
+  "lastPlanModeUse": 1771841458337,
   "skillUsage": {
     "everything-claude-code:plan": {
       "usageCount": 2,
@@ -1244,8 +1245,8 @@
       "lastUsedAt": 1771836859878
     },
     "superpowers:brainstorming": {
-      "usageCount": 19,
-      "lastUsedAt": 1771834662171
+      "usageCount": 20,
+      "lastUsedAt": 1771841713288
     },
     "pause": {
       "usageCount": 7,
@@ -1619,7 +1620,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771840786201
+    "timestamp": 1771841757823
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
