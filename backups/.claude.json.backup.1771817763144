@@ -1,5 +1,5 @@
 {
-  "numStartups": 225,
+  "numStartups": 226,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -8,18 +8,18 @@
     "plan-mode-for-complex-tasks": 12,
     "memory-command": 213,
     "theme-command": 222,
-    "status-line": 201,
+    "status-line": 226,
     "stickers-command": 1,
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 223,
     "todo-list": 224,
-    "install-github-app": 216,
+    "install-github-app": 226,
     "install-slack-app": 54,
     "drag-and-drop-images": 221,
     "paste-images-mac": 218,
-    "double-esc-code-restore": 216,
-    "continue": 216,
-    "shift-tab": 216,
+    "double-esc-code-restore": 226,
+    "continue": 226,
+    "shift-tab": 226,
     "image-paste": 224,
     "ultrathink-keyword": 2,
     "desktop-app": 217,
@@ -31,17 +31,17 @@
     "frontend-design-plugin": 225,
     "custom-agents": 219,
     "agent-flag": 219,
-    "permissions": 216,
+    "permissions": 226,
     "rename-conversation": 222,
     "custom-commands": 222,
-    "terminal-setup": 216,
-    "colorterm-truecolor": 186,
-    "default-permission-mode-config": 216,
-    "git-worktrees": 216,
+    "terminal-setup": 226,
+    "colorterm-truecolor": 226,
+    "default-permission-mode-config": 226,
+    "git-worktrees": 226,
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8357,
+  "promptQueueUseCount": 8362,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -993,7 +993,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771803676421
+      "timestamp": 1771817117997
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1619,7 +1619,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771816555736
+    "timestamp": 1771817608324
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
