@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8427,
+  "promptQueueUseCount": 8428,
   "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
@@ -1197,8 +1197,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 89,
-      "lastUsedAt": 1771808306065
+      "usageCount": 90,
+      "lastUsedAt": 1771847697037
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1425,8 +1425,8 @@
       "lastUsedAt": 1771666517202
     },
     "register-convention": {
-      "usageCount": 7,
-      "lastUsedAt": 1771805319399
+      "usageCount": 8,
+      "lastUsedAt": 1771847683733
     },
     "help-hub-sync": {
       "usageCount": 1,
@@ -1449,8 +1449,8 @@
       "lastUsedAt": 1771794099950
     },
     "save-to-notion-standards": {
-      "usageCount": 3,
-      "lastUsedAt": 1771805324334
+      "usageCount": 4,
+      "lastUsedAt": 1771847693941
     },
     "hig-mobile-pass": {
       "usageCount": 2,
@@ -1620,7 +1620,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771847536844
+    "timestamp": 1771847814769
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
