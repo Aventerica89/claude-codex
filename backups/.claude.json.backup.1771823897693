@@ -1,5 +1,5 @@
 {
-  "numStartups": 226,
+  "numStartups": 227,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -993,7 +993,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771817117997
+      "timestamp": 1771823780008
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1619,7 +1619,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771823075349
+    "timestamp": 1771823778571
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
