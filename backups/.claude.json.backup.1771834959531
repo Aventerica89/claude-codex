@@ -1,5 +1,5 @@
 {
-  "numStartups": 232,
+  "numStartups": 233,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -41,7 +41,8 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8384,
+  "promptQueueUseCount": 8386,
+  "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1244,8 +1245,8 @@
       "lastUsedAt": 1771804942917
     },
     "superpowers:brainstorming": {
-      "usageCount": 18,
-      "lastUsedAt": 1771807587477
+      "usageCount": 19,
+      "lastUsedAt": 1771834662171
     },
     "pause": {
       "usageCount": 7,
@@ -1280,8 +1281,8 @@
       "lastUsedAt": 1771455013065
     },
     "superpowers:brainstorm": {
-      "usageCount": 1,
-      "lastUsedAt": 1771187552740
+      "usageCount": 2,
+      "lastUsedAt": 1771834658360
     },
     "superpowers:finishing-a-development-branch": {
       "usageCount": 3,
@@ -1344,8 +1345,8 @@
       "lastUsedAt": 1771669000492
     },
     "sync-plans-index": {
-      "usageCount": 3,
-      "lastUsedAt": 1771668005294
+      "usageCount": 4,
+      "lastUsedAt": 1771834927115
     },
     "superpowers:using-git-worktrees": {
       "usageCount": 4,
@@ -1619,7 +1620,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771834218579
+    "timestamp": 1771834952966
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,

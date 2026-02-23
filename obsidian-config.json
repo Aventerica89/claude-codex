@@ -1,0 +1,9 @@
+{
+  "vault_path": "~/.claude/obsidian-vault",
+  "note": "Update vault_path to your iCloud or Google Drive path. Examples:",
+  "examples": {
+    "iCloud": "~/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Claude",
+    "google_drive_personal": "~/Library/CloudStorage/GoogleDrive-brownj623@gmail.com/My Drive/Obsidian/Claude",
+    "google_drive_business": "~/Library/CloudStorage/GoogleDrive-admin@jbmdcreations.com/My Drive/Obsidian/Claude"
+  }
+}
