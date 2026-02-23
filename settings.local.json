@@ -671,7 +671,7 @@
       "Bash(echo Local backup saved:*)",
       "Skill(commit-commands:commit-push-pr)",
       "mcp__claude_ai_Cloudflare_Developer_Platform__d1_database_query",
-      "Bash(echo === codex knowledge ===:*ust 2)"
+      "Bash($PANDOC:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
