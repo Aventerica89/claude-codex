@@ -1,5 +1,5 @@
 {
-  "numStartups": 233,
+  "numStartups": 234,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -24,13 +24,13 @@
     "ultrathink-keyword": 2,
     "desktop-app": 232,
     "web-app": 232,
-    "mobile-app": 219,
-    "guest-passes": 231,
+    "mobile-app": 234,
+    "guest-passes": 234,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
     "frontend-design-plugin": 233,
-    "custom-agents": 219,
-    "agent-flag": 219,
+    "custom-agents": 234,
+    "agent-flag": 234,
     "permissions": 226,
     "rename-conversation": 222,
     "custom-commands": 222,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8394,
+  "promptQueueUseCount": 8396,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -993,7 +993,7 @@
         "currency": "USD"
       },
       "remaining_passes": 3,
-      "timestamp": 1771831671149
+      "timestamp": 1771836807486
     }
   },
   "officialMarketplaceAutoInstallAttempted": true,
@@ -1108,8 +1108,8 @@
       "lastUsedAt": 1771649682203
     },
     "end": {
-      "usageCount": 117,
-      "lastUsedAt": 1771822942246
+      "usageCount": 118,
+      "lastUsedAt": 1771836794886
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1120,8 +1120,8 @@
       "lastUsedAt": 1771467717793
     },
     "remind": {
-      "usageCount": 25,
-      "lastUsedAt": 1771676380834
+      "usageCount": 26,
+      "lastUsedAt": 1771836861076
     },
     "frontend-design": {
       "usageCount": 8,
@@ -1240,8 +1240,8 @@
       "lastUsedAt": 1771664503037
     },
     "superpowers:executing-plans": {
-      "usageCount": 11,
-      "lastUsedAt": 1771804942917
+      "usageCount": 12,
+      "lastUsedAt": 1771836859878
     },
     "superpowers:brainstorming": {
       "usageCount": 19,
@@ -1619,7 +1619,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771836528402
+    "timestamp": 1771836876325
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
