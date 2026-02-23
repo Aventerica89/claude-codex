@@ -28,7 +28,7 @@
     "guest-passes": 231,
     "ide-upsell-external-terminal": 104,
     "shift-enter": 73,
-    "frontend-design-plugin": 225,
+    "frontend-design-plugin": 233,
     "custom-agents": 219,
     "agent-flag": 219,
     "permissions": 226,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8389,
+  "promptQueueUseCount": 8392,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1037,7 +1037,7 @@
   "passesUpsellSeenCount": 4,
   "passesLastSeenCampaign": "claude_code_guest_pass",
   "anonymousId": "claudecode.v1.adb9b3f9-85dd-4f99-89ec-2e79b3fa4ac1",
-  "lastPlanModeUse": 1771835053309,
+  "lastPlanModeUse": 1771835999886,
   "skillUsage": {
     "everything-claude-code:plan": {
       "usageCount": 2,
@@ -1220,8 +1220,8 @@
       "lastUsedAt": 1771647609720
     },
     "commit-commands:commit-push-pr": {
-      "usageCount": 6,
-      "lastUsedAt": 1771828569577
+      "usageCount": 7,
+      "lastUsedAt": 1771835928423
     },
     "github-automation": {
       "usageCount": 2,
@@ -1619,7 +1619,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771835772308
+    "timestamp": 1771836065290
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
