@@ -1,5 +1,5 @@
 {
-  "numStartups": 222,
+  "numStartups": 224,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -11,8 +11,8 @@
     "status-line": 201,
     "stickers-command": 1,
     "prompt-queue": 7,
-    "enter-to-steer-in-relatime": 203,
-    "todo-list": 204,
+    "enter-to-steer-in-relatime": 223,
+    "todo-list": 224,
     "install-github-app": 216,
     "install-slack-app": 54,
     "drag-and-drop-images": 221,
@@ -20,7 +20,7 @@
     "double-esc-code-restore": 216,
     "continue": 216,
     "shift-tab": 216,
-    "image-paste": 204,
+    "image-paste": 224,
     "ultrathink-keyword": 2,
     "desktop-app": 217,
     "web-app": 217,
@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8296,
+  "promptQueueUseCount": 8298,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1248,8 +1248,8 @@
       "lastUsedAt": 1771664503037
     },
     "superpowers:executing-plans": {
-      "usageCount": 10,
-      "lastUsedAt": 1771723817022
+      "usageCount": 11,
+      "lastUsedAt": 1771804942917
     },
     "superpowers:brainstorming": {
       "usageCount": 17,
@@ -1368,8 +1368,8 @@
       "lastUsedAt": 1771652601373
     },
     "hig-foundations": {
-      "usageCount": 1,
-      "lastUsedAt": 1771653871954
+      "usageCount": 2,
+      "lastUsedAt": 1771804836701
     },
     "hig-platforms": {
       "usageCount": 2,
@@ -1623,7 +1623,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771804444111
+    "timestamp": 1771804968046
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
