@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8438,
+  "promptQueueUseCount": 8441,
   "showExpandedTodos": true,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
@@ -1117,8 +1117,8 @@
       "lastUsedAt": 1771649682203
     },
     "end": {
-      "usageCount": 122,
-      "lastUsedAt": 1771848991544
+      "usageCount": 123,
+      "lastUsedAt": 1771851024356
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1189,8 +1189,8 @@
       "lastUsedAt": 1771625726639
     },
     "strategic-compact": {
-      "usageCount": 6,
-      "lastUsedAt": 1771405678374
+      "usageCount": 7,
+      "lastUsedAt": 1771850884027
     },
     "routine-sync": {
       "usageCount": 1,
@@ -1205,8 +1205,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 90,
-      "lastUsedAt": 1771847697037
+      "usageCount": 91,
+      "lastUsedAt": 1771850889227
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1628,7 +1628,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771850785578
+    "timestamp": 1771851192011
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
