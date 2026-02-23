@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8298,
+  "promptQueueUseCount": 8301,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1076,8 +1076,8 @@
       "lastUsedAt": 1769639861489
     },
     "learn": {
-      "usageCount": 52,
-      "lastUsedAt": 1771763267503
+      "usageCount": 53,
+      "lastUsedAt": 1771805274624
     },
     "new-project": {
       "usageCount": 5,
@@ -1172,8 +1172,8 @@
       "lastUsedAt": 1770511479786
     },
     "save-to-notion": {
-      "usageCount": 87,
-      "lastUsedAt": 1771798372661
+      "usageCount": 88,
+      "lastUsedAt": 1771805327500
     },
     "Notion:create-database-row": {
       "usageCount": 1,
@@ -1400,8 +1400,8 @@
       "lastUsedAt": 1771666517202
     },
     "register-convention": {
-      "usageCount": 6,
-      "lastUsedAt": 1771793986430
+      "usageCount": 7,
+      "lastUsedAt": 1771805319399
     },
     "help-hub-sync": {
       "usageCount": 1,
@@ -1424,8 +1424,8 @@
       "lastUsedAt": 1771794099950
     },
     "save-to-notion-standards": {
-      "usageCount": 2,
-      "lastUsedAt": 1771758144463
+      "usageCount": 3,
+      "lastUsedAt": 1771805324334
     },
     "hig-mobile-pass": {
       "usageCount": 2,
@@ -1438,6 +1438,10 @@
     "prompt-kit-convert": {
       "usageCount": 5,
       "lastUsedAt": 1771793728243
+    },
+    "hig-ui-pass": {
+      "usageCount": 1,
+      "lastUsedAt": 1771805256449
     }
   },
   "slackAppInstallCount": 1,
@@ -1591,7 +1595,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771805025178
+    "timestamp": 1771805361591
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
