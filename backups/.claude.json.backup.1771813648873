@@ -41,7 +41,7 @@
     "shift-enter-setup": 170,
     "overage-promo": 97
   },
-  "promptQueueUseCount": 8348,
+  "promptQueueUseCount": 8352,
   "cachedStatsigGates": {
     "tengu_prompt_suggestion": true,
     "tengu_session_memory": false
@@ -1220,8 +1220,8 @@
       "lastUsedAt": 1771647609720
     },
     "commit-commands:commit-push-pr": {
-      "usageCount": 2,
-      "lastUsedAt": 1770864533089
+      "usageCount": 4,
+      "lastUsedAt": 1771812848043
     },
     "github-automation": {
       "usageCount": 2,
@@ -1264,8 +1264,8 @@
       "lastUsedAt": 1771707214827
     },
     "claude-md-improver": {
-      "usageCount": 6,
-      "lastUsedAt": 1771708011911
+      "usageCount": 7,
+      "lastUsedAt": 1771813554428
     },
     "using-superpowers": {
       "usageCount": 1,
@@ -1619,7 +1619,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771812442829
+    "timestamp": 1771813578938
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
