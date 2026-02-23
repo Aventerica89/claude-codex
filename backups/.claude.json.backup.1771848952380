@@ -1109,8 +1109,8 @@
       "lastUsedAt": 1771649682203
     },
     "end": {
-      "usageCount": 119,
-      "lastUsedAt": 1771837464951
+      "usageCount": 121,
+      "lastUsedAt": 1771848932894
     },
     "checkpoint": {
       "usageCount": 1,
@@ -1241,8 +1241,8 @@
       "lastUsedAt": 1771664503037
     },
     "superpowers:executing-plans": {
-      "usageCount": 12,
-      "lastUsedAt": 1771836859878
+      "usageCount": 13,
+      "lastUsedAt": 1771848400182
     },
     "superpowers:brainstorming": {
       "usageCount": 21,
@@ -1620,7 +1620,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771848024336
+    "timestamp": 1771848933096
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
