@@ -1,9 +1,16 @@
 {
-  "vault_path": "~/.claude/obsidian-vault",
-  "note": "Update vault_path to your iCloud or Google Drive path. Examples:",
-  "examples": {
-    "iCloud": "~/Library/Mobile Documents/com~apple~CloudDocs/Obsidian/Claude",
-    "google_drive_personal": "~/Library/CloudStorage/GoogleDrive-brownj623@gmail.com/My Drive/Obsidian/Claude",
-    "google_drive_business": "~/Library/CloudStorage/GoogleDrive-admin@jbmdcreations.com/My Drive/Obsidian/Claude"
+  "vault_path": "~/Obsidian-Claude",
+  "note": "Vault uses symlinks to all ~/.claude/ content. Zero duplication. Open ~/Obsidian-Claude in Obsidian.",
+  "structure": {
+    "rules": "~/.claude/rules/",
+    "skills": "~/.claude/skills/",
+    "agents": "~/.claude/agents/",
+    "docs": "~/.claude/docs/",
+    "commands": "~/.claude/commands/",
+    "contexts": "~/.claude/contexts/",
+    "plans": "~/.claude/plans/",
+    "sessions": "~/.claude/sessions/",
+    "memory/global": "~/.claude/projects/-Users-jb/memory/",
+    "playgrounds": "~/Desktop/*.html"
   }
 }
