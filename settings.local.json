@@ -669,7 +669,8 @@
       "WebFetch(domain:www.ui-skills.com)",
       "WebFetch(domain:www.better-auth.com)",
       "Bash(echo Local backup saved:*)",
-      "Skill(commit-commands:commit-push-pr)"
+      "Skill(commit-commands:commit-push-pr)",
+      "mcp__claude_ai_Cloudflare_Developer_Platform__d1_database_query"
     ]
   },
   "enableAllProjectMcpServers": true,
