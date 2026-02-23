@@ -80,6 +80,9 @@ const PROVIDERS: ProviderConfig[] = [
   { id: "deepseek",  label: "DeepSeek",
     avatarColor: "bg-teal-500",   initial: "D", ... },
   { id: "groq",      label: "Groq",  logoSrc: "/logos/groq-logo.svg",
+    // Summary-only role: fast/free but hallucinates tool calls
+    // description: "Conversation summaries only — fast free tier"
+    // model: "llama-3.1-8b-instant" (summary model)
     avatarColor: "bg-orange-500", initial: "Gr", ... },
 ]
 ```
@@ -270,10 +273,174 @@ Providers configured:
   - Claude (Anthropic)   logo: claude-logo.svg
   - Gemini               logo: google-logo.svg
   - DeepSeek             initial: D  bg-teal-500
-  - Groq                 logo: groq-logo.svg
+  - Groq                 logo: groq-logo.svg   [summary-only]
 
 Next: add ENCRYPTION_KEY env var if not already present
+Next: run /add-ai-providers runtime or ai-provider-setup agent to wire the chat side
 ```
+
+---
+
+## Runtime Wiring (Steps 8-12)
+
+The steps above handle the **settings panel** — how users store and manage their API keys.
+Steps 8-12 handle the **runtime side** — how the app actually calls those providers in a chat system.
+
+**Source of truth for runtime:** `~/wp-dispatch` (canonical) | **Source of truth for settings panel:** `~/clarity`
+
+### Step 8: Install AI SDK Dependencies
+
+```bash
+npm install ai @ai-sdk/anthropic @ai-sdk/openai @ai-sdk/google @ai-sdk/groq
+```
+
+### Step 9: Create Provider Resolution Module
+
+Create `src/lib/ai-provider.ts`. Read canonical file from `~/wp-dispatch/src/lib/ai-provider.ts`.
+
+Exports:
+- `getActiveProvider()` — resolves first configured provider in priority order: deepseek → groq → gemini → anthropic. Groq is skipped for main chat (summary-only).
+- `getProviderByName(name)` — user override (excludes groq)
+- `getSummaryProvider()` — Groq if configured (llama-3.1-8b-instant), else null
+
+**Model maps:**
+
+```ts
+const CHAT_MODELS: Record<ProviderName, string> = {
+  deepseek: "deepseek-chat",
+  groq: "llama-3.3-70b-versatile",
+  gemini: "gemini-2.0-flash",
+  anthropic: "claude-sonnet-4-5-20250929",
+}
+
+const SUMMARY_MODELS: Record<ProviderName, string> = {
+  deepseek: "deepseek-chat",
+  groq: "llama-3.1-8b-instant",
+  gemini: "gemini-1.5-flash",
+  anthropic: "claude-haiku-4-5-20251001",
+}
+```
+
+**Per-provider SDK wiring (exact patterns — do not deviate):**
+
+```ts
+// DeepSeek — MUST use .chat(), NOT client()
+// Default createOpenAI routes to Responses API which DeepSeek does not support
+const client = createOpenAI({ apiKey: key, baseURL: "https://api.deepseek.com/v1" })
+return { chatModel: client.chat("deepseek-chat"), summaryModel: client.chat("deepseek-chat") }
+
+// Groq — reserved for summaries only; hallucinates tool call results
+const client = createGroq({ apiKey: key })
+return { chatModel: client("llama-3.3-70b-versatile"), summaryModel: client("llama-3.1-8b-instant") }
+
+// Gemini — place last in priority (free tier quota-prone)
+const client = createGoogleGenerativeAI({ apiKey: key })
+return { chatModel: client("gemini-2.0-flash"), summaryModel: client("gemini-1.5-flash") }
+
+// Anthropic — OAuth tokens are rejected by Messages API; skip them
+if (key.startsWith("sk-ant-oat")) continue  // skip OAuth tokens
+const client = createAnthropic({ apiKey: key })
+return { chatModel: client("claude-sonnet-4-5-20250929"), summaryModel: client("claude-haiku-4-5-20251001") }
+```
+
+### Step 10: Create Agent Loop Module
+
+Create `src/lib/claude-chat.ts`. Read canonical file from `~/wp-dispatch/src/lib/claude-chat.ts`.
+
+Key patterns:
+
+```ts
+import { generateText, stepCountIs } from "ai"
+
+// Main agent loop — provider-agnostic
+const result = await generateText({
+  model: provider.chatModel,
+  system: systemPrompt,
+  messages,
+  tools,                           // undefined = no tools
+  stopWhen: stepCountIs(8),        // NOT maxSteps (deprecated)
+  abortSignal: AbortSignal.timeout(45_000),
+})
+```
+
+**Groq retry without tools** (failed_generation):
+
+```ts
+if (msg.includes("failed_generation") && tools) {
+  // Groq can't format tool calls — retry as plain text
+  const fallback = await generateText({ model, system, messages })
+  return { response: fallback.text }
+}
+```
+
+**Error classification** (user-friendly messages):
+
+```ts
+if (msg.includes("quota") || msg.includes("exceeded"))
+  → "{provider} quota exceeded. Upgrade or switch providers in Settings > AI."
+if (msg.includes("not found") || msg.includes("404"))
+  → "{provider} model not found ({modelId}). May be deprecated — check Settings > AI."
+if (msg.includes("rate limit") || msg.includes("429"))
+  → "{provider} rate limit hit. Wait a moment and try again."
+```
+
+**Non-blocking summary** (fire-and-forget after response returned):
+
+```ts
+const summaryModel = (await getSummaryProvider()) ?? provider.summaryModel
+generateConversationSummary(summaryModel, message, result.response)
+  .then(async (summary) => { /* update DB row */ })
+  .catch((err) => { console.error("Summary failed:", err) })
+```
+
+### Step 11: Create Chat Providers Endpoint
+
+Create `src/app/api/chat/providers/route.ts`. Read canonical from `~/wp-dispatch/src/app/api/chat/providers/route.ts`.
+
+Returns `{ active, available, groqSummary }` without decrypting keys. Groq is filtered from `available` (summary-only role).
+
+```ts
+const CHAT_PROVIDERS = ["deepseek", "gemini", "anthropic"] as const  // groq excluded
+// ...
+return NextResponse.json({ active, available, groqSummary })
+```
+
+### Step 12: Chat Route with Provider Override
+
+In `src/app/api/chat/route.ts`, add `providerOverride` to the Zod schema and resolution logic:
+
+```ts
+const chatRequestSchema = z.object({
+  message: z.string().min(1),
+  providerOverride: z.enum(["deepseek", "gemini", "anthropic"]).optional(), // groq excluded
+  // ... app-specific fields
+})
+
+// Resolution
+const provider = providerOverride
+  ? await getProviderByName(providerOverride as ProviderName) ?? await getActiveProvider()
+  : await getActiveProvider()
+
+// Return provider name so UI can show branded avatar
+return NextResponse.json({
+  response: result.response,
+  providerName: provider.name,
+  // ...
+})
+```
+
+---
+
+## Known Provider Gotchas
+
+| Provider | Gotcha | Fix |
+|----------|--------|-----|
+| DeepSeek | Default `createOpenAI` routes to Responses API | Use `client.chat("deepseek-chat")` not `client("deepseek-chat")` |
+| Groq | Hallucinates tool call results (`failed_generation`) | Summary-only; on `failed_generation`, retry without tools |
+| Anthropic | OAuth tokens (`sk-ant-oat*`) rejected by Messages API | Filter `sk-ant-oat*` before creating client |
+| Gemini | Free tier quota exhaustion | Place last in priority order |
+| AI SDK v3 | `compatibility` option removed | Use `.chat()` method instead |
+| AI SDK | `maxSteps` deprecated | Use `stopWhen: stepCountIs(n)` |
 
 ---
 
