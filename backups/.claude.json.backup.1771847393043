@@ -1313,8 +1313,8 @@
       "lastUsedAt": 1771315953546
     },
     "hipaa-sync": {
-      "usageCount": 7,
-      "lastUsedAt": 1771548312690
+      "usageCount": 8,
+      "lastUsedAt": 1771846988606
     },
     "reverse-engineer": {
       "usageCount": 4,
@@ -1620,7 +1620,7 @@
   "passesLastSeenRemaining": 3,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1771846182257
+    "timestamp": 1771847060401
   },
   "hasCompletedClaudeInChromeOnboarding": true,
   "claudeInChromeDefaultEnabled": true,
