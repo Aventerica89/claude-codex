@@ -6,6 +6,24 @@ description: Generate user-friendly changelogs from git commit history
 
 Generate polished, user-friendly changelogs from git commit history. Analyzes commits, categorizes changes, and rewrites technical language for your audience.
 
+## CRITICAL: Respect Project-Specific Changelog Rules
+
+**Before doing ANYTHING**, check for project-specific changelog instructions:
+
+1. Read `CLAUDE.md` in the project root — look for changelog/version rules
+2. Read `.claude/changelog-config.json` if it exists
+3. Check for a `version.ts` or `version.js` with a `DEV_CHANGELOG` array
+
+**If the project has its own changelog rules, follow those EXACTLY.** Do not use the generic format below. The project rules override this skill entirely.
+
+Common project-specific patterns to detect:
+- Two-file systems (e.g. `CHANGELOG-DEV.md` + `version.ts`) — update BOTH files
+- Prepend-not-replace — add new entries above existing ones, never overwrite
+- Required git hash in entry header — use `git rev-parse --short HEAD`
+- Required version number from `package.json` or `version.ts`
+
+**If no project-specific rules are found**, proceed with the generic format below.
+
 ## Arguments
 
 Parse `$ARGUMENTS` for range and flags:
@@ -16,7 +34,6 @@ Parse `$ARGUMENTS` for range and flags:
 - `--dry-run` — preview without saving to file
 - `--no-rewrite` — keep original commit messages, don't translate to user language
 - `--with-hashes` — include short commit hashes
-- `--save-artifact` — push result to Artifact Manager as a markdown artifact
 
 ## Instructions
 
@@ -136,30 +153,11 @@ If empty (all commits were filtered out):
 
 **If save_to_file is set in config:**
 
+**IMPORTANT: Always PREPEND new entries. Never overwrite or replace existing content.**
+
 Check if the target file (e.g. `CHANGELOG.md`) exists:
-- If it exists and `prepend_to_existing` is true: Read existing content, prepend new changelog entry with a blank line separator, write back
-- If it exists and `prepend_to_existing` is false: Ask user whether to overwrite or append
+- If it exists: Read existing content, prepend new changelog entry with a blank line separator, write back. Never remove existing entries.
 - If it doesn't exist: Create it with the changelog content
-
-**If --save-artifact flag:**
-
-Use the Artifact Manager API to create a new markdown artifact:
-```
-POST {artifact_manager_url}/api/artifacts
-Content-Type: application/json
-
-{
-  "name": "Changelog - {version or date range}",
-  "description": "Auto-generated changelog from git commits",
-  "artifact_type": "markdown",
-  "file_name": "changelog-{version}.md",
-  "file_content": "{changelog content}",
-  "source_type": "generated",
-  "tags": "changelog,release-notes"
-}
-```
-
-Note: This requires Cloudflare Access authentication. If it fails, save locally and inform the user.
 
 ### 9. Integration Points
 
